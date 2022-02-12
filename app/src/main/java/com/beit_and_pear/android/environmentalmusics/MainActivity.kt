@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     // 鳥ボタンがクリックされた時の処理
     fun onPlayButtonSparrowClick(view: View) {
         if (_player == null) {
-            _player = MediaPlayer.create(applicationContext, R.raw.small_bird)
+            _player = MediaPlayer.create(applicationContext, R.raw.bird)
         }
 
         isMediaPlay()
