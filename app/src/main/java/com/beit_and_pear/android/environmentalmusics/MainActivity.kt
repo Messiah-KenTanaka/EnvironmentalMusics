@@ -3,6 +3,7 @@ package com.beit_and_pear.android.environmentalmusics
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
@@ -100,9 +101,11 @@ class MainActivity : AppCompatActivity() {
         if (_player?.isPlaying == true) {
             _player?.pause()
             _player = null
+            Toast.makeText(this, "停止しました", Toast.LENGTH_SHORT).show()
         } else {
             _player?.isLooping = true
             _player?.start()
+            Toast.makeText(this, "再生しました", Toast.LENGTH_SHORT).show()
         }
     }
 }
