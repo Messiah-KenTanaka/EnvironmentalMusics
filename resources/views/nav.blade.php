@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark dusty-grass-gradient">
+<nav class="navbar navbar-expand navbar-light dusty-grass-gradient">
 
   <a class="navbar-brand" href="/"><i class="far fa-sticky-note mr-1"></i>BCommunity</a>
 
