@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand navbar-light dusty-grass-gradient">
 
-  <a class="navbar-brand" href="/"><i class="far fa-sticky-note mr-1"></i>BCommunity</a>
+  <a class="navbar-brand" href="/"><i class="fas fa-fish fa-rotate-180"></i> BCommunity</a>
 
   <ul class="navbar-nav ml-auto">
 
