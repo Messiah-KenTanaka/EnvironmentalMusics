@@ -17,8 +17,17 @@
     @endguest
 
     @auth
+    {{--  ToDo 地図機能実装予定  --}}
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fas fa-pen mr-1"></i>投稿する</a>
+      <a class="nav-link" href="#"><i class="fas fa-crown"></i></a>
+    </li>    
+    {{-- ToDo ランキング実装予定  --}}
+    <li class="nav-item">
+      <a class="nav-link" href="#"><i class="fas fa-map-marker-alt"></i></a>
+    </li>
+    {{--  新規投稿  --}}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fas fa-pen mr-1"></i></a>
     </li>
     @endauth
     
