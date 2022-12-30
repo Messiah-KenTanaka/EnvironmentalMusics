@@ -24,7 +24,7 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:50',
+            // 'title' => 'required|max:50',
             'body' => 'required|max:500',
             'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
         ];
@@ -33,7 +33,7 @@ class ArticleRequest extends FormRequest
     public function attributes()
     {
         return [
-            'title' => 'タイトル',
+            // 'title' => 'タイトル',
             'body' => '本文',
             'tags' => 'タグ',
         ];
