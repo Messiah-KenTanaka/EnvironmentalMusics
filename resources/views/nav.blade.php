@@ -60,7 +60,7 @@
 </nav>
 
 {{-- メンテナンスモーダルダイアログ --}}
-<div class="nav modal fade" id="dmaintenanceModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+<div class="modal fade" id="dmaintenanceModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
           <div class="modal-header dusty-grass-gradient">

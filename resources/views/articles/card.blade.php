@@ -30,7 +30,7 @@
             </a>
             <div class="dropdown-divider"></div>  --}}
             <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $article->id }}">
-              <i class="fas fa-trash-alt mr-1"></i>記事を削除する
+              <i class="fas fa-trash-alt mr-1"></i>記事を削除
             </a>
           </div>
         </div>
@@ -41,7 +41,8 @@
       <div id="modal-delete-{{ $article->id }}" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header dusty-grass-gradient">
+              <h5 class="modal-title" id="demoModalTitle">確認</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -53,7 +54,7 @@
                 {{--  {{ $article->title }}を削除します。よろしいですか？  --}}
                 削除します。よろしいですか？
               </div>
-              <div class="modal-footer justify-content-between">
+              <div class="border-maintenance-modal modal-footer justify-content-between">
                 <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
                 <button type="submit" class="btn btn-danger">削除する</button>
               </div>
