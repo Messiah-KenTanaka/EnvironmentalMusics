@@ -24,10 +24,11 @@
             </button>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
+            {{--  更新はできないようにコメントアウト
             <a class="dropdown-item" href="{{ route("articles.edit", ['article' => $article]) }}">
               <i class="fas fa-pen mr-1"></i>記事を更新する
             </a>
-            <div class="dropdown-divider"></div>
+            <div class="dropdown-divider"></div>  --}}
             <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $article->id }}">
               <i class="fas fa-trash-alt mr-1"></i>記事を削除する
             </a>
@@ -49,7 +50,8 @@
               @csrf
               @method('DELETE')
               <div class="modal-body">
-                {{ $article->title }}を削除します。よろしいですか？
+                {{--  {{ $article->title }}を削除します。よろしいですか？  --}}
+                削除します。よろしいですか？
               </div>
               <div class="modal-footer justify-content-between">
                 <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
@@ -64,13 +66,16 @@
 
   </div>
   <div class="card-body pt-0 pb-2">
-    <h3 class="h4 card-title">
+    {{--  タイトルは使用しないのでコメントアウト  --}}
+    {{--  <h3 class="h4 card-title">
       <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
         {{ $article->title }}
       </a>
-    </h3>
+    </h3>  --}}
     <div class="card-text">
-      {!! nl2br(e( $article->body )) !!}
+      <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
+        {!! nl2br(e( $article->body )) !!}
+      </a>
     </div>
   </div>
   <div class="card-body pt-0 pb-2 pl-3">
