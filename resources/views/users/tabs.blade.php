@@ -2,7 +2,7 @@
     <li class="nav-item">
         <a class="nav-link text-muted {{ $hasArticles ? 'active' : '' }}"
             href="{{ route('users.show', ['name' => $user->name]) }}">
-        記事
+        投稿
         </a>
     </li>
     <li class="nav-item">
