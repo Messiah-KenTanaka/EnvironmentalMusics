@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', '記事更新')
+@section('title', '投稿更新')
 
 @include('nav')
 
@@ -15,7 +15,7 @@
               <form method="POST" action="{{ route('articles.update', ['article' => $article]) }}">
                 @method('PATCH')
                 @include('articles.form')
-                <button type="submit" class="btn dusty-grass-gradient btn-block">更新する</button>
+                <button type="submit" class="btn dusty-grass-gradient btn-block">更新</button>
               </form>
             </div>
           </div>
