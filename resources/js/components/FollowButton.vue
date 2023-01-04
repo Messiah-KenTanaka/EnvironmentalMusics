@@ -37,7 +37,7 @@
     computed: {
       buttonColor() {
         return this.isFollowedBy
-          ? 'bg-primary text-white'
+          ? 'dusty-grass-gradient'
           : 'bg-white'
       },
       buttonIcon() {
