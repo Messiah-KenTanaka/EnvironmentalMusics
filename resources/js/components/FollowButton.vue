@@ -1,7 +1,7 @@
 <template>
   <div>
     <button
-      class="btn-sm shadow-none border border-primary p-2"
+      class="btn-sm shadow-none border border-success p-2"
       :class="buttonColor"
       @click="clickFollow" 
     >
