@@ -48,6 +48,11 @@
         <button form="logout-button" class="dropdown-item" type="submit">
           ログアウト
         </button>
+        <div class="dropdown-divider"></div>
+        <button class="dropdown-item">
+          <i class="fas fa-user-circle"></i>
+          {{ Functions::getNameEllipsis(Auth::user()->name) }}
+        </button>
       </div>
     </li>
     <form id="logout-button" method="POST" action="{{ route('logout') }}">
