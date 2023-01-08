@@ -6,6 +6,7 @@ use App\Article;
 use App\Tag;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Functions;
 
 class ArticleController extends Controller
@@ -38,6 +39,10 @@ class ArticleController extends Controller
     {
         $article->fill($request->all());
         $article->user_id = $request->user()->id;
+        // s3画像アップロード
+        $file = $request->file('image');
+        $path = Storage::disk('s3')->putFile('bcommunity_img', $file, 'public');
+        $article->image = Storage::disk('s3')->url($path);
         $article->save();
 
         $request->tags->each(function ($tagName) use ($article) {

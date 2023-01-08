@@ -103,4 +103,7 @@
       </div>
     @endif
   @endforeach
+  @if ($article->image)
+    <img src="{{ $article->image }}">
+  @endif
 </div>
