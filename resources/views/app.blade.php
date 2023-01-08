@@ -37,7 +37,7 @@
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
   {{--  GoogleAdsense広告  --}}
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3324255919208405"
+  {{--  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3324255919208405"
       crossorigin="anonymous"></script>
   <!-- BCommunity_Display -->
   <ins class="adsbygoogle"
@@ -48,7 +48,7 @@
       data-full-width-responsive="true"></ins>
   <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  </script>  --}}
 </body>
 
 </html>
