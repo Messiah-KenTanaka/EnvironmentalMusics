@@ -41,8 +41,10 @@ class ArticleController extends Controller
         $article->user_id = $request->user()->id;
         // s3画像アップロード
         $file = $request->file('image');
-        $path = Storage::disk('s3')->putFile('bcommunity_img', $file, 'public');
-        $article->image = Storage::disk('s3')->url($path);
+        if(isset($file)) {
+            $path = Storage::disk('s3')->putFile('bcommunity_img', $file, 'public');
+            $article->image = Storage::disk('s3')->url($path);    
+        }
         $article->save();
 
         $request->tags->each(function ($tagName) use ($article) {
