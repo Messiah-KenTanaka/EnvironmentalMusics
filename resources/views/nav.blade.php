@@ -49,7 +49,8 @@
           ログアウト
         </button>
         <div class="dropdown-divider"></div>
-        <button class="dropdown-item">
+        <button class="dropdown-item" type="button"
+                onclick="location.href='{{ route("users.show", ["name" => Auth::user()->name]) }}'">
           <i class="fas fa-user-circle"></i>
           {{ Functions::getNameEllipsis(Auth::user()->name) }}
         </button>
