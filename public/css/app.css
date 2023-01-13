@@ -2,6 +2,11 @@
   font-family: Arial Black;
 }
 
+.card {
+  box-shadow: none;
+  border: solid 1px #efefef;
+}
+
 .modal .border-maintenance-modal {
   border-top: none;
 }
