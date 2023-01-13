@@ -3,8 +3,14 @@
     font-family: Arial Black;
 }
 
-// ナビバー
+// ナビバー nav.blade.php
 .nav {
+}
+
+// カード（投稿）card.blade.php
+.card {
+    box-shadow: none;
+    border: solid 1px #efefef;
 }
 
 // モーダル
