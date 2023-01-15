@@ -38,6 +38,11 @@
             {{ $user->name }}
             </a>
         </h2>
+        <div class="card-body m-0">
+            <span class="text-dark">
+            {{ $user->introduction }}
+            </span>
+        </div>
     </div>
     <div class="card-body">
         <div class="card-text">
