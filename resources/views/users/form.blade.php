@@ -13,5 +13,5 @@
 </div>
 <div class="form-group">
   {{--  <label>自己紹介</label>  --}}
-  <textarea name="introduction" class="form-control" rows="8" placeholder="自己紹介">{{ $user->introduction ?? old('introduction') }}</textarea>
+  <textarea name="introduction" class="form-control" rows="6" placeholder="自己紹介">{{ $user->introduction ?? old('introduction') }}</textarea>
 </div>
