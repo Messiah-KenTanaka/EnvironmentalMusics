@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Functions;
 
 class UserController extends Controller
@@ -33,7 +34,15 @@ class UserController extends Controller
     public function update(Request $request, User $user, string $name)
     {
         $user = User::where('name', $name)->first();
-        $user->fill($request->all())->save();
+        $user->fill($request->all());
+        // s3画像アップロード
+        $file = $request->file('image');
+        if(isset($file)) {
+            $path = Storage::disk('s3')->putFile('bcommunity_img', $file, 'public');
+            $user->image = Storage::disk('s3')->url($path);
+        }
+
+        $user->save();
 
         return redirect()->route('articles.index');
     }
