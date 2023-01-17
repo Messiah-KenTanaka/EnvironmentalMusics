@@ -1,15 +1,19 @@
 <div class="card mt-3">
   <div class="card-body d-flex flex-row">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
-      <i class="fas fa-user-circle fa-3x mr-1"></i>
+      @if ($article->user->image)
+        <img src="{{ $article->user->image }}" class="rounded-circle mb-3" width="50" height="50">
+      @else
+        <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mb-3" width="50" height="50">
+      @endif
     </a>
     <div>
-      <div class="font-weight-bold">
+      <div class="font-weight-bold pl-2">
         <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
           {{ $article->user->name }}
         </a>
       </div>
-      <div class="font-weight-lighter">
+      <div class="font-weight-lighter pl-2">
         {{ $article->created_at->format('Y/m/d H:i') }}
       </div>
     </div>
