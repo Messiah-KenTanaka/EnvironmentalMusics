@@ -15,3 +15,6 @@
   {{--  <label>自己紹介</label>  --}}
   <textarea name="introduction" class="form-control" rows="6" placeholder="自己紹介">{{ $user->introduction ?? old('introduction') }}</textarea>
 </div>
+<div class="form-group">
+  <input type="file" name="image" autocomplete="image" rows="4" value="画像を選択">
+</div>
