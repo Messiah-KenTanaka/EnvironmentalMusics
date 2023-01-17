@@ -97,7 +97,7 @@
     @endif
   @endforeach
   @if ($article->image)
-    <img src="{{ $article->image }}" class="p-3">
+    <img src="{{ $article->image }}" class="img-fluid p-3">
   @endif
   <div class="card-body pt-0 pb-2 pl-3">
     <div class="card-text">
