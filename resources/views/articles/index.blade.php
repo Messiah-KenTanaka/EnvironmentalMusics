@@ -8,5 +8,9 @@
     @foreach($articles as $article)
       @include('articles.card')
     @endforeach
-  </div>
+  <div class="float-button">
+    <a class="dusty-grass-gradient" href="{{ route('articles.create') }}">
+      <i class="fas fa-pencil-alt"></i>
+    </a>
+</div>
 @endsection
