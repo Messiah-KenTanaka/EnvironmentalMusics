@@ -3,6 +3,27 @@
     font-family: Arial Black;
 }
 
+// フローティング投稿ボタン
+.float-button {
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    z-index: 10;
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: black;
+    }
+}
+
 // ナビバー nav.blade.php
 .nav {
 }

@@ -9,4 +9,9 @@
       @include('articles.card')
     @endforeach
   </div>
+  <div class="float-button">
+    <a class="button dusty-grass-gradient" href="{{ route('articles.create') }}">
+      <i class="fas fa-pencil-alt"></i>
+    </a>
+  </div>
 @endsection
