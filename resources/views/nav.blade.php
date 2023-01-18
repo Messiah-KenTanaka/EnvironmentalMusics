@@ -28,7 +28,7 @@
     </li>
     {{--  新規投稿  --}}
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fas fa-pencil-alt"></i></a>
+      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fas fa-feather"></i></a>
     </li>
     @endauth
     

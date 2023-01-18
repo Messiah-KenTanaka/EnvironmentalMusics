@@ -11,7 +11,7 @@
   </div>
   <div class="float-button">
     <a class="button dusty-grass-gradient" href="{{ route('articles.create') }}">
-      <i class="fas fa-pencil-alt"></i>
+      <i class="fas fa-feather"></i>
     </a>
   </div>
 @endsection
