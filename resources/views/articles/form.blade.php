@@ -15,5 +15,15 @@
   </article-tags-input>
 </div>
 <div class="form-group">
+  <select name="fish_size" class="custom-select">
+    <optgroup label="サイズ">
+      <option value="" disabled selected style="display:none;">サイズ</option>
+      @foreach(config('fishSize') as $id => $fish_size)
+        <option value="{{ $fish_size }}">{{ $fish_size }}cm</option>
+      @endforeach
+    </optgroup>
+  </select>
+</div>
+<div class="form-group">
   <input type="file" name="image" autocomplete="image" rows="4" value="画像を選択">
 </div>

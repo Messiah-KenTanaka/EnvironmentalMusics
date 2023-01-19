@@ -96,6 +96,13 @@
       </div>
     @endif
   @endforeach
+  @if ($article->fish_size)
+    <div class="card-body pt-0 pb-2 pl-3">
+      <div class="font-weight-bold pl-2">
+        {{ $article->fish_size }} cm
+      </div>
+    </div>
+  @endif
   @if ($article->image)
     <img src="{{ $article->image }}" class="img-fluid p-3">
   @endif

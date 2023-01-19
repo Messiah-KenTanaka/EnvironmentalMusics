@@ -37,6 +37,7 @@ class ArticleRequest extends FormRequest
             'body' => '本文',
             'tags' => 'タグ',
             'image' => '画像',
+            'fish_size' => '魚サイズ'
         ];
     }
 
