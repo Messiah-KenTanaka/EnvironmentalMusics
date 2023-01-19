@@ -55,7 +55,11 @@
         <div class="dropdown-divider"></div>
         <button class="dropdown-item" type="button"
                 onclick="location.href='{{ route("users.show", ["name" => Auth::user()->name]) }}'">
-          <i class="fas fa-user-circle"></i>
+          @if (Auth::user()->image)
+            <img src="{{ Auth::user()->image }}" class="rounded-circle mr-1" width="25" height="25">
+          @else
+            <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-1" width="25" height="25">
+          @endif
           {{ Functions::getNameEllipsis(Auth::user()->name) }}
         </button>
       </div>
