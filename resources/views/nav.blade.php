@@ -1,6 +1,6 @@
 <nav class="nav navbar navbar-expand navbar-light dusty-grass-gradient">
 
-  <a class="navbar-brand main-font-family" href="/"><i class="fas fa-fish fa-rotate-180"></i> BCommunity</a>
+  <a class="navbar-brand main-font-family" href="/"><i class="fas fa-fish fa-rotate-180"></i> BASSER</a>
 
   <ul class="navbar-nav ml-auto">
 
