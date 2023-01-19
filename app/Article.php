@@ -12,6 +12,7 @@ class Article extends Model
         'title',
         'body',
         'image',
+        'fish_size'
     ];
 
     public function user(): BelongsTo
