@@ -2,6 +2,10 @@
   font-family: Arial Black;
 }
 
+.main-ja-font-family {
+  font-family: serif;
+}
+
 .float-button {
   width: 80px;
   height: 80px;
