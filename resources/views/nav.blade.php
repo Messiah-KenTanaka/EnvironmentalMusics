@@ -17,9 +17,8 @@
     @endguest
 
     @auth
-    {{-- ToDo ランキング実装予定  --}}
     <li class="nav-item">
-      <a class="nav-link" href="#" data-toggle="modal" data-target="#dmaintenanceModal"><i class="fas fa-crown"></i>
+      <a class="nav-link" href="{{ route('ranking.index') }}"><i class="fas fa-crown text-warning"></i>
       </a>
     </li>    
     {{--  ToDo 地図機能実装予定  --}}
