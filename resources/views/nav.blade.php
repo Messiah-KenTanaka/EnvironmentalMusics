@@ -23,11 +23,11 @@
     </li>    
     {{--  ToDo 地図機能実装予定  --}}
     <li class="nav-item">
-      <a class="nav-link" data-toggle="modal" data-target="#dmaintenanceModal" href="#"><i class="fas fa-map-marker-alt"></i></a>
+      <a class="nav-link" data-toggle="modal" data-target="#dmaintenanceModal" href="#"><i class="fas fa-map-marker-alt text-primary"></i></a>
     </li>
     {{--  新規投稿  --}}
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fas fa-feather"></i></a>
+      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fas fa-feather text-danger"></i></a>
     </li>
     @endauth
     
