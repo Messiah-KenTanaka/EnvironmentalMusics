@@ -1,4 +1,4 @@
-<nav class="nav navbar navbar-expand navbar-light dusty-grass-gradient">
+<nav class="nav navbar nav-fixed navbar-expand navbar-light dusty-grass-gradient">
 
   <a class="navbar-brand main-font-family" href="/"><i class="fas fa-fish fa-rotate-180"></i> BASSER</a>
 
