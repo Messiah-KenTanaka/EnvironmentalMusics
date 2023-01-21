@@ -20,7 +20,7 @@ class ArticleController extends Controller
     {
         $articles = Article::with(['user', 'likes', 'tags'])
         ->orderByDesc('created_at')
-        ->paginate(30);
+        ->paginate(config('paginate.paginate'));
 
 
         return view('articles.index', ['articles' => $articles]);

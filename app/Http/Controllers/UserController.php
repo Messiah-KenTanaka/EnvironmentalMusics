@@ -15,7 +15,7 @@ class UserController extends Controller
         $user = User::where('name', $name)->first()
             ->load(['articles.user', 'articles.likes', 'articles.tags']);
 
-        $articles = $user->articles->sortByDesc('created_at')->paginate(5);
+        $articles = $user->articles->sortByDesc('created_at')->paginate(config('paginate.paginate'));
 
         return view('users.show', [
             'user' => $user,
@@ -53,7 +53,7 @@ class UserController extends Controller
         $user = User::where('name', $name)->first()
             ->load(['likes.user', 'likes.likes', 'likes.tags']);
 
-        $articles = $user->likes->sortByDesc('created_at');
+        $articles = $user->likes->sortByDesc('created_at')->paginate(config('paginate.paginate'));
 
         return view('users.likes', [
             'user' => $user,
@@ -66,7 +66,7 @@ class UserController extends Controller
         $user = User::where('name', $name)->first()
             ->load('followings.followers');
 
-        $followings = $user->followings->sortByDesc('created_at');
+        $followings = $user->followings->sortByDesc('created_at')->paginate(config('paginate.paginate'));
 
         return view('users.followings', [
             'user' => $user,
@@ -79,7 +79,7 @@ class UserController extends Controller
         $user = User::where('name', $name)->first()
             ->load('followers.followers');
 
-        $followers = $user->followers->sortByDesc('created_at');
+        $followers = $user->followers->sortByDesc('created_at')->paginate(config('paginate.paginate'));
 
         return view('users.followers', [
             'user' => $user,
