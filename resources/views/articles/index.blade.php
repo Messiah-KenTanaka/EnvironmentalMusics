@@ -5,6 +5,12 @@
 @section('content')
   @include('nav')
   <div class="container">
+    <div class="form-group">
+      <a href="{{ route('articles.create') }}">
+        <label></label>
+        <textarea class="form-control" rows="1" placeholder="今日はどうだった？"></textarea>
+      </a>
+    </div>
     @foreach($articles as $article)
       @include('articles.card')
     @endforeach
