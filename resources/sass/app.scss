@@ -30,6 +30,9 @@
 
 // ナビバー nav.blade.php
 .nav {
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 // カード（投稿）card.blade.php
