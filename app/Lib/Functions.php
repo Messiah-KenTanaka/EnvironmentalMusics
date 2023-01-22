@@ -5,7 +5,7 @@ namespace App\Lib;
 class Functions
 {
     /*
-    * ５文字以上は３点リーダーをつけて返却
+    * ５文字以上は３点リーダーを付ける
     */
     public static function getNameEllipsis($name)
     {
@@ -16,5 +16,12 @@ class Functions
         } else {
             return $name;
         }
+    }
+
+    /*
+    * URLはリンクを付ける
+    */
+    public static function makeLink($value) {
+        return mb_ereg_replace("(https?)(://[[:alnum:]\+\$\;\?\.%,!#~*/:@&=_-]+)" , '<a href="\1\2">\1\2</a>' , $value);
     }
 }

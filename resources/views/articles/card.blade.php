@@ -79,7 +79,7 @@
     </h3>  --}}
     <div class="card-text">
       <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
-        {!! nl2br(e( $article->body )) !!}
+        {!! nl2br(Functions::makeLink(e( $article->body ))) !!}
       </a>
     </div>
   </div>
