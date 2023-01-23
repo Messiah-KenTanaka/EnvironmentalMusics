@@ -5,9 +5,21 @@
 @section('content')
   @include('nav')
   <div class="container">
-    <h2 class="text-center my-4 main-ja-font-family"><i class="fas fa-crown text-warning"></i> ランキング <i class="fas fa-crown text-warning"></i></h2>
+    <h2 class="text-center my-4 main-ja-font-family">ランキング</h2>
     @foreach($ranking as $key => $article)
-      <h3 class="text-center my-4 main-ja-font-family">{{ ++$key }}位</h3>
+      @switch(++$key)
+        @case(1)
+          <h3 class="text-center my-4 main-ja-font-family first-gold">{{ $key }}位</h3>
+            @break
+        @case(2)
+          <h3 class="text-center my-4 main-ja-font-family second-silver">{{ $key }}位</h3>
+            @break
+        @case(3)
+          <h3 class="text-center my-4 main-ja-font-family third-copper">{{ $key }}位</h3>
+            @break
+        @default
+          <h3 class="text-center my-4 main-ja-font-family">{{ $key }}位</h3>
+      @endswitch
       @include('articles.card')
     @endforeach
   </div>
