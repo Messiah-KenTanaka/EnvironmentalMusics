@@ -4,15 +4,16 @@
 
   <ul class="navbar-nav ml-auto">
 
-    {{-- ランキング --}}
-    <li class="nav-item">
-      <a class="nav-link" href="{{ route('ranking.index') }}"><i class="fas fa-crown text-warning"></i>
-      </a>
-    </li>    
     {{--  ToDo 地図機能実装予定  --}}
     <li class="nav-item">
-      <a class="nav-link" data-toggle="modal" data-target="#dmaintenanceModal" href="#"><i class="fas fa-map-marker-alt text-primary"></i></a>
+      <a class="nav-link" data-toggle="modal" data-target="#dmaintenanceModal" href="#"><i class="fas fa-map-marker-alt"></i></a>
     </li>
+    
+    {{-- ランキング --}}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('ranking.index') }}"><i class="fas fa-crown"></i>
+      </a>
+    </li>    
     
     @guest
     <li class="nav-item">
@@ -29,7 +30,7 @@
     @auth
     {{--  新規投稿  --}}
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fas fa-feather text-danger"></i></a>
+      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fas fa-feather"></i></a>
     </li>
     @endauth
     
