@@ -5,7 +5,7 @@ namespace App\Lib;
 class Functions
 {
     /*
-    * 5文字以上は3点リーダーを付ける
+    * 6文字以上は3点リーダーを付ける
     */
     public static function getNameEllipsis($name)
     {
