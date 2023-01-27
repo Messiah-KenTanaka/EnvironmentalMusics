@@ -20,4 +20,13 @@ class Tag extends Model
     {
         return $this->belongsToMany('App\Article')->withTimestamps();
     }
+
+    // 人気のタグを取得
+    public static function getPopularTag()
+    {
+        return self::select('name')
+            ->orderByDesc('updated_at')
+            ->limit(10)
+            ->get();
+    }
 }

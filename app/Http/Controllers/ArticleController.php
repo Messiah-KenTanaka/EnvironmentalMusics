@@ -22,11 +22,7 @@ class ArticleController extends Controller
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate'));
 
-        $tags = Tag::select('name')
-            ->orderByDesc('updated_at')
-            ->limit(10)
-            ->get();
-
+        $tags = Tag::getPopularTag();
 
         return view('articles.index',[
             'articles' => $articles, 
@@ -40,8 +36,11 @@ class ArticleController extends Controller
             return ['text' => $tag->name];
         });
 
+        $tags = Tag::getPopularTag();
+
         return view('articles.create', [
             'allTagNames' => $allTagNames,
+            'tags' => $tags,
         ]);
     }
 

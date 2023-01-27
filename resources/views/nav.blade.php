@@ -13,7 +13,29 @@
     <li class="nav-item">
       <a class="nav-link" href="{{ route('ranking.index') }}"><i class="fas fa-crown"></i>
       </a>
-    </li>    
+    </li>
+
+    {{-- タグ検索 --}}
+    <li class="nav-item">
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" id="navbarDropdownTagLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownTagLink">
+          <span class="dropdown-item font-weight-bold py-2">人気のタグ</span>
+          <div class="dropdown-divider"></div>
+          @foreach($tags as $tag)
+            <button class="dropdown-item" type="button"
+                    onclick="location.href='{{ route('tags.show', ['name' => $tag->name]) }}'">
+              <span class="ml-1">{{ Functions::getNameTenEllipsis($tag->name) }}</span>
+            </button>
+          @endforeach
+        </div>
+      </li>
+      <!-- Dropdown -->
+    </li>        
     
     @guest
     <li class="nav-item">
