@@ -19,11 +19,18 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::with(['user', 'likes', 'tags'])
-        ->orderByDesc('created_at')
-        ->paginate(config('paginate.paginate'));
+            ->orderByDesc('created_at')
+            ->paginate(config('paginate.paginate'));
+
+        $tags = Tag::select('name')
+            ->limit(10)
+            ->get();
 
 
-        return view('articles.index', ['articles' => $articles]);
+        return view('articles.index',[
+            'articles' => $articles, 
+            'tags' => $tags,
+        ]);
     }
 
     public function create()
