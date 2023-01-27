@@ -53,6 +53,7 @@
                 @endif
                 {{ Functions::getNameEllipsis(Auth::user()->name) }}
             </button>
+            <div class="dropdown-divider"></div>
         @endauth
 
         @guest
