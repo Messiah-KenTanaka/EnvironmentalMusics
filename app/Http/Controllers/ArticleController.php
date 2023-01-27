@@ -23,6 +23,7 @@ class ArticleController extends Controller
             ->paginate(config('paginate.paginate'));
 
         $tags = Tag::select('name')
+            ->orderByDesc('updated_at')
             ->limit(10)
             ->get();
 

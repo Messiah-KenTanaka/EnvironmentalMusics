@@ -5,7 +5,7 @@
         @foreach($tags as $tag)
             <button class="dropdown-item py-2" type="button"
                 onclick="location.href='{{ route('tags.show', ['name' => $tag->name]) }}'">
-                {{ $tag->name }}
+                {{ Functions::getNameTenEllipsis($tag->name) }}
             </button>
             <div class="dropdown-divider"></div>
         @endforeach
