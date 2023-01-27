@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Tag;
 
 class RankingController extends Controller
 {
@@ -16,6 +17,12 @@ class RankingController extends Controller
             ->limit(30)
             ->get(); 
 
-        return view('ranking.index', ['ranking' => $ranking]);
+            $tags = Tag::getPopularTag();
+
+        return view('ranking.index', [
+            'ranking' => $ranking,
+            'tags' => $tags,
+        ]
+    );
     }
 }

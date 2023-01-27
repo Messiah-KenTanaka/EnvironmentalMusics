@@ -89,7 +89,7 @@
         <div class="card-text line-height">
     @endif
           <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="p-1 mr-1 mt-1">
-            {{ $tag->hashtag }}
+            {{ Functions::getNameTenEllipsis($tag->hashtag) }}
           </a>
     @if($loop->last)
         </div>

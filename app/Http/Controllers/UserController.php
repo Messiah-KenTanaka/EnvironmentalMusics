@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\User;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Functions;
@@ -17,9 +18,12 @@ class UserController extends Controller
 
         $articles = $user->articles->sortByDesc('created_at')->paginate(config('paginate.paginate'));
 
+        $tags = Tag::getPopularTag();
+
         return view('users.show', [
             'user' => $user,
             'articles' => $articles,
+            'tags' => $tags,
         ]);
     }
 
@@ -55,9 +59,12 @@ class UserController extends Controller
 
         $articles = $user->likes->sortByDesc('created_at')->paginate(config('paginate.paginate'));
 
+        $tags = Tag::getPopularTag();
+
         return view('users.likes', [
             'user' => $user,
             'articles' => $articles,
+            'tags' => $tags,
         ]);
     }
 
@@ -68,9 +75,12 @@ class UserController extends Controller
 
         $followings = $user->followings->sortByDesc('created_at')->paginate(config('paginate.paginate'));
 
+        $tags = Tag::getPopularTag();
+
         return view('users.followings', [
             'user' => $user,
             'followings' => $followings,
+            'tags' => $tags,
         ]);
     }
     
@@ -81,9 +91,12 @@ class UserController extends Controller
 
         $followers = $user->followers->sortByDesc('created_at')->paginate(config('paginate.paginate'));
 
+        $tags = Tag::getPopularTag();
+
         return view('users.followers', [
             'user' => $user,
             'followers' => $followers,
+            'tags' => $tags,
         ]);
     }
 

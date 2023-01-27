@@ -13,6 +13,11 @@ class TagController extends Controller
         $tag = Tag::where('name', $name)->first()
             ->load(['articles.user', 'articles.likes', 'articles.tags']);
 
-        return view('tags.show', ['tag' => $tag]);
+        $tags = Tag::getPopularTag();
+
+        return view('tags.show',[
+            'tag' => $tag,
+            'tags' => $tags,
+        ]);
     }
 }
