@@ -10,7 +10,7 @@
         @auth
             <button class="dropdown-item py-2" type="button"
                 onclick="location.href='{{ route('articles.create') }}'">
-                <i class="fas fa-feather"></i>
+                <i class="fa-solid fa-fish"></i>
                 <span class="ml-3">ポスト</span>
             </button>
             <div class="dropdown-divider"></div>
@@ -59,7 +59,7 @@
         @guest
             <button class="dropdown-item py-2" type="button"
                 onclick="location.href='{{ route('register') }}'">
-                <i class="fas fa-user-alt"></i>
+                <i class="fa-solid fa-user-plus"></i>
                 <span class="ml-3">ユーザー登録</span>
             </button>
             <div class="dropdown-divider"></div>
