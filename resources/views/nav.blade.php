@@ -24,7 +24,7 @@
           <i class="fas fa-search"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownTagLink">
-          <span class="dropdown-item font-weight-bold py-2">人気のタグ</span>
+          <span class="dropdown-item font-weight-bold py-2"><i class="fa-solid fa-tags mr-2"></i>人気のタグ</span>
           <div class="dropdown-divider"></div>
           @foreach($tags as $tag)
             <button class="dropdown-item" type="button"
