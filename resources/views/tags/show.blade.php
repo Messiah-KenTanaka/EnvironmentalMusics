@@ -20,6 +20,7 @@
           @include('articles.card')
         @endforeach
       </div>
+      @include('sidemenuRight')
     </div>
   </div>
 @endsection

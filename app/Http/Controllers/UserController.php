@@ -31,8 +31,11 @@ class UserController extends Controller
     {
         $user = User::where('name', $name)->first();
 
+        $tags = Tag::getPopularTag();
+
         return view('users.edit', [
             'user' => $user,
+            'tags' => $tags,
         ]);
     }
 

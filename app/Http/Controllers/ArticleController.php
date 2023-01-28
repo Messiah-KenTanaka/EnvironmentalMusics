@@ -74,10 +74,13 @@ class ArticleController extends Controller
             return ['text' => $tag->name];
         });
 
+        $tags = Tag::getPopularTag();
+
         return view('articles.edit', [
             'article' => $article,
             'tagNames' => $tagNames,
             'allTagNames' => $allTagNames,
+            'tags' => $tags,
         ]);
     }
 
@@ -102,7 +105,12 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
-        return view('articles.show', ['article' => $article]);
+        $tags = Tag::getPopularTag();
+
+        return view('articles.show', [
+            'article' => $article,
+            'tags' => $tags,
+        ]);
     }
 
     public function like(Request $request, Article $article)

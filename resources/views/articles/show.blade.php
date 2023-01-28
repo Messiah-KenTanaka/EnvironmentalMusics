@@ -10,6 +10,7 @@
       <div class="col">
         @include('articles.card')
       </div>
+      @include('sidemenuRight')
     </div>
   </div>
 @endsection
