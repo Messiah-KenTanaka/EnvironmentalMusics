@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -24,8 +25,11 @@ class Tag extends Model
     // 人気のタグを取得
     public static function getPopularTag()
     {
-        return self::select('name')
-            ->orderByDesc('updated_at')
+        return self::join('article_tag', 'tags.id', '=', 'tag_id')
+            ->select('tags.name', 'article_tag.tag_id')
+            ->selectRaw('COUNT(article_tag.tag_id)')
+            ->groupBy('article_tag.tag_id', 'tags.name')
+            ->orderByDesc(DB::raw('COUNT(article_tag.tag_id)'))
             ->limit(10)
             ->get();
     }
