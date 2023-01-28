@@ -17,6 +17,7 @@
                     <p class="text-center my-3"><a href="{{ $articles->nextPageUrl() }}">もっと見る</a></p>
                 @endif
             </div>
+            @include('sidemenuRight')
         </div>
     </div>
 @endsection
