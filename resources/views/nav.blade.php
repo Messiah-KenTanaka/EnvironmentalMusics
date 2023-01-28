@@ -1,6 +1,6 @@
 <nav class="nav navbar nav-fixed navbar-expand navbar-light dusty-grass-gradient">
 
-  <a class="navbar-brand main-font-family" href="/"><i class="fas fa-fish fa-rotate-180"></i> BASSER</a>
+  <a class="navbar-brand main-font-family" href="/">BASSER</a>
 
   <ul class="navbar-nav ml-auto">
 
@@ -39,20 +39,20 @@
     
     @guest
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('register') }}">登録</a>
+      <a class="nav-link" href="{{ route('register') }}"><i class="fa-solid fa-user-plus"></i></a>
     </li>
     @endguest
 
     @guest
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+      <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a>
     </li>
     @endguest
 
     @auth
     {{--  新規投稿  --}}
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fas fa-feather"></i></a>
+      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fa-solid fa-fish"></i></a>
     </li>
     @endauth
     
