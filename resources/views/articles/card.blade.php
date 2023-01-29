@@ -105,9 +105,9 @@
   @endif
   @if ($article->pref)
     <div class="card-body pt-0 pb-2 pl-3">
-      <div class="font-weight-bold pl-2">
+      <span class="text-white bg-dark p-1 rounded">
         {{ $article->pref }}
-      </div>
+      </span>
     </div>
   @endif
   @if ($article->image)
