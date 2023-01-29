@@ -28,7 +28,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="{{ route('users.edit', ['name' => $user->name]) }}" class="dropdown-item">
-                                編集
+                                プロフィール編集
                             </a>
                         </div>
                     </div>

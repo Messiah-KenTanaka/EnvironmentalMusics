@@ -25,5 +25,15 @@
   </select>
 </div>
 <div class="form-group">
+  <select name="pref" class="custom-select">
+    <optgroup label="都道府県">
+      <option value="" disabled selected style="display:none;">都道府県</option>
+      @foreach(config('pref') as $id => $pref)
+        <option value="{{ $pref }}">{{ $pref }}</option>
+      @endforeach
+    </optgroup>
+  </select>
+</div>
+<div class="form-group">
   <input type="file" name="image" autocomplete="image" rows="4" value="画像を選択">
 </div>
