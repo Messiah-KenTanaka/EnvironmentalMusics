@@ -39,6 +39,9 @@
 .card {
     box-shadow: none;
     border: solid 1px #dee2e6;
+    .border-image {
+        border-radius: 20px;
+    }
 }
 
 // モーダル

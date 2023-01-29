@@ -39,6 +39,10 @@
   border: solid 1px #dee2e6;
 }
 
+.card .border-image {
+  border-radius: 20px;
+}
+
 .modal .border-maintenance-modal {
   border-top: none;
 }
