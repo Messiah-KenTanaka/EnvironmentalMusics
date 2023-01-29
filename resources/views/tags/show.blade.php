@@ -23,4 +23,5 @@
       @include('sidemenuRight')
     </div>
   </div>
+  @include('floatArticleButton')
 @endsection
