@@ -98,9 +98,10 @@
   @endforeach
   @if ($article->fish_size)
     <div class="card-body pt-0 pb-2 pl-3">
-      <div class="font-weight-bold pl-2">
-        {{ $article->fish_size }} cm
-      </div>
+      <span class="font-weight-bold lead pl-1">
+        {{ $article->fish_size }}
+      </span>
+      cm
     </div>
   @endif
   @if ($article->pref)
