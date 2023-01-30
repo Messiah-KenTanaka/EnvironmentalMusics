@@ -106,7 +106,7 @@
   @endif
   @if ($article->pref)
     <div class="card-body pt-0 pb-2 pl-3">
-      <span class="text-white bg-dark p-1 rounded">
+      <span class="border p-2 rounded">
         {{ $article->pref }}
       </span>
     </div>
