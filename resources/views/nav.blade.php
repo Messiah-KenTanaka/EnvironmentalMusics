@@ -4,17 +4,17 @@
 
   <ul class="navbar-nav ml-auto">
 
-    {{--  ToDo 地図機能実装予定  --}}
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="modal" data-target="#dmaintenanceModal" href="#"><i class="fas fa-map-marker-alt"></i></a>
-    </li>
-    
     {{-- ランキング --}}
     <li class="nav-item">
       <a class="nav-link" href="{{ route('ranking.index') }}"><i class="fas fa-crown"></i>
       </a>
     </li>
-
+    
+    {{--  ToDo 地図機能実装予定  --}}
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="modal" data-target="#dmaintenanceModal" href="#"><i class="fas fa-map-marker-alt"></i></a>
+    </li>
+    
     {{-- タグ検索 --}}
     <li class="nav-item">
       <!-- Dropdown -->
