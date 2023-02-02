@@ -35,5 +35,17 @@
   </select>
 </div>
 <div class="form-group">
+  <select name="bass_field" class="custom-select">
+    @foreach(config('pref') as $id => $pref)
+      <optgroup label={{ $pref }}>
+        <option value="" disabled selected style="display:none;">フィールド</option>
+        @foreach($bassField[$keyCount++] as $field)
+          <option value="{{ $field }}">{{ $field }}</option>
+        @endforeach
+      </optgroup>
+    @endforeach
+  </select>
+</div>
+<div class="form-group">
   <input type="file" name="image" autocomplete="image" rows="4" value="画像を選択">
 </div>

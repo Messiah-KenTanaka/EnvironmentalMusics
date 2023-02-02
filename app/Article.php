@@ -13,7 +13,8 @@ class Article extends Model
         'body',
         'image',
         'fish_size',
-        'pref'
+        'pref',
+        'bass_field'
     ];
 
     public function user(): BelongsTo
