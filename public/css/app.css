@@ -6,6 +6,10 @@
   font-family: serif;
 }
 
+.container {
+  margin-bottom: 5rem;
+}
+
 .nav-fixed {
   position: sticky;
   top: 0;

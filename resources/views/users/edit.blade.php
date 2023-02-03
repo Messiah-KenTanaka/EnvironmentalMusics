@@ -25,4 +25,5 @@
       @include('sidemenuRight')
     </div>
   </div>
+  @include('bottomNav')
 @endsection
