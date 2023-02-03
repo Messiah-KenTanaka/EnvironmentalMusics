@@ -107,12 +107,12 @@
   @if ($article->pref || $article->bass_field)
     <div class="card-body pt-0 pb-2 pl-3">
       @if ($article->pref)
-        <span class="border p-2 mr-2 rounded">
+        <span class="border-pref p-2 mr-2">
           {{ $article->pref }}
         </span>
       @endif
       @if ($article->bass_field)
-        <span class="border p-2 rounded">
+        <span class="border-pref p-2">
           {{ $article->bass_field }}
         </span>
       @endif

@@ -22,7 +22,12 @@
 }
 
 .card .border-image {
+  border-radius: 40px;
+}
+
+.card .border-pref {
   border-radius: 20px;
+  border: 1px solid #dee2e6;
 }
 
 .modal .border-maintenance-modal {
@@ -31,19 +36,19 @@
 
 .first-gold {
   padding: 0.5rem 2rem;
-  border-radius: 5px;
+  border-radius: 20px;
   background-image: linear-gradient(135deg, #704308 0%, #ffce08 40%, #e1ce08 60%, #704308 100%);
 }
 
 .second-silver {
   padding: 0.5rem 2rem;
-  border-radius: 5px;
+  border-radius: 20px;
   background-image: linear-gradient(-45deg, #ccc 0%, #868888 20%, #d8dcdc 34%, white 53%, #ccc 100%);
 }
 
 .third-copper {
   padding: 0.5rem 2rem;
-  border-radius: 5px;
+  border-radius: 20px;
   background-image: linear-gradient(-45deg, #ccc 0%, #a57e65 20%, #a57e65 34%, white 53%, #a57e65 100%);
 }
 
