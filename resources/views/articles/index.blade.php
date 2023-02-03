@@ -24,5 +24,5 @@
       @include('sidemenuRight')
     </div>
   </div>
-  @include('floatArticleButton')
+  @include('bottomNav')
 @endsection
