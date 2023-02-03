@@ -14,8 +14,8 @@
     
     {{-- タグ検索 --}}
     <div class="nav-item">
-      <!-- Dropdown -->
-      <li class="nav-item dropdown">
+      <!-- dropup -->
+      <li class="nav-item dropup">
         <a class="nav-link" id="navbarDropdownTagLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-search"></i>
@@ -31,7 +31,7 @@
           @endforeach
         </div>
       </li>
-      <!-- Dropdown -->
+      <!-- dropup -->
     </div>        
     
     @guest
