@@ -1,4 +1,4 @@
-<nav class="nav navbar fixed-bottom navbar-expand navbar-light dusty-grass-gradient d-block d-md-none">
+<nav class="nav navbar nav-fixed navbar-expand navbar-light dusty-grass-gradient fixed-bottom d-block d-md-none">
   <ul class="navbar-nav d-flex justify-content-around ml-auto">
 
     {{-- ランキング --}}
