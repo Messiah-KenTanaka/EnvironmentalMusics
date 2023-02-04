@@ -18,7 +18,7 @@
       <li class="nav-item dropup">
         <a class="nav-link" id="navbarDropdownTagLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-search"></i>
+          <i class="fa-solid fa-tags"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownTagLink">
           <span class="dropdown-item font-weight-bold py-2"><i class="fa-solid fa-tags mr-2"></i>人気のタグ</span>
