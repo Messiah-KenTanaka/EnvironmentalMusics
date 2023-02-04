@@ -15,6 +15,10 @@
     top: 0;
     z-index: 1;
 }
+// ボトムナビバー bottomNav.blade.php
+.fixed-bottom{
+    z-index: 1;
+}
 
 // カード（投稿）card.blade.php
 .card {

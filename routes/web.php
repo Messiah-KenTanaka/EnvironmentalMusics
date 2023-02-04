@@ -34,6 +34,9 @@ Route::prefix('articles')->name('articles.')->group(function () {
 });
 // ハッシュタグ
 Route::get('/tags/{name}', 'TagController@show')->name('tags.show');
+// ランキング
+Route::get('/ranking', 'RankingController@index')->name('ranking.index');
+Route::get('/ranking/{pref}', 'RankingController@show')->name('ranking.show');
 // ユーザー
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('/{name}', 'UserController@show')->name('show');
@@ -47,5 +50,3 @@ Route::prefix('users')->name('users.')->group(function () {
         Route::delete('/{name}/follow', 'UserController@unfollow')->name('unfollow');
     });
 });
-// ランキング
-Route::get('/ranking', 'RankingController@index')->name('ranking.index');

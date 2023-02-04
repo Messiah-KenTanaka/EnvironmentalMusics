@@ -16,6 +16,10 @@
   z-index: 1;
 }
 
+.fixed-bottom {
+  z-index: 1;
+}
+
 .card {
   box-shadow: none;
   border: solid 1px #dee2e6;
