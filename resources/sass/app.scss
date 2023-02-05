@@ -69,25 +69,64 @@
 }
 
 // １位
-.first-gold {
-    padding: 0.5rem 2rem;
-    border-radius: 10px;
-    background-image: -webkit-linear-gradient(315deg, #704308 0%, #ffce08 40%, #e1ce08 60%, #704308 100%);
-    background-image: linear-gradient(135deg, #704308 0%, #ffce08 40%, #e1ce08 60%, #704308 100%);
+.ranking-first {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.ranking-first::before,
+.ranking-first::after {
+	content: '';
+	width: 60px;
+	height: 5px;
+	background: -webkit-linear-gradient(0deg, #B67B03 10%, #DAAF08 20%, #FEE9A0 50%, #DAAF08 80%, #B67B03 90%); 
+}
+.ranking-first::before {
+	margin-right: 20px;
+}
+.ranking-first::after {
+	margin-left: 20px;
 }
 // ２位
-.second-silver {
-    padding: 0.5rem 2rem;
-    border-radius: 10px;
-    background-image: -webkit-linear-gradient(135deg, #ccc 0%, #868888 20%, #d8dcdc 34%, white 53%, #ccc 100%);
-    background-image: linear-gradient(-45deg, #ccc 0%, #868888 20%, #d8dcdc 34%, white 53%, #ccc 100%);
+.ranking-second {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.ranking-second::before,
+.ranking-second::after {
+	content: '';
+	width: 60px;
+	height: 5px;
+	background: -webkit-linear-gradient(0deg, #ccc 10%, #868888 20%, #d8dcdc 50%, white 80%, #ccc 90%); 
+}
+.ranking-second::before {
+	margin-right: 20px;
+}
+.ranking-second::after {
+	margin-left: 20px;
 }
 // ３位
-.third-copper {
-    padding: 0.5rem 2rem;
-    border-radius: 10px;
-    background-image: -webkit-linear-gradient(135deg, #ccc 0%, #a57e65 20%, #a57e65 34%, white 53%, #a57e65 100%);
-    background-image: linear-gradient(-45deg, #ccc 0%, #a57e65 20%, #a57e65 34%, white 53%, #a57e65 100%);
+.ranking-third {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.ranking-third::before,
+.ranking-third::after {
+	content: '';
+	width: 60px;
+	height: 5px;
+	background: -webkit-linear-gradient(0deg, #a57e65 10%, #a57e65 20%, white 50%, #a57e65 80%, #a57e65 90%); 
+}
+.ranking-third::before {
+	margin-right: 20px;
+}
+.ranking-third::after {
+	margin-left: 20px;
 }
 
 // サイドメニュー

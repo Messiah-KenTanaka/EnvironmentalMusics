@@ -12,16 +12,16 @@
         <h2 class="text-center my-3 main-ja-font-family ranking-heading" data-en="Ranking"><span>ランキング</span></h2>
         <h2 class="text-center my-3 main-ja-font-family">{{ $pref }}</h2>
         @foreach($ranking as $key => $article)
-          <div class="text-center my-4 main-ja-font-family h3">
+          <div class="text-center my-4 main-ja-font-family h2">
             @switch(++$key)
               @case(1)
-                <span class="first-gold">{{ $key }}位</span>
+                <span class="ranking-first">{{ $key }}位</span>
                   @break
               @case(2)
-                <span class="second-silver">{{ $key }}位</span>
+                <span class="ranking-second">{{ $key }}位</span>
                   @break
               @case(3)
-                <span class="third-copper">{{ $key }}位</span>
+                <span class="ranking-third">{{ $key }}位</span>
                   @break
               @default
                 <span class="">{{ $key }}位</span>
