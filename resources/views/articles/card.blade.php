@@ -60,7 +60,7 @@
               </div>
               <div class="border-maintenance-modal modal-footer justify-content-between">
                 <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
-                <button type="submit" class="btn btn-danger">削除する</button>
+                <button type="submit" class="btn btn-danger loading-btn">削除する</button>
               </div>
             </form>
           </div>
