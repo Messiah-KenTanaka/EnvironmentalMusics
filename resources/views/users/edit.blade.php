@@ -16,7 +16,7 @@
               <form method="POST" action="{{ route('users.update', ['name' => $user->name]) }}" enctype="multipart/form-data">
                 @method('PATCH')
                 @include('users.form')
-                <button type="submit" class="btn dusty-grass-gradient btn-block">プロフィール更新</button>
+                <button type="submit" class="btn dusty-grass-gradient btn-block loading-btn">プロフィール更新</button>
               </form>
             </div>
           </div>
