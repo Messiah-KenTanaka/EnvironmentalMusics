@@ -13,11 +13,11 @@
 .nav-fixed {
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 10;
 }
 // ボトムナビバー bottomNav.blade.php
 .fixed-bottom{
-    z-index: 1;
+    z-index: 10;
 }
 
 // カード（投稿）card.blade.php
