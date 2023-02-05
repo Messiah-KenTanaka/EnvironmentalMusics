@@ -5,14 +5,14 @@
     <li class="nav-item dropdown text-center">
       <a class="nav-link" id="navbarDropdownTagLink" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-search"> 都道府県ランキング検索</i>
+        <i class="fas fa-search"> 人気のタグ検索</i>
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownTagLink">
-        @foreach(config('pref') as $id => $pref)
-          <button class="dropdown-item" type="button"
-              onclick="location.href='{{ route('ranking.show', ['pref' => $pref]) }}'">
-            <span class="ml-1">{{ $pref }}</span>
-          </button>
+        @foreach($tags as $tag)
+            <button class="dropdown-item py-2" type="button"
+                onclick="location.href='{{ route('tags.show', ['name' => $tag->name]) }}'">
+                {{ Functions::getNameTenEllipsis($tag->name) }}
+            </button>
         @endforeach
       </div>
     </li>
