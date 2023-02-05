@@ -16,7 +16,7 @@ class RankingController extends Controller
             ->whereNotNull('fish_size')
             ->orderByDesc('fish_size')
             ->limit(50)
-            ->get(); 
+            ->get();
 
             $tags = Tag::getPopularTag();
 
