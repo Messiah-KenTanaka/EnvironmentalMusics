@@ -20,6 +20,14 @@
     z-index: 10;
 }
 
+// ローディング
+#loading {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, .5);
+    z-index: 10000;
+}
+
 // カード（投稿）card.blade.php
 .card {
     box-shadow: none;

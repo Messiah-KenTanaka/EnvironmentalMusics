@@ -20,6 +20,13 @@
   z-index: 10;
 }
 
+#loading {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+}
+
 .card {
   box-shadow: none;
   border: solid 1px #dee2e6;
