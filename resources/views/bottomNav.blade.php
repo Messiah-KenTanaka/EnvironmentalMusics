@@ -1,6 +1,10 @@
 <nav class="nav navbar fixed-bottom navbar-expand navbar-light dusty-grass-gradient d-block d-md-none">
   <ul class="navbar-nav d-flex justify-content-around ml-auto">
-
+    {{--  ホーム  --}}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('articles.index') }}"><i class="fas fa-home"></i>
+      </a>
+    </li>
     {{-- ランキング --}}
     <li class="nav-item">
       <a class="nav-link" href="{{ route('ranking.index') }}"><i class="fas fa-crown"></i>
@@ -8,9 +12,9 @@
     </li>
     
     {{--  ToDo 地図機能実装予定  --}}
-    <li class="nav-item">
+    {{--  <li class="nav-item">
       <a class="nav-link" data-toggle="modal" data-target="#dmaintenanceModal" href="#"><i class="fas fa-map-marker-alt"></i></a>
-    </li>
+    </li>  --}}
     
     {{-- タグ検索 --}}
     <div class="nav-item">
