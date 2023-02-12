@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'パスワード再設定')
+@section('title', env('APP_NAME') . '/パスワード再設定')
 
 @section('content')
   <div class="container">
