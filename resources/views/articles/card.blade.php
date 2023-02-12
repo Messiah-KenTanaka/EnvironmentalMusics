@@ -107,9 +107,12 @@
   @if ($article->pref || $article->bass_field)
     <div class="card-body pt-0 pb-2 pl-3">
       @if ($article->pref)
-        <small class="border-pref p-2 mr-2">
-          {{ $article->pref }}
-        </small>
+        <a type="button"
+                onclick="location.href='{{ route('ranking.show', ['pref' => $article->pref]) }}'">
+          <small class="border-pref p-2 mr-2">
+            {{ $article->pref }}
+          </small>
+        </a>
       @endif
       @if ($article->bass_field)
         <small class="border-pref p-2">
