@@ -17,8 +17,6 @@ class TagController extends Controller
             ->sortByDesc('created_at')
             ->paginate(config('paginate.paginate'));
 
-        // dd($tag);
-
         $tags = Tag::getPopularTag();
 
         return view('tags.show',[
