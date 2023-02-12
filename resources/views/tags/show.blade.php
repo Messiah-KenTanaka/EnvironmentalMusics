@@ -18,9 +18,12 @@
             </div>
           </div>
         </div>
-        @foreach($tag->articles as $article)
+        @foreach($articles as $article)
           @include('articles.card')
         @endforeach
+        @if ($articles->hasMorePages())
+          <p class="text-center my-3"><a href="{{ $articles->nextPageUrl() }}">もっと見る</a></p>
+        @endif
       </div>
       @include('sidemenuRight')
     </div>

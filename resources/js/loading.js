@@ -20,7 +20,6 @@ function hide_loading() {
 // ボタンローディング 投稿・プロフ更新
 $(function () {
     $(".loading-btn").on("click", function(){
-        console.log('hoge');
         $("#overlay").fadeIn(500); //二度押しを防ぐloading表示
         setTimeout(function(){
             $("#overlay").fadeOut(500);
