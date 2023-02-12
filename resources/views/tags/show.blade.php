@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', $tag->hashtag)
+@section('title', env('APP_NAME') . '/' . $tag->hashtag)
 
 @section('content')
   @include('nav')

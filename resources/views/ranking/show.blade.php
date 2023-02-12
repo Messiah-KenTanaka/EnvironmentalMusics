@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', $pref . 'ランキング')
+@section('title', env('APP_NAME') . '/' .$pref . 'ランキング')
 
 @section('content')
   @include('nav')
