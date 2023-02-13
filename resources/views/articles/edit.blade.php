@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', env('APP_NAME') . '/投稿更新')
+@section('title', config('app.name') . '/投稿更新')
 
 @include('nav')
 
