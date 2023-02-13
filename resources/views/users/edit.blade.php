@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', env('APP_NAME') . '/プロフィール編集')
+@section('title', config('app.name') . '/プロフィール編集')
 
 @include('nav')
 

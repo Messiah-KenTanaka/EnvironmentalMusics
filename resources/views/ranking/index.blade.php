@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', env('APP_NAME') . '/全国ランキング')
+@section('title', config('app.name') . '/全国ランキング')
 
 @section('content')
   @include('nav')

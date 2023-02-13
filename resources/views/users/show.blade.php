@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', env('APP_NAME') . '/' . $user->name)
+@section('title', config('app.name') . '/' . $user->name)
 
 @section('content')
     @include('nav')
