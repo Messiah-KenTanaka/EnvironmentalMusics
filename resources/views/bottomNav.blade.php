@@ -38,7 +38,7 @@
       <!-- dropup -->
     </div>        
     
-    @guest
+    {{--  @guest
     <li class="nav-item">
       <a class="nav-link" href="{{ route('register') }}"><i class="fa-solid fa-user-plus"></i></a>
     </li>
@@ -48,7 +48,7 @@
     <li class="nav-item">
       <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a>
     </li>
-    @endguest
+    @endguest  --}}
 
     @auth
     {{--  新規投稿  --}}
