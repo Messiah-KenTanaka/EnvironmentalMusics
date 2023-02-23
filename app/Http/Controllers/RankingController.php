@@ -15,6 +15,7 @@ class RankingController extends Controller
             ->whereNotNull('image')
             ->whereNotNull('fish_size')
             ->orderByDesc('fish_size')
+            ->orderByDesc('created_at')
             ->limit(50)
             ->get();
 
@@ -34,6 +35,7 @@ class RankingController extends Controller
             ->whereNotNull('image')
             ->whereNotNull('fish_size')
             ->orderByDesc('fish_size')
+            ->orderByDesc('created_at')
             ->limit(30)
             ->get(); 
 
