@@ -23,7 +23,7 @@ class UserController extends Controller
             ->sum('fish_size');
 
         $totalWeight = $user->articles->whereNotNull('weight')
-        ->sum('weight');
+            ->sum('weight');
 
 
         $tags = Tag::getPopularTag();
@@ -72,12 +72,21 @@ class UserController extends Controller
 
         $articles = $user->likes->sortByDesc('created_at')->paginate(config('paginate.paginate'));
 
+        $totalSize = $user->articles->whereNotNull('fish_size')
+        ->sum('fish_size');
+
+        $totalWeight = $user->articles->whereNotNull('weight')
+            ->sum('weight');
+
+
         $tags = Tag::getPopularTag();
 
         return view('users.likes', [
             'user' => $user,
             'articles' => $articles,
             'tags' => $tags,
+            'totalSize' => $totalSize,
+            'totalWeight' => $totalWeight
         ]);
     }
 
@@ -88,12 +97,21 @@ class UserController extends Controller
 
         $followings = $user->followings->sortByDesc('created_at')->paginate(config('paginate.paginate'));
 
+        $totalSize = $user->articles->whereNotNull('fish_size')
+        ->sum('fish_size');
+
+        $totalWeight = $user->articles->whereNotNull('weight')
+            ->sum('weight');
+
+
         $tags = Tag::getPopularTag();
 
         return view('users.followings', [
             'user' => $user,
             'followings' => $followings,
             'tags' => $tags,
+            'totalSize' => $totalSize,
+            'totalWeight' => $totalWeight
         ]);
     }
     
@@ -104,12 +122,21 @@ class UserController extends Controller
 
         $followers = $user->followers->sortByDesc('created_at')->paginate(config('paginate.paginate'));
 
+        $totalSize = $user->articles->whereNotNull('fish_size')
+        ->sum('fish_size');
+
+        $totalWeight = $user->articles->whereNotNull('weight')
+            ->sum('weight');
+
+
         $tags = Tag::getPopularTag();
 
         return view('users.followers', [
             'user' => $user,
             'followers' => $followers,
             'tags' => $tags,
+            'totalSize' => $totalSize,
+            'totalWeight' => $totalWeight
         ]);
     }
 
