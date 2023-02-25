@@ -25,6 +25,9 @@
   </select>
 </div>
 <div class="form-group">
+  <input type="text" name="weight" class="form-control" placeholder="ウェイト" value="{{ $article->weight ?? old('weight') }}">
+</div>
+<div class="form-group">
   <select name="pref" class="custom-select">
     <optgroup label="都道府県">
       <option value="" disabled selected style="display:none;">都道府県</option>

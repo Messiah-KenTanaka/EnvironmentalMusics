@@ -96,14 +96,29 @@
       </div>
     @endif
   @endforeach
-  @if ($article->fish_size)
-    <div class="card-body pt-0 pb-2 pl-3">
-      <span class="font-weight-bold lead pl-1">
-        {{ $article->fish_size }}
-      </span>
-      cm
-    </div>
-  @endif
+  <div class="d-flex">
+    @if ($article->fish_size)
+      <div class="pt-0 pb-2 pl-3">
+        <span class="font-weight-bold lead pl-1">
+          {{ $article->fish_size }}
+        </span>
+        cm
+      </div>
+    @endif
+    @if ($article->fish_size && $article->weight)
+        <span class="lead pl-3">
+          /
+        </span>
+    @endif
+    @if ($article->weight)
+      <div class="card-body pt-0 pb-2 pl-3">
+        <span class="font-weight-bold lead pl-1">
+          {{ $article->weight }}
+        </span>
+        g
+      </div>
+    @endif
+  </div>
   @if ($article->pref || $article->bass_field)
     <div class="card-body pt-0 pb-2 pl-3">
       @if ($article->pref)
