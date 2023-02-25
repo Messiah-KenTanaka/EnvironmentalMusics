@@ -42,6 +42,31 @@
             {{ $user->name }}
             </a>
         </h2>
+        <div class="d-flex">
+            @if ($totalSize)
+                <div class="m-2">
+                    <span class="text-dark main-font-family-cursive">
+                        total
+                        {{ $totalSize }}
+                        cm
+                    </span>
+                </div>
+            @endif
+            @if ($totalSize && $totalWeight)
+                <span class="m-2">
+                /
+                </span>
+            @endif
+            @if ($totalWeight)
+                <div class="m-2">
+                    <span class="text-dark main-font-family-cursive">
+                        total
+                        {{ number_format($totalWeight) }}
+                        g
+                    </span>
+                </div>
+            @endif
+        </div>
         <div class="card-body m-0">
             <span class="text-dark">
             {{ $user->introduction }}
