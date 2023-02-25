@@ -16,7 +16,15 @@ class UserController extends Controller
         $user = User::where('name', $name)->first()
             ->load(['articles.user', 'articles.likes', 'articles.tags']);
 
-        $articles = $user->articles->sortByDesc('created_at')->paginate(config('paginate.paginate'));
+        $articles = $user->articles->sortByDesc('created_at')
+            ->paginate(config('paginate.paginate'));
+
+        $totalSize = $user->articles->whereNotNull('fish_size')
+            ->sum('fish_size');
+
+        $totalWeight = $user->articles->whereNotNull('weight')
+        ->sum('weight');
+
 
         $tags = Tag::getPopularTag();
 
@@ -24,6 +32,8 @@ class UserController extends Controller
             'user' => $user,
             'articles' => $articles,
             'tags' => $tags,
+            'totalSize' => $totalSize,
+            'totalWeight' => $totalWeight
         ]);
     }
 
