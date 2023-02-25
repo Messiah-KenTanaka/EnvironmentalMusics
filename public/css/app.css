@@ -6,6 +6,10 @@
   font-family: serif;
 }
 
+.main-font-family-cursive {
+  font-family: cursive;
+}
+
 .container {
   margin-bottom: 5rem;
 }

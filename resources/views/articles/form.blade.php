@@ -14,18 +14,20 @@
   >
   </article-tags-input>
 </div>
-<div class="form-group">
-  <select name="fish_size" class="custom-select">
-    <optgroup label="サイズ">
-      <option value="" disabled selected style="display:none;">サイズ</option>
-      @foreach(config('fishSize') as $id => $fish_size)
-        <option value="{{ $fish_size }}">{{ $fish_size }}cm</option>
-      @endforeach
-    </optgroup>
-  </select>
-</div>
-<div class="form-group">
-  <input type="text" name="weight" class="form-control" placeholder="ウェイト" value="{{ $article->weight ?? old('weight') }}">
+<div class="d-flex row">
+  <div class="form-group col-6">
+    <select name="fish_size" class="custom-select">
+      <optgroup label="サイズ">
+        <option value="" disabled selected style="display:none;">サイズ</option>
+        @foreach(config('fishSize') as $id => $fish_size)
+          <option value="{{ $fish_size }}">{{ $fish_size }}cm</option>
+        @endforeach
+      </optgroup>
+    </select>
+  </div>
+  <div class="col-6">
+    <input type="text" name="weight" class="form-control" placeholder="ウェイト(g)" value="{{ $article->weight ?? old('weight') }}">
+  </div>
 </div>
 <div class="form-group">
   <select name="pref" class="custom-select">
