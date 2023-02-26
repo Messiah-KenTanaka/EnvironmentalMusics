@@ -7,6 +7,7 @@ use App\Tag;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 use Functions;
 
 class ArticleController extends Controller
@@ -53,19 +54,35 @@ class ArticleController extends Controller
     {
         $article->fill($request->all());
         $article->user_id = $request->user()->id;
-        // s3画像アップロード
+    
         $file = $request->file('image');
         if(isset($file)) {
-            $path = Storage::disk('s3')->putFile('bcommunity_img', $file, 'public');
-            $article->image = Storage::disk('s3')->url($path);    
+            // 画像を100KB以上ならリサイズする
+            $image = Image::make($file);
+            if ($image->filesize() > 100000) {
+                $image->resize(800, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $tempPath = tempnam(sys_get_temp_dir(), 'temp-image-');
+                $image->save($tempPath);
+                $resizedImage = new \Illuminate\Http\UploadedFile($tempPath, $file->getClientOriginalName());
+            } else {
+                $resizedImage = $file;
+            }
+    
+            // S3に画像を保存する
+            $path = Storage::disk('s3')->putFile('bcommunity_img', $resizedImage, 'public');
+            $article->image = Storage::disk('s3')->url($path);
         }
+    
         $article->save();
-
+    
         $request->tags->each(function ($tagName) use ($article) {
             $tag = Tag::firstOrCreate(['name' => $tagName]);
             $article->tags()->attach($tag);
         });
-
+    
         return redirect()->route('articles.index');
     }
 

@@ -11,6 +11,7 @@
         "php": "^8.1",
         "aws/aws-sdk-php": "^3.255",
         "fideloper/proxy": "^4.0",
+        "intervention/image": "^2.7",
         "laravel/framework": "^8.0",
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.0",
