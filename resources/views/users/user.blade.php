@@ -43,25 +43,25 @@
             </a>
         </h2>
         <div class="d-flex">
-            @if ($totalSize)
+            @if ($total['size'])
                 <div class="m-2">
                     <span class="text-dark main-font-family-cursive">
                         total
-                        {{ $totalSize }}
+                        {{ $total['size'] }}
                         cm
                     </span>
                 </div>
             @endif
-            @if ($totalSize && $totalWeight)
+            @if ($total['size'] && $total['weight'])
                 <span class="m-2">
                 /
                 </span>
             @endif
-            @if ($totalWeight)
+            @if ($total['weight'])
                 <div class="m-2">
                     <span class="text-dark main-font-family-cursive">
                         total
-                        {{ number_format($totalWeight) }}
+                        {{ number_format($total['weight']) }}
                         g
                     </span>
                 </div>
