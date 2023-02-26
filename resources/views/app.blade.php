@@ -16,8 +16,7 @@
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   {{--  GoogleAdsense 広告  --}}
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3324255919208405"
-    crossorigin="anonymous">
-  </script>
+    crossorigin="anonymous"></script>
   {{--  JQuery ローディング   --}}
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
