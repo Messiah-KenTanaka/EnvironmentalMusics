@@ -15,7 +15,7 @@
             <div class="card-text">
               <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
                 @include('articles.form')
-                <button type="submit" class="btn dusty-grass-gradient btn-block loading-btn">投稿</button>
+                <button type="submit" class="btn dusty-grass-gradient btn-block">投稿</button>
               </form>
             </div>
           </div>
