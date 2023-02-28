@@ -124,7 +124,7 @@
       @if ($article->pref)
         <a type="button"
                 onclick="location.href='{{ route('ranking.show', ['pref' => $article->pref]) }}'">
-          <small class="border-pref p-2">
+          <small class="border-pref p-2 mr-2">
             {{ $article->pref }}
           </small>
         </a>
