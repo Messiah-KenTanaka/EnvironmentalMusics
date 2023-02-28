@@ -42,6 +42,22 @@
             {{ $user->name }}
             </a>
         </h2>
+        <div class="m-2">
+            <span class="text-dark main-font-family-cursive">
+                称号：
+                @if ($total['size'] > 5000000 || $total['weight'] > 100000000)
+                    王
+                @elseif ($total['size'] > 500000 || $total['weight'] > 10000000)
+                    達人釣り師
+                @elseif ($total['size'] > 50000 || $total['weight'] > 1000000)
+                    熟練釣り師
+                @elseif ($total['size'] > 5000 || $total['weight'] > 100000)
+                    職人釣り師
+                @else
+                    見習い釣り師
+                @endif
+            </span>
+        </div>
         <div class="d-flex">
             @if ($total['size'])
                 <div class="m-2">
