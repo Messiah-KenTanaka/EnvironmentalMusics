@@ -8,6 +8,7 @@ use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Illuminate\Http\UploadedFile;
 use Functions;
 
 class ArticleController extends Controller
@@ -57,8 +58,21 @@ class ArticleController extends Controller
     
         $file = $request->file('image');
         if(isset($file)) {
+            $tempPath = null;
+            $convertedImage = $file;
+            
+            // HEIC画像をJPEGに変換する
+            if ($file->getMimeType() === 'image/heic') {
+                $imagick = new \Imagick();
+                $imagick->readImage($file->getPathname());
+                $imagick->setImageFormat('jpeg');
+                $tempPath = tempnam(sys_get_temp_dir(), 'temp-image-');
+                $imagick->writeImage($tempPath);
+                $convertedImage = new UploadedFile($tempPath, $file->getClientOriginalName());
+            }
+            
             // 画像を100KB以上ならリサイズする
-            $image = Image::make($file);
+            $image = Image::make($convertedImage);
             if ($image->filesize() > 100000) {
                 $image->resize(800, null, function ($constraint) {
                     $constraint->aspectRatio();
@@ -66,11 +80,11 @@ class ArticleController extends Controller
                 });
                 $tempPath = tempnam(sys_get_temp_dir(), 'temp-image-');
                 $image->save($tempPath);
-                $resizedImage = new \Illuminate\Http\UploadedFile($tempPath, $file->getClientOriginalName());
+                $resizedImage = new UploadedFile($tempPath, $file->getClientOriginalName());
             } else {
                 $resizedImage = $file;
             }
-    
+                
             // S3に画像を保存する
             $path = Storage::disk('s3')->putFile('bcommunity_img', $resizedImage, 'public');
             $article->image = Storage::disk('s3')->url($path);
