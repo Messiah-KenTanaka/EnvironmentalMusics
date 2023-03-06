@@ -62,15 +62,14 @@ class ArticleController extends Controller
             $convertedImage = $file;
             
             // HEIC画像をJPEGに変換する
-            // heroku本番で500エラーになるためコメントアウト
-            // if ($file->getMimeType() === 'image/heic') {
-            //     $imagick = new \Imagick();
-            //     $imagick->readImage($file->getPathname());
-            //     $imagick->setImageFormat('jpeg');
-            //     $tempPath = tempnam(sys_get_temp_dir(), 'temp-image-');
-            //     $imagick->writeImage($tempPath);
-            //     $convertedImage = new UploadedFile($tempPath, $file->getClientOriginalName());
-            // }
+            if ($file->getMimeType() === 'image/heic') {
+                $imagick = new \Imagick();
+                $imagick->readImage($file->getPathname());
+                $imagick->setImageFormat('jpeg');
+                $tempPath = tempnam(sys_get_temp_dir(), 'temp-image-');
+                $imagick->writeImage($tempPath);
+                $convertedImage = new UploadedFile($tempPath, $file->getClientOriginalName());
+            }
             
             // 画像を100KB以上ならリサイズする
             $image = Image::make($convertedImage);
