@@ -62,23 +62,23 @@
         </div>
         <div class="d-flex">
             @if ($total['size'])
-                <div class="m-2">
+                <div class="m-1">
                     <span class="text-dark main-font-family-cursive">
-                        total
+                        TotalSize
                         {{ $total['size'] }}
                         cm
                     </span>
                 </div>
             @endif
             @if ($total['size'] && $total['weight'])
-                <span class="m-2">
+                <span class="m-1">
                 /
                 </span>
             @endif
             @if ($total['weight'])
-                <div class="m-2">
+                <div class="m-1">
                     <span class="text-dark main-font-family-cursive">
-                        total
+                        TotalWeight
                         {{ number_format($total['weight']) }}
                         g
                     </span>
