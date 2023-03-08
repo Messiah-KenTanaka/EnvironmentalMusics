@@ -43,7 +43,7 @@
             </a>
         </h2>
         <div class="m-2">
-            <span class="text-dark main-font-family-cursive">
+            <span class="text-dark font-nico-moji font-weight-bold">
                 称号：
                 @if ($total['size'] > 5000000 || $total['weight'] > 100000000)
                     王
