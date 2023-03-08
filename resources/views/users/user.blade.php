@@ -45,16 +45,18 @@
         <div class="m-2">
             <span class="text-dark font-nico-moji font-weight-bold">
                 称号：
-                @if ($total['size'] > 5000000 || $total['weight'] > 100000000)
-                    王
+                @if ($total['size'] > 50000000 || $total['weight'] > 1000000000)
+                    神 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
+                @elseif ($total['size'] > 5000000 || $total['weight'] > 100000000)
+                    王 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
                 @elseif ($total['size'] > 500000 || $total['weight'] > 10000000)
-                    達人釣り師
+                    達人 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
                 @elseif ($total['size'] > 50000 || $total['weight'] > 1000000)
-                    熟練釣り師
+                    熟練 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
                 @elseif ($total['size'] > 5000 || $total['weight'] > 100000)
-                    職人釣り師
+                    職人 <i class="fa-solid fa-star text-color-gold"></i>
                 @else
-                    見習い釣り師
+                    見習い <i class="fa-solid fa-star-half-stroke text-color-gold"></i>
                 @endif
             </span>
         </div>
