@@ -1,5 +1,5 @@
 <nav class="nav navbar nav-fixed navbar-expand navbar-light dusty-grass-gradient">
-  <a class="navbar-brand main-font-family" href="/">BASSER</a>
+  <a class="navbar-brand main-font-family" href="/">BASSER_β</a>
   <ul class="navbar-nav ml-auto"> 
     @guest
     <li class="nav-item">
