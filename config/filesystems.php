@@ -64,6 +64,10 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
+        'extension_to_mime' => [
+            // 既存の設定
+            'heic' => 'image/heic'
+        ],
 
     ],
 
