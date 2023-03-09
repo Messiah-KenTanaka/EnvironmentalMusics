@@ -62,7 +62,7 @@ class ArticleController extends Controller
             $convertedImage = $file;
 
             // HEIC画像をJPEGに変換する
-            if ($file->getMimeType() === 'image/heic') {
+            if ($file->getClientMimeType() === 'image/heic') {
                 $imagick = new \Imagick();
                 $imagick->readImage($file->getPathname());
                 $imagick->setImageFormat('jpeg');
