@@ -11,6 +11,7 @@
         "php": "^8.1",
         "aws/aws-sdk-php": "^3.255",
         "ext-imagick": "*",
+        "ext-gd": "*",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.7",
         "laravel/framework": "^8.0",
