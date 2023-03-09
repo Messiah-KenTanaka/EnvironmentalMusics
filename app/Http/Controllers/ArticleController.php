@@ -58,8 +58,36 @@ class ArticleController extends Controller
         // s3画像アップロード
         $file = $request->file('image');
         if(isset($file)) {
-            $path = Storage::disk('s3')->putFile('bcommunity_img', $file, 'public');
-            $article->image = Storage::disk('s3')->url($path);    
+            $tempPath = null;
+            $convertedImage = $file;
+
+            // HEIC画像をJPEGに変換する
+            if ($file->getMimeType() === 'image/heic') {
+                $imagick = new \Imagick();
+                $imagick->readImage($file->getPathname());
+                $imagick->setImageFormat('jpeg');
+                $tempPath = tempnam(sys_get_temp_dir(), 'temp-image-');
+                $imagick->writeImage($tempPath);
+                $convertedImage = new UploadedFile($tempPath, $file->getClientOriginalName());
+            }
+
+            // 画像を100KB以上ならリサイズする
+            $image = Image::make($convertedImage);
+            if ($image->filesize() > 100000) {
+                $image->resize(800, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $tempPath = tempnam(sys_get_temp_dir(), 'temp-image-');
+                $image->save($tempPath);
+                $resizedImage = new UploadedFile($tempPath, $file->getClientOriginalName());
+            } else {
+                $resizedImage = $file;
+            }
+
+            // S3に画像を保存する
+            $path = Storage::disk('s3')->putFile('bcommunity_img', $resizedImage, 'public');
+            $article->image = Storage::disk('s3')->url($path);   
         }
         $article->save();
 
