@@ -72,7 +72,7 @@ class ArticleController extends Controller
             }
 
             // 画像を100KB以上ならリサイズする
-            $image = Image::make($convertedImage);
+            $image = Image::make($convertedImage, ['driver' => 'imagick']);
             if ($image->filesize() > 100000) {
                 $image->resize(800, null, function ($constraint) {
                     $constraint->aspectRatio();
