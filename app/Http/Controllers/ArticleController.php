@@ -55,26 +55,23 @@ class ArticleController extends Controller
     {
         $article->fill($request->all());
         $article->user_id = $request->user()->id;
-        // s3画像アップロード
+    
+        // S3画像アップロード
         $file = $request->file('image');
-        if(isset($file)) {
-            $tempPath = null;
-            $convertedImage = $file;
-
-            // HEIC画像をJPEGに変換する
-            if ($file->getClientMimeType() === 'image/heic') {
+        if (isset($file)) {
+            // MIMEタイプを判別する
+            $mime_type = $file->getMimeType();
+            if ($mime_type === 'image/heic') {
                 $imagick = new \Imagick();
                 $imagick->readImage($file->getPathname());
                 $imagick->setImageFormat('jpeg');
                 $tempPath = tempnam(sys_get_temp_dir(), 'temp-image-');
                 $imagick->writeImage($tempPath);
-                $convertedImage = new UploadedFile($tempPath, $file->getClientOriginalName());
+                $file = new UploadedFile($tempPath, $file->getClientOriginalName(), 'image/jpeg', null, true);
             }
-
-            dd($file->getClientMimeType());
-
+    
             // 画像を100KB以上ならリサイズする
-            $image = Image::make($convertedImage, ['driver' => 'gd']);
+            $image = Image::make($file, ['driver' => 'gd']);
             if ($image->filesize() > 100000) {
                 $image->resize(800, null, function ($constraint) {
                     $constraint->aspectRatio();
@@ -82,24 +79,23 @@ class ArticleController extends Controller
                 });
                 $tempPath = tempnam(sys_get_temp_dir(), 'temp-image-');
                 $image->save($tempPath);
-                $resizedImage = new UploadedFile($tempPath, $file->getClientOriginalName());
-            } else {
-                $resizedImage = $file;
+                $file = new UploadedFile($tempPath, $file->getClientOriginalName(), $file->getClientMimeType(), null, true);
             }
-
+    
             // S3に画像を保存する
-            $path = Storage::disk('s3')->putFile('bcommunity_img', $resizedImage, 'public');
-            $article->image = Storage::disk('s3')->url($path);   
+            $path = Storage::disk('s3')->putFile('bcommunity_img', $file, 'public');
+            $article->image = Storage::disk('s3')->url($path);
         }
+    
         $article->save();
-
+    
         $request->tags->each(function ($tagName) use ($article) {
             $tag = Tag::firstOrCreate(['name' => $tagName]);
             $article->tags()->attach($tag);
         });
-
+    
         return redirect()->route('articles.index');
-    }
+    }    
 
     public function edit(Article $article)
     {
