@@ -71,6 +71,8 @@ class ArticleController extends Controller
                 $convertedImage = new UploadedFile($tempPath, $file->getClientOriginalName());
             }
 
+            dd($file->getClientMimeType());
+
             // 画像を100KB以上ならリサイズする
             $image = Image::make($convertedImage, ['driver' => 'gd']);
             if ($image->filesize() > 100000) {
