@@ -58,7 +58,7 @@ class ArticleController extends Controller
     
         // S3画像アップロード
         $file = $request->file('image');
-        if (isset($file)) {
+        if (isset($file) && !empty($file->getPathname())) {
             // MIMEタイプを判別する
             $file_ext = $file->getClientOriginalExtension();
             $mime_type = '';
@@ -91,8 +91,6 @@ class ArticleController extends Controller
                 $file = new UploadedFile($tempPath, $file->getClientOriginalName(), 'image/jpeg', null, true);
             }
 
-            dd($file);
-    
             // 画像を100KB以上ならリサイズする
             $image = Image::make($file, ['driver' => 'gd']);
             if ($image->filesize() > 100000) {
