@@ -71,8 +71,18 @@ class ArticleController extends Controller
             } elseif ($file_ext === 'HEIC' || $file_ext === 'heic') {
                 $mime_type = 'image/heic';
             }// 他のファイル形式についても同様に処理を追加してください
-
+    
             if ($mime_type === 'image/heic' || $mime_type === 'application/octet-stream') {
+                $tmpFile = tmpfile();
+                fwrite($tmpFile, file_get_contents($file->getPathname()));
+                $metaData = stream_get_meta_data($tmpFile);
+                $file = new UploadedFile(
+                    $metaData['uri'],
+                    $file->getClientOriginalName(),
+                    'image/heic',
+                    null,
+                    true
+                );
                 $imagick = new \Imagick();
                 $imagick->readImage($file->getPathname());
                 $imagick->setImageFormat('jpeg');
@@ -106,7 +116,8 @@ class ArticleController extends Controller
         });
     
         return redirect()->route('articles.index');
-    }    
+    }
+    
 
     public function edit(Article $article)
     {
