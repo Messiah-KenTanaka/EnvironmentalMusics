@@ -60,8 +60,19 @@ class ArticleController extends Controller
         $file = $request->file('image');
         if (isset($file)) {
             // MIMEタイプを判別する
-            $mime_type = $file->getMimeType();
-            if ($mime_type === 'image/heic') {
+            $file_ext = $file->getClientOriginalExtension();
+            $mime_type = '';
+            if ($file_ext === 'jpg' || $file_ext === 'jpeg') {
+                $mime_type = 'image/jpeg';
+            } elseif ($file_ext === 'png') {
+                $mime_type = 'image/png';
+            } elseif ($file_ext === 'gif') {
+                $mime_type = 'image/gif';
+            } elseif ($file_ext === 'HEIC' || $file_ext === 'heic') {
+                $mime_type = 'image/heic';
+            }// 他のファイル形式についても同様に処理を追加してください
+
+            if ($mime_type === 'image/heic' || $mime_type === 'application/octet-stream') {
                 $imagick = new \Imagick();
                 $imagick->readImage($file->getPathname());
                 $imagick->setImageFormat('jpeg');
