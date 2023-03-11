@@ -90,6 +90,8 @@ class ArticleController extends Controller
                 $imagick->writeImage($tempPath);
                 $file = new UploadedFile($tempPath, $file->getClientOriginalName(), 'image/jpeg', null, true);
             }
+
+            dd($file);
     
             // 画像を100KB以上ならリサイズする
             $image = Image::make($file, ['driver' => 'gd']);
