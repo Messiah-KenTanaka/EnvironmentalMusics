@@ -10,6 +10,11 @@
       <a class="nav-link" href="{{ route('ranking.index') }}"><i class="fas fa-crown"></i>
       </a>
     </li>
+    {{-- 天気予報 --}}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('weather.index') }}"><i class="fa-solid fa-cloud-sun"></i>
+      </a>
+    </li>
     
     {{--  ToDo 地図機能実装予定  --}}
     {{--  <li class="nav-item">

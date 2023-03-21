@@ -33,7 +33,7 @@ class WeatherController extends Controller
         $weatherData = $this->extractWeatherData($data);
         $tags = Tag::getPopularTag();
         
-        return view('weather.index',[
+        return view('weather.show',[
             'cityName' => $cityName,
             'weatherData' => $weatherData,
             'tags' => $tags,
