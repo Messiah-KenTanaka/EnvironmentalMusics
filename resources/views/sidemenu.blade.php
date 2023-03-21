@@ -15,6 +15,7 @@
             </button>
             <div class="dropdown-divider"></div>
         @endauth
+        
         {{--  マップは実装までコメントアウト
         <button class="dropdown-item py-2" type="button" data-toggle="modal" data-target="#dmaintenanceModal"
             onclick="location.href='#'">
@@ -22,12 +23,21 @@
             <span class="ml-3 pl-1 font-weight-bold">Map</span>
         </button>
         <div class="dropdown-divider"></div>  --}}
+
         <button class="dropdown-item py-2" type="button"
             onclick="location.href='{{ route('ranking.index') }}'">
             <i class="fas fa-crown"></i>
             <span class="ml-3 font-weight-bold">Ranking</span>
         </button>
         <div class="dropdown-divider"></div>
+
+        <button class="dropdown-item py-2" type="button"
+            onclick="location.href='{{ route('weather.index') }}'">
+            <i class="fa-solid fa-cloud-sun"></i>
+            <span class="ml-3 font-weight-bold">Weather</span>
+        </button>
+        <div class="dropdown-divider"></div>
+
 
         @auth
             <button class="dropdown-item py-2" type="button"

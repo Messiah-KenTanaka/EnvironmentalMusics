@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54dcf75cd92f130fae2878fd05631b1a",
+    "content-hash": "d433217a41dfa6fc965271e3a06e806f",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.261.7",
+            "version": "3.261.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "2f0a97018eb9fd05bbd69a75a943ef15d0bbc785"
+                "reference": "7d17f3187a4d5bebc41ca5d363570ed632b698c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2f0a97018eb9fd05bbd69a75a943ef15d0bbc785",
-                "reference": "2f0a97018eb9fd05bbd69a75a943ef15d0bbc785",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7d17f3187a4d5bebc41ca5d363570ed632b698c0",
+                "reference": "7d17f3187a4d5bebc41ca5d363570ed632b698c0",
                 "shasum": ""
             },
             "require": {
@@ -146,9 +146,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.261.7"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.261.15"
             },
-            "time": "2023-03-08T19:20:51+00:00"
+            "time": "2023-03-20T18:19:46+00:00"
         },
         {
             "name": "brick/math",
@@ -7871,8 +7871,8 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1",
-        "ext-imagick": "*",
-        "ext-gd": "*"
+        "ext-gd": "*",
+        "ext-imagick": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
