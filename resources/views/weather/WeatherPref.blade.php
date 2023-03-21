@@ -5,12 +5,12 @@
     <li class="nav-item dropdown text-center">
       <a class="nav-link" id="navbarDropdownTagLink" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-search"> 各地の天気検索</i>
+        <i class="fas fa-search"> 全国の天気予報検索</i>
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownTagLink">
-        @foreach(config('pref') as $id => $pref)
+        @foreach(config('weatherPref') as $id => $pref)
           <button class="dropdown-item" type="button"
-              onclick="location.href='{{ route('ranking.show', ['pref' => $pref]) }}'">
+              onclick="location.href='{{ route('weather.show', ['pref' => $id]) }}'">
             <span class="ml-1">{{ $pref }}</span>
           </button>
         @endforeach

@@ -10,8 +10,25 @@ use GuzzleHttp\Client;
 class WeatherController extends Controller
 {
     public function index() {
+        // デフォルトは現在大阪固定
         $apiKey = env('OPENWEATHER_API_KEY');
-        $data = $this->getWeatherData('Tokyo', $apiKey);
+        $data = $this->getWeatherData('Osaka', $apiKey);
+        $cityName = $data['city']['name'];
+        $weatherData = $this->extractWeatherData($data);
+        $tags = Tag::getPopularTag();
+        
+        return view('weather.index',[
+            'cityName' => $cityName,
+            'weatherData' => $weatherData,
+            'tags' => $tags,
+        ]);
+    }
+
+    public function show(string $pref)
+    {
+        // 全国の天気予報
+        $apiKey = env('OPENWEATHER_API_KEY');
+        $data = $this->getWeatherData($pref, $apiKey);
         $cityName = $data['city']['name'];
         $weatherData = $this->extractWeatherData($data);
         $tags = Tag::getPopularTag();

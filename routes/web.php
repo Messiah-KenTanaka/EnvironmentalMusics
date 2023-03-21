@@ -43,6 +43,7 @@ Route::get('/ranking/{pref}', 'RankingController@show')->name('ranking.show');
 
 // 天気予報
 Route::get('/weather', 'WeatherController@index')->name('weather.index');
+Route::get('/weather/{pref}', 'WeatherController@show')->name('weather.show');
 
 // ユーザー
 Route::prefix('users')->name('users.')->group(function () {
