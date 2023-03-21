@@ -54,7 +54,7 @@ class WeatherController extends Controller
         $weatherData = array();
         foreach ($data['list'] as $listItem) {
             $timestamp = strtotime($listItem['dt_txt']);
-            $date = date('Y/m/d', $timestamp);
+            $date = date('Y/m/d (D)', $timestamp);
             $time = date('H:i', $timestamp);
             $weather = $listItem['weather'][0]['description'];
             $temperature = $listItem['main']['temp'];
