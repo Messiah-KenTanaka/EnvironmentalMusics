@@ -44,7 +44,7 @@
                           </td>
                           <td>{{ round($weatherItem['temperature'], 1) }}℃</td>
                           <td>{{ $weatherItem['humidity'] }}%</td>
-                          <td>{{ $weatherItem['windSpeed'] }}m/s</td>
+                          <td>{{ round($weatherItem['windSpeed'], 1) }}m/s</td>
                       </tr>
                   @endforeach
               </tbody>
