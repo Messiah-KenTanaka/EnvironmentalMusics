@@ -38,6 +38,9 @@
                               @case('小雪')
                                 <img src="{{ asset('images/tennki-light-snow.png')}}" class="rounded-circle mr-1" width="25" height="25">
                                 @break
+                              @case('雪')
+                                <img src="{{ asset('images/tennki-snow.png')}}" class="rounded-circle mr-1" width="25" height="25">
+                                @break
                               @default
                                 {{ $weatherItem['weather'] }}
                             @endswitch
