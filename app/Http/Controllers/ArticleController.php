@@ -7,8 +7,6 @@ use App\Tag;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
-use Illuminate\Http\UploadedFile;
 use Functions;
 
 class ArticleController extends Controller
@@ -59,51 +57,8 @@ class ArticleController extends Controller
         // S3画像アップロード
         $file = $request->file('image');
         if (isset($file) && !empty($file->getPathname())) {
-            // MIMEタイプを判別する
-            $file_ext = $file->getClientOriginalExtension();
-            $mime_type = '';
-            if ($file_ext === 'jpg' || $file_ext === 'jpeg') {
-                $mime_type = 'image/jpeg';
-            } elseif ($file_ext === 'png') {
-                $mime_type = 'image/png';
-            } elseif ($file_ext === 'gif') {
-                $mime_type = 'image/gif';
-            } elseif ($file_ext === 'HEIC' || $file_ext === 'heic') {
-                $mime_type = 'image/heic';
-            }// 他のファイル形式についても同様に処理を追加してください
-    
-            if ($mime_type === 'image/heic' || $mime_type === 'application/octet-stream') {
-                $tmpFile = tmpfile();
-                fwrite($tmpFile, file_get_contents($file->getPathname()));
-                $metaData = stream_get_meta_data($tmpFile);
-                $file = new UploadedFile(
-                    $metaData['uri'],
-                    $file->getClientOriginalName(),
-                    'image/heic',
-                    null,
-                    true
-                );
-                $imagick = new \Imagick();
-                $imagick->readImage($file->getPathname());
-                $imagick->setImageFormat('jpeg');
-                $tempPath = tempnam(sys_get_temp_dir(), 'temp-image-');
-                $imagick->writeImage($tempPath);
-                $file = new UploadedFile($tempPath, $file->getClientOriginalName(), 'image/jpeg', null, true);
-            }
-
-            // 画像を100KB以上ならリサイズする
-            $image = Image::make($file, ['driver' => 'gd']);
-            if ($image->filesize() > 100000) {
-                $image->resize(800, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                });
-                $tempPath = tempnam(sys_get_temp_dir(), 'temp-image-');
-                $image->save($tempPath);
-                $file = new UploadedFile($tempPath, $file->getClientOriginalName(), $file->getClientMimeType(), null, true);
-            }
-    
             // S3に画像を保存する
+            $file = Functions::ImageUploadResize($file);
             $path = Storage::disk('s3')->putFile('bcommunity_img', $file, 'public');
             $article->image = Storage::disk('s3')->url($path);
         }
