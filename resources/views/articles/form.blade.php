@@ -29,27 +29,29 @@
     <input type="text" name="weight" class="form-control" placeholder="ウェイト(g)" value="{{ $article->weight ?? old('weight') }}">
   </div>
 </div>
-<div class="form-group">
-  <select name="pref" class="custom-select">
-    <optgroup label="都道府県">
-      <option value="" disabled selected style="display:none;">都道府県</option>
-      @foreach(config('pref') as $id => $pref)
-        <option value="{{ $pref }}">{{ $pref }}</option>
-      @endforeach
-    </optgroup>
-  </select>
-</div>
-<div class="form-group">
-  <select name="bass_field" class="custom-select">
-    @foreach(config('pref') as $id => $pref)
-      <optgroup label={{ $pref }}>
-        <option value="" disabled selected style="display:none;">フィールド</option>
-        @foreach($bassField[$keyCount++] as $field)
-          <option value="{{ $field }}">{{ $field }}</option>
+<div class="d-flex row">
+  <div class="form-group col-6">
+    <select name="pref" class="custom-select">
+      <optgroup label="都道府県">
+        <option value="" disabled selected style="display:none;">都道府県</option>
+        @foreach(config('pref') as $id => $pref)
+          <option value="{{ $pref }}">{{ $pref }}</option>
         @endforeach
       </optgroup>
-    @endforeach
-  </select>
+    </select>
+  </div>
+  <div class="col-6">
+    <select name="bass_field" class="custom-select">
+      @foreach(config('pref') as $id => $pref)
+        <optgroup label={{ $pref }}>
+          <option value="" disabled selected style="display:none;">フィールド</option>
+          @foreach($bassField[$keyCount++] as $field)
+            <option value="{{ $field }}">{{ $field }}</option>
+          @endforeach
+        </optgroup>
+      @endforeach
+    </select>
+  </div>
 </div>
 <div class="form-group">
   <input type="file" name="image" autocomplete="image" rows="4" value="画像を選択">
