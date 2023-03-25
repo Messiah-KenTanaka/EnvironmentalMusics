@@ -54,7 +54,9 @@ class UserController extends Controller
         $user->fill($request->all());
         // s3画像アップロード
         $file = $request->file('image');
-        if(isset($file)) {
+        if (isset($file) && !empty($file->getPathname())) {
+            // S3に画像を保存する
+            $file = Functions::ImageUploadResize($file);
             $path = Storage::disk('s3')->putFile('bcommunity_img', $file, 'public');
             $user->image = Storage::disk('s3')->url($path);
         }
