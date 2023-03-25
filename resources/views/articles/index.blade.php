@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', config('app.name') . '/投稿一覧')
+@section('title', config('app.name') . ' | バス釣り専用SNS')
 
 @section('content')
   @include('nav')

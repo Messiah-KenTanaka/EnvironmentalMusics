@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', config('app.name') . '/' .$pref . 'ランキング')
+@section('title', config('app.name') . ' | ' .$pref . 'ランキング')
 
 @section('content')
   @include('nav')
