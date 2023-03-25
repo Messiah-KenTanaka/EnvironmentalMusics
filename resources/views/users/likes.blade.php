@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', config('app.name') . '/' . $user->name . 'のいいねした投稿')
+@section('title', config('app.name') . ' | ' . $user->name . 'のいいねした投稿')
 
 @section('content')
     @include('nav')

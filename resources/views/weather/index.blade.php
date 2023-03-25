@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', config('app.name') . '/天気予報')
+@section('title', config('app.name') . ' | 天気予報')
 
 @section('content')
   @include('nav')

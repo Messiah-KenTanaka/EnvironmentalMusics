@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', config('app.name') . '/ログイン')
+@section('title', config('app.name') . ' | ログイン')
 
 @section('content')
   <div class="container">
