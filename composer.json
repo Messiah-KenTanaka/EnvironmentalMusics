@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.1",
         "ext-gd": "*",
+        "ext-exif": "*",
         "ext-imagick": "*",
         "aws/aws-sdk-php": "^3.255",
         "fideloper/proxy": "^4.0",

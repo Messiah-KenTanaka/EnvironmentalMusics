@@ -81,8 +81,29 @@ class Functions
             $file = new UploadedFile($tempPath, $file->getClientOriginalName(), 'image/jpeg', null, true);
         }
 
-        // 画像を100KB以上ならリサイズする
         $image = Image::make($file, ['driver' => 'gd']);
+
+        // 画像のEXIF情報を取得
+        $exif = $image->exif();
+        // Orientationの値に応じて画像を回転
+        if (!empty($exif['Orientation'])) {
+            switch ($exif['Orientation']) {
+                case 8:
+                    $image->rotate(90);
+                    break;
+                case 3:
+                    $image->rotate(180);
+                    break;
+                case 6:
+                    $image->rotate(-90);
+                    break;
+                default:
+                    // それ以外は何もしない
+                    break;
+            }
+        }
+
+        // 画像を100KB以上ならリサイズする
         if ($image->filesize() > 100000) {
             $image->resize(800, null, function ($constraint) {
                 $constraint->aspectRatio();
