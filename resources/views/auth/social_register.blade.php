@@ -21,11 +21,12 @@
                 <div class="md-form">
                   <label for="name">ユーザー名</label>
                   <input class="form-control" type="text" id="name" name="name" required>
-                  <small>英数字3〜16文字(登録後の変更はできません)</small>
+                  <small>3〜16文字(ユーザー名は登録後の変更はできません)</small>
                 </div>
                 <div class="md-form">
                   <label for="email">メールアドレス</label>
                   <input class="form-control" type="text" id="email" name="email" value="{{ $email }}" disabled>
+                  <small>メールアドレスは登録後の変更はできません</small>
                 </div>
                 <button class="btn btn-block dusty-grass-gradient mt-2 mb-2" type="submit">ユーザー登録</button>
               </form>
