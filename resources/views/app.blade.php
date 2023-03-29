@@ -28,7 +28,7 @@
 <body>
 
   <div id="app">
-    @include('loading')
+    {{--  @include('loading')  --}}
     @yield('content')
   </div>
 
