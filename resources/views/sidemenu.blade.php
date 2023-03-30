@@ -84,5 +84,10 @@
             <div class="dropdown-divider"></div>
         @endguest
 
+        <button class="col-12 mx-auto btn dusty-grass-gradient rounded-pill" type="button"
+            onclick="location.href='{{ route('articles.create') }}'">
+            <i class="fa-solid fa-fish"></i>
+        </button>
+
     </div>
 </div>
