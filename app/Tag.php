@@ -30,7 +30,7 @@ class Tag extends Model
             ->selectRaw('COUNT(article_tag.tag_id)')
             ->groupBy('article_tag.tag_id', 'tags.name')
             ->orderByDesc(DB::raw('COUNT(article_tag.tag_id)'))
-            ->limit(10)
+            ->limit(15)
             ->get();
     }
 }
