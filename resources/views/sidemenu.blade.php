@@ -1,5 +1,5 @@
-<div class="col-3 mt-5 d-none d-md-block">
-    <div class="form-group mt-2 sidemenu-fixed">
+<div class="col-3 mt-3 d-none d-md-block">
+    <div class="form-group mt-3 sidemenu-fixed">
         <button class="dropdown-item py-2" type="button"
             onclick="location.href='/'">
             <i class="fas fa-home"></i>
