@@ -7,14 +7,14 @@
         </button>
         <div class="dropdown-divider"></div>
 
-        @auth
+        {{--  @auth
             <button class="dropdown-item py-2" type="button"
                 onclick="location.href='{{ route('articles.create') }}'">
                 <i class="fa-solid fa-fish"></i>
                 <span class="ml-3 font-weight-bold">Post</span>
             </button>
             <div class="dropdown-divider"></div>
-        @endauth
+        @endauth  --}}
         
         {{--  マップは実装までコメントアウト
         <button class="dropdown-item py-2" type="button" data-toggle="modal" data-target="#dmaintenanceModal"
@@ -86,7 +86,7 @@
 
         <button class="col-12 mx-auto btn dusty-grass-gradient rounded-pill" type="button"
             onclick="location.href='{{ route('articles.create') }}'">
-            <i class="fa-solid fa-fish"></i>
+            <span class="font-weight-bold main-font-family">Fish!!!</span>
         </button>
 
     </div>
