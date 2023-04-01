@@ -15,8 +15,7 @@ class SearchController extends Controller
         $results = Article::with(['user', 'likes', 'tags'])
             ->where('body', 'LIKE', '%'.$keyword.'%')
             ->orderByDesc('created_at')
-            ->limit(50)
-            ->get();
+            ->paginate(config('paginate.paginate'));
 
         $tags = Tag::getPopularTag();
 
