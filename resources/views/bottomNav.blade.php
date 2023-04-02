@@ -55,12 +55,11 @@
     </li>
     @endguest  --}}
 
-    @auth
-    {{--  新規投稿  --}}
+    {{--  @auth
     <li class="nav-item">
       <a class="nav-link" href="{{ route('articles.create') }}"><i class="fa-solid fa-fish"></i></a>
     </li>
-    @endauth
+    @endauth  --}}
 
   </ul>
 </nav>
