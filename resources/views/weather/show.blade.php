@@ -14,6 +14,7 @@
           @foreach ($weatherData as $date => $weatherItems)
             @include('weather.card')
           @endforeach
+          @include('floatingButton')
       </div>
       @include('sidemenuRight')
     </div>
