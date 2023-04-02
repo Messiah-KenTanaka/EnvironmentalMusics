@@ -29,6 +29,7 @@
           </div>
           @include('articles.card')
         @endforeach
+        @include('floatingButton')
       </div>
       @include('sidemenuRight')
     </div>
