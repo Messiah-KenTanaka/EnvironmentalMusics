@@ -171,10 +171,9 @@
   top: -20px;
   left: 50%;
   padding: 10px;
-  color: #FF8C00;
-  background: -webkit-linear-gradient(0deg, #40E0D0, #FF8C00, #FF0080);
+  color: transparent;
+  background: repeating-linear-gradient(0deg, #A1887F 0 0.1em, #6D4C41 0.1em 0.2em);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   font-size: 80px;
   font-weight: 400;
   font-family: luxus-brut, cursive;
@@ -201,6 +200,33 @@
   padding: 10px;
   color: transparent;
   background: repeating-linear-gradient(0deg, #0277BD 0.1em, #4FC3F7 0.2em, #E1F5FE 0.3em, #4FC3F7 0.4em, #0277BD 0.5em);
+  -webkit-background-clip: text;
+  font-size: 80px;
+  font-weight: 400;
+  font-family: luxus-brut, cursive;
+  font-style: italic;
+}
+
+.search-heading {
+  position: relative;
+  padding-top: 50px;
+  padding-left: 30px;
+}
+
+.search-heading span {
+  position: relative;
+  z-index: 2;
+}
+
+.search-heading::before {
+  content: attr(data-en);
+  position: absolute;
+  transform: translateX(-50%) rotate(-5deg);
+  top: -20px;
+  left: 50%;
+  padding: 10px;
+  color: transparent;
+  background: repeating-linear-gradient(0deg, #C62828 0.1em, #EF5350 0.2em, #FFEBEE 0.3em, #EF5350 0.4em, #C62828 0.5em);
   -webkit-background-clip: text;
   font-size: 80px;
   font-weight: 400;

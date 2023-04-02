@@ -22,6 +22,7 @@ class SearchController extends Controller
         return view('search.index', [
             'results' => $results,
             'tags' => $tags,
+            'keyword' => $keyword
         ]);
     }
 }
