@@ -43,7 +43,7 @@
             </a>
         </h2>
         <div class="m-2">
-            <span class="text-dark font-nico-moji font-weight-bold">
+            <span class="text-dark font-weight-bold">
                 称号：
                 @if ($total['size'] > 50000000 || $total['weight'] > 1000000000)
                     神 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
@@ -63,7 +63,7 @@
         <div class="d-flex">
             @if ($total['size'])
                 <div class="m-1">
-                    <span class="text-dark main-font-family-cursive">
+                    <span class="text-dark main-ja-font-family">
                         TotalSize
                         {{ $total['size'] }}
                         cm
@@ -77,7 +77,7 @@
             @endif
             @if ($total['weight'])
                 <div class="m-1">
-                    <span class="text-dark main-font-family-cursive">
+                    <span class="text-dark main-ja-font-family">
                         TotalWeight
                         {{ number_format($total['weight']) }}
                         g
