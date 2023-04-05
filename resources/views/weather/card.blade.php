@@ -35,6 +35,9 @@
                               @case('適度な雨')
                                 <img src="{{ asset('images/tennki-rain.png')}}" class="rounded-circle mr-1" width="25" height="25">
                                 @break
+                              @case('強い雨')
+                                <img src="{{ asset('images/tennki-heavy-rain.png')}}" class="rounded-circle mr-1" width="25" height="25">
+                                @break
                               @case('小雪')
                                 <img src="{{ asset('images/tennki-light-snow.png')}}" class="rounded-circle mr-1" width="25" height="25">
                                 @break
