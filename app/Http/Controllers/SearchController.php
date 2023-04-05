@@ -8,7 +8,7 @@ use App\Tag;
 
 class SearchController extends Controller
 {
-    public function index(Request $request)
+    public function show(Request $request)
     {
         $keyword = $request->input('keyword');
         // 検索結果を取得するクエリを作成する
@@ -19,7 +19,7 @@ class SearchController extends Controller
 
         $tags = Tag::getPopularTag();
 
-        return view('search.index', [
+        return view('search.show', [
             'results' => $results,
             'tags' => $tags,
             'keyword' => $keyword

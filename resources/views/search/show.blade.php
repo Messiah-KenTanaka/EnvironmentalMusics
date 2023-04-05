@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', config('app.name') . ' | ' . '検索')
+@section('title', config('app.name') . ' | ' . '検索：' . $keyword)
 
 @section('content')
     @include('nav')
