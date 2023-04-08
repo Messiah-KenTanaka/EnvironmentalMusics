@@ -38,6 +38,14 @@
         </button>
         <div class="dropdown-divider"></div>
 
+        <button class="dropdown-item py-2" type="button"
+            onclick="location.href='{{ route('search.index') }}'">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span class="ml-3 font-weight-bold">Search</span>
+        </button>
+        <div class="dropdown-divider"></div>
+
+
 
         @auth
             <button class="dropdown-item py-2" type="button"

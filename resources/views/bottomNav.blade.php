@@ -15,6 +15,11 @@
       <a class="nav-link" href="{{ route('weather.index') }}"><i class="fa-solid fa-cloud-sun"></i>
       </a>
     </li>
+    {{-- 検索 --}}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('search.index') }}"><i class="fa-solid fa-magnifying-glass"></i>
+      </a>
+    </li>
     
     {{--  ToDo 地図機能実装予定  --}}
     {{--  <li class="nav-item">

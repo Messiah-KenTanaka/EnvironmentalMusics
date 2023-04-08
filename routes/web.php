@@ -46,7 +46,8 @@ Route::get('/weather', 'WeatherController@index')->name('weather.index');
 Route::get('/weather/{pref}', 'WeatherController@show')->name('weather.show');
 
 // 投稿検索
-Route::get('/search', 'SearchController@show')->name('search.show');
+Route::get('/search', 'SearchController@index')->name('search.index');
+Route::post('/search', 'SearchController@show')->name('search.show');
 
 // ユーザー
 Route::prefix('users')->name('users.')->group(function () {
