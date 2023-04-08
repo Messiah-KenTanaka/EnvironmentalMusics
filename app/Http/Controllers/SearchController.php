@@ -8,6 +8,21 @@ use App\Tag;
 
 class SearchController extends Controller
 {
+    public function index()
+    {
+        // 検索結果を取得するクエリを作成する
+        $results = Article::with(['user', 'likes', 'tags'])
+            ->orderByDesc('created_at')
+            ->paginate(config('paginate.paginate'));
+
+        $tags = Tag::getPopularTag();
+
+        return view('search.index', [
+            'results' => $results,
+            'tags' => $tags,
+        ]);
+    }
+
     public function show(Request $request)
     {
         $keyword = $request->input('keyword');
