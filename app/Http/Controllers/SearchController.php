@@ -11,14 +11,14 @@ class SearchController extends Controller
     public function index()
     {
         // 検索結果を取得するクエリを作成する
-        $results = Article::with(['user', 'likes', 'tags'])
+        $articles = Article::with(['user', 'likes', 'tags'])
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate'));
 
         $tags = Tag::getPopularTag();
 
         return view('search.index', [
-            'results' => $results,
+            'articles' => $articles,
             'tags' => $tags,
         ]);
     }
@@ -27,7 +27,7 @@ class SearchController extends Controller
     {
         $keyword = $request->input('keyword');
         // 検索結果を取得するクエリを作成する
-        $results = Article::with(['user', 'likes', 'tags'])
+        $articles = Article::with(['user', 'likes', 'tags'])
             ->where('body', 'LIKE', '%'.$keyword.'%')
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate'));
@@ -35,7 +35,7 @@ class SearchController extends Controller
         $tags = Tag::getPopularTag();
 
         return view('search.show', [
-            'results' => $results,
+            'articles' => $articles,
             'tags' => $tags,
             'keyword' => $keyword
         ]);

@@ -16,13 +16,16 @@
                         {{ $keyword }}
                     </h2>
                     <div class="card-text text-right">
-                        {{ $results->count() }}件
+                        {{ $articles->count() }}件
                     </div>
                 </div>
             </div>
-            @foreach($results as $key => $article)
+            @foreach($articles as $key => $article)
                 @include('articles.card')
             @endforeach
+            @if ($articles->hasMorePages())
+                <p class="text-center my-3"><a href="{{ $articles->nextPageUrl() }}">もっと見る</a></p>
+            @endif
         </div>
         @include('sidemenuRight')
         </div>

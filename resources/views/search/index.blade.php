@@ -10,9 +10,12 @@
         <div class="col">
             <h2 class="text-center mt-5 my-3 main-ja-font-family search-heading" data-en="Search"><span>検索</span></h2>
             @include('search')
-            @foreach($results as $key => $article)
+            @foreach($articles as $key => $article)
                 @include('articles.card')
             @endforeach
+            @if ($articles->hasMorePages())
+                <p class="text-center my-3"><a href="{{ $articles->nextPageUrl() }}">もっと見る</a></p>
+            @endif
         </div>
         @include('sidemenuRight')
         </div>
