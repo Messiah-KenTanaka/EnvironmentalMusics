@@ -238,3 +238,15 @@
 	bottom: 4rem;
 	position: fixed;
 }
+
+// 投稿ボタンクリックでローディング中
+.spinner-border {
+    color: #32a852;
+}
+.button-loading {
+	pointer-events: none; /* ボタンを無効化する */
+	opacity: 0.6; /* ボタンを半透明にする */
+}
+.button-loading .spinner-border {
+	display: inline-block;
+}
