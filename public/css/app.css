@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .main-font-family {
   font-family: Arial Black;
 }
@@ -242,5 +244,20 @@
   right: 1rem;
   bottom: 4rem;
   position: fixed;
+}
+
+.spinner-border {
+  color: #32a852;
+}
+
+.button-loading {
+  pointer-events: none;
+  /* ボタンを無効化する */
+  opacity: 0.6;
+  /* ボタンを半透明にする */
+}
+
+.button-loading .spinner-border {
+  display: inline-block;
 }
 

@@ -1,19 +1,9 @@
-$(function () {
-    //ローディング表示
-    show_loading();
-
-    //1秒後にローディング非表示
-    setTimeout(function () {
-        hide_loading();
-    }, 1000);
-})
-
-//ローディング表示
-function show_loading() {
-    $('#loading').removeClass('d-none');
-}
-
-//ローディング非表示
-function hide_loading() {
-    $('#loading').addClass('d-none');
-}
+// 投稿ボタンクリックでローディング
+$(function() {
+    $('form').submit(function() {
+        $('#submit-btn').addClass('button-loading');
+        $('#submit-btn').prop('disabled', true);
+        $('#submit-text').text('投稿中…');
+        $('.spinner-border').removeClass('d-none');
+    });
+});
