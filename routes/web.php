@@ -49,6 +49,10 @@ Route::get('/weather/{pref}', 'WeatherController@show')->name('weather.show');
 Route::get('/search', 'SearchController@index')->name('search.index');
 Route::post('/search', 'SearchController@show')->name('search.show');
 
+// お問い合わせ
+Route::get('/contact', 'ContactController@show')->name('contact.show');
+Route::post('/contact', 'ContactController@mailToAdmin')->name('contact.mailToAdmin');
+
 // ユーザー
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('/{name}', 'UserController@show')->name('show');
