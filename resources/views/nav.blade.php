@@ -37,6 +37,12 @@
         </button>
         <div class="dropdown-divider"></div>
         <button class="dropdown-item" type="button"
+                onclick="location.href='{{ route('contact.show') }}'">
+          <i class="fa-regular fa-envelope"></i>
+          <span class="ml-1">お問い合わせ</span>
+        </button>
+        <div class="dropdown-divider"></div>
+        <button class="dropdown-item" type="button"
                 onclick="location.href='{{ route("users.show", ["name" => Auth::user()->name]) }}'">
           @if (Auth::user()->image)
             <img src="{{ Auth::user()->image }}" class="rounded-circle mr-2" width="25" height="25">
