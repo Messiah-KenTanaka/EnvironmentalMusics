@@ -19,6 +19,9 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::with(['user', 'likes', 'tags'])
+            ->whereHas('user', function ($query) {
+                $query->where('publish_flag', 1);
+            })
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate'));
 
