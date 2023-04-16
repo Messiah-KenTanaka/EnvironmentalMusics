@@ -12,6 +12,9 @@ class SearchController extends Controller
     {
         // 検索結果を取得するクエリを作成する
         $articles = Article::with(['user', 'likes', 'tags'])
+            ->whereHas('user', function ($query) {
+                $query->where('publish_flag', 1);
+            })
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate'));
 
@@ -28,6 +31,9 @@ class SearchController extends Controller
         $keyword = $request->input('keyword');
         // 検索結果を取得するクエリを作成する
         $articles = Article::with(['user', 'likes', 'tags'])
+            ->whereHas('user', function ($query) {
+                $query->where('publish_flag', 1);
+            })
             ->where('body', 'LIKE', '%'.$keyword.'%')
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate'));

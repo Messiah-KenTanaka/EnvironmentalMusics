@@ -11,10 +11,17 @@ class TagController extends Controller
     public function show(string $name)
     {
         $tag = Tag::where('name', $name)->first()
-            ->load(['articles.user', 'articles.likes', 'articles.tags']);
+            ->load([
+                'articles' => function ($query) {
+                    $query->whereHas('user', function ($query) {
+                        $query->where('publish_flag', 1);
+                    })
+                    ->with('user', 'likes', 'tags')
+                    ->orderByDesc('created_at');
+                }
+            ]);
 
         $articles = $tag->articles
-            ->sortByDesc('created_at')
             ->paginate(config('paginate.paginate'));
 
         $tags = Tag::getPopularTag();

@@ -12,6 +12,9 @@ class RankingController extends Controller
     {
         // 全国ランキング
         $ranking = Article::with(['user', 'likes', 'tags'])
+            ->whereHas('user', function ($query) {
+                $query->where('publish_flag', 1);
+            })
             ->whereNotNull('image')
             ->whereNotNull('fish_size')
             ->orderByDesc('fish_size')
@@ -31,6 +34,9 @@ class RankingController extends Controller
     {
         // 都道府県ランキング
         $ranking = Article::with(['user', 'likes', 'tags'])
+            ->whereHas('user', function ($query) {
+                $query->where('publish_flag', 1);
+            })
             ->where('pref', $pref)
             ->whereNotNull('image')
             ->whereNotNull('fish_size')
