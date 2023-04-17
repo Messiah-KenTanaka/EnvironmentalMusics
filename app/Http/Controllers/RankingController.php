@@ -15,6 +15,7 @@ class RankingController extends Controller
             ->whereHas('user', function ($query) {
                 $query->where('publish_flag', 1);
             })
+            ->where('publish_flag', 1)
             ->whereNotNull('image')
             ->whereNotNull('fish_size')
             ->orderByDesc('fish_size')
@@ -37,6 +38,7 @@ class RankingController extends Controller
             ->whereHas('user', function ($query) {
                 $query->where('publish_flag', 1);
             })
+            ->where('publish_flag', 1)
             ->where('pref', $pref)
             ->whereNotNull('image')
             ->whereNotNull('fish_size')
