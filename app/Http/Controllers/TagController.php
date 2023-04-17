@@ -17,6 +17,7 @@ class TagController extends Controller
                         $query->where('publish_flag', 1);
                     })
                     ->with('user', 'likes', 'tags')
+                    ->where('publish_flag', 1)
                     ->orderByDesc('created_at');
                 }
             ]);

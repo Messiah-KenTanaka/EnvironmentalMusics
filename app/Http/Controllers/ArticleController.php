@@ -22,6 +22,7 @@ class ArticleController extends Controller
             ->whereHas('user', function ($query) {
                 $query->where('publish_flag', 1);
             })
+            ->where('publish_flag', 1)
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate'));
 
