@@ -3,7 +3,7 @@ $(function() {
     $('form').submit(function() {
         $('#submit-btn').addClass('button-loading');
         $('#submit-btn').prop('disabled', true);
-        $('#submit-text').text('ロード中…');
+        $('#submit-text').text('処理中…');
         $('.spinner-border').removeClass('d-none');
     });
 });
