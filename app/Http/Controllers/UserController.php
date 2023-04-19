@@ -16,13 +16,19 @@ class UserController extends Controller
         $user = User::where('name', $name)->first()
             ->load(['articles.user', 'articles.likes', 'articles.tags']);
 
-        $articles = $user->articles->sortByDesc('created_at')
+        $articles = $user->articles
+            ->where('publish_flag', 1)
+            ->sortByDesc('created_at')
             ->paginate(config('paginate.paginate'));
 
-        $total['size'] = $user->articles->whereNotNull('fish_size')
+        $total['size'] = $user->articles
+            ->whereNotNull('fish_size')
+            ->where('publish_flag', 1)
             ->sum('fish_size');
 
-        $total['weight'] = $user->articles->whereNotNull('weight')
+        $total['weight'] = $user->articles
+            ->whereNotNull('weight')
+            ->where('publish_flag', 1)
             ->sum('weight');
 
 
@@ -71,12 +77,19 @@ class UserController extends Controller
         $user = User::where('name', $name)->first()
             ->load(['likes.user', 'likes.likes', 'likes.tags']);
 
-        $articles = $user->likes->sortByDesc('created_at')->paginate(config('paginate.paginate'));
+        $articles = $user->likes
+            ->where('publish_flag', 1)
+            ->sortByDesc('created_at')
+            ->paginate(config('paginate.paginate'));
 
-        $total['size'] = $user->articles->whereNotNull('fish_size')
+        $total['size'] = $user->articles
+            ->where('publish_flag', 1)
+            ->whereNotNull('fish_size')
             ->sum('fish_size');
 
-        $total['weight'] = $user->articles->whereNotNull('weight')
+        $total['weight'] = $user->articles
+            ->where('publish_flag', 1)
+            ->whereNotNull('weight')
             ->sum('weight');
 
         $tags = Tag::getPopularTag();
@@ -94,12 +107,18 @@ class UserController extends Controller
         $user = User::where('name', $name)->first()
             ->load('followings.followers');
 
-        $followings = $user->followings->sortByDesc('created_at')->paginate(config('paginate.paginate'));
+        $followings = $user->followings
+            ->sortByDesc('created_at')
+            ->paginate(config('paginate.paginate'));
 
-        $total['size'] = $user->articles->whereNotNull('fish_size')
+        $total['size'] = $user->articles
+            ->where('publish_flag', 1)
+            ->whereNotNull('fish_size')
             ->sum('fish_size');
 
-        $total['weight'] = $user->articles->whereNotNull('weight')
+        $total['weight'] = $user->articles
+            ->where('publish_flag', 1)
+            ->whereNotNull('weight')
             ->sum('weight');
 
         $tags = Tag::getPopularTag();
@@ -117,12 +136,18 @@ class UserController extends Controller
         $user = User::where('name', $name)->first()
             ->load('followers.followers');
 
-        $followers = $user->followers->sortByDesc('created_at')->paginate(config('paginate.paginate'));
+        $followers = $user->followers
+            ->sortByDesc('created_at')
+            ->paginate(config('paginate.paginate'));
 
-        $total['size'] = $user->articles->whereNotNull('fish_size')
+        $total['size'] = $user->articles
+            ->where('publish_flag', 1)
+            ->whereNotNull('fish_size')
             ->sum('fish_size');
 
-        $total['weight'] = $user->articles->whereNotNull('weight')
+        $total['weight'] = $user->articles
+            ->where('publish_flag', 1)
+            ->whereNotNull('weight')
             ->sum('weight');
 
         $tags = Tag::getPopularTag();
