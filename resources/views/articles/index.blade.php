@@ -9,6 +9,13 @@
       @include('sidemenu')
       <div class="col">
         <div class="form-group">
+          <div class="image-container mt-3">
+            <img src="{{ asset('images/top_image01.jpg')}}" class="img-fluid">
+            <div class="text-overlay">
+              <h3 class="main-font-family">BASSER</h3>
+              <span>最高の釣りがここにある</span>
+            </div>
+          </div>
           <a href="{{ route('articles.create') }}">
             <label></label>
             <textarea class="form-control" rows="1" placeholder="今日はどうだった？"></textarea>
