@@ -94,7 +94,7 @@
 
         <button class="col-12 mx-auto btn dusty-grass-gradient rounded-pill" type="button"
             onclick="location.href='{{ route('articles.create') }}'">
-            <span class="font-weight-bold main-font-family">Submission</span>
+            <span class="font-weight-bold main-font-family">Basal</span>
         </button>
 
     </div>
