@@ -52,7 +52,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://www.bcommunity-basser.com'),
+
+    'force_ssl' => env('FORCE_SSL', true),
 
     'asset_url' => env('ASSET_URL', null),
 
