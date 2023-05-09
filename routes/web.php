@@ -53,6 +53,9 @@ Route::post('/search', 'SearchController@show')->name('search.show');
 Route::get('/contact', 'ContactController@show')->name('contact.show');
 Route::post('/contact', 'ContactController@mailToAdmin')->name('contact.mailToAdmin');
 
+// プライバシーポリシー
+Route::get('/policy', 'PolicyController@index')->name('policy.index');
+
 // ユーザー
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('/{name}', 'UserController@show')->name('show');

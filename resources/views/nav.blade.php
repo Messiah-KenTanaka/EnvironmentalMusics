@@ -43,6 +43,12 @@
         </button>
         <div class="dropdown-divider"></div>
         <button class="dropdown-item" type="button"
+                onclick="location.href='{{ route('policy.index') }}'">
+          <i class="fa-solid fa-lock"></i>
+          <span class="ml-1">ポリシー</span>
+        </button>
+        <div class="dropdown-divider"></div>
+        <button class="dropdown-item" type="button"
                 onclick="location.href='{{ route("users.show", ["name" => Auth::user()->name]) }}'">
           @if (Auth::user()->image)
             <img src="{{ Auth::user()->image }}" class="rounded-circle mr-2" width="25" height="25">
