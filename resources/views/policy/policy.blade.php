@@ -32,7 +32,6 @@
               当アプリケーションでは、Google Analyticsを利用して、利用者の利便性向上のための情報を収集しています。Google Analyticsは、Cookieを利用して、利用者の情報を収集しています。収集された情報は、当アプリケーションの利便性向上以外の目的には使用されません。また、Google Analyticsの利用によって、利用者の個人情報が収集されることはありません。なお、Google Analyticsの利用については、Googleのプライバシーポリシーをご確認ください。</p>
           </div>
       </div>
-      @include('sidemenuRight')
     </div>
   </div>
   @include('bottomNav')
