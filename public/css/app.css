@@ -236,10 +236,6 @@
   font-style: italic;
 }
 
-.sidemenu-fixed {
-  position: fixed;
-}
-
 .floating-bottom {
   right: 1rem;
   bottom: 4rem;

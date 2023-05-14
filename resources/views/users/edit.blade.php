@@ -27,7 +27,6 @@
           </div>
         </div>
       </div>
-      @include('sidemenuRight')
     </div>
   </div>
   @include('bottomNav')

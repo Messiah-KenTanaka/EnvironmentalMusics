@@ -1,4 +1,4 @@
 <?php
 return [
-    'paginate' => 50,
+    'paginate' => 100,
 ];

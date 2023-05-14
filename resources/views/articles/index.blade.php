@@ -29,7 +29,6 @@
         @endif
         @include('floatingButton')
       </div>
-      @include('sidemenuRight')
     </div>
   </div>
   @include('bottomNav')
