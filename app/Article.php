@@ -15,7 +15,8 @@ class Article extends Model
         'fish_size',
         'pref',
         'bass_field',
-        'weight'
+        'weight',
+        'publish_flag'
     ];
 
     public function user(): BelongsTo

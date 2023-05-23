@@ -51,9 +51,9 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form method="POST" action="{{ route('articles.destroy', ['article' => $article]) }}">
+            <form method="POST" action="{{ route('articles.delete', ['article' => $article]) }}">
               @csrf
-              @method('DELETE')
+              @method('PATCH')
               <div class="modal-body">
                 {{--  {{ $article->title }}を削除します。よろしいですか？  --}}
                 削除します。よろしいですか？
