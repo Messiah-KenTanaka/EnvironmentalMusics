@@ -111,6 +111,14 @@ class ArticleController extends Controller
         return redirect()->route('articles.index');
     }
 
+    public function delete(Article $article)
+    {
+        $article->publish_flag = 0;
+        $article->save();
+    
+        return redirect()->route('articles.index');
+    }
+    
     public function destroy(Article $article)
     {
         $article->delete();
