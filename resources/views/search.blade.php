@@ -1,7 +1,9 @@
-<div class="d-flex justify-content-center my-4">
-    <form action="{{ route('search.show') }}" method="POST">
+<div class="search my-4">
+    <form action="{{ route('search.show') }}" method="POST"class="search-form">
         @csrf
-        <input type="text" name="keyword" placeholder="検索キーワード">
-        <button class="dusty-grass-gradient" type="submit"><i class="fas fa-search"></i></button>
+        <input type="text" name="keyword" class="search-input" placeholder="検索キーワード">
+        <button type="submit" class="search-button">
+            <i class="fas fa-search"></i>
+        </button>
     </form>
 </div>

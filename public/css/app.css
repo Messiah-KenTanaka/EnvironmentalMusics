@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+/* 全体統一 */
+
 .main-font-family {
   font-family: Arial Black;
 }
@@ -24,15 +26,21 @@
   margin-bottom: 5rem;
 }
 
+/* ナビバー nav.blade.php */
+
 .nav-fixed {
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
+/* ボトムナビバー bottomNav.blade.php */
+
 .fixed-bottom {
   z-index: 10;
 }
+
+/* ローディング */
 
 #loading {
   display: flex;
@@ -40,6 +48,8 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 10000;
 }
+
+/* カード（投稿）card.blade.php */
 
 .card {
   box-shadow: none;
@@ -55,9 +65,13 @@
   background-color: #caf87f;
 }
 
+/* モーダル */
+
 .modal .border-maintenance-modal {
   border-top: none;
 }
+
+/* ランキング 装飾 */
 
 .ranking-heading {
   position: relative;
@@ -155,6 +169,8 @@
   margin-left: 20px;
 }
 
+/* 人気のタグ 装飾 */
+
 .tag-heading {
   position: relative;
   padding-top: 50px;
@@ -181,6 +197,8 @@
   font-family: luxus-brut, cursive;
   font-style: italic;
 }
+
+/* 天気予報 装飾 */
 
 .weather-heading {
   position: relative;
@@ -209,6 +227,8 @@
   font-style: italic;
 }
 
+/* 検索ページ 装飾 */
+
 .search-heading {
   position: relative;
   padding-top: 50px;
@@ -236,11 +256,15 @@
   font-style: italic;
 }
 
+/* 投稿フローティングボタン */
+
 .floating-bottom {
   right: 1rem;
   bottom: 4rem;
   position: fixed;
 }
+
+/* 投稿ボタンクリックでローディング中 */
 
 .spinner-border {
   color: #32a852;
@@ -248,14 +272,14 @@
 
 .button-loading {
   pointer-events: none;
-  /* ボタンを無効化する */
   opacity: 0.6;
-  /* ボタンを半透明にする */
 }
 
 .button-loading .spinner-border {
   display: inline-block;
 }
+
+/* TOP画像 */
 
 .image-container {
   position: relative;
@@ -269,5 +293,51 @@
   /* 透過度付きのテキスト色を設定 */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   padding: 15px;
+}
+
+/* 検索フォーム全体のスタイル search.blade.php */
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.search .search-form {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 24px;
+  padding: 6px;
+  max-width: 400px;
+}
+
+.search .search-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.search .search-button {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search .search-button:hover {
+  background-color: #e9ecef;
+}
+
+.search .search-input::-moz-placeholder {
+  color: #999;
+}
+
+.search .search-input::placeholder {
+  color: #999;
 }
 
