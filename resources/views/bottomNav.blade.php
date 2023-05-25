@@ -1,4 +1,4 @@
-<nav class="nav navbar fixed-bottom navbar-expand navbar-light dusty-grass-gradient d-block d-md-none">
+<nav class="nav navbar fixed-bottom navbar-expand navbar-light dusty-grass-gradient d-block d-xl-none">
   <ul class="navbar-nav d-flex justify-content-around ml-auto">
     {{--  ホーム  --}}
     <li class="nav-item">

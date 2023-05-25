@@ -1,4 +1,4 @@
-<div class="col-3 d-none d-md-block">
+<div class="col-3 d-none d-xl-block">
     <div class="form-group mt-3">
         @include('search')
         <button class="dropdown-item py-2" type="button"
