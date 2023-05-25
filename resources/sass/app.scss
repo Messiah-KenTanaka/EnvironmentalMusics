@@ -1,4 +1,4 @@
-// 全体統一
+/* 全体統一 */
 .main-font-family {
     font-family: Arial Black;
 }
@@ -18,18 +18,19 @@
     margin-bottom: 5rem;
 }
 
-// ナビバー nav.blade.php
+/* ナビバー nav.blade.php */ 
 .nav-fixed {
     position: sticky;
     top: 0;
     z-index: 10;
 }
-// ボトムナビバー bottomNav.blade.php
+
+/* ボトムナビバー bottomNav.blade.php */ 
 .fixed-bottom{
     z-index: 10;
 }
 
-// ローディング
+/* ローディング */ 
 #loading {
     display: flex;
     align-items: center;
@@ -37,7 +38,7 @@
     z-index: 10000;
 }
 
-// カード（投稿）card.blade.php
+/* カード（投稿）card.blade.php */
 .card {
     box-shadow: none;
     border: solid 1px #dee2e6;
@@ -50,14 +51,14 @@
     }
 }
 
-// モーダル
+/* モーダル */
 .modal {
     .border-maintenance-modal {
         border-top: none;
     }
 }
 
-// ランキング 装飾
+/* ランキング 装飾 */
 .ranking-heading {
 	position: relative;
 	padding-top: 50px;
@@ -146,7 +147,7 @@
 	margin-left: 20px;
 }
 
-// タグ 装飾
+/* 人気のタグ 装飾 */
 .tag-heading {
 	position: relative;
 	padding-top: 50px;
@@ -173,7 +174,7 @@
 	font-style: italic;
 }
 
-// 天気予報 装飾
+/* 天気予報 装飾 */
 .weather-heading {
 	position: relative;
 	padding-top: 50px;
@@ -200,7 +201,7 @@
 	font-style: italic;
 }
 
-// 検索 装飾
+/* 検索ページ 装飾 */
 .search-heading {
 	position: relative;
 	padding-top: 50px;
@@ -227,26 +228,26 @@
 	font-style: italic;
 }
 
-// 投稿フローティングボタン
+/* 投稿フローティングボタン */
 .floating-bottom {
 	right: 1rem;
 	bottom: 4rem;
 	position: fixed;
 }
 
-// 投稿ボタンクリックでローディング中
+/* 投稿ボタンクリックでローディング中 */ 
 .spinner-border {
     color: #32a852;
 }
 .button-loading {
-	pointer-events: none; /* ボタンを無効化する */
-	opacity: 0.6; /* ボタンを半透明にする */
+	pointer-events: none; // ボタンを無効化する
+	opacity: 0.6; // ボタンを半透明にする
 }
 .button-loading .spinner-border {
 	display: inline-block;
 }
 
-// TOP画像
+/* TOP画像 */
 .image-container {
   position: relative;
 }
@@ -258,4 +259,50 @@
 	color: rgba(169, 169, 169, 0.5); /* 透過度付きのテキスト色を設定 */
 	text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
   padding: 15px;
+}
+
+
+/* 検索フォーム全体のスタイル search.blade.php */
+.search {
+	display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+	
+	.search-form {
+		display: flex;
+		align-items: center;
+		border: 1px solid #ccc;
+		border-radius: 24px;
+		padding: 6px;
+		max-width: 400px;
+	}
+
+	// 入力フィールドのスタイル
+	.search-input {
+		flex-grow: 1;
+		border: none;
+		outline: none;
+		padding: 8px;
+		font-size: 16px;
+	}
+
+	// 検索ボタンのスタイル
+	.search-button {
+		background-color: #fff;
+		border: none;
+		outline: none;
+		padding: 8px 12px;
+		font-size: 16px;
+		cursor: pointer;
+	}
+
+	// ホバー時のスタイル
+	.search-button:hover {
+		background-color: #e9ecef;
+	}
+
+	// プレースホルダーテキストのスタイル
+	.search-input::placeholder {
+		color: #999;
+	}
 }
