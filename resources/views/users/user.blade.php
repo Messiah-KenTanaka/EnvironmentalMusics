@@ -43,7 +43,7 @@
             </a>
         </h2>
         <div class="m-2">
-            <span class="text-dark font-weight-bold">
+            <span class="text-dark">
                 称号：
                 @if ($record['total_size'] > 50000000 || $record['total_weight'] > 1000000000)
                     神 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
