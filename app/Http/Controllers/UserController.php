@@ -21,12 +21,22 @@ class UserController extends Controller
             ->sortByDesc('created_at')
             ->paginate(config('paginate.paginate'));
 
-        $total['size'] = $user->articles
+        $record['size'] = $user->articles
+            ->whereNotNull('fish_size')
+            ->where('publish_flag', 1)
+            ->max('fish_size');
+
+        $record['weight'] = $user->articles
+            ->whereNotNull('weight')
+            ->where('publish_flag', 1)
+            ->max('weight');
+
+        $record['total_size'] = $user->articles
             ->whereNotNull('fish_size')
             ->where('publish_flag', 1)
             ->sum('fish_size');
 
-        $total['weight'] = $user->articles
+        $record['total_weight'] = $user->articles
             ->whereNotNull('weight')
             ->where('publish_flag', 1)
             ->sum('weight');
@@ -38,7 +48,7 @@ class UserController extends Controller
             'user' => $user,
             'articles' => $articles,
             'tags' => $tags,
-            'total' => $total
+            'record' => $record
         ]);
     }
 
@@ -82,12 +92,22 @@ class UserController extends Controller
             ->sortByDesc('created_at')
             ->paginate(config('paginate.paginate'));
 
-        $total['size'] = $user->articles
+        $record['size'] = $user->articles
+            ->whereNotNull('fish_size')
+            ->where('publish_flag', 1)
+            ->max('fish_size');
+
+        $record['weight'] = $user->articles
+            ->whereNotNull('weight')
+            ->where('publish_flag', 1)
+            ->max('weight');
+
+        $record['total_size'] = $user->articles
             ->where('publish_flag', 1)
             ->whereNotNull('fish_size')
             ->sum('fish_size');
 
-        $total['weight'] = $user->articles
+        $record['total_weight'] = $user->articles
             ->where('publish_flag', 1)
             ->whereNotNull('weight')
             ->sum('weight');
@@ -98,7 +118,7 @@ class UserController extends Controller
             'user' => $user,
             'articles' => $articles,
             'tags' => $tags,
-            'total' => $total
+            'record' => $record
         ]);
     }
 
@@ -111,12 +131,22 @@ class UserController extends Controller
             ->sortByDesc('created_at')
             ->paginate(config('paginate.paginate'));
 
-        $total['size'] = $user->articles
+        $record['size'] = $user->articles
+            ->whereNotNull('fish_size')
+            ->where('publish_flag', 1)
+            ->max('fish_size');
+
+        $record['weight'] = $user->articles
+            ->whereNotNull('weight')
+            ->where('publish_flag', 1)
+            ->max('weight');
+
+        $record['total_size'] = $user->articles
             ->where('publish_flag', 1)
             ->whereNotNull('fish_size')
             ->sum('fish_size');
 
-        $total['weight'] = $user->articles
+        $record['total_weight'] = $user->articles
             ->where('publish_flag', 1)
             ->whereNotNull('weight')
             ->sum('weight');
@@ -127,7 +157,7 @@ class UserController extends Controller
             'user' => $user,
             'followings' => $followings,
             'tags' => $tags,
-            'total' => $total
+            'record' => $record
         ]);
     }
     
@@ -140,12 +170,22 @@ class UserController extends Controller
             ->sortByDesc('created_at')
             ->paginate(config('paginate.paginate'));
 
-        $total['size'] = $user->articles
+        $record['size'] = $user->articles
+            ->whereNotNull('fish_size')
+            ->where('publish_flag', 1)
+            ->max('fish_size');
+
+        $record['weight'] = $user->articles
+            ->whereNotNull('weight')
+            ->where('publish_flag', 1)
+            ->max('weight');
+
+        $record['total_size'] = $user->articles
             ->where('publish_flag', 1)
             ->whereNotNull('fish_size')
             ->sum('fish_size');
 
-        $total['weight'] = $user->articles
+        $record['total_weight'] = $user->articles
             ->where('publish_flag', 1)
             ->whereNotNull('weight')
             ->sum('weight');
@@ -156,7 +196,7 @@ class UserController extends Controller
             'user' => $user,
             'followers' => $followers,
             'tags' => $tags,
-            'total' => $total
+            'record' => $record
         ]);
     }
 

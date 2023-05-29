@@ -37,7 +37,7 @@
             @endif
 
         </div>
-        <h2 class="h5 card-title m-0">
+        <h2 class="h4 card-title m-0">
             <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
             {{ $user->name }}
             </a>
@@ -45,46 +45,78 @@
         <div class="m-2">
             <span class="text-dark font-weight-bold">
                 称号：
-                @if ($total['size'] > 50000000 || $total['weight'] > 1000000000)
+                @if ($record['total_size'] > 50000000 || $record['total_weight'] > 1000000000)
                     神 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
-                @elseif ($total['size'] > 5000000 || $total['weight'] > 100000000)
+                @elseif ($record['total_size'] > 5000000 || $record['total_weight'] > 100000000)
                     王 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
-                @elseif ($total['size'] > 500000 || $total['weight'] > 10000000)
+                @elseif ($record['total_size'] > 500000 || $record['total_weight'] > 10000000)
                     達人 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
-                @elseif ($total['size'] > 50000 || $total['weight'] > 1000000)
+                @elseif ($record['total_size'] > 50000 || $record['total_weight'] > 1000000)
                     熟練 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
-                @elseif ($total['size'] > 5000 || $total['weight'] > 100000)
+                @elseif ($record['total_size'] > 5000 || $record['total_weight'] > 100000)
                     職人 <i class="fa-solid fa-star text-color-gold"></i>
                 @else
                     見習い <i class="fa-solid fa-star-half-stroke text-color-gold"></i>
                 @endif
             </span>
         </div>
-        <div class="d-flex">
-            @if ($total['size'])
-                <div class="m-1">
-                    <span class="text-dark main-ja-font-family">
-                        TotalSize
-                        {{ $total['size'] }}
-                        cm
+        <h3 class="h6 card-title m-0">
+            <div class="text-dark">
+                自己記録
+            </div>
+        </h3>
+        @if (!($record['size'] || $record['weight']))
+            <div class="m-2">なし</div>
+        @else
+            <div class="d-flex">
+                @if ($record['size'])
+                    <div class="m-2">
+                        <span class="text-dark main-ja-font-family">
+                            {{ $record['size'] }}
+                            cm
+                        </span>
+                    </div>
+                @endif
+                @if ($record['size'] && $record['weight'])
+                    <span class="m-1">
+                    /
                     </span>
-                </div>
-            @endif
-            @if ($total['size'] && $total['weight'])
-                <span class="m-1">
-                /
-                </span>
-            @endif
-            @if ($total['weight'])
-                <div class="m-1">
-                    <span class="text-dark main-ja-font-family">
-                        TotalWeight
-                        {{ number_format($total['weight']) }}
-                        g
+                @endif
+                @if ($record['weight'])
+                    <div class="m-2">
+                        <span class="text-dark main-ja-font-family">
+                            {{ number_format($record['weight']) }}
+                            g
+                        </span>
+                    </div>
+                @endif
+            </div>
+            <div class="d-flex">
+                @if ($record['total_size'])
+                    <div class="mx-2">
+                        <span class="text-dark main-ja-font-family">
+                            Total
+                            {{ $record['total_size'] }}
+                            cm
+                        </span>
+                    </div>
+                @endif
+                @if ($record['total_size'] && $record['total_weight'])
+                    <span class="mx-1">
+                    /
                     </span>
-                </div>
-            @endif
-        </div>
+                @endif
+                @if ($record['total_weight'])
+                    <div class="mx-2">
+                        <span class="text-dark main-ja-font-family">
+                            Total
+                            {{ number_format($record['total_weight']) }}
+                            g
+                        </span>
+                    </div>
+                @endif
+            </div>
+        @endif
         <div class="card-body m-0">
             <span class="text-dark">
             {{ $user->introduction }}
