@@ -91,7 +91,8 @@
                     </div>
                 @endif
             </div>
-            <div class="d-flex">
+            {{-- トータルサイズとウェイトは現状非表示に --}}
+            {{-- <div class="d-flex">
                 @if ($record['total_size'])
                     <div class="mx-2">
                         <span class="text-dark main-ja-font-family">
@@ -115,7 +116,7 @@
                         </span>
                     </div>
                 @endif
-            </div>
+            </div> --}}
         @endif
         <div class="card-body m-0">
             <span class="text-dark">
