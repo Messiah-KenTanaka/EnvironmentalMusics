@@ -140,7 +140,7 @@
     <img src="{{ $article->image }}" class="img-fluid border-image p-3">
   @endif
   <div class="card-body pt-0 pb-2 pl-3">
-    <div class="card-text">
+    <div class="card-text d-flex">
       <article-like
         :initial-is-liked-by='@json($article->isLikedBy(Auth::user()))'
         :initial-count-likes='@json($article->count_likes)'
@@ -148,6 +148,52 @@
         endpoint="{{ route('articles.like', ['article' => $article]) }}"
       >
       </article-like>
+      @if( !(Auth::id() === $article->user_id) )
+        @auth
+          <!-- dropdown -->
+          <div class="ml-auto card-text">
+            <div class="dropdown">
+              <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn btn-link text-muted m-0 p-2">
+                  <i class="fa-solid fa-ban"></i>
+                </button>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-user-block-{{ $article->user->id }}">
+                  <i class="fa-solid fa-ban"></i> {{ $article->user->name }}さんをブロック
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- dropdown -->
+          <!-- modal -->
+          <div id="modal-user-block-{{ $article->user->id }}" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header dusty-grass-gradient">
+                  <h5 class="modal-title" id="demoModalTitle">確認</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form method="POST" action="{{ route('users.userBlock', ['userId' => Auth::id()]) }}">
+                  @csrf
+                  @method('POST')
+                  <input type="hidden" name="article_user_id" value="{{ $article->user->id }}">
+                  <div class="modal-body">
+                    {{ $article->user->name }}さんをブロックします。よろしいですか？
+                  </div>
+                  <div class="border-maintenance-modal modal-footer justify-content-between">
+                    <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
+                    <button type="submit" class="btn btn-danger loading-btn">OK</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- modal -->
+        @endauth
+      @endif
     </div>
   </div>
 </div>
