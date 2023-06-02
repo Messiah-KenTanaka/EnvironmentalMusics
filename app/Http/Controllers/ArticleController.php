@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Tag;
+use App\BlockList;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -18,9 +19,15 @@ class ArticleController extends Controller
 
     public function index()
     {
+        $userId = auth()->id(); // ログインユーザーのIDを取得
+
+        // ブロックリストからブロックしたユーザーのIDを取得
+        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+
         $articles = Article::with(['user', 'likes', 'tags'])
-            ->whereHas('user', function ($query) {
-                $query->where('publish_flag', 1);
+            ->whereHas('user', function ($query) use ($blockUsers) {
+                $query->where('publish_flag', 1)
+                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
             })
             ->where('publish_flag', 1)
             ->orderByDesc('created_at')

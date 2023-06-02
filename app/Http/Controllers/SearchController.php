@@ -5,15 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Tag;
+use App\BlockList;
 
 class SearchController extends Controller
 {
     public function index()
     {
+        $userId = auth()->id(); // ログインユーザーのIDを取得
+
+        // ブロックリストからブロックしたユーザーのIDを取得
+        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+
         // 検索結果を取得するクエリを作成する
         $articles = Article::with(['user', 'likes', 'tags'])
-            ->whereHas('user', function ($query) {
-                $query->where('publish_flag', 1);
+            ->whereHas('user', function ($query) use ($blockUsers) {
+                $query->where('publish_flag', 1)
+                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
             })
             ->where('publish_flag', 1)
             ->orderByDesc('created_at')
@@ -29,11 +36,17 @@ class SearchController extends Controller
 
     public function show(Request $request)
     {
+        $userId = auth()->id(); // ログインユーザーのIDを取得
+
+        // ブロックリストからブロックしたユーザーのIDを取得
+        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+
         $keyword = $request->input('keyword');
         // 検索結果を取得するクエリを作成する
         $articles = Article::with(['user', 'likes', 'tags'])
-            ->whereHas('user', function ($query) {
-                $query->where('publish_flag', 1);
+            ->whereHas('user', function ($query) use ($blockUsers) {
+                $query->where('publish_flag', 1)
+                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
             })
             ->where('publish_flag', 1)
             ->where('body', 'LIKE', '%'.$keyword.'%')
