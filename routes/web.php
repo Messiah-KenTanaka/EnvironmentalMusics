@@ -68,5 +68,6 @@ Route::prefix('users')->name('users.')->group(function () {
         Route::patch('/{name}/update', 'UserController@update')->name('update');
         Route::put('/{name}/follow', 'UserController@follow')->name('follow');
         Route::delete('/{name}/follow', 'UserController@unfollow')->name('unfollow');
+        Route::post('/{userId}/block', 'UserController@userBlock')->name('userBlock');
     });
 });

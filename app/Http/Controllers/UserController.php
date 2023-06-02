@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\User;
 use App\Tag;
+use App\BlockList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Functions;
@@ -227,5 +228,19 @@ class UserController extends Controller
         $request->user()->followings()->detach($user);
 
         return ['name' => $name];
+    }
+
+    // ユーザーブロック機能
+    public function userBlock(Request $request, int $userId)
+    {
+        $blockedUserId = $request->input('article_user_id');
+        
+        // ブロックリストにレコードを挿入
+        BlockList::create([
+            'user_id' => $userId,
+            'blocked_user_id' => $blockedUserId
+        ]);
+
+        return redirect()->route('articles.index');
     }
 }
