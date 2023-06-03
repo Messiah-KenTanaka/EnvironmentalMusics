@@ -8,6 +8,7 @@
     <div class="row">
       @include('sidemenu')
       <div class="col">
+        @include('error_text')
         <div class="form-group">
           <div class="image-container mt-3">
             <img src="{{ asset('images/top_image01.jpg')}}" class="img-fluid">

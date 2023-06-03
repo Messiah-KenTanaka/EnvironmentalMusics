@@ -234,6 +234,16 @@ class UserController extends Controller
     public function userBlock(Request $request, int $userId)
     {
         $blockedUserId = $request->input('article_user_id');
+
+        //すでにブロック済みか確認
+        $isBlocked = BlockList::where('user_id', $userId)
+            ->where('blocked_user_id', $blockedUserId)
+            ->exists();
+        
+        if ($isBlocked) {
+            return redirect()->route('articles.index')
+                ->with('error', 'このユーザーはすでにブロックされています。');
+        }
         
         // ブロックリストにレコードを挿入
         BlockList::create([
