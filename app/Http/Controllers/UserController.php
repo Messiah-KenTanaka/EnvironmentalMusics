@@ -80,7 +80,8 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('articles.index');
+        return redirect()->route('articles.index')
+            ->with('success', 'ユーザー情報を更新しました。');
     }
 
     public function likes(string $name)
@@ -251,6 +252,7 @@ class UserController extends Controller
             'blocked_user_id' => $blockedUserId
         ]);
 
-        return redirect()->route('articles.index');
+        return redirect()->route('articles.index')
+            ->with('success', 'ユーザーをブロックしました。');
     }
 }

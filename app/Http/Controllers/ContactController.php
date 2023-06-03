@@ -28,6 +28,6 @@ class ContactController extends Controller
 
         Mail::to($data['email'])->send(new ContactMail($data));
 
-        return redirect('/contact')->with('message', 'お問い合わせが送信されました。');
+        return redirect()->route('articles.index')->with('success', 'お問い合わせが送信されました。');
     }
 }

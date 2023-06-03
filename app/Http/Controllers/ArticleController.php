@@ -123,7 +123,8 @@ class ArticleController extends Controller
         $article->publish_flag = 0;
         $article->save();
     
-        return redirect()->route('articles.index');
+        return redirect()->route('articles.index')
+            ->with('success', '投稿を削除しました。');
     }
     
     public function destroy(Article $article)
