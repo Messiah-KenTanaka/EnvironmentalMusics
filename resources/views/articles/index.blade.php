@@ -8,6 +8,7 @@
     <div class="row">
       @include('sidemenu')
       <div class="col">
+        @include('success_text')
         @include('error_text')
         <div class="form-group">
           <div class="image-container mt-3">
