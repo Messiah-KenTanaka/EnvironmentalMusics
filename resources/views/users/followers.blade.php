@@ -10,6 +10,7 @@
             <div class="col">
                 @include('users.user')
                 @include('users.tabs', ['hasArticles' => false, 'hasLikes' => false])
+                <h4 class="text-center main-ja-font-family mt-3">フォロワー</a></h4>
                 @foreach($followers as $person)
                     @include('users.person')
                 @endforeach

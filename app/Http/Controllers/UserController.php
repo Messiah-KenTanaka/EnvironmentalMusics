@@ -207,7 +207,7 @@ class UserController extends Controller
         $user = User::where('name', $name)->first()
             ->load('followings.followers');
 
-        $followings = $user->followings
+        $blockList = $user->blockList
             ->sortByDesc('created_at')
             ->paginate(config('paginate.paginate'));
 
@@ -235,7 +235,7 @@ class UserController extends Controller
 
         return view('users.block', [
             'user' => $user,
-            'followings' => $followings,
+            'blockList' => $blockList,
             'tags' => $tags,
             'record' => $record
         ]);
