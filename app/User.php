@@ -71,6 +71,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Article', 'likes')->withTimestamps();
     }
 
+    public function blockList(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'block_list', 'user_id', 'blocked_user_id')->withTimestamps();
+    }
+
     public function isFollowedBy(?User $user): bool
     {
         return $user

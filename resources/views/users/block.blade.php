@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', config('app.name') . ' | ' . $user->name . 'のフォロワー')
+@section('title', config('app.name') . ' | ' . $user->name . 'のブロックリスト')
 
 @section('content')
     @include('nav')
@@ -10,12 +10,12 @@
             <div class="col">
                 @include('users.user')
                 @include('users.tabs', ['hasArticles' => false, 'hasLikes' => false])
-                <h4 class="text-center main-ja-font-family mt-3">フォロワー</a></h4>
-                @foreach($followers as $person)
+                <h4 class="text-center main-ja-font-family text-danger mt-3">ブロックリスト</a></h4>
+                @foreach($blockList as $person)
                     @include('users.person')
                 @endforeach
-                @if ($followers->hasMorePages())
-                    <p class="text-center my-3"><a href="{{ $followers->nextPageUrl() }}">もっと見る</a></p>
+                @if ($blockList->hasMorePages())
+                    <p class="text-center my-3"><a href="{{ $blockList->nextPageUrl() }}">もっと見る</a></p>
                 @endif
             </div>
         </div>

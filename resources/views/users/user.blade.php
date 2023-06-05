@@ -30,6 +30,10 @@
                             <a href="{{ route('users.edit', ['name' => $user->name]) }}" class="dropdown-item">
                                 プロフィール編集
                             </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ route('users.block', ['name' => $user->name]) }}" class="dropdown-item">
+                                ブロックリスト
+                            </a>
                         </div>
                     </div>
                 </div>

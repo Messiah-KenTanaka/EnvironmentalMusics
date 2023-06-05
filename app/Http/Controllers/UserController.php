@@ -202,6 +202,45 @@ class UserController extends Controller
         ]);
     }
 
+    public function block(string $name)
+    {
+        $user = User::where('name', $name)->first()
+            ->load('followings.followers');
+
+        $blockList = $user->blockList
+            ->sortByDesc('created_at')
+            ->paginate(config('paginate.paginate'));
+
+        $record['size'] = $user->articles
+            ->whereNotNull('fish_size')
+            ->where('publish_flag', 1)
+            ->max('fish_size');
+
+        $record['weight'] = $user->articles
+            ->whereNotNull('weight')
+            ->where('publish_flag', 1)
+            ->max('weight');
+
+        $record['total_size'] = $user->articles
+            ->where('publish_flag', 1)
+            ->whereNotNull('fish_size')
+            ->sum('fish_size');
+
+        $record['total_weight'] = $user->articles
+            ->where('publish_flag', 1)
+            ->whereNotNull('weight')
+            ->sum('weight');
+
+        $tags = Tag::getPopularTag();
+
+        return view('users.block', [
+            'user' => $user,
+            'blockList' => $blockList,
+            'tags' => $tags,
+            'record' => $record
+        ]);
+    }
+
     public function follow(Request $request, string $name)
     {
         $user = User::where('name', $name)->first();
