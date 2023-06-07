@@ -8,14 +8,14 @@ use Illuminate\Http\UploadedFile;
 class Functions
 {
     /*
-    * 6文字以上は3点リーダーを付ける
+    * 8文字以上は3点リーダーを付ける
     */
     public static function getNameEllipsis($name)
     {
-        if( mb_strlen( $name, 'UTF-8' ) > 6) {
-            $user_name = mb_substr( $name, 0, 6, 'UTF-8' );
+        if( mb_strlen( $name, 'UTF-8' ) > 8) {
+            $user_name = mb_substr( $name, 0, 8, 'UTF-8' );
             return $user_name . '…';
-        // 文字数が6文字以下ならば三点リーダーは付けない
+        // 文字数が8文字以下ならば三点リーダーは付けない
         } else {
             return $name;
         }
