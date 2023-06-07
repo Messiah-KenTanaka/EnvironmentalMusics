@@ -24,12 +24,12 @@
                 <div class="md-form">
                   <label for="name">ユーザー名</label>
                   <input class="form-control" type="text" id="name" name="name" required value="{{ old('name') }}">
-                  <small>3〜16文字(ユーザー名は登録後の変更はできません)</small>
+                  <small>3〜16文字(<span class="text-danger">ユーザー名は登録後の変更はできません</span>)</small>
                 </div>
                 <div class="md-form">
                   <label for="email">メールアドレス</label>
                   <input class="form-control" type="text" id="email" name="email" required value="{{ old('email') }}" >
-                  <small>メールアドレスは登録後の変更はできません</small>
+                  <small class="text-danger">メールアドレスは登録後の変更はできません</small>
                 </div>
                 <div class="md-form">
                   <label for="password">パスワード</label>
