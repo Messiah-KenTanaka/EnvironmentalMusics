@@ -1,5 +1,8 @@
 <nav class="nav navbar nav-fixed navbar-expand navbar-light dusty-grass-gradient">
-  <a class="navbar-brand main-font-family" href="/">BASSER</a>
+  <a class="navbar-brand main-font-family" href="/">
+    <img src="{{ asset('images/fish_icon.svg')}}" class="rounded-circle mr-1" width="25" height="25">
+    <i>BASSER</i>
+  </a>
   <ul class="navbar-nav ml-auto"> 
     @guest
     <li class="nav-item">
