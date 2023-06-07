@@ -26,6 +26,7 @@
             @if ($articles->hasMorePages())
                 <p class="text-center my-3"><a href="{{ $articles->nextPageUrl() }}">もっと見る</a></p>
             @endif
+            @include('floatingButton')
         </div>
         </div>
     </div>
