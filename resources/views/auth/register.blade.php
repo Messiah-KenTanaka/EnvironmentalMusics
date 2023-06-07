@@ -24,7 +24,8 @@
                 <div class="md-form">
                   <label for="name">ユーザー名</label>
                   <input class="form-control" type="text" id="name" name="name" required value="{{ old('name') }}">
-                  <small>3〜16文字(<span class="text-danger">ユーザー名は登録後の変更はできません</span>)</small>
+                  <small>3〜16文字(<span class="text-danger">ユーザー名は登録後の変更はできません</span>)</small><br>
+                  <small>※漢字、ひらがな、カタカナ、及び英字（大文字・小文字）のみ可</small>
                 </div>
                 <div class="md-form">
                   <label for="email">メールアドレス</label>
