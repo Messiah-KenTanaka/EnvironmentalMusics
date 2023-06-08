@@ -26,6 +26,10 @@
   margin-bottom: 5rem;
 }
 
+.text-pre-wrap {
+  white-space: pre-wrap;
+}
+
 /* ナビバー nav.blade.php */
 
 .nav-fixed {
