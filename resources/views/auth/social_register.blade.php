@@ -21,14 +21,24 @@
                 <div class="md-form">
                   <label for="name">ユーザー名</label>
                   <input class="form-control" type="text" id="name" name="name" required>
-                  <small>3〜16文字(ユーザー名は登録後の変更はできません)</small>
+                  <small>3〜16文字(<span class="text-danger">ユーザー名は登録後の変更はできません</span>)</small><br>
+                  <small>※漢字、ひらがな、カタカナ、及び英字（大文字・小文字）のみ可</small>
                 </div>
                 <div class="md-form">
                   <label for="email">メールアドレス</label>
                   <input class="form-control" type="text" id="email" name="email" value="{{ $email }}" disabled>
-                  <small>メールアドレスは登録後の変更はできません</small>
+                  <small class="text-danger">メールアドレスは登録後の変更はできません</small>
                 </div>
-                <button class="btn btn-block dusty-grass-gradient mt-2 mb-2" type="submit">ユーザー登録</button>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="1" id="agreement" name="agreement" required>
+                  <label class="form-check-label" for="agreement">
+                    利用規約に同意する
+                  </label>
+                </div>
+                <div class="text-center">
+                  <a href="#" data-toggle="modal" data-target="#socialRegisterModalId">利用規約を表示</a>
+                </div>
+                <button class="btn btn-block dusty-grass-gradient mt-2 mb-2" type="submit" disabled>ユーザー登録</button>
               </form>
             </div>
           </div>
@@ -36,4 +46,8 @@
       </div>
     </div>
   </div>
+
+  @component('components.terms-modal', ['id' => 'socialRegisterModalId'])
+  @endcomponent
+
 @endsection
