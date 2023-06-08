@@ -47,7 +47,7 @@
                   </label>
                 </div>
                 <div class="text-center">
-                  <a href="#" data-toggle="modal" data-target="#termsModal">利用規約を表示</a>
+                  <a href="#" data-toggle="modal" data-target="#registerModalId">利用規約を表示</a>
                 </div>
                 <button class="btn btn-block dusty-grass-gradient mt-2 mb-2" type="submit" disabled>ユーザー登録</button>
               </form>
@@ -62,23 +62,7 @@
     </div>
   </div>
 
-  <!-- 利用規約モーダル -->
-  <div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="termsModalLabel">利用規約</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body text-pre-wrap">
-          @include('agreement')
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn dusty-grass-gradient" data-dismiss="modal">閉じる</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  @component('components.terms-modal', ['id' => 'registerModalId'])
+  @endcomponent
+
 @endsection
