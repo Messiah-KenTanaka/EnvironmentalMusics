@@ -57,6 +57,10 @@ Route::post('/contact', 'ContactController@mailToAdmin')->name('contact.mailToAd
 // プライバシーポリシー
 Route::get('/policy', 'PolicyController@index')->name('policy.index');
 
+// 報告
+Route::post('/{userId}/report', 'ReportController@index')->name('report.index');
+Route::post('/report', 'ReportController@storeArticleReport')->name('report.storeArticleReport');
+
 // ユーザー
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('/{name}', 'UserController@show')->name('show');
