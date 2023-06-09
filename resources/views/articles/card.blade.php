@@ -159,6 +159,16 @@
                 </button>
               </a>
               <div class="dropdown-menu dropdown-menu-right">
+                <form method="POST" action="{{ route('report.index', ['userId' => Auth::id()]) }}">
+                  @csrf
+                  @method('POST')
+                  <input type="hidden" name="article_id" value="{{ $article->id }}">
+                  <input type="hidden" name="article_user_id" value="{{ $article->user->id }}">
+                  <button class="dropdown-item" type="submit">
+                    <i class="fa-regular fa-flag"></i> この投稿を報告
+                  </button>
+                </form>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-user-block-{{ $article->user->id }}">
                   <i class="fa-solid fa-ban"></i> {{ $article->user->name }}さんをブロック
                 </a>
@@ -166,7 +176,7 @@
             </div>
           </div>
           <!-- dropdown -->
-          <!-- modal -->
+          <!-- modal ユーザーブロック-->
           <div id="modal-user-block-{{ $article->user->id }}" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -191,7 +201,7 @@
               </div>
             </div>
           </div>
-          <!-- modal -->
+          <!-- modal end -->
         @endauth
       @endif
     </div>
