@@ -15,7 +15,7 @@ class ReportController extends Controller
 
         $tags = Tag::getPopularTag();
 
-        return view('Reports.Report', [
+        return view('reports.report', [
             'report' => $report,
             'tags' => $tags,
         ]);
