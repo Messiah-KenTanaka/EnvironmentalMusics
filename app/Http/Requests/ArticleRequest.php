@@ -40,6 +40,7 @@ class ArticleRequest extends FormRequest
             'tags' => 'タグ',
             'image' => '画像',
             'fish_size' => 'フィッシュサイズ',
+            'weight' => '重さ',
             'pref' => '都道府県',
             'bass_field' => 'フィールド'
         ];

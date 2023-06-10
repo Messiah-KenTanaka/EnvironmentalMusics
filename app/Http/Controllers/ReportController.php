@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tag;
+use App\PostReport;
 
 class ReportController extends Controller
 {
@@ -20,10 +21,11 @@ class ReportController extends Controller
         ]);
     }
 
-    public function storeArticleReport(Request $request)
+    public function storeArticleReport(Request $request, PostReport $postReport)
     {
-        // 飛んできたレーポートの内容を確認をDBに保存する処理を実装予定（DB(記事報告テーブル)もまだ作成していない）
-        dd($request);
+        $postReport->fill($request->all());
+
+        $postReport->save();
 
         return redirect()->route('articles.index')->with('success', '報告が送信されました。');
     }
