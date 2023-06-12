@@ -81,7 +81,8 @@ class ArticleController extends Controller
             $article->tags()->attach($tag);
         });
     
-        return redirect()->route('articles.index');
+        return redirect()->route('articles.index')
+            ->with('success', '投稿しました。');
     }
     
 
