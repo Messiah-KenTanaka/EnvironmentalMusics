@@ -6,6 +6,9 @@ use App\Article;
 use App\User;
 use App\Tag;
 use App\BlockList;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Functions;
@@ -293,5 +296,69 @@ class UserController extends Controller
 
         return redirect()->route('articles.index')
             ->with('success', 'ユーザーをブロックしました。');
+    }
+
+    // ユーザー削除確認画面
+    public function confirmDeleteUser(int $userId)
+    {
+        $user = User::find($userId);
+
+        // ログインしているユーザーが自分自身の削除確認画面にしかアクセスできないようにする
+        if (Auth::id() !== $user->id) {
+            return redirect()->route('articles.index')
+                ->with('error', 'アクセスできませんでした。');
+        }
+
+        $tags = Tag::getPopularTag();
+
+        return view('users.confirm_delete_user', [
+            'user' => $user,
+            'tags' => $tags
+        ]);
+    }
+
+    // ユーザー削除機能
+    public function deleteUser(Request $request, int $userId)
+    {
+        $user = User::find($userId);
+
+        // ユーザーが存在しない場合のハンドリング
+        if (!$user) {
+            return redirect()->route('articles.index')
+                ->with('error', 'ユーザーが存在しません。');
+        }
+
+        $request_name = $request->name;
+        $request_email = $request->email;
+        $request_password = $request->password;
+
+        // パスワードの存在を確認する(googleでユーザー登録した場合はパスワードが存在しない)
+        if (!empty($user->password) && !Hash::check($request_password, $user->password)) {
+            return redirect()->route('articles.index')
+                ->with('error', 'ユーザー情報に誤りがあるため削除できませんでした。');
+        }
+
+        // ユーザー名とメールアドレスの確認
+        if ($user->name !== $request_name || $user->email !== $request_email) {
+            return redirect()->route('articles.index')
+                ->with('error', 'ユーザー情報に誤りがあるため削除できませんでした。');
+        }
+
+        try {
+            DB::transaction(function () use ($userId) {
+                dd('test');
+                // ユーザーを削除処理を実装予定（ユーザーに関わる全てのテーブル情報の削除）
+                // 削除したユーザー情報を保存しておくテーブルも必要かも
+                $user = User::find($userId);
+                $user->delete();
+            });
+        } catch (\Exception $e) {
+            \Log::error($e);
+            return redirect()->route('articles.index')
+                ->with('error', '削除処理に失敗しました。');
+        }
+
+        return redirect()->route('articles.index')
+            ->with('success', 'ユーザーを削除しました。');
     }
 }

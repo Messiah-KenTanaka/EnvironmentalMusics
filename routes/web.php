@@ -74,5 +74,7 @@ Route::prefix('users')->name('users.')->group(function () {
         Route::put('/{name}/follow', 'UserController@follow')->name('follow');
         Route::delete('/{name}/follow', 'UserController@unfollow')->name('unfollow');
         Route::post('/{userId}/block', 'UserController@userBlock')->name('userBlock');
+        Route::get('/{userId}/confirmDeleteUser', 'UserController@confirmDeleteUser')->name('confirmDeleteUser');
+        Route::delete('/{userId}/delete', 'UserController@deleteUser')->name('deleteUser');
     });
 });
