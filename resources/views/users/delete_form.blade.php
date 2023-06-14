@@ -28,11 +28,11 @@
     @csrf
     @method('DELETE')
     <div class="form-group mt-2">
-      <label for="name">お名前を入力してください</label>
+      <label for="name">お名前</label>
       <input type="text" class="form-control" name="name" placeholder="釣り人" required>
     </div>
     <div class="form-group">
-      <label for="email">メールアドレスを入力してください</label>
+      <label for="email">メールアドレス</label>
       <input type="email" class="form-control" name="email" placeholder="basser@gmail.com" required>
     </div>
     @if (!empty($user->password))

@@ -6,6 +6,7 @@ use App\Article;
 use App\User;
 use App\Tag;
 use App\BlockList;
+use App\PostReport;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -346,9 +347,20 @@ class UserController extends Controller
 
         try {
             DB::transaction(function () use ($userId) {
-                dd('test');
-                // ユーザーを削除処理を実装予定（ユーザーに関わる全てのテーブル情報の削除）
-                // 削除したユーザー情報を保存しておくテーブルも必要かも
+                /* ユーザーに関わる全てのテーブル情報の削除を実装 */
+                // ユーザーの投稿を全て削除(外部キーによりlikes,article_tag,followsテーブルも削除される)
+                Article::where('user_id', $userId)->delete();
+
+                // 報告テーブルの情報を削除
+                PostReport::where('user_id', $userId)->delete();
+
+                // ブロックリストテーブルの情報を削除
+                BlockList::where(function ($query) use ($userId) {
+                    $query->where('user_id', $userId)
+                        ->orWhere('blocked_user_id', $userId);
+                })->delete();
+                
+                // ユーザーを削除
                 $user = User::find($userId);
                 $user->delete();
             });
