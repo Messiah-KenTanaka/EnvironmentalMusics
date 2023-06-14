@@ -34,6 +34,10 @@
                             <a href="{{ route('users.block', ['name' => $user->name]) }}" class="dropdown-item">
                                 ブロックリスト
                             </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ route('users.confirmDeleteUser', ['userId' => $user->id]) }}" class="dropdown-item text-danger">
+                                アカウントを削除
+                            </a>
                         </div>
                     </div>
                 </div>
