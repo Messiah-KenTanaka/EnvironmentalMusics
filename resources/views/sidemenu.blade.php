@@ -33,13 +33,6 @@
         <div class="dropdown-divider"></div>
 
         <button class="dropdown-item py-2" type="button"
-            onclick="location.href='{{ route('map.index') }}'">
-            <i class="fa-solid fa-map-location-dot"></i>
-            <span class="ml-3 font-weight-bold">Map</span>
-        </button>
-        <div class="dropdown-divider"></div>
-
-        <button class="dropdown-item py-2" type="button"
             onclick="location.href='{{ route('weather.index') }}'">
             <i class="fa-solid fa-cloud-sun"></i>
             <span class="ml-3 font-weight-bold">Weather</span>

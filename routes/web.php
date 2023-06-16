@@ -42,9 +42,6 @@ Route::get('/tags/{name}', 'TagController@show')->name('tags.show');
 Route::get('/ranking', 'RankingController@index')->name('ranking.index');
 Route::get('/ranking/{pref}', 'RankingController@show')->name('ranking.show');
 
-// 地図
-Route::get('/map', 'MapController@index')->name('map.index');
-
 // 天気予報
 Route::get('/weather', 'WeatherController@index')->name('weather.index');
 Route::get('/weather/{pref}', 'WeatherController@show')->name('weather.show');
