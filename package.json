@@ -12,6 +12,7 @@
     },
     "devDependencies": {
         "@johmun/vue-tags-input": "^2.1.0",
+        "@types/leaflet": "^1.9.3",
         "axios": "^0.19",
         "cross-env": "^5.1",
         "laravel-mix": "^4.0.7",
@@ -24,5 +25,8 @@
     },
     "engines": {
         "node": "v16.13.2"
+    },
+    "dependencies": {
+        "leaflet": "^1.9.4"
     }
 }
