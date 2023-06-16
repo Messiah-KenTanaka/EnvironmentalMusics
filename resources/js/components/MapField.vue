@@ -653,10 +653,7 @@ mounted() {
 
     var kurahashitameike = L.marker([34.49888,135.87078]).addTo(map)
         kurahashitameike.bindPopup("<b>倉橋ため池</b>").openPopup()
-
-    var tomiogawa = L.marker([34.67347,135.75320]).addTo(map)
-        tomiogawa.bindPopup("<b>富雄川</b>").openPopup()
-
+        
     var osakodamu = L.marker([34.27381,136.01374]).addTo(map)
         osakodamu.bindPopup("<b>大迫ダム</b>").openPopup()
 
