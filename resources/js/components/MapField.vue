@@ -379,7 +379,372 @@ mounted() {
         kaganoike.bindPopup("<b>加賀野池</b>").openPopup()
 
     // 福井県
+    var takedagawa = L.marker([36.17445,136.28838]).addTo(map)
+        takedagawa.bindPopup("<b>竹田川</b>").openPopup()
 
+    var hinogawa = L.marker([35.21501,133.38805]).addTo(map)
+        hinogawa.bindPopup("<b>日野川</b>").openPopup()
+
+    var ryugahanadamu = L.marker([36.15216,136.34645]).addTo(map)
+        ryugahanadamu.bindPopup("<b>龍ヶ鼻ダム</b>").openPopup()
+
+    var fukuikitaintayokoike = L.marker([36.07925,136.28055]).addTo(map)
+        fukuikitaintayokoike.bindPopup("<b>福井北インター横池</b>").openPopup()
+
+    var echizenmachiyachi = L.marker([35.95589,136.03943]).addTo(map)
+        echizenmachiyachi.bindPopup("<b>越前町野池</b>").openPopup()
+
+    // 山梨県
+    var kawaguthiko = L.marker([35.5167,138.7499]).addTo(map)
+        kawaguthiko.bindPopup("<b>河口湖</b>").openPopup()
+
+    var yamanakako = L.marker([35.4187,138.8754]).addTo(map)
+        yamanakako.bindPopup("<b>山中湖</b>").openPopup()
+
+    var saiko = L.marker([35.50155,138.68561]).addTo(map)
+        saiko.bindPopup("<b>西湖</b>").openPopup()
+
+    var shouzinko = L.marker([35.4887,138.6106]).addTo(map)
+        shouzinko.bindPopup("<b>精進湖</b>").openPopup()
+
+    var motosuko = L.marker([35.4643,138.5857]).addTo(map)
+        motosuko.bindPopup("<b>本栖湖</b>").openPopup()
+
+    var thiyodako = L.marker([35.7025,138.5539]).addTo(map)
+        thiyodako.bindPopup("<b>千代田湖</b>").openPopup()
+
+    var tanukiko_yamanashi = L.marker([35.3446,138.5609]).addTo(map)
+        tanukiko_yamanashi.bindPopup("<b>田貫湖(山梨県)</b>").openPopup()
+
+    var nagasakaushiike = L.marker([35.83125,138.37448]).addTo(map)
+        nagasakaushiike.bindPopup("<b>長坂牛池</b>").openPopup()
+
+    var oshinofisshingueria = L.marker([35.46103,138.85049]).addTo(map)
+        oshinofisshingueria.bindPopup("<b>忍野フィッシングエリア</b>").openPopup()
+
+    // 長野県
+    var nojiriko_nagano = L.marker([36.82845,138.23045]).addTo(map)
+        nojiriko_nagano.bindPopup("<b>野尻湖(長野県)</b>").openPopup()
+
+    var chikumagawa = L.marker([36.35967,138.32009]).addTo(map)
+        chikumagawa.bindPopup("<b>千曲川</b>").openPopup()
+
+    var aokiko = L.marker([36.60880,137.84822]).addTo(map)
+        aokiko.bindPopup("<b>青木湖</b>").openPopup()
+
+    var kisakiko = L.marker([36.5555,137.8378]).addTo(map)
+        kisakiko.bindPopup("<b>木崎湖</b>").openPopup()
+
+    var shirakabako = L.marker([36.49485,138.01582]).addTo(map)
+        shirakabako.bindPopup("<b>白樺湖</b>").openPopup()
+
+    var takoike = L.marker([36.70206,138.23690]).addTo(map)
+        takoike.bindPopup("<b>田子池</b>").openPopup()
+
+    var sessoko = L.marker([36.31170,138.52113]).addTo(map)
+        sessoko.bindPopup("<b>雪窓湖</b>").openPopup()
+
+    var tamizoike = L.marker([36.32742,137.66108]).addTo(map)
+        tamizoike.bindPopup("<b>田溝池</b>").openPopup()
+
+    var ooguteko = L.marker([35.39480,137.76166]).addTo(map)
+        ooguteko.bindPopup("<b>おおぐて湖</b>").openPopup()
+
+    // 岐阜県
+    var ooegawa = L.marker([35.2017,136.6488]).addTo(map)
+        ooegawa.bindPopup("<b>大江川</b>").openPopup()
+
+    var gosangawa = L.marker([35.24664,136.60106]).addTo(map)
+        gosangawa.bindPopup("<b>五三川</b>").openPopup()
+
+    var yahagidamu = L.marker([35.23663,137.41963]).addTo(map)
+        yahagidamu.bindPopup("<b>矢作ダム</b>").openPopup()
+
+    var nagaragawa = L.marker([35.4551,136.8338]).addTo(map)
+        nagaragawa.bindPopup("<b>長良川</b>").openPopup()
+
+    var akigamidamu = L.marker([36.0658,137.3991]).addTo(map)
+        akigamidamu.bindPopup("<b>秋神ダム</b>").openPopup()
+
+    var kisogawa = L.marker([35.4734,137.2121]).addTo(map)
+        kisogawa.bindPopup("<b>木曽川</b>").openPopup()
+
+    var kamiyaike = L.marker([35.49436,137.46623]).addTo(map)
+        kamiyaike.bindPopup("<b>神谷池</b>").openPopup()
+
+    var mithuyaike = L.marker([35.45304,136.94210]).addTo(map)
+        mithuyaike.bindPopup("<b>三ツ池</b>").openPopup()
+
+    var hyoutanko = L.marker([35.49326,137.46356]).addTo(map)
+        hyoutanko.bindPopup("<b>ひょうたん湖</b>").openPopup()
+
+    // 静岡県
+    var tanukiko_shizuoka = L.marker([35.34492,138.56126]).addTo(map)
+        tanukiko_shizuoka.bindPopup("<b>田貫湖(静岡県)</b>").openPopup()
+
+    var ippekiko = L.marker([34.9295,139.1059]).addTo(map)
+        ippekiko.bindPopup("<b>一碧湖</b>").openPopup()
+
+    var numatu_kadoike = L.marker([35.1290,138.8812]).addTo(map)
+        numatu_kadoike.bindPopup("<b>沼津・門池</b>").openPopup()
+
+    var inasako = L.marker([34.8859,137.7140]).addTo(map)
+        inasako.bindPopup("<b>いなさ湖/都田川ダム</b>").openPopup()
+
+    var kakegawa = L.marker([34.78526,138.01915]).addTo(map)
+        kakegawa.bindPopup("<b>掛川・菊川野池群</b>").openPopup()
+
+    var hamakitanoike = L.marker([34.84059,137.78033]).addTo(map)
+        hamakitanoike.bindPopup("<b>浜北野池</b>").openPopup()
+
+    // 愛知県
+    var thitanoikegun = L.marker([34.84905,136.89077]).addTo(map)
+        thitanoikegun.bindPopup("<b>知多野池群</b>").openPopup()
+
+    var irukaike = L.marker([35.3450,136.9998]).addTo(map)
+        irukaike.bindPopup("<b>入鹿池</b>").openPopup()
+
+    var yasakugawa = L.marker([35.04987,137.18213]).addTo(map)
+        yasakugawa.bindPopup("<b>矢作川</b>").openPopup()
+
+    var okuyahagiko = L.marker([35.2280,137.4352]).addTo(map)
+        okuyahagiko.bindPopup("<b>奥矢作湖</b>").openPopup()
+
+    var mikawako = L.marker([35.0282,137.4085]).addTo(map)
+        mikawako.bindPopup("<b>三河湖</b>").openPopup()
+
+    var aburagahuthi = L.marker([34.9009,137.0146]).addTo(map)
+        aburagahuthi.bindPopup("<b>油ヶ淵</b>").openPopup()
+
+    var shonaigawa = L.marker([35.2166,136.9672]).addTo(map)
+        shonaigawa.bindPopup("<b>庄内川</b>").openPopup()
+
+    var yakanike = L.marker([35.04418,136.90598]).addTo(map)
+        yakanike.bindPopup("<b>ヤカン池</b>").openPopup()
+
+    var tenryugawa = L.marker([34.88408,137.80458]).addTo(map)
+        tenryugawa.bindPopup("<b>天竜川</b>").openPopup()
+
+    // 三重県
+    var kimiganodamu = L.marker([34.59713,136.31380]).addTo(map)
+        kimiganodamu.bindPopup("<b>君ケ野ダム</b>").openPopup()
+
+    var shourenziko = L.marker([34.6001,136.1194]).addTo(map)
+        shourenziko.bindPopup("<b>青蓮寺湖</b>").openPopup()
+
+    var nanairodamu = L.marker([33.9616,136.0031]).addTo(map)
+        nanairodamu.bindPopup("<b>七色ダム</b>").openPopup()
+
+    var komoridamu = L.marker([33.93474,135.92786]).addTo(map)
+        komoridamu.bindPopup("<b>小森ダム</b>").openPopup()
+
+    var kawagoeyosui = L.marker([35.02323,136.68366]).addTo(map)
+        kawagoeyosui.bindPopup("<b>川越用水</b>").openPopup()
+
+    var hokuseichuokoen = L.marker([35.0673,136.5458]).addTo(map)
+        hokuseichuokoen.bindPopup("<b>北勢中央公園</b>").openPopup()
+
+    // 滋賀県
+    var biwako = L.marker([35.2882,136.0966]).addTo(map)
+        biwako.bindPopup("<b>琵琶湖</b>").openPopup()
+
+    var sonenuma = L.marker([35.24105,136.19423]).addTo(map)
+        sonenuma.bindPopup("<b>曽根沼</b>").openPopup()
+
+    var nodanuma = L.marker([35.45046,136.19750]).addTo(map)
+        nodanuma.bindPopup("<b>野田沼</b>").openPopup()
+
+    // 京都府
+    var ujigawa = L.marker([34.92022,135.75225]).addTo(map)
+        ujigawa.bindPopup("<b>宇治川</b>").openPopup()
+
+    var hiyoshidamu = L.marker([35.14774,135.51777]).addTo(map)
+        hiyoshidamu.bindPopup("<b>日吉ダム</b>").openPopup()
+
+    var kathuragawa = L.marker([34.99149,135.70939]).addTo(map)
+        kathuragawa.bindPopup("<b>桂川</b>").openPopup()
+
+    var oonodamu = L.marker([35.26233,135.46021]).addTo(map)
+        oonodamu.bindPopup("<b>大野ダム</b>").openPopup()
+
+    var kidzugawa = L.marker([34.83270,135.76489]).addTo(map)
+        kidzugawa.bindPopup("<b>木津川</b>").openPopup()
+
+    var nakayamaike = L.marker([35.00585,135.56621]).addTo(map)
+        nakayamaike.bindPopup("<b>中山池</b>").openPopup()
+
+    var yuragawa = L.marker([35.26987,135.46639]).addTo(map)
+        yuragawa.bindPopup("<b>由良川</b>").openPopup()
+
+    var daishouike = L.marker([34.81242,135.85437]).addTo(map)
+        daishouike.bindPopup("<b>大正池</b>").openPopup()
+
+    var arashiyamafisshingueria = L.marker([35.04339,135.67333]).addTo(map)
+        arashiyamafisshingueria.bindPopup("<b>嵐山フィッシングエリア</b>").openPopup()
+
+    // 大阪府
+    var yodogawa = L.marker([34.7331,135.5326]).addTo(map)
+        yodogawa.bindPopup("<b>淀川</b>").openPopup()
+
+    var kanzakigawa = L.marker([34.75722,135.54874]).addTo(map)
+        kanzakigawa.bindPopup("<b>神崎川</b>").openPopup()
+
+    var horikawadamu = L.marker([34.32333,135.30997]).addTo(map)
+        horikawadamu.bindPopup("<b>堀河ダム</b>").openPopup()
+
+    var yamatogawa = L.marker([34.60094,135.70285]).addTo(map)
+        yamatogawa.bindPopup("<b>大和川</b>").openPopup()
+
+    var neyagawa = L.marker([34.72201,135.62808]).addTo(map)
+        neyagawa.bindPopup("<b>寝屋川</b>").openPopup()
+
+    var aikawa = L.marker([34.7648,135.5413]).addTo(map)
+        aikawa.bindPopup("<b>安威川</b>").openPopup()
+
+    var hattoriryokuchi = L.marker([34.7753,135.4866]).addTo(map)
+        hattoriryokuchi.bindPopup("<b>服部緑地</b>").openPopup()
+
+    var suisofisshingusenta = L.marker([34.42048,135.36259]).addTo(map)
+        suisofisshingusenta.bindPopup("<b>水藻フィッシングセンター</b>").openPopup()
+
+    // 兵庫県
+    var chikusagawa = L.marker([35.00167,134.40617]).addTo(map)
+        chikusagawa.bindPopup("<b>千種川</b>").openPopup()
+
+    var kakogawa = L.marker([34.7987,134.9076]).addTo(map)
+        kakogawa.bindPopup("<b>加古川</b>").openPopup()
+
+    var azumaharinoike = L.marker([34.81701,134.83132]).addTo(map)
+        azumaharinoike.bindPopup("<b>東播野池</b>").openPopup()
+
+    var kanayamako = L.marker([35.1897,134.8355]).addTo(map)
+        kanayamako.bindPopup("<b>銀山湖</b>").openPopup()
+
+    var hitokuradamu = L.marker([34.90517,135.41195]).addTo(map)
+        hitokuradamu.bindPopup("<b>一庫ダム</b>").openPopup()
+
+    var aaonodamu = L.marker([34.9357,135.2102]).addTo(map)
+        aaonodamu.bindPopup("<b>青野ダム</b>").openPopup()
+
+    var toujouko = L.marker([34.9299,135.0688]).addTo(map)
+        toujouko.bindPopup("<b>東条湖</b>").openPopup()
+
+    // 奈良県
+    var ikeharadamu = L.marker([34.04709,135.97186]).addTo(map)
+        ikeharadamu.bindPopup("<b>池原ダム</b>").openPopup()
+
+    var thuburoko = L.marker([34.4019,135.9037]).addTo(map)
+        thuburoko.bindPopup("<b>津風呂湖</b>").openPopup()
+
+    var kazeyadamu = L.marker([34.04442,135.78807]).addTo(map)
+        kazeyadamu.bindPopup("<b>風屋ダム</b>").openPopup()
+
+    var nunomedamu = L.marker([34.70023,135.97823]).addTo(map)
+        nunomedamu.bindPopup("<b>布目ダム</b>").openPopup()
+
+    var takayamadamu = L.marker([34.75338,136.01114]).addTo(map)
+        takayamadamu.bindPopup("<b>高山ダム</b>").openPopup()
+
+    var kurahashitameike = L.marker([34.49816,135.86948]).addTo(map)
+        kurahashitameike.bindPopup("<b>倉橋ため池</b>").openPopup()
+
+    var tomiogawa = L.marker([34.67713,135.74123]).addTo(map)
+        tomiogawa.bindPopup("<b>富雄川</b>").openPopup()
+
+    var kurahashitameike = L.marker([34.49888,135.87078]).addTo(map)
+        kurahashitameike.bindPopup("<b>倉橋ため池</b>").openPopup()
+
+    var tomiogawa = L.marker([34.67347,135.75320]).addTo(map)
+        tomiogawa.bindPopup("<b>富雄川</b>").openPopup()
+
+    var osakodamu = L.marker([34.27381,136.01374]).addTo(map)
+        osakodamu.bindPopup("<b>大迫ダム</b>").openPopup()
+
+    // 和歌山県
+    var gougawadamu = L.marker([33.68321,135.56467]).addTo(map)
+        gougawadamu.bindPopup("<b>合川ダム</b>").openPopup()
+
+    var kinokawa = L.marker([34.25555,135.38414]).addTo(map)
+        kinokawa.bindPopup("<b>紀ノ川</b>").openPopup()
+
+    var shitukawadamu = L.marker([33.59194,135.68884]).addTo(map)
+        shitukawadamu.bindPopup("<b>七川ダム</b>").openPopup()
+
+    var chinzandamu = L.marker([33.96017,135.39113]).addTo(map)
+        chinzandamu.bindPopup("<b>椿山ダム</b>").openPopup()
+
+    var aritagawa = L.marker([34.03778,135.31026]).addTo(map)
+        aritagawa.bindPopup("<b>有田川</b>").openPopup()
+
+    var sakuraike = L.marker([34.29327,135.38591]).addTo(map)
+        sakuraike.bindPopup("<b>桜池</b>").openPopup()
+
+    // 鳥取県
+    var tanegaike = L.marker([35.53517,134.23717]).addTo(map)
+        tanegaike.bindPopup("<b>多鯰ケ池</b>").openPopup()
+
+    var fusesogoundokoen = L.marker([35.49983,134.17829]).addTo(map)
+        fusesogoundokoen.bindPopup("<b>布勢総合運動公園</b>").openPopup()
+
+    var koyamaike = L.marker([35.50826,134.15007]).addTo(map)
+        koyamaike.bindPopup("<b>湖山池</b>").openPopup()
+
+    var hashidzugawa = L.marker([35.49805,133.88075]).addTo(map)
+        hashidzugawa.bindPopup("<b>橋津川</b>").openPopup()
+
+    var tougouike = L.marker([35.47816,133.89242]).addTo(map)
+        tougouike.bindPopup("<b>東郷池</b>").openPopup()
+
+    var tenjingawa = L.marker([35.41977,133.85127]).addTo(map)
+        tenjingawa.bindPopup("<b>天神川</b>").openPopup()
+
+    var nishitakaodamu = L.marker([35.44004,133.70120]).addTo(map)
+        nishitakaodamu.bindPopup("<b>西高尾ダム</b>").openPopup()
+
+    var yubarako = L.marker([35.22447,133.71306]).addTo(map)
+        yubarako.bindPopup("<b>湯原湖</b>").openPopup()
+
+    var nishitakaodamu = L.marker([35.43941,133.70101]).addTo(map)
+        nishitakaodamu.bindPopup("<b>西高尾ダム</b>").openPopup()
+
+    var yubarako = L.marker([35.2274,133.7106]).addTo(map)
+        yubarako.bindPopup("<b>湯原湖</b>").openPopup()
+
+    var ryokusuiko = L.marker([35.3026,133.3268]).addTo(map)
+        ryokusuiko.bindPopup("<b>緑水湖（賀祥ダム）</b>").openPopup()
+
+    var nichinanko = L.marker([35.21704,133.32257]).addTo(map)
+        nichinanko.bindPopup("<b>日南湖（菅沢ダム）</b>").openPopup()
+
+    // 島根県
+    var nakaumi = L.marker([35.4772,133.1763]).addTo(map)
+        nakaumi.bindPopup("<b>中海</b>").openPopup()
+
+    var asakumigawa = L.marker([35.4907,133.0767]).addTo(map)
+        asakumigawa.bindPopup("<b>朝酌川</b>").openPopup()
+
+    var shinjiko = L.marker([35.4453,132.9658]).addTo(map)
+        shinjiko.bindPopup("<b>宍道湖</b>").openPopup()
+
+    var yuyagawa = L.marker([35.43430,132.82303]).addTo(map)
+        yuyagawa.bindPopup("<b>湯谷川</b>").openPopup()
+
+    var jaike = L.marker([35.30137,132.65522]).addTo(map)
+        jaike.bindPopup("<b>蛇池</b>").openPopup()
+
+    var sanbedamu = L.marker([35.17195,132.55994]).addTo(map)
+        sanbedamu.bindPopup("<b>三瓶ダム</b>").openPopup()
+
+    var enokawa = L.marker([34.76647,132.48680]).addTo(map)
+        enokawa.bindPopup("<b>江の川</b>").openPopup()
+
+    var onbedamu = L.marker([34.72236,132.03225]).addTo(map)
+        onbedamu.bindPopup("<b>御部ダム</b>").openPopup()
+
+    var banryuko = L.marker([34.6811,131.8055]).addTo(map)
+        banryuko.bindPopup("<b>蟠竜湖</b>").openPopup()
+
+    // 岡山県
 }
 };
 </script>
