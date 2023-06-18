@@ -1,5 +1,5 @@
 <template>
-    <div class="folium-map" id="map"></div>
+    <div class="folium-map z_index_1" id="map"></div>
 </template>
 
 <script>

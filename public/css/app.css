@@ -30,18 +30,22 @@
   white-space: pre-wrap;
 }
 
+.z_index_1 {
+  z-index: 1;
+}
+
 /* ナビバー nav.blade.php */
 
 .nav-fixed {
   position: sticky;
   top: 0;
-  z-index: 10000;
+  z-index: 1000;
 }
 
 /* ボトムナビバー bottomNav.blade.php */
 
 .fixed-bottom {
-  z-index: 10000;
+  z-index: 1000;
 }
 
 /* ローディング */
