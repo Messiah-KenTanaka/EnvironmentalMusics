@@ -48,28 +48,31 @@
         <h2 class="h4 card-title m-0">
             <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
             {{ $user->name }}
-            </a>
-        </h2>
-        <div class="m-2">
             <span class="text-dark">
-                称号：
                 @if ($record['total_size'] > 50000000 || $record['total_weight'] > 1000000000)
-                    神 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
+                    {{-- 神  --}}
+                    <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
                 @elseif ($record['total_size'] > 5000000 || $record['total_weight'] > 100000000)
-                    王 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
+                    {{-- 王 --}}
+                    <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
                 @elseif ($record['total_size'] > 500000 || $record['total_weight'] > 10000000)
-                    達人 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
+                    {{-- 達人  --}}
+                    <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
                 @elseif ($record['total_size'] > 50000 || $record['total_weight'] > 1000000)
-                    熟練 <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
+                    {{-- 熟練  --}}
+                    <i class="fa-solid fa-star text-color-gold"></i><i class="fa-solid fa-star text-color-gold"></i>
                 @elseif ($record['total_size'] > 5000 || $record['total_weight'] > 100000)
-                    職人 <i class="fa-solid fa-star text-color-gold"></i>
+                    {{-- 職人  --}}
+                    <i class="fa-solid fa-star text-color-gold"></i>
                 @else
-                    見習い <i class="fa-solid fa-star-half-stroke text-color-gold"></i>
+                    {{-- 見習い  --}}
+                    {{-- <i class="fa-solid fa-star-half-stroke text-color-gold"></i> --}}
                 @endif
             </span>
-        </div>
+            </a>
+        </h2>
         <h3 class="h6 card-title m-0">
-            <div class="text-dark">
+            <div class="text-dark mt-2">
                 自己記録
             </div>
         </h3>
