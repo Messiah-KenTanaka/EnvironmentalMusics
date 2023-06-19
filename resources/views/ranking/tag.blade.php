@@ -5,7 +5,7 @@
     <li class="nav-item dropdown text-center">
       <a class="nav-link" id="navbarDropdownTagLink" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-search"> 人気のタグ検索</i>
+        <i class="fas fa-search"> 最近のトレンド検索</i>
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownTagLink">
         @foreach($tags as $tag)

@@ -105,7 +105,7 @@
             <img src="{{ asset('images/fish_icon.svg')}}" class="rounded-circle mr-1" width="25" height="25">
         </button>
 
-        <span class="dropdown-item font-weight-bold mt-5 py-2"><i class="fa-solid fa-tags mr-2"></i>人気のタグ</span>
+        <span class="dropdown-item font-weight-bold mt-5 py-2"><i class="fa-solid fa-tags mr-2"></i>最近のトレンド</span>
         <div class="dropdown-divider"></div>
         @foreach($tags as $tag)
             <button class="dropdown-item py-1" type="button"
