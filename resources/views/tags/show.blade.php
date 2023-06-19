@@ -9,7 +9,7 @@
       @include('sidemenu')
       <div class="col">
         @include('ranking.tag')
-        <h2 class="text-center my-3 main-ja-font-family tag-heading" data-en="Tag"><span>タグ</span></h2>
+        <h2 class="text-center my-3 main-ja-font-family tag-heading" data-en="Trend"><span>トレンド</span></h2>
         <div class="card mt-3">
           <div class="card-body">
             <h2 class="h4 card-title m-0">{{ $tag->hashtag }}</h2>
