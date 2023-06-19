@@ -864,6 +864,191 @@ mounted() {
         ootaniike.bindPopup("<b>大谷池</b>").openPopup()
 
     // 愛媛県
+    var iwategawadamu = L.marker([33.87940,132.83789]).addTo(map)
+        iwategawadamu.bindPopup("<b>石手川ダム</b>").openPopup()
+
+    var shikanokoike = L.marker([34.01747,132.99620]).addTo(map)
+        shikanokoike.bindPopup("<b>鹿の子池</b>").openPopup()
+
+    var nomuradamu = L.marker([33.35913,132.62919]).addTo(map)
+        nomuradamu.bindPopup("<b>野村ダム</b>").openPopup()
+
+    var hunekawaike = L.marker([33.77436,132.85123]).addTo(map)
+        hunekawaike.bindPopup("<b>船川池</b>").openPopup()
+
+    var tamakawadamu = L.marker([33.99288,132.93216]).addTo(map)
+        tamakawadamu.bindPopup("<b>玉川ダム</b>").openPopup()
+
+    var otomegawa = L.marker([34.92612,137.35750]).addTo(map)
+        otomegawa.bindPopup("<b>乙女川</b>").openPopup()
+
+    // 高知県
+    var sameuradamu = L.marker([33.75687,133.55033]).addTo(map)
+        sameuradamu.bindPopup("<b>早明浦ダム</b>").openPopup()
+
+    var hagegawa = L.marker([33.48576,133.41245]).addTo(map)
+        hagegawa.bindPopup("<b>波介川</b>").openPopup()
+
+    var owataridamu = L.marker([33.54493,133.11563]).addTo(map)
+        owataridamu.bindPopup("<b>大渡ダム</b>").openPopup()
+
+    var ishidoike = L.marker([33.52925,133.60835]).addTo(map)
+        ishidoike.bindPopup("<b>石土池</b>").openPopup()
+
+    var nakasuzigawa = L.marker([32.9771,132.8791]).addTo(map)
+        nakasuzigawa.bindPopup("<b>中筋川</b>").openPopup()
+
+    var ananaigawadamu = L.marker([33.68087,133.65502]).addTo(map)
+        ananaigawadamu.bindPopup("<b>穴内川ダム</b>").openPopup()
+
+    var kokubugawa = L.marker([33.58980,133.60654]).addTo(map)
+        kokubugawa.bindPopup("<b>国分川</b>").openPopup()
+
+    var sumiyosiike_kouthi = L.marker([33.52488,133.59300]).addTo(map)
+        sumiyosiike_kouthi.bindPopup("<b>住吉池(高知県)</b>").openPopup()
+
+    // 福岡県
+    var ongagawa = L.marker([33.8189,130.7071]).addTo(map)
+        ongagawa.bindPopup("<b>遠賀川</b>").openPopup()
+
+    var inunakigawa = L.marker([33.77067,130.71423]).addTo(map)
+        inunakigawa.bindPopup("<b>犬鳴川</b>").openPopup()
+
+    var thikugogawa = L.marker([33.3295,130.5246]).addTo(map)
+        thikugogawa.bindPopup("<b>筑後川</b>").openPopup()
+
+    var houmangawa = L.marker([33.3400,130.5245]).addTo(map)
+        houmangawa.bindPopup("<b>宝満川</b>").openPopup()
+
+    var takaragawa = L.marker([33.29491,130.55085]).addTo(map)
+        takaragawa.bindPopup("<b>高良川</b>").openPopup()
+
+    var yabegawa = L.marker([33.1542,130.8151]).addTo(map)
+        yabegawa.bindPopup("<b>矢部川</b>").openPopup()
+
+    var oohorikouen = L.marker([33.58613,130.37696]).addTo(map)
+        oohorikouen.bindPopup("<b>大濠公園</b>").openPopup()
+
+    var imagawa = L.marker([33.66673,130.94806]).addTo(map)
+        imagawa.bindPopup("<b>今川</b>").openPopup()
+
+    // 佐賀県
+    var sagakuriku = L.marker([33.29581,130.35331]).addTo(map)
+        sagakuriku.bindPopup("<b>佐賀クリーク</b>").openPopup()
+
+    var kitagawa = L.marker([33.2423,130.2438]).addTo(map)
+        kitagawa.bindPopup("<b>嘉瀬川</b>").openPopup()
+
+    var hokusandamu = L.marker([33.43370,130.23711]).addTo(map)
+        hokusandamu.bindPopup("<b>北山ダム</b>").openPopup()
+
+    var kawauthidamu = L.marker([33.40667,130.48935]).addTo(map)
+        kawauthidamu.bindPopup("<b>河内ダム</b>").openPopup()
+
+    var minamihatakedamu = L.marker([33.43433,130.42470]).addTo(map)
+        minamihatakedamu.bindPopup("<b>南畑ダム</b>").openPopup()
+
+    // 長崎県
+    var isanouradamu = L.marker([33.01385,129.68585]).addTo(map)
+        isanouradamu.bindPopup("<b>伊佐ノ浦ダム</b>").openPopup()
+
+    var hanzoukawa = L.marker([32.83293,130.05512]).addTo(map)
+        hanzoukawa.bindPopup("<b>半蔵川</b>").openPopup()
+
+    var honmuoigawa = L.marker([32.84656,130.06844]).addTo(map)
+        honmuoigawa.bindPopup("<b>本明川</b>").openPopup()
+
+    var kawaharaooike = L.marker([32.6238,129.8317]).addTo(map)
+        kawaharaooike.bindPopup("<b>川原大地</b>").openPopup()
+
+    var suwanoike = L.marker([32.6792,130.1938]).addTo(map)
+        suwanoike.bindPopup("<b>諏訪の池</b>").openPopup()
+
+    // 熊本県
+    var ezuko = L.marker([32.7763,130.7447]).addTo(map)
+        ezuko.bindPopup("<b>江津湖</b>").openPopup()
+
+    var tathiokaike = L.marker([32.67531,130.69292]).addTo(map)
+        tathiokaike.bindPopup("<b>立岡池</b>").openPopup()
+
+    var hagiotameike = L.marker([32.6543,130.7275]).addTo(map)
+        hagiotameike.bindPopup("<b>萩尾溜池</b>").openPopup()
+
+    var kasegawa = L.marker([32.7569,130.7508]).addTo(map)
+        kasegawa.bindPopup("<b>加勢川</b>").openPopup()
+
+    var hamadogawa = L.marker([32.7016,130.7268]).addTo(map)
+        hamadogawa.bindPopup("<b>浜戸川</b>").openPopup()
+
+    var ithihusadamu = L.marker([32.3319,131.0241]).addTo(map)
+        ithihusadamu.bindPopup("<b>市房ダム</b>").openPopup()
+
+    var hikawadamu = L.marker([32.57126,130.78696]).addTo(map)
+        hikawadamu.bindPopup("<b>氷川ダム</b>").openPopup()
+
+    // 大分県
+    var matubaradamu = L.marker([33.19379,130.99384]).addTo(map)
+        matubaradamu.bindPopup("<b>松原ダム</b>").openPopup()
+
+    var hisashidamu = L.marker([33.43442,131.43400]).addTo(map)
+        hisashidamu.bindPopup("<b>日指ダム</b>").openPopup()
+
+    var serikawadamu = L.marker([35.23758,136.29989]).addTo(map)
+        serikawadamu.bindPopup("<b>芹川ダム</b>").openPopup()
+
+    var oonogawa = L.marker([33.07966,131.63831]).addTo(map)
+        oonogawa.bindPopup("<b>大野川</b>").openPopup()
+
+    var kokuraike = L.marker([33.52148,131.31297]).addTo(map)
+        kokuraike.bindPopup("<b>小倉池</b>").openPopup()
+
+    var shidaharadamu = L.marker([33.07399,131.52566]).addTo(map)
+        shidaharadamu.bindPopup("<b>師田原ダム</b>").openPopup()
+
+    // 宮崎県
+    var boziriko_miyazaki = L.marker([31.94219,131.12683]).addTo(map)
+        boziriko_miyazaki.bindPopup("<b>野尻湖(宮崎県)</b>").openPopup()
+
+    var miike = L.marker([31.8838,130.9702]).addTo(map)
+        miike.bindPopup("<b>御池</b>").openPopup()
+
+    var onoko = L.marker([32.0630,131.1033]).addTo(map)
+        onoko.bindPopup("<b>小野湖</b>").openPopup()
+
+    var ooyodogawa = L.marker([31.9413,131.1893]).addTo(map)
+        ooyodogawa.bindPopup("<b>大淀川</b>").openPopup()
+
+    var iwakodamu = L.marker([32.7184,131.5742]).addTo(map)
+        iwakodamu.bindPopup("<b>祝子ダム</b>").openPopup()
+
+    var ishisakigawa = L.marker([32.02509,131.42342]).addTo(map)
+        ishisakigawa.bindPopup("<b>石崎川</b>").openPopup()
+
+    // 鹿児島県
+    var imutaike = L.marker([31.81822,130.46773]).addTo(map)
+        imutaike.bindPopup("<b>藺牟田池</b>").openPopup()
+
+    var sathumako = L.marker([31.51414,130.34168]).addTo(map)
+        sathumako.bindPopup("<b>薩摩湖</b>").openPopup()
+
+    var sumiyoshiike_kagosima = L.marker([31.77158,130.59170]).addTo(map)
+        sumiyoshiike_kagosima.bindPopup("<b>住吉池(鹿児島県)</b>").openPopup()
+
+    var takeyamadamu = L.marker([31.81364,130.66531]).addTo(map)
+        takeyamadamu.bindPopup("<b>竹山ダム</b>").openPopup()
+
+    var oosumiko = L.marker([31.5164,130.8540]).addTo(map)
+        oosumiko.bindPopup("<b>大隅湖</b>").openPopup()
+
+    var unagiike = L.marker([31.2232,130.6062]).addTo(map)
+        unagiike.bindPopup("<b>鰻池</b>").openPopup()
+
+    // 沖縄県
+    var hijagawa = L.marker([26.3623,127.8101]).addTo(map)
+        hijagawa.bindPopup("<b>比謝川</b>").openPopup()
+
+    var asatogawa = L.marker([26.21418,127.71380]).addTo(map)
+        asatogawa.bindPopup("<b>安里川</b>").openPopup()
 
 }
 };
