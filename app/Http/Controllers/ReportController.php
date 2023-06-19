@@ -29,4 +29,17 @@ class ReportController extends Controller
 
         return redirect()->route('articles.index')->with('success', '報告が送信されました。');
     }
+
+    public function show()
+    {
+        $reportContents = PostReport::orderByDesc('created_at')
+            ->paginate(config('paginate.paginate'));
+
+        $tags = Tag::getPopularTag();
+
+        return view('reports.show', [
+            'reportContents' => $reportContents,
+            'tags' => $tags,
+        ]);
+    }
 }
