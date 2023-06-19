@@ -99,20 +99,22 @@
   <div class="d-flex">
     @if ($article->fish_size)
       <div class="pt-0 pb-2 pl-3">
-        <span class="main-font-family-cursive lead pl-1">
+        <span class="main-ja-font-family pl-1">
+          <i class="fa-solid fa-ruler-horizontal"></i>
           {{ $article->fish_size }}
         </span>
         cm
       </div>
     @endif
-    @if ($article->fish_size && $article->weight)
+    {{-- @if ($article->fish_size && $article->weight)
         <span class="lead pl-3">
           /
         </span>
-    @endif
+    @endif --}}
     @if ($article->weight)
       <div class="card-body pt-0 pb-2 pl-3">
-        <span class="main-font-family-cursive lead pl-1">
+        <span class="main-ja-font-family pl-1">
+          <i class="fa-solid fa-weight-scale"></i>
           {{ number_format($article->weight) }}
         </span>
         g

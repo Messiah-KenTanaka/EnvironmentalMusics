@@ -83,19 +83,21 @@
                 @if ($record['size'])
                     <div class="m-2">
                         <span class="text-dark main-ja-font-family">
+                            <i class="fa-solid fa-ruler-horizontal"></i>
                             {{ $record['size'] }}
                             cm
                         </span>
                     </div>
                 @endif
-                @if ($record['size'] && $record['weight'])
+                {{-- @if ($record['size'] && $record['weight'])
                     <span class="m-1">
                     /
                     </span>
-                @endif
+                @endif --}}
                 @if ($record['weight'])
                     <div class="m-2">
                         <span class="text-dark main-ja-font-family">
+                            <i class="fa-solid fa-weight-scale"></i>
                             {{ number_format($record['weight']) }}
                             g
                         </span>
