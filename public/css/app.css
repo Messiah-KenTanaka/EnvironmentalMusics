@@ -177,6 +177,35 @@
   margin-left: 20px;
 }
 
+/* マップ 装飾 */
+
+.map-heading {
+  position: relative;
+  padding-top: 50px;
+  padding-left: 30px;
+}
+
+.map-heading span {
+  position: relative;
+  z-index: 2;
+}
+
+.map-heading::before {
+  content: attr(data-en);
+  position: absolute;
+  transform: translateX(-50%) rotate(-5deg);
+  top: -20px;
+  left: 50%;
+  padding: 10px;
+  background: linear-gradient(135deg, #056b00 0%, #4caf50 40%, #8bc34a 60%, #056b00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 80px;
+  font-weight: 400;
+  font-family: luxus-brut, cursive;
+  font-style: italic;
+}
+
 /* 人気のタグ 装飾 */
 
 .tag-heading {
