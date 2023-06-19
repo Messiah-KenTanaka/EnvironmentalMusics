@@ -63,6 +63,7 @@ Route::get('/policy', 'PolicyController@index')->name('policy.index');
 // 報告
 Route::post('/{userId}/report', 'ReportController@index')->name('report.index');
 Route::post('/report', 'ReportController@storeArticleReport')->name('report.storeArticleReport');
+Route::get('/reportContent', 'ReportController@show')->name('reportContent.show');
 
 // ユーザー
 Route::prefix('users')->name('users.')->group(function () {

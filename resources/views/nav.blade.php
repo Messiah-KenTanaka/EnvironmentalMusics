@@ -60,6 +60,15 @@
           @endif
           {{ Functions::getNameEllipsis(Auth::user()->name) }}
         </button>
+        {{--  管理者のみ閲覧可能  --}}
+        @if (in_array(Auth::user()->id, [1, 2, 3]))
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" type="button"
+                  onclick="location.href='{{ route('reportContent.show') }}'">
+            <span class="ml-1">報告内容一覧</span>
+          </button>
+        @endif
+        {{--  ここまで  --}}
       </div>
     </li>
     <form id="logout-button" method="POST" action="{{ route('logout') }}">
