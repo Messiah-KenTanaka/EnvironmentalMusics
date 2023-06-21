@@ -6,14 +6,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
 use App\Tag;
+use App\User;
 
 class ContactController extends Controller
 {
-    public function show()
+    public function index(string $name)
     {
+        $user = User::where('name', $name)->first();
+        if (is_null($user)) {
+            return redirect()->route('articles.index')->with('error', 'ユーザーが見つかりませんでした。');
+        }
+
         $tags = Tag::getPopularTag();
 
         return view('contacts.contact', [
+            'user' => $user,
             'tags' => $tags,
         ]);
     }

@@ -2,11 +2,11 @@
   @csrf
   <div class="form-group mt-2">
       <label for="name">お名前</label>
-      <input type="text" class="form-control" name="name" placeholder="釣り人" required>
+      <input type="text" class="form-control" name="name" placeholder="釣り人" value="{{ $user->name }}" required readonly>
   </div>
   <div class="form-group">
       <label for="email">メールアドレス</label>
-      <input type="email" class="form-control" name="email" placeholder="basser@gmail.com" required>
+      <input type="email" class="form-control" name="email" placeholder="basser@gmail.com" value="{{ $user->email }}" required readonly>
   </div>
   <div class="form-group">
       <label for="message">お問い合わせ内容</label>
