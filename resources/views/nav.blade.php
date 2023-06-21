@@ -40,7 +40,7 @@
         </button>
         <div class="dropdown-divider"></div>
         <button class="dropdown-item" type="button"
-                onclick="location.href='{{ route('contact.show') }}'">
+          onclick="location.href='{{ route("contact.index", ["name" => Auth::user()->name]) }}'">
           <i class="fa-regular fa-envelope"></i>
           <span class="ml-1">お問い合わせ</span>
         </button>
