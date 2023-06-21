@@ -18,57 +18,116 @@
       </div>
     </div>
 
-  @if( Auth::id() === $article->user_id )
-    <!-- dropdown -->
-      <div class="ml-auto card-text">
-        <div class="dropdown">
-          <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <button type="button" class="btn btn-link text-muted m-0 p-2">
-              <i class="fas fa-ellipsis-v"></i>
-            </button>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right">
-            {{--  更新はできないようにコメントアウト
-            <a class="dropdown-item" href="{{ route("articles.edit", ['article' => $article]) }}">
-              <i class="fas fa-pen mr-1"></i>投稿を更新する
+    {{-- ログインユーザーの投稿の場合 --}}
+    @if( Auth::id() === $article->user_id )
+      <!-- dropdown -->
+        <div class="ml-auto card-text">
+          <div class="dropdown">
+            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="btn btn-link text-muted m-0 p-2">
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
             </a>
-            <div class="dropdown-divider"></div>  --}}
-            <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $article->id }}">
-              <i class="fas fa-trash-alt mr-1"></i>投稿を削除
-            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              {{--  更新はできないようにコメントアウト
+              <a class="dropdown-item" href="{{ route("articles.edit", ['article' => $article]) }}">
+                <i class="fas fa-pen mr-1"></i>投稿を更新する
+              </a>
+              <div class="dropdown-divider"></div>  --}}
+              <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $article->id }}">
+                <i class="fas fa-trash-alt mr-1"></i>投稿を削除
+              </a>
+            </div>
           </div>
         </div>
-      </div>
       <!-- dropdown -->
 
-      <!-- modal -->
-      <div id="modal-delete-{{ $article->id }}" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header dusty-grass-gradient">
-              <h5 class="modal-title" id="demoModalTitle">確認</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <!-- modal -->
+        <div id="modal-delete-{{ $article->id }}" class="modal fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header dusty-grass-gradient">
+                <h5 class="modal-title" id="demoModalTitle">確認</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form method="POST" action="{{ route('articles.delete', ['article' => $article]) }}">
+                @csrf
+                @method('PATCH')
+                <div class="modal-body">
+                  {{--  {{ $article->title }}を削除します。よろしいですか？  --}}
+                  削除します。よろしいですか？
+                </div>
+                <div class="border-maintenance-modal modal-footer justify-content-between">
+                  <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
+                  <button type="submit" class="btn btn-danger loading-btn">削除する</button>
+                </div>
+              </form>
             </div>
-            <form method="POST" action="{{ route('articles.delete', ['article' => $article]) }}">
-              @csrf
-              @method('PATCH')
-              <div class="modal-body">
-                {{--  {{ $article->title }}を削除します。よろしいですか？  --}}
-                削除します。よろしいですか？
-              </div>
-              <div class="border-maintenance-modal modal-footer justify-content-between">
-                <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
-                <button type="submit" class="btn btn-danger loading-btn">削除する</button>
-              </div>
-            </form>
           </div>
         </div>
-      </div>
-      <!-- modal -->
+        <!-- modal -->
     @endif
-
+      
+    {{-- 投稿したユーザー以外の場合 --}}
+    @if( !(Auth::id() === $article->user_id) )
+      {{-- 未ログインは何も表示しない --}}
+      @auth
+        <!-- dropdown -->
+        <div class="ml-auto card-text">
+          <div class="dropdown">
+            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="btn btn-link text-muted m-0 p-2">
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <form method="POST" action="{{ route('report.index', ['userId' => Auth::id()]) }}">
+                @csrf
+                @method('POST')
+                <input type="hidden" name="article_id" value="{{ $article->id }}">
+                <input type="hidden" name="article_user_id" value="{{ $article->user->id }}">
+                <button class="dropdown-item" type="submit">
+                  <i class="fa-regular fa-flag"></i> この投稿を報告
+                </button>
+              </form>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-user-block-{{ $article->user->id }}">
+                <i class="fa-solid fa-ban"></i> {{ $article->user->name }}さんをブロック
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- dropdown -->
+        <!-- modal ユーザーブロック-->
+        <div id="modal-user-block-{{ $article->user->id }}" class="modal fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header dusty-grass-gradient">
+                <h5 class="modal-title" id="demoModalTitle">確認</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form method="POST" action="{{ route('users.userBlock', ['userId' => Auth::id()]) }}">
+                @csrf
+                @method('POST')
+                <input type="hidden" name="article_user_id" value="{{ $article->user->id }}">
+                <div class="modal-body">
+                  {{ $article->user->name }}さんをブロックします。よろしいですか？
+                </div>
+                <div class="border-maintenance-modal modal-footer justify-content-between">
+                  <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
+                  <button type="submit" class="btn btn-danger loading-btn">OK</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- modal end -->
+      @endauth
+    @endif
   </div>
   <div class="card-body pt-0 pb-2">
     {{--  タイトルは使用しないのでコメントアウト  --}}
@@ -150,62 +209,6 @@
         endpoint="{{ route('articles.like', ['article' => $article]) }}"
       >
       </article-like>
-      @if( !(Auth::id() === $article->user_id) )
-        @auth
-          <!-- dropdown -->
-          <div class="ml-auto card-text">
-            <div class="dropdown">
-              <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <button type="button" class="btn btn-link text-muted m-0 p-2">
-                  <i class="fa-solid fa-ban"></i>
-                </button>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right">
-                <form method="POST" action="{{ route('report.index', ['userId' => Auth::id()]) }}">
-                  @csrf
-                  @method('POST')
-                  <input type="hidden" name="article_id" value="{{ $article->id }}">
-                  <input type="hidden" name="article_user_id" value="{{ $article->user->id }}">
-                  <button class="dropdown-item" type="submit">
-                    <i class="fa-regular fa-flag"></i> この投稿を報告
-                  </button>
-                </form>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-user-block-{{ $article->user->id }}">
-                  <i class="fa-solid fa-ban"></i> {{ $article->user->name }}さんをブロック
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- dropdown -->
-          <!-- modal ユーザーブロック-->
-          <div id="modal-user-block-{{ $article->user->id }}" class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header dusty-grass-gradient">
-                  <h5 class="modal-title" id="demoModalTitle">確認</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <form method="POST" action="{{ route('users.userBlock', ['userId' => Auth::id()]) }}">
-                  @csrf
-                  @method('POST')
-                  <input type="hidden" name="article_user_id" value="{{ $article->user->id }}">
-                  <div class="modal-body">
-                    {{ $article->user->name }}さんをブロックします。よろしいですか？
-                  </div>
-                  <div class="border-maintenance-modal modal-footer justify-content-between">
-                    <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
-                    <button type="submit" class="btn btn-danger loading-btn">OK</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-          <!-- modal end -->
-        @endauth
-      @endif
     </div>
   </div>
 </div>
