@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
 use App\Tag;
 use App\User;
+use App\PostContact;
 
 class ContactController extends Controller
 {
@@ -25,8 +26,12 @@ class ContactController extends Controller
         ]);
     }
 
-    public function mailToAdmin(Request $request)
+    public function mailToAdmin(Request $request, PostContact $postContact)
     {
+        $postContact->fill($request->all());
+
+        $postContact->save();
+
         $data = [
             'name' => $request->input('name'),
             'email' => $request->input('email'),
