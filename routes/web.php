@@ -56,6 +56,7 @@ Route::post('/search', 'SearchController@show')->name('search.show');
 // お問い合わせ
 Route::get('/{name}/contact', 'ContactController@index')->name('contact.index');
 Route::post('/contact', 'ContactController@mailToAdmin')->name('contact.mailToAdmin');
+Route::get('/contactContent', 'ContactController@show')->name('contactContent.show');
 
 // プライバシーポリシー
 Route::get('/policy', 'PolicyController@index')->name('policy.index');
