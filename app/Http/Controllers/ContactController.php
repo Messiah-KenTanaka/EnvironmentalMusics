@@ -42,4 +42,17 @@ class ContactController extends Controller
 
         return redirect()->route('articles.index')->with('success', 'お問い合わせが送信されました。');
     }
+
+    public function show()
+    {
+        $contactContent = PostContact::orderByDesc('created_at')
+            ->paginate(config('paginate.paginate'));
+
+        $tags = Tag::getPopularTag();
+
+        return view('contacts.show', [
+            'contactContent' => $contactContent,
+            'tags' => $tags,
+        ]);
+    }
 }

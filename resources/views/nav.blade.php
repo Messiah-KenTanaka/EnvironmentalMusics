@@ -64,6 +64,11 @@
         @if (in_array(Auth::user()->id, [1, 2, 3]))
           <div class="dropdown-divider"></div>
           <button class="dropdown-item" type="button"
+                  onclick="location.href='{{ route('contactContent.show') }}'">
+            <span class="ml-1">お問合せ内容一覧</span>
+          </button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" type="button"
                   onclick="location.href='{{ route('reportContent.show') }}'">
             <span class="ml-1">報告内容一覧</span>
           </button>
