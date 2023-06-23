@@ -191,9 +191,12 @@
         </a>
       @endif
       @if ($article->bass_field)
-        <small class="border-pref p-2">
-          {{ $article->bass_field }}
-        </small>
+        <a type="button"
+                  onclick="location.href='{{ route('ranking.field', ['field' => $article->bass_field]) }}'">
+          <small class="border-pref p-2">
+            {{ $article->bass_field }}
+          </small>
+        </a>
       @endif
     </div>
   @endif
