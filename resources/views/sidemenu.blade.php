@@ -105,6 +105,10 @@
             <img src="{{ asset('images/fish_icon.svg')}}" class="rounded-circle mr-1" width="25" height="25">
         </button>
 
+        <video class="mt-5" width="100%" controls autoplay loop muted>
+            <source src="{{ asset('videos/black_bass_preview.mp4') }}" type="video/mp4">
+        </video>
+
         <span class="dropdown-item font-weight-bold mt-5 py-2"><i class="fa-solid fa-tags mr-2"></i>最近のトレンド</span>
         <div class="dropdown-divider"></div>
         @foreach($tags as $tag)
