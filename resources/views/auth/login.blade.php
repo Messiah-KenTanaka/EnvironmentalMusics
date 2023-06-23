@@ -15,6 +15,10 @@
             <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn btn-block btn-danger">
               <i class="fab fa-google mr-1"></i>Googleでログイン
             </a>
+            <a href="{{ route('login.{provider}', ['provider' => 'apple']) }}" class="btn btn-block btn-dark mt-3">
+              <i class="fab fa-apple mr-1"></i>Appleでログイン
+            </a>
+            
             @include('error_card_list')
 
             <div class="card-text">
