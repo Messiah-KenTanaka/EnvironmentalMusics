@@ -14,43 +14,50 @@
   >
   </article-tags-input>
 </div>
-<div class="d-flex row">
-  <div class="form-group col-6">
-    <select name="fish_size" class="custom-select">
-      <optgroup label="サイズ">
-        <option value="" disabled selected style="display:none;">サイズ</option>
-        @foreach(config('fishSize') as $id => $fish_size)
-          <option value="{{ $fish_size }}">{{ $fish_size }}cm</option>
-        @endforeach
-      </optgroup>
-    </select>
+<div class="form-group">
+  <div id="ArticleToggleButton">
+    <i class="fas fa-fish"></i> 詳細を記載
   </div>
-  <div class="col-6">
-    <input type="text" name="weight" class="form-control" placeholder="ウェイト(g)" value="{{ $article->weight ?? old('weight') }}">
-  </div>
-</div>
-<div class="d-flex row">
-  <div class="form-group col-6">
-    <select name="pref" class="custom-select">
-      <optgroup label="都道府県">
-        <option value="" disabled selected style="display:none;">都道府県</option>
-        @foreach(config('pref') as $id => $pref)
-          <option value="{{ $pref }}">{{ $pref }}</option>
-        @endforeach
-      </optgroup>
-    </select>
-  </div>
-  <div class="col-6">
-    <select name="bass_field" class="custom-select">
-      @foreach(config('pref') as $id => $pref)
-        <optgroup label={{ $pref }}>
-          <option value="" disabled selected style="display:none;">フィールド</option>
-          @foreach($bassField[$keyCount++] as $field)
-            <option value="{{ $field }}">{{ $field }}</option>
+  <div id="ArticleDetailDiv" style="display: none;">
+    <div class="d-flex row">
+      <div class="form-group col-6">
+        <select name="fish_size" class="custom-select">
+          <optgroup label="サイズ">
+            <option value="" disabled selected style="display:none;">サイズ</option>
+            @foreach(config('fishSize') as $id => $fish_size)
+              <option value="{{ $fish_size }}">{{ $fish_size }}cm</option>
+            @endforeach
+          </optgroup>
+        </select>
+      </div>
+      <div class="col-6">
+        <input type="text" name="weight" class="form-control" placeholder="ウェイト(g)" value="{{ $article->weight ?? old('weight') }}">
+      </div>
+    </div>
+    <div class="d-flex row">
+      <div class="form-group col-6">
+        <select name="pref" class="custom-select">
+          <optgroup label="都道府県">
+            <option value="" disabled selected style="display:none;">都道府県</option>
+            @foreach(config('pref') as $id => $pref)
+              <option value="{{ $pref }}">{{ $pref }}</option>
+            @endforeach
+          </optgroup>
+        </select>
+      </div>
+      <div class="col-6">
+        <select name="bass_field" class="custom-select">
+          @foreach(config('pref') as $id => $pref)
+            <optgroup label={{ $pref }}>
+              <option value="" disabled selected style="display:none;">フィールド</option>
+              @foreach($bassField[$keyCount++] as $field)
+                <option value="{{ $field }}">{{ $field }}</option>
+              @endforeach
+            </optgroup>
           @endforeach
-        </optgroup>
-      @endforeach
-    </select>
+        </select>
+      </div>
+    </div>
   </div>
 </div>
 <div class="form-group">
