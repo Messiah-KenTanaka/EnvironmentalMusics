@@ -41,6 +41,7 @@ Route::get('/tags/{name}', 'TagController@show')->name('tags.show');
 // ランキング
 Route::get('/ranking', 'RankingController@index')->name('ranking.index');
 Route::get('/ranking/{pref}', 'RankingController@show')->name('ranking.show');
+Route::get('/ranking/field/{field}', 'RankingController@field')->name('ranking.field');
 
 // 地図
 Route::get('/map', 'MapController@index')->name('map.index');

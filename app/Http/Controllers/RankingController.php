@@ -68,4 +68,35 @@ class RankingController extends Controller
             'pref' => $pref,
         ]);
     }
+
+    public function field(string $field)
+    {
+        $userId = auth()->id(); // ログインユーザーのIDを取得
+
+        // ブロックリストからブロックしたユーザーのIDを取得
+        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+
+        // フィールドランキング
+        $ranking = Article::with(['user', 'likes', 'tags'])
+            ->whereHas('user', function ($query) use ($blockUsers) {
+                $query->where('publish_flag', 1)
+                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
+            })
+            ->where('publish_flag', 1)
+            ->where('bass_field', $field)
+            ->whereNotNull('image')
+            ->whereNotNull('fish_size')
+            ->orderByDesc('fish_size')
+            ->orderByDesc('created_at')
+            ->limit(30)
+            ->get(); 
+
+            $tags = Tag::getPopularTag();
+
+        return view('ranking.field', [
+            'ranking' => $ranking,
+            'tags' => $tags,
+            'field' => $field,
+        ]);
+    }
 }
