@@ -1,5 +1,5 @@
 import './bootstrap'
-import './loading'
+import './common'
 import './agreementCheckboxHandler'
 import Vue from 'vue'
 import ArticleLike from './components/ArticleLike'
