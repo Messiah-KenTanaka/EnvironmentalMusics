@@ -17,12 +17,16 @@
 
 Auth::routes();
 Route::prefix('login')->name('login.')->group(function () {
-    Route::get('/{provider}', 'Auth\LoginController@redirectToProvider')->name('{provider}');
-    Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('{provider}.callback');
+    Route::get('/google', 'Auth\LoginController@redirectToProviderGoogle')->name('google');
+    Route::get('/google/callback', 'Auth\LoginController@handleProviderCallbackGoogle')->name('google.callback');
+    Route::get('/apple', 'Auth\LoginController@redirectToProviderApple')->name('apple');
+    Route::post('/apple/callback', 'Auth\LoginController@handleProviderCallbackApple')->name('apple.callback');
 });
 Route::prefix('register')->name('register.')->group(function () {
-    Route::get('/{provider}', 'Auth\RegisterController@showProviderUserRegistrationForm')->name('{provider}');
-    Route::post('/{provider}', 'Auth\RegisterController@registerProviderUser')->name('{provider}');
+    Route::get('/google', 'Auth\RegisterController@showProviderUserRegistrationFormGoogle')->name('google');
+    Route::post('/google', 'Auth\RegisterController@registerProviderUserGoogle')->name('google');
+    Route::get('/apple', 'Auth\RegisterController@showProviderUserRegistrationFormApple')->name('apple');
+    Route::post('/apple', 'Auth\RegisterController@registerProviderUserApple')->name('apple');
 });
 
 // 投稿

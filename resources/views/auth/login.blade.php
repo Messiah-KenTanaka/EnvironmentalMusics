@@ -12,12 +12,12 @@
           <div class="card-body text-center">
             <h2 class="h3 card-title text-center mt-2">ログイン</h2>
 
-            <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn btn-block btn-danger">
+            <a href="{{ route('login.google') }}" class="btn btn-block btn-danger">
               <i class="fab fa-google mr-1"></i>Googleでログイン
             </a>
-            <a href="{{ route('login.{provider}', ['provider' => 'apple']) }}" class="btn btn-block btn-dark mt-3">
+            <a href="{{ route('login.apple') }}" class="btn btn-block btn-dark mt-3">
               <i class="fab fa-apple mr-1"></i>Appleでログイン
-            </a>
+            </a>            
             
             @include('error_card_list')
 

@@ -41,12 +41,32 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectToProvider(string $provider)
+    public function redirectToProviderGoogle()
+    {
+        return $this->redirectToProvider('google');
+    }
+    
+    public function redirectToProviderApple()
+    {
+        return $this->redirectToProvider('apple');
+    }
+    
+    private function redirectToProvider(string $provider)
     {
         return Socialite::driver($provider)->redirect();
     }
 
-    public function handleProviderCallback(Request $request, string $provider)
+    public function handleProviderCallbackGoogle(Request $request)
+    {
+        return $this->handleProviderCallback($request, 'google');
+    }
+
+    public function handleProviderCallbackApple(Request $request)
+    {
+        return $this->handleProviderCallback($request, 'apple');
+    }
+
+    private function handleProviderCallback(Request $request, string $provider)
     {
         $providerUser = Socialite::driver($provider)->stateless()->user();
 
@@ -57,8 +77,7 @@ class LoginController extends Controller
             return $this->sendLoginResponse($request);
         }
         
-        return redirect()->route('register.{provider}', [
-            'provider' => $provider,
+        return redirect()->route('register.' . $provider, [
             'email' => $providerUser->getEmail(),
             'token' => $providerUser->token,
         ]);        
