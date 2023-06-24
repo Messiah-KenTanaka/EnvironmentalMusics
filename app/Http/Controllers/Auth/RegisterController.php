@@ -73,17 +73,37 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function showProviderUserRegistrationForm(Request $request, string $provider)
+    public function showProviderUserRegistrationFormGoogle(Request $request)
+    {
+        return $this->showProviderUserRegistrationForm($request, 'google');
+    }
+    
+    public function showProviderUserRegistrationFormApple(Request $request)
+    {
+        return $this->showProviderUserRegistrationForm($request, 'apple');
+    }
+    
+    private function showProviderUserRegistrationForm(Request $request, string $provider)
     {
         $token = $request->token;
-
+    
         $providerUser = Socialite::driver($provider)->userFromToken($token);
-
+    
         return view('auth.social_register', [
             'provider' => $provider,
             'email' => $providerUser->getEmail(),
             'token' => $token,
         ]);
+    }
+
+    public function registerProviderUserGoogle(Request $request)
+    {
+        return $this->registerProviderUser($request, 'google');
+    }
+
+    public function registerProviderUserApple(Request $request)
+    {
+        return $this->registerProviderUser($request, 'apple');
     }
 
     public function registerProviderUser(Request $request, string $provider)
