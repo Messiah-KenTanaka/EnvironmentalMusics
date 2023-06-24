@@ -38,6 +38,6 @@ return [
     'apple' => [
         'client_id' => env('APPLE_CLIENT_ID'),
         'client_secret' => env('APPLE_CLIENT_SECRET'),
-        'redirect' => env('APPLE_REDIRECT_URI'),
+        'redirect' => env('APP_URL') . '/login/apple/callback',
     ],    
 ];
