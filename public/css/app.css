@@ -107,7 +107,7 @@
   background: linear-gradient(135deg, #704308 0%, #ffce08 40%, #e1ce08 60%, #704308 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 80px;
+  font-size: 60px;
   font-weight: 400;
   font-family: luxus-brut, cursive;
   font-style: italic;
@@ -205,7 +205,7 @@
   background: linear-gradient(135deg, #056b00 0%, #4caf50 40%, #8bc34a 60%, #056b00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 80px;
+  font-size: 60px;
   font-weight: 400;
   font-family: luxus-brut, cursive;
   font-style: italic;
@@ -234,7 +234,7 @@
   color: transparent;
   background: repeating-linear-gradient(0deg, #0277BD 0.1em, #4FC3F7 0.2em, #E1F5FE 0.3em, #4FC3F7 0.4em, #0277BD 0.5em);
   -webkit-background-clip: text;
-  font-size: 80px;
+  font-size: 60px;
   font-weight: 400;
   font-family: luxus-brut, cursive;
   font-style: italic;
@@ -263,7 +263,7 @@
   color: transparent;
   background: repeating-linear-gradient(0deg, #1565C0 0 0.1em, #0D47A1 0.1em 0.2em);
   -webkit-background-clip: text;
-  font-size: 80px;
+  font-size: 60px;
   font-weight: 400;
   font-family: luxus-brut, cursive;
   font-style: italic;
@@ -292,7 +292,7 @@
   color: transparent;
   background: repeating-linear-gradient(0deg, #C62828 0.1em, #EF5350 0.2em, #FFEBEE 0.3em, #EF5350 0.4em, #C62828 0.5em);
   -webkit-background-clip: text;
-  font-size: 80px;
+  font-size: 60px;
   font-weight: 400;
   font-family: luxus-brut, cursive;
   font-style: italic;
