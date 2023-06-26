@@ -18,6 +18,9 @@ class SearchController extends Controller
 
         // 検索結果を取得するクエリを作成する
         $articles = Article::with(['user', 'likes', 'tags'])
+            ->withCount(['article_comments as comment_count' => function ($query) {
+                $query->where('publish_flag', 1);
+            }])
             ->whereHas('user', function ($query) use ($blockUsers) {
                 $query->where('publish_flag', 1)
                     ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
@@ -44,6 +47,9 @@ class SearchController extends Controller
         $keyword = $request->input('keyword');
         // 検索結果を取得するクエリを作成する
         $articles = Article::with(['user', 'likes', 'tags'])
+            ->withCount(['article_comments as comment_count' => function ($query) {
+                $query->where('publish_flag', 1);
+            }])
             ->whereHas('user', function ($query) use ($blockUsers) {
                 $query->where('publish_flag', 1)
                     ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外

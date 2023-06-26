@@ -19,7 +19,12 @@ class UserController extends Controller
     public function show(string $name)
     {
         $user = User::where('name', $name)->first()
-            ->load(['articles.user', 'articles.likes', 'articles.tags']);
+            ->load(['articles' => function($query) {
+                $query->with('user', 'likes', 'tags')
+                    ->withCount(['article_comments as comment_count' => function($query) {
+                        $query->where('publish_flag', 1);
+                }]);
+            }]);
 
         $articles = $user->articles
             ->where('publish_flag', 1)
@@ -91,7 +96,12 @@ class UserController extends Controller
     public function likes(string $name)
     {
         $user = User::where('name', $name)->first()
-            ->load(['likes.user', 'likes.likes', 'likes.tags']);
+            ->load(['likes' => function($query) {
+                $query->with('user', 'likes', 'tags')
+                    ->withCount(['article_comments as comment_count' => function($query) {
+                        $query->where('publish_flag', 1);
+                    }]);
+            }]);
 
         $articles = $user->likes
             ->where('publish_flag', 1)

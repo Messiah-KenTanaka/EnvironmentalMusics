@@ -212,6 +212,12 @@
         endpoint="{{ route('articles.like', ['article' => $article]) }}"
       >
       </article-like>
+      <div>
+        <a class="btn m-0 pl-3 p-1 shadow-none text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
+          <i class="fa-regular fa-message mr-1"></i>
+        </a>
+        {{ $article->comment_count }}
+      </div>
     </div>
   </div>
 </div>

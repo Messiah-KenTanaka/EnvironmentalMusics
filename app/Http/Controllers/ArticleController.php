@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Tag;
 use App\BlockList;
+use App\ArticleComment;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -25,6 +26,9 @@ class ArticleController extends Controller
         $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
 
         $articles = Article::with(['user', 'likes', 'tags'])
+            ->withCount(['article_comments as comment_count' => function ($query) {
+                $query->where('publish_flag', 1);
+            }])
             ->whereHas('user', function ($query) use ($blockUsers) {
                 $query->where('publish_flag', 1)
                     ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
@@ -136,11 +140,19 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
+        $comments = $article->article_comments()->with('user')
+            ->where('publish_flag', 1)
+            ->orderByDesc('created_at')
+            ->paginate(config('paginate.paginate'));
+
+        $article->comment_count = $comments->count();
+
         $tags = Tag::getPopularTag();
 
         return view('articles.show', [
             'article' => $article,
             'tags' => $tags,
+            'comments' => $comments,
         ]);
     }
 
@@ -163,5 +175,15 @@ class ArticleController extends Controller
             'id' => $article->id,
             'countLikes' => $article->count_likes,
         ];
+    }
+
+    public function comment(Request $request, ArticleComment $article_comment)
+    {
+        $article_comment->fill($request->all());
+    
+        $article_comment->save();
+    
+        return redirect()->route('articles.index')
+            ->with('success', 'コメントしました。');
     }
 }
