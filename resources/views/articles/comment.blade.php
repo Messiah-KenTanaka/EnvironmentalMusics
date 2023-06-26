@@ -2,7 +2,7 @@
   <div class="card-body d-flex align-items-start">
     <a href="{{ route('users.show', ['name' => $comment->user->name]) }}" class="text-dark mr-3">
       @if ($comment->user->image)
-        <img src="{{ $article->user->image }}" class="rounded-circle" width="50" height="50">
+        <img src="{{ $comment->user->image }}" class="rounded-circle" width="50" height="50">
       @else
         <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle" width="50" height="50">
       @endif
