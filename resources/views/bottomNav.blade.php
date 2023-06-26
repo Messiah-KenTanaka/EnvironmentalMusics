@@ -2,27 +2,37 @@
   <ul class="navbar-nav d-flex justify-content-around ml-auto">
     {{--  ホーム  --}}
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('articles.index') }}"><i class="fas fa-home"></i>
+      <a class="nav-link d-flex flex-column justify-content-center align-items-center" href="{{ route('articles.index') }}">
+        <i class="fas fa-home"></i>
+        <span class="extra-small">ホーム</span>
       </a>
     </li>
     {{-- ランキング --}}
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('ranking.index') }}"><i class="fas fa-crown"></i>
+      <a class="nav-link d-flex flex-column justify-content-center align-items-center" href="{{ route('ranking.index') }}">
+        <i class="fas fa-crown"></i>
+        <span class="extra-small">ランキング</span>
       </a>
     </li>
     {{--  地図  --}}
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('map.index') }}"><i class="fa-solid fa-map-location-dot"></i>
+      <a class="nav-link d-flex flex-column justify-content-center align-items-center" href="{{ route('map.index') }}">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span class="extra-small">マップ</span>
       </a>
     </li>
     {{-- 天気予報 --}}
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('weather.index') }}"><i class="fa-solid fa-cloud-sun"></i>
+      <a class="nav-link d-flex flex-column justify-content-center align-items-center" href="{{ route('weather.index') }}">
+        <i class="fa-solid fa-cloud-sun"></i>
+        <span class="extra-small">ウェザー</span>
       </a>
     </li>
     {{-- 検索 --}}
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('search.index') }}"><i class="fa-solid fa-magnifying-glass"></i>
+      <a class="nav-link d-flex flex-column justify-content-center align-items-center" href="{{ route('search.index') }}">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span class="extra-small">サーチ</span>
       </a>
     </li>
         
@@ -30,9 +40,10 @@
     <div class="nav-item">
       <!-- dropup -->
       <li class="nav-item dropup">
-        <a class="nav-link" id="navbarDropdownTagLink" data-toggle="dropdown"
+        <a class="nav-link d-flex flex-column justify-content-center align-items-center" id="navbarDropdownTagLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           <i class="fa-solid fa-tags"></i>
+          <span class="extra-small">トレンド</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownTagLink">
           <span class="dropdown-item font-weight-bold py-2"><i class="fa-solid fa-tags mr-2"></i>最近のトレンド</span>
