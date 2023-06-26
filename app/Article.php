@@ -45,4 +45,10 @@ class Article extends Model
     {
         return $this->belongsToMany('App\Tag')->withTimestamps();
     }
+
+    public function article_comments()
+    {
+        return $this->hasMany(ArticleComment::class);
+    }
+
 }

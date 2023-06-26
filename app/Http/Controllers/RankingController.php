@@ -18,6 +18,9 @@ class RankingController extends Controller
 
         // 全国ランキング
         $ranking = Article::with(['user', 'likes', 'tags'])
+            ->withCount(['article_comments as comment_count' => function ($query) {
+                $query->where('publish_flag', 1);
+            }])
             ->whereHas('user', function ($query) use ($blockUsers) {
                 $query->where('publish_flag', 1)
                     ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
@@ -47,6 +50,9 @@ class RankingController extends Controller
 
         // 都道府県ランキング
         $ranking = Article::with(['user', 'likes', 'tags'])
+            ->withCount(['article_comments as comment_count' => function ($query) {
+                $query->where('publish_flag', 1);
+            }])
             ->whereHas('user', function ($query) use ($blockUsers) {
                 $query->where('publish_flag', 1)
                     ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
@@ -78,6 +84,9 @@ class RankingController extends Controller
 
         // フィールドランキング
         $ranking = Article::with(['user', 'likes', 'tags'])
+            ->withCount(['article_comments as comment_count' => function ($query) {
+                $query->where('publish_flag', 1);
+            }])
             ->whereHas('user', function ($query) use ($blockUsers) {
                 $query->where('publish_flag', 1)
                     ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
