@@ -7,6 +7,7 @@
   <title>
     @yield('title')
   </title>
+  <link rel="icon" type="image/x-icon" href="{{ asset('images/fish_icon.svg') }}" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.1/css/all.css">
   <!-- Bootstrap core CSS -->
