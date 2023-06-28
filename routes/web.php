@@ -40,6 +40,10 @@ Route::prefix('articles')->name('articles.')->group(function () {
     Route::delete('/{article}/like', 'ArticleController@unlike')->name('unlike')->middleware('auth');
 });
 
+// コメント
+Route::post('/comment', 'ArticleCommentController@comment')->name('comment')->middleware('auth');
+Route::patch('/comment/delete/{articleComment}', 'ArticleCommentController@delete')->name('comment.delete')->middleware('auth');
+
 // ハッシュタグ
 Route::get('/tags/{name}', 'TagController@show')->name('tags.show');
 
