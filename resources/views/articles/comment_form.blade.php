@@ -1,5 +1,5 @@
 @if( Auth::id() )
-  <form action="{{ route('articles.comment', ['article' => $article->id]) }}" method="POST" class="mt-3">
+  <form action="{{ route('comment') }}" method="POST" class="mt-3">
     @csrf
     <input type="hidden" name="user_id" value="{{ Auth::id() }}">
     <input type="hidden" name="article_id" value="{{ $article->id }}">
