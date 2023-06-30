@@ -15,4 +15,20 @@ $(function() {
             $("#ArticleToggleButton").html('<i class="fa-regular fa-pen-to-square"></i> ' + buttonText);
         });
     });
+
+    // プレビュー画像を表示する
+    window.previewImage = function() {
+        var file = document.querySelector('#image').files[0];
+        var reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+            document.querySelector('#preview').style.display = 'block';
+            document.querySelector('#preview').src = reader.result;
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    };
+
 });
