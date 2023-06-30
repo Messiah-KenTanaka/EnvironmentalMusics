@@ -15,8 +15,8 @@
   </article-tags-input>
 </div>
 <div class="form-group">
-  <div id="ArticleToggleButton">
-    <i class="fas fa-fish"></i> 詳細を記載
+  <div id="ArticleToggleButton" style="cursor: pointer;">
+    <i class="fa-regular fa-pen-to-square"></i> 詳細を記載する
   </div>
   <div id="ArticleDetailDiv" style="display: none;">
     <div class="d-flex row">
