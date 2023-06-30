@@ -11,8 +11,8 @@ $(function() {
     $(document).ready(function(){
         $("#ArticleToggleButton").click(function(){
             $("#ArticleDetailDiv").toggle();
-            var buttonText = $("#ArticleToggleButton").text().trim() === '詳細を記載' ? '詳細を非表示' : '詳細を記載';
-            $("#ArticleToggleButton").html('<i class="fas fa-fish"></i> ' + buttonText);
+            var buttonText = $("#ArticleToggleButton").text().trim() === '詳細を記載する' ? '詳細を非表示にする' : '詳細を記載する';
+            $("#ArticleToggleButton").html('<i class="fa-regular fa-pen-to-square"></i> ' + buttonText);
         });
     });
 });
