@@ -5,15 +5,28 @@
   </a>
   <ul class="navbar-nav ml-auto"> 
     @guest
-    <li class="nav-item">
-      <a class="nav-link" href="{{ route('register') }}"><i class="fa-solid fa-user-plus"></i></a>
-    </li>
-    @endguest
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('register') }}"><i class="fa-solid fa-user-plus"></i></a>
+      </li>
 
-    @guest
-    <li class="nav-item">
-      <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a>
+      </li>
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <button class="dropdown-item" type="button"
+            onclick="location.href='{{ route("contact.index") }}'">
+            <i class="fa-regular fa-envelope"></i>
+            <span class="ml-1">お問い合わせ</span>
+          </button>
+        </div>
+      </li>
+      <!-- Dropdown -->
     @endguest
     
     @auth

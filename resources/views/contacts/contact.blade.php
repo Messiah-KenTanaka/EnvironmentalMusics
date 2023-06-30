@@ -9,7 +9,7 @@
     <div class="row">
       @include('sidemenu')
       <div class="col mt-4">
-        @if( Auth::id() == $user->id )
+        {{-- @if( Auth::id() == $user->id ) --}}
           <h2 class="text-center main-ja-font-family">お問い合わせ</a></h2>
           <div class="card mt-3">
             <div class="card-body pt-0">
@@ -19,7 +19,7 @@
               </div>
             </div>
           </div>
-        @endif
+        {{-- @endif --}}
       </div>
     </div>
   </div>
