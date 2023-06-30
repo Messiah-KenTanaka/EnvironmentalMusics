@@ -4,6 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="title" content="{{ config('meta.general.title') }}">
+  <meta name="description" content="{{ config('meta.general.description') }}">
+  <meta name="keywords" content="{{ config('meta.general.keywords') }}">
+  {{-- Facebook/LINE/TwitterのOGP --}}
+  <meta property="og:title" content="{{ config('meta.general.title') }}">
+  <meta property="og:description" content="{{ config('meta.general.description') }}">
+  <meta property="og:image" content="{{ config('meta.general.image') }}">
+  <meta property="og:url" content="{{ config('meta.general.url') }}">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  {{-- <meta name="twitter:site" content="@ユーザー名"> --}}
   <title>
     @yield('title')
   </title>
