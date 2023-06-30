@@ -3,9 +3,9 @@
         <div class="d-flex flex-row">
             <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
                 @if ($user->image)
-                    <img src="{{ $user->image }}" class="rounded-circle mb-3" width="80" height="80">
+                    <img src="{{ $user->image }}" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;">
                 @else
-                    <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mb-3" width="80" height="80">
+                    <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;">
                 @endif
             </a>
             @if( Auth::id() !== $user->id )
