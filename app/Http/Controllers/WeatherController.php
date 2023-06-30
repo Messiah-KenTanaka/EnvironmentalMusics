@@ -53,9 +53,10 @@ class WeatherController extends Controller
     public function extractWeatherData($data) {
         $weatherData = array();
         foreach ($data['list'] as $listItem) {
-            $timestamp = strtotime($listItem['dt_txt']);
-            $date = date('Y/m/d (D)', $timestamp);
-            $time = date('H:i', $timestamp);
+            $dateTimeUtc = new \DateTime($listItem['dt_txt'], new \DateTimeZone('UTC'));
+            $dateTimeUtc->setTimezone(new \DateTimeZone('Asia/Tokyo')); // 日本時間に変換
+            $date = $dateTimeUtc->format('Y/m/d (D)');
+            $time = $dateTimeUtc->format('H:i');
             $weather = $listItem['weather'][0]['description'];
             $temperature = $listItem['main']['temp'];
             $humidity = $listItem['main']['humidity'];
