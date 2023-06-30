@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 use App\Mail\ContactMail;
 use App\Tag;
 use App\User;
@@ -11,11 +12,14 @@ use App\PostContact;
 
 class ContactController extends Controller
 {
-    public function index(string $name)
+    public function index(string $name = null)
     {
-        $user = User::where('name', $name)->first();
-        if (is_null($user)) {
-            return redirect()->route('articles.index')->with('error', 'ユーザーが見つかりませんでした。');
+        $user = null;
+        if ($name) {
+            $user = User::where('name', $name)->first();
+            if (is_null($user)) {
+                return redirect()->route('articles.index')->with('error', 'ユーザーが見つかりませんでした。');
+            }
         }
 
         $tags = Tag::getPopularTag();
@@ -28,7 +32,14 @@ class ContactController extends Controller
 
     public function mailToAdmin(Request $request, PostContact $postContact)
     {
-        $postContact->fill($request->all());
+        $data = $request->all();
+
+        // ログインしていない場合、user_idを-1とする
+        if (Auth::guest()) {
+            $data['user_id'] = -1;
+        }
+
+        $postContact->fill($data);
 
         $postContact->save();
 
