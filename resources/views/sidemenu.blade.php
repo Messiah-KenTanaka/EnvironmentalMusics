@@ -73,9 +73,9 @@
             <button class="dropdown-item py-2" type="button"
                     onclick="location.href='{{ route("users.show", ["name" => Auth::user()->name]) }}'">
                 @if (Auth::user()->image)
-                    <img src="{{ Auth::user()->image }}" class="rounded-circle mr-2" width="25" height="25">
+                    <img src="{{ Auth::user()->image }}" class="rounded-circle mr-2" style="width: 25px; height: 25px; object-fit: cover;">
                 @else
-                    <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-2" width="25" height="25">
+                    <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-2" style="width: 25px; height: 25px; object-fit: cover;">
                 @endif
                 {{ Functions::getNameEllipsis(Auth::user()->name) }}
             </button>

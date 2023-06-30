@@ -2,9 +2,9 @@
   <div class="card-body d-flex flex-row">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
       @if ($article->user->image)
-        <img src="{{ $article->user->image }}" class="rounded-circle mb-3 mr-1" width="50" height="50">
+        <img src="{{ $article->user->image }}" class="rounded-circle mb-3 mr-1" style="width: 50px; height: 50px; object-fit: cover;">
       @else
-        <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mb-3 mr-1" width="50" height="50">
+        <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mb-3 mr-1" style="width: 50px; height: 50px; object-fit: cover;">
       @endif
     </a>
     <div>
