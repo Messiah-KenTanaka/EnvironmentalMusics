@@ -3,11 +3,11 @@
 @section('title', config('app.name') . ' | ログイン')
 
 @section('content')
+  @include('nav')
   <div class="container">
     <div class="row">
       <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6 mt-5">
-        <h1 class="text-center"><a class="text-dark main-font-family" href="/">BCommunity</a></h1>
-        <h5 class="text-center"><a class="text-dark main-font-family" href="/">~BASSER~</a></h5>
+        <h1 class="text-center"><a class="text-dark main-font-family" href="/">BASSER</a></h1>
         <div class="card mt-3">
           <div class="card-body text-center">
             <h2 class="h3 card-title text-center mt-2">ログイン</h2>
