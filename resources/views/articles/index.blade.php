@@ -20,7 +20,7 @@
           </div>
           <a href="{{ route('articles.create') }}">
             <label></label>
-            <textarea class="form-control" rows="1" placeholder="今日はどうだった？"></textarea>
+            <div class="form-control" style="min-height: 20px;">今日はどうだった...？</div>
           </a>
         </div>
         @foreach($articles as $article)
