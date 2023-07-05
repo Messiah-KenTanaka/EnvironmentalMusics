@@ -14,13 +14,13 @@
           <div class="text-center my-4 main-ja-font-family h4">
             @switch(++$key)
               @case(1)
-                <span class="ranking-first">{{ $key }}位</span>
+                <img src="{{ asset('images/ranking_1.png')}}" class="rounded-circle mr-1" width="50" height="50">
                   @break
               @case(2)
-                <span class="ranking-second">{{ $key }}位</span>
+              <img src="{{ asset('images/ranking_2.png')}}" class="rounded-circle mr-1" width="50" height="50">
                   @break
               @case(3)
-                <span class="ranking-third">{{ $key }}位</span>
+              <img src="{{ asset('images/ranking_3.png')}}" class="rounded-circle mr-1" width="50" height="50">
                   @break
               @default
                 <span class="">{{ $key }}位</span>
