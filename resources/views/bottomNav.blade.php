@@ -14,6 +14,12 @@
         <span class="extra-small">ランキング</span>
       </a>
     </li>
+    {{-- 投稿 --}}
+    <li class="nav-item">
+      <a href="{{ route('articles.create') }}" class="nav-link d-flex flex-column justify-content-center align-items-center">
+        <i class="fa-solid fa-circle-plus large-icon"></i>
+      </a>
+    </li>
     {{--  地図  --}}
     <li class="nav-item">
       <a class="nav-link d-flex flex-column justify-content-center align-items-center" href="{{ route('map.index') }}">
@@ -21,20 +27,20 @@
         <span class="extra-small">マップ</span>
       </a>
     </li>
-    {{-- 天気予報 --}}
+    {{--  天気予報
     <li class="nav-item">
       <a class="nav-link d-flex flex-column justify-content-center align-items-center" href="{{ route('weather.index') }}">
         <i class="fa-solid fa-cloud-sun"></i>
         <span class="extra-small">ウェザー</span>
       </a>
-    </li>
-    {{-- 検索 --}}
+    </li>  --}}
+    {{--  検索
     <li class="nav-item">
       <a class="nav-link d-flex flex-column justify-content-center align-items-center" href="{{ route('search.index') }}">
         <i class="fa-solid fa-magnifying-glass"></i>
         <span class="extra-small">サーチ</span>
       </a>
-    </li>
+    </li>  --}}
         
     {{-- タグ検索 --}}
     <div class="nav-item">

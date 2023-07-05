@@ -24,6 +24,12 @@
             <i class="fa-regular fa-envelope"></i>
             <span class="ml-1">お問い合わせ</span>
           </button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" type="button"
+            onclick="location.href='{{ route('weather.index') }}'">
+            <i class="fa-solid fa-cloud-sun"></i>
+            <span class="ml-1">天気予報</span>
+          </button>
         </div>
       </li>
       <!-- Dropdown -->
@@ -50,6 +56,12 @@
         <button form="logout-button" class="dropdown-item" type="submit">
           <i class="fas fa-sign-in-alt"></i>
           <span class="ml-1">ログアウト</span>
+        </button>
+        <div class="dropdown-divider"></div>
+        <button class="dropdown-item" type="button"
+          onclick="location.href='{{ route('weather.index') }}'">
+          <i class="fa-solid fa-cloud-sun"></i>
+          <span class="ml-1">天気予報</span>
         </button>
         <div class="dropdown-divider"></div>
         <button class="dropdown-item" type="button"
