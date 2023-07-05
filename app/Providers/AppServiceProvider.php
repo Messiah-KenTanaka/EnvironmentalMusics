@@ -35,9 +35,9 @@ class AppServiceProvider extends ServiceProvider
          * @return array
          */
 
-        if (config('app.env') === 'production') {
+        if ($this->app->environment('production')) {
             \URL::forceScheme('https');
-        }
+        }        
         
         Collection::macro('paginate', function ($perPage, $total = null, $page = null, $pageName = 'page') {
             $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
