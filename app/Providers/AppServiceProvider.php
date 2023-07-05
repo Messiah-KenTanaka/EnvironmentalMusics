@@ -39,21 +39,19 @@ class AppServiceProvider extends ServiceProvider
          * @return array
          */
         
-         Collection::macro('paginate', function ($perPage, $total = null, $page = null, $pageName = 'page') {
+        Collection::macro('paginate', function ($perPage, $total = null, $page = null, $pageName = 'page') {
             $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
-        
-            $path = request()->getSchemeAndHttpHost() . request()->getPathInfo();
-        
+
             return new LengthAwarePaginator(
                 $this->forPage($page, $perPage)->values(),
                 $total ?: $this->count(),
                 $perPage,
                 $page,
                 [
-                    'path' => $path,
+                    'path' => LengthAwarePaginator::resolveCurrentPath(),
                     'pageName' => $pageName,
                 ]
             );
-        });        
+        });
     }
 }
