@@ -41,19 +41,17 @@ class AppServiceProvider extends ServiceProvider
         
         Collection::macro('paginate', function ($perPage, $total = null, $page = null, $pageName = 'page') {
             $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
-            $results = $this->forPage($page, $perPage)->values();
-            $path = request()->url(); // Get the current URL without query string
-        
+
             return new LengthAwarePaginator(
-                $results,
+                $this->forPage($page, $perPage)->values(),
                 $total ?: $this->count(),
                 $perPage,
                 $page,
                 [
-                    'path' => url($path), // Use the Laravel url() helper to force https scheme if necessary
+                    'path' => LengthAwarePaginator::resolveCurrentPath(),
                     'pageName' => $pageName,
                 ]
             );
-        });        
+        });
     }
 }
