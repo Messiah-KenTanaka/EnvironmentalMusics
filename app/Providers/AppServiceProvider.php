@@ -36,7 +36,6 @@ class AppServiceProvider extends ServiceProvider
          */
 
         if (config('app.env') === 'production') {
-            \Log::info('Forcing HTTPS scheme...');
             \URL::forceScheme('https');
         }
         
