@@ -39,6 +39,10 @@
   /* 希望のサイズに調整 */
 }
 
+.large-icon {
+  font-size: 180%;
+}
+
 /* ナビバー nav.blade.php */
 
 .nav-fixed {
@@ -302,7 +306,7 @@
 
 .floating-bottom {
   right: 1rem;
-  bottom: 4rem;
+  bottom: 4.5rem;
   position: fixed;
 }
 

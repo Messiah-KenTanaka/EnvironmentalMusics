@@ -26,6 +26,10 @@
 .extra-small {
 	font-size: 0.5rem; /* 希望のサイズに調整 */
 }
+.large-icon {
+  font-size: 180%;
+}
+
 
 /* ナビバー nav.blade.php */ 
 .nav-fixed {
@@ -267,7 +271,7 @@
 /* 投稿フローティングボタン */
 .floating-bottom {
 	right: 1rem;
-	bottom: 4rem;
+	bottom: 4.5rem;
 	position: fixed;
 }
 
