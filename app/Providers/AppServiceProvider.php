@@ -25,11 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->environment('local')) {
-            \URL::forceScheme('http');
-        } else {
+        if ($this->app->environment('production')) {
             \URL::forceScheme('https');
-        } 
+        }        
 
         /**
          * Paginate a standard Laravel Collection.
