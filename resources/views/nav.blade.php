@@ -1,8 +1,11 @@
 <nav class="nav navbar nav-fixed navbar-expand navbar-light dusty-grass-gradient">
-  <a class="navbar-brand main-font-family" href="/">
+  <a style="display: flex; justify-content: center; align-items: center; height: 100%;">
+    <i class="fa-regular fa-circle-left large-icon-2" onclick="window.history.back()"></i>
+  </a>
+  {{--  <a class="navbar-brand main-font-family" href="/">
     <img src="{{ asset('images/fish_icon.svg')}}" class="rounded-circle mr-1" width="25" height="25">
     <i>BASSER</i>
-  </a>
+  </a>  --}}
   <ul class="navbar-nav ml-auto"> 
     @guest
       <li class="nav-item">
