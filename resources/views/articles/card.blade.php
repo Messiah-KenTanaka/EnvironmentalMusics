@@ -158,7 +158,7 @@
   <div class="d-flex">
     @if ($article->fish_size)
       <div class="pt-0 pb-2 pl-3">
-        <span class="main-ja-font-family pl-1">
+        <span class="pl-1">
           <i class="fa-solid fa-ruler-horizontal"></i>
           {{ $article->fish_size }}
         </span>
@@ -172,7 +172,7 @@
     @endif --}}
     @if ($article->weight)
       <div class="card-body pt-0 pb-2 pl-3">
-        <span class="main-ja-font-family pl-1">
+        <span class="pl-1">
           <i class="fa-solid fa-weight-scale"></i>
           {{ number_format($article->weight) }}
         </span>
@@ -180,6 +180,72 @@
       </div>
     @endif
   </div>
+  @if ($article->rod || $article->reel || $article->line || $article->lure)
+    <div class="article-tackle m-3 p-1">
+      @if ($article->rod)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            ロッド:
+            {{ $article->rod }}
+          </span>
+        </div>
+      @endif
+      @if ($article->reel)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            リール:
+            {{ $article->reel }}
+          </span>
+        </div>
+      @endif
+      @if ($article->line)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            ライン:
+            {{ $article->line }}
+          </span>
+        </div>
+      @endif
+      @if ($article->lure)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            ルアー:
+            {{ $article->lure }}
+          </span>
+        </div>
+      @endif
+    </div>
+  @endif
+
+  <div class="d-flex extra-small">
+    @if ($article->weather)
+      <div class="pt-0 pb-2 pl-3">
+        <span class="main-ja-font-family pl-1">
+          天気:
+          {{ $article->weather }}
+        </span>
+      </div>
+    @endif
+    @if ($article->temperature)
+      <div class="pt-0 pb-2 pl-3">
+        <span class="main-ja-font-family pl-1">
+          気温:
+          {{ $article->temperature }}
+          ℃
+        </span>
+      </div>
+    @endif
+    @if ($article->water_temperature)
+      <div class="pt-0 pb-2 pl-3">
+        <span class="main-ja-font-family pl-1">
+          水温:
+          {{ $article->water_temperature }}
+          ℃
+        </span>
+      </div>
+    @endif
+  </div>
+  
   @if ($article->pref || $article->bass_field)
     <div class="card-body pt-0 pb-2 pl-3">
       @if ($article->pref)
