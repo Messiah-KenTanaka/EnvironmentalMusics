@@ -16,7 +16,14 @@ class Article extends Model
         'pref',
         'bass_field',
         'weight',
-        'publish_flag'
+        'publish_flag',
+        'rod',
+        'reel',
+        'line',
+        'lure',
+        'weather',
+        'temperature',
+        'water_temperature',
     ];
 
     public function user(): BelongsTo

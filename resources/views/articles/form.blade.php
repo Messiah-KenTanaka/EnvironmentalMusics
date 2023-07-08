@@ -31,7 +31,7 @@
         </select>
       </div>
       <div class="col-6">
-        <input type="text" name="weight" class="form-control" placeholder="ウェイト(g)" value="{{ $article->weight ?? old('weight') }}">
+        <input type="number" max="10000" name="weight" class="form-control" placeholder="ウェイト(g)" value="{{ $article->weight ?? old('weight') }}">
       </div>
     </div>
     <div class="d-flex row">
@@ -58,6 +58,41 @@
         </select>
       </div>
     </div>
+    <div class="d-flex row">
+      <div class="form-group col">
+        <input type="text" name="rod" class="form-control" placeholder="ロッド" value="{{ $article->rod ?? old('rod') }}">
+      </div>
+    </div>
+    <div class="d-flex row">
+      <div class="form-group col">
+        <input type="text" name="reel" class="form-control" placeholder="リール" value="{{ $article->reel ?? old('reel') }}">
+      </div>
+    </div>
+    <div class="d-flex row">
+      <div class="form-group col">
+        <input type="text" name="line" class="form-control" placeholder="ライン" value="{{ $article->reel ?? old('line') }}">
+      </div>
+    </div>
+    <div class="d-flex row">
+      <div class="form-group col">
+        <input type="text" name="lure" class="form-control" placeholder="ルアー" value="{{ $article->lure ?? old('lure') }}">
+      </div>
+    </div>
+    <div class="d-flex row">
+      <div class="form-group col">
+        <input type="text" name="weather" class="form-control" placeholder="天気" value="{{ $article->weather ?? old('weather') }}">
+      </div>
+    </div>
+    <div class="d-flex row">
+      <div class="form-group col">
+        <input type="number" step="0.1" min="-50" max="50" name="temperature" class="form-control" placeholder="気温" value="{{ $article->temperature ?? old('temperature') }}">
+      </div>
+    </div>
+    <div class="d-flex row">
+      <div class="form-group col">
+        <input type="number" step="0.1" min="-50" max="50" name="water_temperature" class="form-control" placeholder="水温" value="{{ $article->water_temperature ?? old('water_temperature') }}">
+      </div>
+    </div>    
   </div>
 </div>
 <div class="form-group">

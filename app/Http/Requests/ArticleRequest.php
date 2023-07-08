@@ -36,13 +36,20 @@ class ArticleRequest extends FormRequest
     {
         return [
             // 'title' => 'タイトル',
-            'body' => '本文',
+            'body' => '内容',
             'tags' => 'タグ',
             'image' => '画像',
-            'fish_size' => 'フィッシュサイズ',
+            'fish_size' => 'サイズ',
             'weight' => '重さ',
             'pref' => '都道府県',
-            'bass_field' => 'フィールド'
+            'bass_field' => 'フィールド',
+            'rod' => 'ロッド情報',
+            'reel' => 'リール情報',
+            'line' => 'ライン情報',
+            'lure' => 'ルアー情報',
+            'weather' => '天気情報',
+            'temperature' => '気温情報',
+            'water_temperature' => '水温情報',
         ];
     }
 
