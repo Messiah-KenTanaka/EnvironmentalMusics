@@ -12,7 +12,7 @@ $(function() {
         $("#ArticleToggleButton").click(function(){
             $("#ArticleDetailDiv").toggle();
             var buttonText = $("#ArticleToggleButton").text().trim() === '詳細を記載する' ? '詳細を非表示にする' : '詳細を記載する';
-            $("#ArticleToggleButton").html('<i class="fa-regular fa-pen-to-square"></i> ' + buttonText);
+            $("#ArticleToggleButton").html('<i class="fa-regular fa-pen-to-square mb-3"></i> ' + buttonText);
         });
     });
 

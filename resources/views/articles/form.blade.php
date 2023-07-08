@@ -21,14 +21,7 @@
   <div id="ArticleDetailDiv" style="display: none;">
     <div class="d-flex row">
       <div class="form-group col-6">
-        <select name="fish_size" class="custom-select">
-          <optgroup label="サイズ">
-            <option value="" disabled selected style="display:none;">サイズ</option>
-            @foreach(config('fishSize') as $id => $fish_size)
-              <option value="{{ $fish_size }}">{{ $fish_size }}cm</option>
-            @endforeach
-          </optgroup>
-        </select>
+        <input type="number" step="0.1" min="10" max="99" name="fish_size" class="form-control" placeholder="サイズ(㎝)" value="{{ $article->fish_size ?? old('fish_size') }}">
       </div>
       <div class="col-6">
         <input type="number" max="10000" name="weight" class="form-control" placeholder="ウェイト(g)" value="{{ $article->weight ?? old('weight') }}">
