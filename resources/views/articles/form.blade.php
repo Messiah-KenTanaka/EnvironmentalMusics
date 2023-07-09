@@ -15,6 +15,12 @@
   </article-tags-input>
 </div>
 <div class="form-group">
+  <input type="file" id="image" name="image" onchange="previewImage();">
+</div>
+<div class="form-group">
+  <img id="preview" src="" alt="画像プレビュー" style="display: none; width: 100%;"/>
+</div>
+<div class="form-group">
   <div id="ArticleToggleButton" style="cursor: pointer;">
     <i class="fa-regular fa-pen-to-square"></i> 詳細を記載する
   </div>
@@ -87,10 +93,4 @@
       </div>
     </div>    
   </div>
-</div>
-<div class="form-group">
-  <input type="file" id="image" name="image" onchange="previewImage();">
-</div>
-<div class="form-group">
-  <img id="preview" src="" alt="画像プレビュー" style="display: none; width: 100%;"/>
 </div>
