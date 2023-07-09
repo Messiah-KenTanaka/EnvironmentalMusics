@@ -181,7 +181,7 @@
     @endif
   </div>
   @if ($article->rod || $article->reel || $article->line || $article->lure)
-    <div class="article-tackle mx-3 my-2">
+    <div class="article-tackle mx-3 mb-3">
       @if ($article->rod)
         <div class="small p-1">
           <span class="main-ja-font-family pl-1">
@@ -217,7 +217,7 @@
     </div>
   @endif
 
-  <div class="d-flex extra-small">
+  <div class="d-flex extra-small mb-2">
     @if ($article->weather)
       <div class="pt-0 pb-2 pl-3">
         <span class="main-ja-font-family pl-1">
