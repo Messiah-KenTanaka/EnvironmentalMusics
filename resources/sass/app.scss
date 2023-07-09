@@ -35,6 +35,9 @@
 
 
 /* ナビバー nav.blade.php */ 
+#navbar {
+	transition: top 0.3s ease-in-out;
+}
 .nav-fixed {
     position: sticky;
     top: 0;

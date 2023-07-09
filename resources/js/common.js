@@ -31,4 +31,20 @@ $(function() {
         }
     };
 
+    // ヘッダースクロール
+    let lastScrollPosition = 0;
+    const navbar = $('#navbar');
+
+    $(window).scroll(function () {
+        const currentScrollPosition = $(this).scrollTop();
+        if (currentScrollPosition > lastScrollPosition) {
+            // スクロール位置が下に移動した場合、ヘッダーを非表示にする
+            navbar.css('top', '-100px');  // ヘッダーの高さに応じて調整
+        } else {
+            // スクロール位置が上に移動した場合、ヘッダーを表示する
+            navbar.css('top', '0');
+        }
+        lastScrollPosition = currentScrollPosition;
+    });
+
 });
