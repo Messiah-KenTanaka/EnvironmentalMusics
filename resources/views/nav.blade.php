@@ -1,24 +1,27 @@
-<nav class="nav navbar nav-fixed navbar-expand navbar-light dusty-grass-gradient">
-  <a style="display: flex; justify-content: center; align-items: center; height: 100%;">
+<nav class="nav navbar nav-fixed navbar-expand navbar-light bg-dark bg-gradient text-white">
+  {{--  <a style="display: flex; justify-content: center; align-items: center; height: 100%;">
     <i class="fa-regular fa-circle-left large-icon-2" onclick="window.history.back()"></i>
-  </a>
-  {{--  <a class="navbar-brand main-font-family" href="/">
-    <img src="{{ asset('images/fish_icon.svg')}}" class="rounded-circle mr-1" width="25" height="25">
-    <i>BASSER</i>
   </a>  --}}
+  <a class="navbar-brand main-font-family text-white" href="/">
+    {{--  <img src="{{ asset('images/fish_icon.svg')}}" class="rounded-circle mr-1" width="25" height="25">  --}}
+    <i>BASSER</i>
+  </a>
   <ul class="navbar-nav ml-auto"> 
+    <li class="nav-item">
+      <a class="nav-link text-white" href="{{ route('search.index') }}"><i class="fa-solid fa-magnifying-glass"></i></a>
+    </li>
     @guest
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('register') }}"><i class="fa-solid fa-user-plus"></i></a>
+        <a class="nav-link text-white" href="{{ route('register') }}"><i class="fa-solid fa-user-plus"></i></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a>
+        <a class="nav-link text-white" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a>
       </li>
 
       <!-- Dropdown -->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+        <a class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
         </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
@@ -41,7 +44,7 @@
     @auth
     <!-- Dropdown -->
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+      <a class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         @if (Auth::user()->image)
           <img src="{{ Auth::user()->image }}" class="rounded-circle mr-1" style="width: 25px; height: 25px; object-fit: cover;">
