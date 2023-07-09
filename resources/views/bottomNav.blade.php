@@ -1,28 +1,28 @@
-<nav class="nav navbar fixed-bottom navbar-expand navbar-light dusty-grass-gradient d-block d-xl-none">
+<nav class="nav navbar fixed-bottom navbar-expand navbar-light bg-dark bg-gradient text-white d-block d-xl-none">
   <ul class="navbar-nav d-flex justify-content-around ml-auto">
     {{--  ホーム  --}}
     <li class="nav-item">
-      <a class="nav-link d-flex flex-column justify-content-center align-items-center" href="{{ route('articles.index') }}">
+      <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" href="{{ route('articles.index') }}">
         <i class="fas fa-home"></i>
         <span class="extra-small">ホーム</span>
       </a>
     </li>
     {{-- ランキング --}}
     <li class="nav-item">
-      <a class="nav-link d-flex flex-column justify-content-center align-items-center" href="{{ route('ranking.index') }}">
+      <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" href="{{ route('ranking.index') }}">
         <i class="fas fa-crown"></i>
         <span class="extra-small">ランキング</span>
       </a>
     </li>
     {{-- 投稿 --}}
     <li class="nav-item">
-      <a href="{{ route('articles.create') }}" class="nav-link d-flex flex-column justify-content-center align-items-center">
+      <a href="{{ route('articles.create') }}" class="nav-link d-flex flex-column justify-content-center align-items-center text-white">
         <i class="fa-solid fa-circle-plus large-icon"></i>
       </a>
     </li>
     {{--  地図  --}}
     <li class="nav-item">
-      <a class="nav-link d-flex flex-column justify-content-center align-items-center" href="{{ route('map.index') }}">
+      <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" href="{{ route('map.index') }}">
         <i class="fa-solid fa-map-location-dot"></i>
         <span class="extra-small">マップ</span>
       </a>
@@ -46,7 +46,7 @@
     <div class="nav-item">
       <!-- dropup -->
       <li class="nav-item dropup">
-        <a class="nav-link d-flex flex-column justify-content-center align-items-center" id="navbarDropdownTagLink" data-toggle="dropdown"
+        <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" id="navbarDropdownTagLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           <i class="fa-solid fa-tags"></i>
           <span class="extra-small">トレンド</span>
