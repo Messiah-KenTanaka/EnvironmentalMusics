@@ -18,7 +18,7 @@
   <title>
     @yield('title')
   </title>
-  <link rel="icon" type="image/x-icon" href="{{ asset('images/fish_icon.svg') }}" />
+  <link rel="icon" type="image/x-icon" href="{{ asset('images/top_image02.jpg') }}" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.1/css/all.css">
   <!-- Bootstrap core CSS -->
