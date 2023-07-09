@@ -21,7 +21,8 @@
                   <label for="name">ユーザー名</label>
                   <input class="form-control" type="text" id="name" name="name" required>
                   <small><span class="text-danger">ユーザー名は登録後の変更はできません</span></small><br>
-                  <small>※3〜16文字、漢字、ひらがな、カタカナ、及び英字（大文字・小文字）のみ可</small>
+                  <small class="extra-small">※3〜16文字以内で入力してください</small><br>
+                  <small class="extra-small">※漢字、ひらがな、カタカナ、及び英字（大文字・小文字）のみ可</small>
                 </div>
                 <div class="md-form">
                   <label for="email">メールアドレス</label>
