@@ -181,7 +181,7 @@
     @endif
   </div>
   @if ($article->rod || $article->reel || $article->line || $article->lure)
-    <div class="article-tackle m-3 p-1">
+    <div class="article-tackle mx-3 my-2">
       @if ($article->rod)
         <div class="small p-1">
           <span class="main-ja-font-family pl-1">
@@ -251,7 +251,7 @@
       @if ($article->pref)
         <a type="button"
                 onclick="location.href='{{ route('ranking.show', ['pref' => $article->pref]) }}'">
-          <small class="border-pref p-2 mr-2">
+          <small class="bg-dark bg-gradient text-white border-pref p-2 mr-2">
             {{ $article->pref }}
           </small>
         </a>
@@ -259,7 +259,7 @@
       @if ($article->bass_field)
         <a type="button"
                   onclick="location.href='{{ route('ranking.field', ['field' => $article->bass_field]) }}'">
-          <small class="border-pref p-2">
+          <small class="bg-dark bg-gradient text-white border-pref p-2">
             {{ $article->bass_field }}
           </small>
         </a>
