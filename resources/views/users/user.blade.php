@@ -71,6 +71,11 @@
             </span>
             </a>
         </h2>
+        <div class="card-body m-0">
+            <span class="text-dark">
+            {{ $user->introduction }}
+            </span>
+        </div>
         <h3 class="h6 card-title m-0">
             <div class="text-dark mt-2">
                 自己記録
@@ -131,11 +136,6 @@
                 @endif
             </div> --}}
         @endif
-        <div class="card-body m-0">
-            <span class="text-dark">
-            {{ $user->introduction }}
-            </span>
-        </div>
         @if ($user->youtube)
             <div class="m-2">
                 <span class="text-dark main-ja-font-family">
@@ -155,8 +155,8 @@
     </div>
     <div class="card-body">
         <div class="card-text d-flex">
-            <a href="{{ route('users.followings', ['name' => $user->name]) }}" class="text-muted">
-                {{ $user->count_followings }} フォロー
+            <a href="{{ route('users.followings', ['name' => $user->name]) }}" class="text-muted mr-2">
+                {{ $user->count_followings }} フォロー中
             </a>
             <a href="{{ route('users.followers', ['name' => $user->name]) }}" class="text-muted">
                 {{ $user->count_followers }} フォロワー
