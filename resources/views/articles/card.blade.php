@@ -180,8 +180,38 @@
       </div>
     @endif
   </div>
+  
+  @if ($article->pref || $article->bass_field)
+    <div class="card-body pt-0 pb-2 pl-3">
+      @if ($article->pref)
+        <a type="button"
+                onclick="location.href='{{ route('ranking.show', ['pref' => $article->pref]) }}'">
+          <small class="bg-light border-pref p-2 mr-2">
+            {{ $article->pref }}
+          </small>
+        </a>
+      @endif
+      @if ($article->bass_field)
+        <a type="button"
+                  onclick="location.href='{{ route('ranking.field', ['field' => $article->bass_field]) }}'">
+          <small class="bg-light border-pref p-2">
+            {{ $article->bass_field }}
+          </small>
+        </a>
+      @endif
+    </div>
+  @endif
+  @if ($article->image)
+    <img src="{{ $article->image }}" class="img-fluid border-image p-3">
+  @endif
+
   @if ($article->rod || $article->reel || $article->line || $article->lure)
-    <div class="article-tackle mx-3 mb-3">
+    <div class="article-tackle mx-3 mb-3 p-1">
+      <div class="small p-1">
+        <span class="main-ja-font-family pl-1">
+          ータックルー
+        </span>
+      </div>
       @if ($article->rod)
         <div class="small p-1">
           <span class="main-ja-font-family pl-1">
@@ -245,30 +275,7 @@
       </div>
     @endif
   </div>
-  
-  @if ($article->pref || $article->bass_field)
-    <div class="card-body pt-0 pb-2 pl-3">
-      @if ($article->pref)
-        <a type="button"
-                onclick="location.href='{{ route('ranking.show', ['pref' => $article->pref]) }}'">
-          <small class="bg-dark bg-gradient text-white border-pref p-2 mr-2">
-            {{ $article->pref }}
-          </small>
-        </a>
-      @endif
-      @if ($article->bass_field)
-        <a type="button"
-                  onclick="location.href='{{ route('ranking.field', ['field' => $article->bass_field]) }}'">
-          <small class="bg-dark bg-gradient text-white border-pref p-2">
-            {{ $article->bass_field }}
-          </small>
-        </a>
-      @endif
-    </div>
-  @endif
-  @if ($article->image)
-    <img src="{{ $article->image }}" class="img-fluid border-image p-3">
-  @endif
+
   <div class="card-body pt-0 pb-2 pl-3">
     <div class="card-text d-flex">
       <article-like
