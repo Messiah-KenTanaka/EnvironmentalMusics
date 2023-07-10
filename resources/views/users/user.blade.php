@@ -136,6 +136,22 @@
             {{ $user->introduction }}
             </span>
         </div>
+        @if ($user->youtube)
+            <div class="m-2">
+                <span class="text-dark main-ja-font-family">
+                    Youtube：
+                    {!! nl2br(Functions::makeLink(e( $user->youtube ))) !!}
+                </span>
+            </div>
+        @endif
+        @if ($user->twitter)
+            <div class="m-2">
+                <span class="text-dark main-ja-font-family">
+                    Twitter：
+                    {!! nl2br(Functions::makeLink(e( $user->twitter ))) !!}
+                </span>
+            </div>
+        @endif
     </div>
     <div class="card-body">
         <div class="card-text d-flex">

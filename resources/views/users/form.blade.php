@@ -20,6 +20,14 @@
   <textarea name="introduction" class="form-control" rows="6" placeholder="自己紹介">{{ $user->introduction ?? old('introduction') }}</textarea>
 </div>
 <div class="form-group">
+  <label>Youtube</label>
+  <input type="text" name="youtube" class="form-control" placeholder="https://www.youtube.com/" value="{{ $user->youtube ?? old('youtube') }}">
+</div>
+<div class="form-group">
+  <label>Twitter</label>
+  <input type="text" name="twitter" class="form-control" placeholder="https://twitter.com/" value="{{ $user->twitter ?? old('twitter') }}">
+</div>
+<div class="form-group">
   <label for="image">プロフィール画像</label><br>
   <input type="file" id="image" name="image" onchange="previewImage();">
 </div>
