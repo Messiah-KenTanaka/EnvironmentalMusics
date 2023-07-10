@@ -25,7 +25,9 @@ class User extends Authenticatable
         'password',
         'introduction',
         'image',
-        'publish_flag'
+        'publish_flag',
+        'youtube',
+        'twitter'
     ];
 
     /**
