@@ -1,4 +1,4 @@
-<nav id="navbar" class="nav navbar nav-fixed navbar-expand navbar-light bg-dark bg-gradient text-white">
+<nav id="navbar" class="nav navbar nav-fixed navbar-expand navbar-light bg-black text-white">
   {{--  <a style="display: flex; justify-content: center; align-items: center; height: 100%;">
     <i class="fa-regular fa-circle-left large-icon-2" onclick="window.history.back()"></i>
   </a>  --}}
