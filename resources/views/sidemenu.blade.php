@@ -100,7 +100,7 @@
             <div class="dropdown-divider"></div>
         @endguest
 
-        <button class="col-12 mx-auto btn dusty-grass-gradient rounded-pill" type="button"
+        <button class="col-12 mx-auto btn blue-gradient rounded-pill" type="button"
             onclick="location.href='{{ route('articles.create') }}'">
             <img src="{{ asset('images/fish_icon.svg')}}" class="rounded-circle mr-1" width="25" height="25">
         </button>

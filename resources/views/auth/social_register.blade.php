@@ -38,7 +38,7 @@
                 <div class="text-center">
                   <a href="#" data-toggle="modal" data-target="#socialRegisterModalId">利用規約を表示</a>
                 </div>
-                <button class="btn btn-block dusty-grass-gradient mt-2 mb-2" type="submit" disabled>ユーザー登録</button>
+                <button class="btn btn-block blue-gradient mt-2 mb-2" type="submit" disabled>ユーザー登録</button>
               </form>
             </div>
           </div>
