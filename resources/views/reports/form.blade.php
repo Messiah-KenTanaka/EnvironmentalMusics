@@ -23,7 +23,7 @@
       <input type="hidden" name="user_id" value="{{ $report['user_id'] }}">
   </div>
 
-  <button type="submit" id="submit-btn" class="btn dusty-grass-gradient btn-block">
+  <button type="submit" id="submit-btn" class="btn blue-gradient btn-block">
     <span id="submit-text">送信する</span>
     <div class="spinner-border spinner-border-sm ml-2 d-none" role="status">
       <span class="sr-only">読み込み中...</span>

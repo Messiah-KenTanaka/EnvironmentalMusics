@@ -1,7 +1,7 @@
 <template>
   <div>
     <button
-      class="btn-sm shadow-none border border-success p-2"
+      class="btn-sm shadow-none border p-2"
       :class="buttonColor"
       @click="clickFollow" 
     >
@@ -37,7 +37,7 @@
     computed: {
       buttonColor() {
         return this.isFollowedBy
-          ? 'dusty-grass-gradient'
+          ? 'blue-gradient'
           : 'bg-white'
       },
       buttonIcon() {

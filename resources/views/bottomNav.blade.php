@@ -90,7 +90,7 @@
 <div class="modal fade" id="dmaintenanceModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
-          <div class="modal-header dusty-grass-gradient">
+          <div class="modal-header blue-gradient">
               <h5 class="modal-title" id="demoModalTitle">確認</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -100,7 +100,7 @@
               メンテナンス中です。
           </div>
           <div class="border-maintenance-modal modal-footer">
-              <button type="button" class="btn dusty-grass-gradient" data-dismiss="modal">閉じる</button>
+              <button type="button" class="btn blue-gradient" data-dismiss="modal">閉じる</button>
           </div>
       </div>
   </div>
