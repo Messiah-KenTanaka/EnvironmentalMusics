@@ -2,8 +2,8 @@
 <ul class="navbar-nav d-flex justify-content-around mt-2 ml-auto">
   <div class="nav-item">
     <!-- dropdown -->
-    <li class="nav-item dropdown text-center">
-      <a class="nav-link" id="navbarDropdownTagLink" data-toggle="dropdown"
+    <li class="nav-item dropdown">
+      <a class="nav-link small" id="navbarDropdownTagLink" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-search"> 都道府県ランキング検索</i>
       </a>
