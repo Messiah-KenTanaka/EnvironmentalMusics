@@ -10,12 +10,7 @@
         <div class="col">
             <h4 class="text-center my-4 main-ja-font-family"><span>検索</span></h4>
             @include('search')
-            @foreach($articles as $key => $article)
-                @include('articles.card')
-            @endforeach
-            @if ($articles->hasMorePages())
-                <p class="text-center my-3"><a href="{{ $articles->nextPageUrl() }}">もっと見る</a></p>
-            @endif
+            @include('search.search_cards')
             @include('floatingButton')
         </div>
         </div>

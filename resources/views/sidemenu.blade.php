@@ -34,7 +34,7 @@
 
         <button class="dropdown-item py-2" type="button"
             onclick="location.href='{{ route('map.index') }}'">
-            <i class="fa-solid fa-map-location-dot"></i>
+            <i class="fas fa-map-marker-alt"></i>
             <span class="ml-3 font-weight-bold">Map</span>
         </button>
         <div class="dropdown-divider"></div>
@@ -109,7 +109,7 @@
             <source src="{{ asset('videos/black_bass_preview.mp4') }}" type="video/mp4">
         </video>
 
-        <span class="dropdown-item font-weight-bold mt-5 py-2"><i class="fa-solid fa-tags mr-2"></i>最近のトレンド</span>
+        <span class="dropdown-item font-weight-bold mt-5 py-2"><i class="fas fa-bolt mr-2"></i>最近のトレンド</span>
         <div class="dropdown-divider"></div>
         @foreach($tags as $tag)
             <button class="dropdown-item py-1" type="button"
