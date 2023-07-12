@@ -23,7 +23,7 @@
     {{--  地図  --}}
     <li class="nav-item">
       <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" href="{{ route('map.index') }}">
-        <i class="fa-solid fa-map-location-dot"></i>
+        <i class="fas fa-map-marker-alt"></i>
         <span class="extra-small">マップ</span>
       </a>
     </li>
@@ -48,11 +48,11 @@
       <li class="nav-item dropup">
         <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" id="navbarDropdownTagLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          <i class="fa-solid fa-tags"></i>
+          <i class="fas fa-bolt"></i>
           <span class="extra-small">トレンド</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownTagLink">
-          <span class="dropdown-item font-weight-bold py-2"><i class="fa-solid fa-tags mr-2"></i>最近のトレンド</span>
+          <span class="dropdown-item font-weight-bold py-2"><i class="fas fa-bolt mr-2"></i>最近のトレンド</span>
           <div class="dropdown-divider"></div>
           @foreach($tags as $tag)
             <button class="dropdown-item" type="button"
