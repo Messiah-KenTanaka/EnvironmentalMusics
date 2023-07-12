@@ -61,7 +61,7 @@ Route::get('/weather/{pref}', 'WeatherController@show')->name('weather.show');
 
 // 投稿検索
 Route::get('/search', 'SearchController@index')->name('search.index');
-Route::post('/search', 'SearchController@show')->name('search.show');
+Route::get('/searchKeyword', 'SearchController@show')->name('search.show');
 
 // お問い合わせ
 Route::get('/contact/{name?}', 'ContactController@index')->name('contact.index');

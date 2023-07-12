@@ -1,5 +1,5 @@
 <div class="search my-4">
-    <form action="{{ route('search.show') }}" method="POST"class="search-form">
+    <form action="{{ route('search.show') }}" method="GET"class="search-form">
         @csrf
         <input type="text" name="keyword" class="search-input" placeholder="検索キーワード">
         <button type="submit" class="search-button">
