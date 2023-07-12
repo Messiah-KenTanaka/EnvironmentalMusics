@@ -7,9 +7,9 @@
     <i>BASSER</i>
   </a>
   <ul class="navbar-nav ml-auto"> 
-    <li class="nav-item">
+    {{--  <li class="nav-item">
       <a class="nav-link text-white" href="{{ route('search.index') }}"><i class="fa-solid fa-magnifying-glass"></i></a>
-    </li>
+    </li>  --}}
     @guest
       <li class="nav-item">
         <a class="nav-link text-white" href="{{ route('register') }}"><i class="fa-solid fa-user-plus"></i></a>
