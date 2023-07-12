@@ -9,7 +9,7 @@
       @include('sidemenu')
       <div class="col">
         @include('ranking.pref')
-        <h4 class="text-center my-3 main-ja-font-family ranking-heading" data-en="Ranking"><span>全国 ランキング</span></h4>
+        <h4 class="text-center my-3 main-ja-font-family"><span>全国 ランキング</span></h4>
         @foreach($ranking as $key => $article)
           <div class="text-center my-4 main-ja-font-family h4">
             @switch(++$key)
