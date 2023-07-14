@@ -183,10 +183,11 @@
   
   @if ($article->pref || $article->bass_field)
     <div class="card-body pt-0 pb-2 pl-3">
+      <i class="fas fa-map-marker-alt mr-1"></i>
       @if ($article->pref)
         <a type="button"
                 onclick="location.href='{{ route('ranking.show', ['pref' => $article->pref]) }}'">
-          <small class="bg-light border-pref p-2 mr-2">
+          <small class="border border-pref p-2 mr-2">
             {{ $article->pref }}
           </small>
         </a>
@@ -194,7 +195,7 @@
       @if ($article->bass_field)
         <a type="button"
                   onclick="location.href='{{ route('ranking.field', ['field' => $article->bass_field]) }}'">
-          <small class="bg-light border-pref p-2">
+          <small class="border border-pref p-2">
             {{ $article->bass_field }}
           </small>
         </a>
