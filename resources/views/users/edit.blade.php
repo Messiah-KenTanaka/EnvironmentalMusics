@@ -28,6 +28,7 @@
             </div>
           </div>
         @endif
+        @include('floatingButton')
       </div>
     </div>
   </div>

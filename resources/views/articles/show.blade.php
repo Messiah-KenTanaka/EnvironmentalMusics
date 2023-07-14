@@ -20,6 +20,7 @@
         @foreach($comments as $comment)
           @include('articles.comment')
         @endforeach
+        @include('floatingButton')
       </div>
     </div>
   </div>
