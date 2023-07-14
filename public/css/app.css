@@ -104,220 +104,6 @@
   border-top: none;
 }
 
-/* ランキング 装飾 */
-
-.ranking-heading {
-  position: relative;
-  padding-top: 50px;
-  padding-left: 30px;
-}
-
-.ranking-heading span {
-  position: relative;
-  z-index: 2;
-}
-
-.ranking-heading::before {
-  content: attr(data-en);
-  position: absolute;
-  transform: translateX(-50%) rotate(-5deg);
-  top: -20px;
-  left: 50%;
-  padding: 10px;
-  background: linear-gradient(135deg, #704308 0%, #ffce08 40%, #e1ce08 60%, #704308 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 60px;
-  font-weight: 400;
-  font-family: luxus-brut, cursive;
-  font-style: italic;
-}
-
-.ranking-first {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.ranking-first::before,
-.ranking-first::after {
-  content: "";
-  width: 60px;
-  height: 5px;
-  background: -webkit-linear-gradient(0deg, #B67B03 10%, #DAAF08 20%, #FEE9A0 50%, #DAAF08 80%, #B67B03 90%);
-}
-
-.ranking-first::before {
-  margin-right: 20px;
-}
-
-.ranking-first::after {
-  margin-left: 20px;
-}
-
-.ranking-second {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.ranking-second::before,
-.ranking-second::after {
-  content: "";
-  width: 60px;
-  height: 5px;
-  background: -webkit-linear-gradient(0deg, #ccc 10%, #868888 20%, #d8dcdc 50%, white 80%, #ccc 90%);
-}
-
-.ranking-second::before {
-  margin-right: 20px;
-}
-
-.ranking-second::after {
-  margin-left: 20px;
-}
-
-.ranking-third {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.ranking-third::before,
-.ranking-third::after {
-  content: "";
-  width: 60px;
-  height: 5px;
-  background: -webkit-linear-gradient(0deg, #a57e65 10%, #a57e65 20%, white 50%, #a57e65 80%, #a57e65 90%);
-}
-
-.ranking-third::before {
-  margin-right: 20px;
-}
-
-.ranking-third::after {
-  margin-left: 20px;
-}
-
-/* マップ 装飾 */
-
-.map-heading {
-  position: relative;
-  padding-top: 50px;
-  padding-left: 30px;
-}
-
-.map-heading span {
-  position: relative;
-  z-index: 2;
-}
-
-.map-heading::before {
-  content: attr(data-en);
-  position: absolute;
-  transform: translateX(-50%) rotate(-5deg);
-  top: -20px;
-  left: 50%;
-  padding: 10px;
-  background: linear-gradient(135deg, #056b00 0%, #4caf50 40%, #8bc34a 60%, #056b00 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 60px;
-  font-weight: 400;
-  font-family: luxus-brut, cursive;
-  font-style: italic;
-}
-
-/* 最近のトレンド(タグ) 装飾 */
-
-.tag-heading {
-  position: relative;
-  padding-top: 50px;
-  padding-left: 30px;
-}
-
-.tag-heading span {
-  position: relative;
-  z-index: 2;
-}
-
-.tag-heading::before {
-  content: attr(data-en);
-  position: absolute;
-  transform: translateX(-50%) rotate(-5deg);
-  top: -20px;
-  left: 50%;
-  padding: 10px;
-  color: transparent;
-  background: repeating-linear-gradient(0deg, #0277BD 0.1em, #4FC3F7 0.2em, #E1F5FE 0.3em, #4FC3F7 0.4em, #0277BD 0.5em);
-  -webkit-background-clip: text;
-  font-size: 60px;
-  font-weight: 400;
-  font-family: luxus-brut, cursive;
-  font-style: italic;
-}
-
-/* 天気予報 装飾 */
-
-.weather-heading {
-  position: relative;
-  padding-top: 50px;
-  padding-left: 30px;
-}
-
-.weather-heading span {
-  position: relative;
-  z-index: 2;
-}
-
-.weather-heading::before {
-  content: attr(data-en);
-  position: absolute;
-  transform: translateX(-50%) rotate(-5deg);
-  top: -20px;
-  left: 50%;
-  padding: 10px;
-  color: transparent;
-  background: repeating-linear-gradient(0deg, #1565C0 0 0.1em, #0D47A1 0.1em 0.2em);
-  -webkit-background-clip: text;
-  font-size: 60px;
-  font-weight: 400;
-  font-family: luxus-brut, cursive;
-  font-style: italic;
-}
-
-/* 検索ページ 装飾 */
-
-.search-heading {
-  position: relative;
-  padding-top: 50px;
-  padding-left: 30px;
-}
-
-.search-heading span {
-  position: relative;
-  z-index: 2;
-}
-
-.search-heading::before {
-  content: attr(data-en);
-  position: absolute;
-  transform: translateX(-50%) rotate(-5deg);
-  top: -20px;
-  left: 50%;
-  padding: 10px;
-  color: transparent;
-  background: repeating-linear-gradient(0deg, #C62828 0.1em, #EF5350 0.2em, #FFEBEE 0.3em, #EF5350 0.4em, #C62828 0.5em);
-  -webkit-background-clip: text;
-  font-size: 60px;
-  font-weight: 400;
-  font-family: luxus-brut, cursive;
-  font-style: italic;
-}
-
 /* 投稿フローティングボタン */
 
 .floating-bottom {
@@ -341,7 +127,7 @@
   display: inline-block;
 }
 
-/* TOP画像 */
+/* TOP画像 ランキング画像配置 */
 
 .image-container {
   position: relative;
@@ -351,10 +137,29 @@
   position: absolute;
   top: 0;
   left: 0;
-  color: rgba(169, 169, 169, 0.5);
-  /* 透過度付きのテキスト色を設定 */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  padding: 15px;
+  padding: 20px;
+}
+
+.ranking-4th-place-above {
+  display: flex;
+  align-items: center;
+  /* vertical alignment */
+  justify-content: center;
+  /* horizontal alignment */
+  border-radius: 50%;
+  /* make it round */
+  background-color: #515050;
+  /* background color */
+  color: #ffffff;
+  /* text color */
+  width: 50px;
+  /* same width and height */
+  height: 50px;
+  /* same width and height */
+  font-size: 16px;
+  /* adjust according to your preference */
+  font-weight: bold;
+  /* make the text bold */
 }
 
 /* 検索フォーム全体のスタイル search.blade.php */
