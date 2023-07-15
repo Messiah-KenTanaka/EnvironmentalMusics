@@ -53,7 +53,7 @@
                 <div class="text-center">
                   <a href="#" data-toggle="modal" data-target="#registerModalId">利用規約を表示</a>
                 </div>
-                <button class="btn btn-block blue-gradient mt-2 mb-2" type="submit" disabled>ユーザー登録</button>
+                <button class="btn btn-block bg-primary text-white mt-2 mb-2" type="submit" disabled>ユーザー登録</button>
               </form>
 
               <div class="mt-0">
