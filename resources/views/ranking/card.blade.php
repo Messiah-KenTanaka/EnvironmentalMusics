@@ -1,18 +1,20 @@
 <div class="card mt-3">
   <div class="position-relative">
     @if ($article->image)
-      <img src="{{ $article->image }}" class="img-fluid border-image p-3">
+      <a href="{{ route('articles.show', ['article' => $article]) }}">
+        <img src="{{ $article->image }}" class="img-fluid border-image p-3">
+      </a>
       <div class="text-overlay">
         @if(isset($rank))
           @switch($rank)
             @case(1)
-              <img src="{{ asset('images/ranking_1.png')}}" width="50" height="50">
+              <img src="{{ asset('images/ranking_1.png')}}" width="80" height="80">
               @break
             @case(2)
-              <img src="{{ asset('images/ranking_2.png')}}" width="50" height="50">
+              <img src="{{ asset('images/ranking_2.png')}}" width="70" height="70">
               @break
             @case(3)
-              <img src="{{ asset('images/ranking_3.png')}}" width="50" height="50">
+              <img src="{{ asset('images/ranking_3.png')}}" width="70" height="70">
               @break
             @default
               <span class="ranking-4th-place-above">{{ $rank }}位</span>
@@ -63,7 +65,7 @@
   </div>
 
   @if ($article->pref || $article->bass_field)
-    <div class="card-body pt-0 pb-2 pl-3">
+    <div class="card-body pt-0 pb-3 pl-3">
       <i class="fas fa-map-marker-alt mr-1"></i>
       @if ($article->pref)
         <a type="button"
