@@ -12,7 +12,7 @@
         @include('agreement')
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn blue-gradient" data-dismiss="modal">閉じる</button>
+        <button type="button" class="btn bg-primary text-white" data-dismiss="modal">閉じる</button>
       </div>
     </div>
   </div>
