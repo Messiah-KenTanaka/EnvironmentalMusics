@@ -49,8 +49,11 @@ Route::get('/tags/{name}', 'TagController@show')->name('tags.show');
 
 // ランキング
 Route::get('/ranking', 'RankingController@index')->name('ranking.index');
+Route::get('/ranking/weight', 'RankingController@nationwideWeight')->name('ranking.nationwideWeight');
 Route::get('/ranking/{pref}', 'RankingController@show')->name('ranking.show');
+Route::get('/ranking/prefWeight/{pref}', 'RankingController@prefWeight')->name('ranking.prefWeight');
 Route::get('/ranking/field/{field}', 'RankingController@field')->name('ranking.field');
+Route::get('/ranking/fieldWeight/{field}', 'RankingController@fieldWeight')->name('ranking.fieldWeight');
 
 // 地図
 Route::get('/map', 'MapController@index')->name('map.index');
