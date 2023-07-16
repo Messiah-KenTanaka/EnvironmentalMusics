@@ -1,15 +1,9 @@
 <nav id="navbar" class="nav navbar nav-fixed navbar-expand navbar-light bg-black text-white">
-  {{--  <a style="display: flex; justify-content: center; align-items: center; height: 100%;">
-    <i class="fa-regular fa-circle-left large-icon-2" onclick="window.history.back()"></i>
-  </a>  --}}
   <a class="navbar-brand main-font-family text-white" href="/">
-    {{--  <img src="{{ asset('images/fish_icon.svg')}}" class="rounded-circle mr-1" width="25" height="25">  --}}
     <i>BASSER</i>
   </a>
   <ul class="navbar-nav ml-auto"> 
-    {{--  <li class="nav-item">
-      <a class="nav-link text-white" href="{{ route('search.index') }}"><i class="fa-solid fa-magnifying-glass"></i></a>
-    </li>  --}}
+    {{--  未ログイン  --}}
     @guest
       <li class="nav-item">
         <a class="nav-link text-white" href="{{ route('register') }}"><i class="fa-solid fa-user-plus"></i></a>
@@ -26,9 +20,9 @@
         </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
           <button class="dropdown-item" type="button"
-            onclick="location.href='{{ route("contact.index") }}'">
-            <i class="fa-regular fa-envelope"></i>
-            <span class="ml-1">お問い合わせ</span>
+            onclick="location.href='{{ route('map.index') }}'">
+            <i class="fas fa-map-marker-alt"></i>
+            <span class="ml-1">釣り場MAP</span>
           </button>
           <div class="dropdown-divider"></div>
           <button class="dropdown-item" type="button"
@@ -36,12 +30,25 @@
             <i class="fa-solid fa-cloud-sun"></i>
             <span class="ml-1">天気予報</span>
           </button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" type="button"
+            onclick="location.href='{{ route("contact.index") }}'">
+            <i class="fa-regular fa-envelope"></i>
+            <span class="ml-1">お問い合わせ</span>
+          </button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" type="button"
+                  onclick="location.href='{{ route('policy.index') }}'">
+            <i class="fa-solid fa-lock"></i>
+            <span class="ml-1">ポリシー</span>
+          </button>
         </div>
       </li>
       <!-- Dropdown -->
     @endguest
     
     @auth
+    {{--  ログイン中  --}}
     <!-- Dropdown -->
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -55,13 +62,28 @@
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
         <button class="dropdown-item" type="button"
                 onclick="location.href='{{ route("users.show", ["name" => Auth::user()->name]) }}'">
+          @if (Auth::user()->image)
+            <img src="{{ Auth::user()->image }}" class="rounded-circle mr-2" style="width: 25px; height: 25px; object-fit: cover;">
+          @else
+            <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-2" style="width: 25px; height: 25px; object-fit: cover;">
+          @endif
+          {{ Functions::getNameEllipsis(Auth::user()->name) }}
+        </button>
+        {{--  <button class="dropdown-item" type="button"
+                onclick="location.href='{{ route("users.show", ["name" => Auth::user()->name]) }}'">
           <i class="fas fa-user-alt"></i>
           <span class="ml-1">マイページ</span>
-        </button>
+        </button>  --}}
         <div class="dropdown-divider"></div>
         <button form="logout-button" class="dropdown-item" type="submit">
           <i class="fas fa-sign-in-alt"></i>
           <span class="ml-1">ログアウト</span>
+        </button>
+        <div class="dropdown-divider"></div>
+        <button class="dropdown-item" type="button"
+          onclick="location.href='{{ route('map.index') }}'">
+          <i class="fas fa-map-marker-alt"></i>
+          <span class="ml-1">釣り場MAP</span>
         </button>
         <div class="dropdown-divider"></div>
         <button class="dropdown-item" type="button"
@@ -81,16 +103,7 @@
           <i class="fa-solid fa-lock"></i>
           <span class="ml-1">ポリシー</span>
         </button>
-        <div class="dropdown-divider"></div>
-        <button class="dropdown-item" type="button"
-                onclick="location.href='{{ route("users.show", ["name" => Auth::user()->name]) }}'">
-          @if (Auth::user()->image)
-            <img src="{{ Auth::user()->image }}" class="rounded-circle mr-2" style="width: 25px; height: 25px; object-fit: cover;">
-          @else
-            <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-2" style="width: 25px; height: 25px; object-fit: cover;">
-          @endif
-          {{ Functions::getNameEllipsis(Auth::user()->name) }}
-        </button>
+
         {{--  管理者のみ閲覧可能  --}}
         @if (in_array(Auth::user()->id, [1, 2, 3]))
           <div class="dropdown-divider"></div>
