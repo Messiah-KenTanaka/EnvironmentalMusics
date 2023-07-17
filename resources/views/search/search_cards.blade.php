@@ -23,16 +23,22 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="trendModalLabel">最近のトレンド</h5>
+                            <h5 class="modal-title font-weight-bold" id="trendModalLabel"><i class="fas fa-bolt mr-2"></i>最近のトレンド</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            @foreach($tags as $tag)
-                            <button class="dropdown-item" type="button"
+                            @foreach($tags as $i => $tag)
+                            <button class="dropdown-item d-flex align-items-start" type="button"
                                     onclick="location.href='{{ route('tags.show', ['name' => $tag->name]) }}'">
-                                <span class="ml-1">{{ Functions::getNameFifteenEllipsis($tag->name) }}</span>
+                                <div>
+                                    {{ ++$i }}.
+                                </div>
+                                <div>
+                                    <span class="ml-1 font-weight-bold">{{ '#' . Functions::getNameFifteenEllipsis($tag->name) }}</span><br>
+                                    <span class="text-muted">{{ $tag->count }}件</span>
+                                </div>
                             </button>
                             @endforeach
                         </div>

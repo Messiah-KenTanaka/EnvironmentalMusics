@@ -51,6 +51,11 @@
   font-size: 150%;
 }
 
+.modal-body {
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
 .full-width-dropdown {
   width: 100vw;
   max-width: 100%;
