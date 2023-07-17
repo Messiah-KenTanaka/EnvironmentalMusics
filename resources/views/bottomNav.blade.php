@@ -42,7 +42,7 @@
           @foreach($tags as $tag)
             <button class="dropdown-item" type="button"
                     onclick="location.href='{{ route('tags.show', ['name' => $tag->name]) }}'">
-              <span class="ml-1">{{ Functions::getNameTenEllipsis($tag->name) }}</span>
+              <span class="ml-1">{{ Functions::getNameFifteenEllipsis($tag->name) }}</span>
             </button>
           @endforeach
         </div>

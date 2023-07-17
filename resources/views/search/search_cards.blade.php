@@ -12,21 +12,31 @@
         <div class="col-md-6 col-sm-12 mb-4">
             <!-- dropup -->
             <div class="card text-center">
-                <a class="card-body" id="navbarDropdownTagLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+                <a class="card-body" data-toggle="modal" data-target="#trendModal">
                     <i class="fas fa-bolt fa-5x mb-3"></i>
                     <h5 class="card-title">トレンドから探す</h5>
                     <p class="card-text">今の流行りを見つけよう！</p>
                 </a>
-                <div class="dropdown-menu full-width-dropdown dropdown-primary" aria-labelledby="navbarDropdownTagLink">
-                    <span class="dropdown-item font-weight-bold py-2"><i class="fas fa-bolt mr-2"></i>最近のトレンド</span>
-                    <div class="dropdown-divider"></div>
-                    @foreach($tags as $tag)
-                    <button class="dropdown-item" type="button"
-                            onclick="location.href='{{ route('tags.show', ['name' => $tag->name]) }}'">
-                        <span class="ml-1">{{ Functions::getNameTenEllipsis($tag->name) }}</span>
-                    </button>
-                    @endforeach
+            </div>
+            
+            <div class="modal fade" id="trendModal" tabindex="-1" role="dialog" aria-labelledby="trendModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="trendModalLabel">最近のトレンド</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            @foreach($tags as $tag)
+                            <button class="dropdown-item" type="button"
+                                    onclick="location.href='{{ route('tags.show', ['name' => $tag->name]) }}'">
+                                <span class="ml-1">{{ Functions::getNameFifteenEllipsis($tag->name) }}</span>
+                            </button>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- dropup -->
