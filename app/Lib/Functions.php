@@ -35,6 +35,20 @@ class Functions
         }
     }
 
+        /*
+    * 15文字以上は3点リーダーを付ける
+    */
+    public static function getNameFifteenEllipsis($name)
+    {
+        if( mb_strlen( $name, 'UTF-8' ) > 15) {
+            $user_name = mb_substr( $name, 0, 15, 'UTF-8' );
+            return $user_name . '…';
+        // 文字数が15文字以下ならば三点リーダーは付けない
+        } else {
+            return $name;
+        }
+    }
+
     /*
     * URLはリンクを付ける
     */
