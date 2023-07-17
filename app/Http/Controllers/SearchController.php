@@ -30,6 +30,7 @@ class SearchController extends Controller
             ->paginate(config('paginate.paginate'));
 
         $tags = Tag::getPopularTag();
+        // dd($tags);
 
         return view('search.index', [
             'articles' => $articles,
