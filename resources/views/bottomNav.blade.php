@@ -27,46 +27,15 @@
         <span class="extra-small">サーチ</span>
       </a>
     </li>
-    {{-- タグ検索 --}}
+    {{-- タグ(トレンド)検索 --}}
     <div class="nav-item">
-      <!-- dropup -->
       <li class="nav-item dropup">
-        <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" id="navbarDropdownTagLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" data-toggle="modal" data-target="#trendModal">
           <i class="fas fa-bolt"></i>
           <span class="extra-small">トレンド</span>
         </a>
-        <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownTagLink">
-          <span class="dropdown-item font-weight-bold py-2"><i class="fas fa-bolt mr-2"></i>最近のトレンド</span>
-          <div class="dropdown-divider"></div>
-          @foreach($tags as $tag)
-            <button class="dropdown-item" type="button"
-                    onclick="location.href='{{ route('tags.show', ['name' => $tag->name]) }}'">
-              <span class="ml-1">{{ Functions::getNameFifteenEllipsis($tag->name) }}</span>
-            </button>
-          @endforeach
-        </div>
       </li>
-      <!-- dropup -->
     </div>        
-    
-    {{--  @guest
-    <li class="nav-item">
-      <a class="nav-link" href="{{ route('register') }}"><i class="fa-solid fa-user-plus"></i></a>
-    </li>
-    @endguest
-
-    @guest
-    <li class="nav-item">
-      <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a>
-    </li>
-    @endguest  --}}
-
-    {{--  @auth
-    <li class="nav-item">
-      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fa-solid fa-fish"></i></a>
-    </li>
-    @endauth  --}}
 
   </ul>
 </nav>
@@ -86,6 +55,34 @@
           </div>
           <div class="border-maintenance-modal modal-footer">
               <button type="button" class="btn bg-primary text-white" data-dismiss="modal">閉じる</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+{{--  トレンドモーダル  --}}
+<div class="modal fade" id="trendModal" tabindex="-1" role="dialog" aria-labelledby="trendModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title font-weight-bold" id="trendModalLabel"><i class="fas fa-bolt mr-2"></i>最近のトレンド</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              @foreach($tags as $i => $tag)
+              <button class="dropdown-item d-flex align-items-start" type="button"
+                      onclick="location.href='{{ route('tags.show', ['name' => $tag->name]) }}'">
+                  <div>
+                      {{ ++$i }}.
+                  </div>
+                  <div>
+                      <span class="ml-1 font-weight-bold">{{ '#' . Functions::getNameFifteenEllipsis($tag->name) }}</span><br>
+                      <span class="text-muted">{{ $tag->count }}件</span>
+                  </div>
+              </button>
+              @endforeach
           </div>
       </div>
   </div>
