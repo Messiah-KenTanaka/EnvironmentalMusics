@@ -17,8 +17,7 @@ class ArticleCommentController extends Controller
     
         $articleComment->save();
     
-        return redirect()->route('articles.index')
-            ->with('success', 'コメントしました。');
+        return redirect()->route('articles.show', ['article' => $request->article_id]);
     }
 
     public function delete(ArticleComment $articleComment)
