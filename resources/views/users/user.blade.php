@@ -46,7 +46,7 @@
 
         </div>
         <h2 class="h4 card-title m-0">
-            <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
+            <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark font-weight-bold">
             {{ $user->name }}
             <span class="text-dark">
                 @if ($record['total_size'] > 50000000 || $record['total_weight'] > 1000000000)
@@ -71,14 +71,14 @@
             </span>
             </a>
         </h2>
-        <div class="card-body m-0">
+        <div class="p-2 m-0">
             <span class="text-dark">
             {{ $user->introduction }}
             </span>
         </div>
         <h3 class="h6 card-title m-0">
             <div class="text-dark mt-2">
-                自己記録
+                -自己記録-
             </div>
         </h3>
         @if (!($record['size'] || $record['weight']))
@@ -137,7 +137,7 @@
             </div> --}}
         @endif
         @if ($user->youtube)
-            <div class="m-2">
+            <div class="my-2">
                 <span class="text-dark main-ja-font-family">
                     Youtube：
                     {!! nl2br(Functions::makeLink(e( $user->youtube ))) !!}
@@ -145,21 +145,25 @@
             </div>
         @endif
         @if ($user->twitter)
-            <div class="m-2">
+            <div class="my-2">
                 <span class="text-dark main-ja-font-family">
                     Twitter：
                     {!! nl2br(Functions::makeLink(e( $user->twitter ))) !!}
                 </span>
             </div>
         @endif
+        <span class="text-muted small">
+            <i class="fa-regular fa-calendar-days"></i>
+            {{ $user->created_at->format('Y年m月d日') }}からBASSERを利用しています
+        </span>
     </div>
     <div class="card-body">
         <div class="card-text d-flex">
             <a href="{{ route('users.followings', ['name' => $user->name]) }}" class="text-muted mr-2">
-                {{ $user->count_followings }} フォロー中
+                <span class="font-weight-bold">{{ $user->count_followings }}</span> フォロー中
             </a>
             <a href="{{ route('users.followers', ['name' => $user->name]) }}" class="text-muted">
-                {{ $user->count_followers }} フォロワー
+                <span class="font-weight-bold">{{ $user->count_followers }}</span> フォロワー
             </a>
             @if( !(Auth::id() === $user->id) )
                 @auth
