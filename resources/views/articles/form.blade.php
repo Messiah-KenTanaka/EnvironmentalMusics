@@ -3,6 +3,13 @@
   <label>タイトル</label>
   <input type="text" name="title" class="form-control" required value="{{ $article->title ?? old('title') }}">
 </div>  --}}
+<div class="my-2">
+  @if (Auth::user()->image)
+    <img src="{{ Auth::user()->image }}" class="rounded-circle mr-2" style="width: 30px; height: 30px; object-fit: cover;">
+  @else
+    <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-2" style="width: 30px; height: 30px; object-fit: cover;">
+  @endif
+</div>
 <div class="form-group">
   <label></label>
   <textarea name="body" required class="form-control" rows="12" placeholder="今日はどうだった...？">{{ $article->body ?? old('body') }}</textarea>

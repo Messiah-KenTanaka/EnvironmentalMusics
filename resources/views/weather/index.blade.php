@@ -9,7 +9,7 @@
       @include('sidemenu')
       <div class="col">
         @include('weather.WeatherPref')
-        <h4 class="text-center my-3 main-ja-font-family"><span>{{ $cityName }} 天気予報</span></h4>
+        <h4 class="text-center my-3 main-ja-font-family"><span><span class="font-weight-bold">{{ $cityName }}</span> 天気予報</span></h4>
           @foreach ($weatherData as $date => $weatherItems)
             @include('weather.card')
           @endforeach
