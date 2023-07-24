@@ -41,6 +41,15 @@
         {{ $article->created_at->format('Y/m/d H:i') }}
       </div>
     </div>
+    @if( Auth::id() !== $article->user->id )
+      <follow-button
+        class="ml-auto"
+        :initial-is-followed-by='@json($article->user->isFollowedBy(Auth::user()))'
+        :authorized='@json(Auth::check())'
+        endpoint="{{ route('users.follow', ['name' => $article->user->name]) }}"
+      >
+      </follow-button>
+    @endif
   </div>
   <div class="d-flex">
     @if ($article->fish_size)

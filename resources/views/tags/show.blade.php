@@ -12,7 +12,7 @@
         <h4 class="text-center my-4 main-ja-font-family font-weight-bold"><span>トレンド</span></h4>
         <div class="card mt-3">
           <div class="card-body">
-            <h2 class="h4 card-title m-0">{{ $tag->hashtag }}</h2>
+            <h2 class="h4 card-title font-weight-bold m-0">{{ $tag->hashtag }}</h2>
             <div class="card-text text-right">
               {{ $tag->articles->count() }}件
             </div>
