@@ -5,11 +5,13 @@
       :class="buttonColor"
       @click="clickFollow" 
     >
-      <i
-        class="mr-1"
-        :class="buttonIcon"
-      ></i>
-      {{ buttonText }}
+      <div class="text-dark">
+        <i
+          class="mr-1"
+          :class="buttonIcon"
+        ></i>
+        {{ buttonText }}
+      </div>
     </button>
   </div>
 </template>
