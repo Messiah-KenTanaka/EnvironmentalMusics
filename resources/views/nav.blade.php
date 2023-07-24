@@ -1,6 +1,7 @@
 <nav id="navbar" class="nav navbar nav-fixed navbar-expand navbar-light bg-black text-white">
   <a class="navbar-brand main-font-family text-white" href="/">
-    <i>BASSER</i>
+    <img src="{{ asset('images/top_image02.jpg')}}" class="mr-1" style="width: 30px; height: 30px;">
+    {{--  <i>BASSER</i>  --}}
   </a>
   <ul class="navbar-nav ml-auto"> 
     {{--  未ログイン  --}}
