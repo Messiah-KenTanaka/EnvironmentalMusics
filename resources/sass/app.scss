@@ -187,3 +187,11 @@
 	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 }
+
+/* SP時の表示 */
+@media (max-width: 576px) {
+	// 全体
+  .sp-text-small {
+    font-size: 0.8rem;
+  }
+}
