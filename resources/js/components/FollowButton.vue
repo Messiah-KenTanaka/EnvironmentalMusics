@@ -1,11 +1,11 @@
 <template>
   <div>
     <button
-      class="btn-sm shadow-none border p-2"
+      class="btn-sm rounded-pill shadow-none border p-2"
       :class="buttonColor"
       @click="clickFollow" 
     >
-      <div class="text-dark">
+      <div class="text-dark sp-text-small">
         <i
           class="mr-1"
           :class="buttonIcon"
