@@ -15,7 +15,7 @@
               <form method="POST" action="{{ route('articles.update', ['article' => $article]) }}">
                 @method('PATCH')
                 @include('articles.form')
-                <button type="submit" class="btn bg-primary text-white btn-block">更新</button>
+                {{-- <button type="submit" class="btn bg-primary text-white btn-block">更新</button> --}}
               </form>
             </div>
           </div>

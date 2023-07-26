@@ -1,15 +1,21 @@
 @csrf
-{{--  <div class="md-form">
-  <label>タイトル</label>
-  <input type="text" name="title" class="form-control" required value="{{ $article->title ?? old('title') }}">
-</div>  --}}
-<div class="my-2">
-  @if (Auth::user()->image)
-    <img src="{{ Auth::user()->image }}" class="rounded-circle mr-2" style="width: 30px; height: 30px; object-fit: cover;">
-  @else
-    <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-2" style="width: 30px; height: 30px; object-fit: cover;">
-  @endif
+<div class="d-flex flex-row justify-content-between align-items-center my-2">
+  <div class="d-flex">
+    @if (Auth::user()->image)
+      <img src="{{ Auth::user()->image }}" class="rounded-circle mr-2" style="width: 30px; height: 30px; object-fit: cover;">
+    @else
+      <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-2" style="width: 30px; height: 30px; object-fit: cover;">
+    @endif
+  </div>
+  <button type="submit" id="submit-btn" class="btn-sm rounded-pill btn bg-primary text-white p-2">
+    <i class="fa-solid fa-paper-plane pr-2"></i>
+    <span id="submit-text">投稿する</span>
+    <div class="spinner-border spinner-border-sm ml-2 d-none" role="status">
+      <span class="sr-only">読み込み中...</span>
+    </div>
+  </button>
 </div>
+
 <div class="form-group">
   <label></label>
   <textarea name="body" required class="form-control" rows="12" placeholder="今日はどうだった...？">{{ $article->body ?? old('body') }}</textarea>
