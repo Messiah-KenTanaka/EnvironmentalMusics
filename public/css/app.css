@@ -60,6 +60,10 @@
   margin-bottom: 20rem;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .full-width-dropdown {
   width: 100vw;
   max-width: 100%;

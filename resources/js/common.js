@@ -24,6 +24,10 @@ $(function() {
         reader.addEventListener("load", function () {
             document.querySelector('#preview').style.display = 'block';
             document.querySelector('#preview').src = reader.result;
+            var arrowIcon = document.querySelector('#arrow-icon');
+            if (arrowIcon) {
+                arrowIcon.style.display = 'block';
+            }
             if (file) {
                 document.querySelector('#fileName').textContent = file.name;
             }
@@ -33,6 +37,7 @@ $(function() {
             reader.readAsDataURL(file);
         }
     };
+
 
     // ヘッダースクロール
     let lastScrollPosition = 0;
