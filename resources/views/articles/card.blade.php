@@ -203,7 +203,9 @@
     </div>
   @endif
   @if ($article->image)
-    <img src="{{ $article->image }}" class="img-fluid border-image p-3">
+    <a href="{{ route('articles.show', ['article' => $article]) }}">
+      <img src="{{ $article->image }}" class="img-fluid border-image p-3">
+    </a>
   @endif
 
   @if ($article->rod || $article->reel || $article->line || $article->lure)
