@@ -14,7 +14,7 @@
                     @include('articles.card')
                 @endforeach
                 @if ($articles->hasMorePages())
-                    <p class="text-center my-3"><a href="{{ $articles->nextPageUrl() }}">もっと見る</a></p>
+                    <p class="text-center mt-3 mb-5"><a href="{{ $articles->nextPageUrl() }}">もっと読み込む</a></p>
                 @endif
                 @include('floatingButton')
             </div>
