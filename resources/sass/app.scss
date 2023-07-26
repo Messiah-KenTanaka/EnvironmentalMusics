@@ -39,6 +39,10 @@
 	max-height: calc(100vh - 100px);
 	overflow-y: auto;
 }
+.mb-20 {
+  margin-bottom: 20rem;
+}
+
 
 // ドロップダウンメニュー
 .full-width-dropdown {
@@ -196,6 +200,7 @@
   }
 }
 
+// 画像のカスタムアイコン
 .custom-file-upload {
 	padding: 10px;
 	cursor: pointer;
