@@ -24,6 +24,9 @@ $(function() {
         reader.addEventListener("load", function () {
             document.querySelector('#preview').style.display = 'block';
             document.querySelector('#preview').src = reader.result;
+            if (file) {
+                document.querySelector('#fileName').textContent = file.name;
+            }
         }, false);
 
         if (file) {

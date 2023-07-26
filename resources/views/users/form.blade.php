@@ -28,8 +28,11 @@
   <input type="text" name="twitter" class="form-control" placeholder="https://twitter.com/" value="{{ $user->twitter ?? old('twitter') }}">
 </div>
 <div class="form-group">
-  <label for="image">プロフィール画像</label><br>
-  <input type="file" id="image" name="image" onchange="previewImage();">
+  <label for="image" class="custom-file-upload">
+    <i class="fas fa-cloud-upload-alt"></i> Upload Image
+  </label>
+  <input id="image" type="file" name="image" onchange="previewImage();" style="display: none;">
+  <p id="fileName"></p>
 </div>
 <div class="form-group">
   <img id="preview" src="" alt="画像プレビュー" style="display: none; width: 100%;"/>
