@@ -10,7 +10,7 @@
       @include('sidemenu')
       <div class="col">
         @if( Auth::id() == $user->id )
-          <div class="card mt-3">
+          <div class="mt-3 mb-5">
             <div class="card-body pt-0">
               @include('error_card_list')
               <div class="card-text mt-3">
