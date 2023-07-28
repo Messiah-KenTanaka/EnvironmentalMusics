@@ -18,32 +18,13 @@
                 </follow-button>
             @endif
             @if( Auth::id() == $user->id )
-                <!-- dropdown -->
-                <div class="ml-auto card-text">
-                    <div class="dropdown">
-                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <button type="button" class="btn btn-link text-muted m-0 p-2">
-                            <i class="fas fa-ellipsis-v"></i>
-                            </button>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a href="{{ route('users.edit', ['name' => $user->name]) }}" class="dropdown-item">
-                                プロフィール編集
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="{{ route('users.block', ['name' => $user->name]) }}" class="dropdown-item">
-                                ブロックリスト
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="{{ route('users.confirmDeleteUser', ['userId' => $user->id]) }}" class="dropdown-item text-danger">
-                                アカウントを削除
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- dropdown -->
+                <a type="button" class="ml-auto"
+                    onclick="location.href='{{ route('users.edit', ['name' => $user->name]) }}'">
+                    <small class="border border-pref p-2">
+                        プロフィール編集
+                    </small>
+                </a>
             @endif
-
         </div>
         <h2 class="h4 card-title m-0">
             <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark font-weight-bold">
@@ -165,6 +146,33 @@
             <a href="{{ route('users.followers', ['name' => $user->name]) }}" class="text-muted">
                 <span class="font-weight-bold">{{ $user->count_followers }}</span> フォロワー
             </a>
+            @if( Auth::id() == $user->id )
+                <!-- dropdown -->
+                <div class="ml-auto card-text">
+                    <div class="dropdown">
+                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="btn btn-link text-muted m-0 p-2">
+                            <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="{{ route('users.edit', ['name' => $user->name]) }}" class="dropdown-item">
+                                プロフィール編集
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ route('users.block', ['name' => $user->name]) }}" class="dropdown-item">
+                                ブロックリスト
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ route('users.confirmDeleteUser', ['userId' => $user->id]) }}" class="dropdown-item text-danger">
+                                アカウントを削除
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- dropdown -->
+            @endif
+
             @if( !(Auth::id() === $user->id) )
                 @auth
                     <!-- dropdown -->
