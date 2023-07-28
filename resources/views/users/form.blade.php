@@ -16,7 +16,7 @@
 </div>
 
 <div class="form-group mt-3">
-  <h2 class="h5 card-title m-0">
+  <h2 class="h5 card-title m-0 font-weight-bold">
     <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
     {{ $user->name }}
     </a>
