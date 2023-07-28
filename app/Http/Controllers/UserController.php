@@ -7,6 +7,7 @@ use App\User;
 use App\Tag;
 use App\BlockList;
 use App\PostReport;
+use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -74,7 +75,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function update(Request $request, User $user, string $name)
+    public function update(UserRequest $request, User $user, string $name)
     {
         $user = User::where('name', $name)->first();
         $user->fill($request->all());
