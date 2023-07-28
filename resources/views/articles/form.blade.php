@@ -2,9 +2,9 @@
 <div class="d-flex flex-row justify-content-between align-items-center my-2">
   <div class="d-flex">
     @if (Auth::user()->image)
-      <img src="{{ Auth::user()->image }}" class="rounded-circle mr-2" style="width: 30px; height: 30px; object-fit: cover;">
+      <img src="{{ Auth::user()->image }}" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
     @else
-      <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-2" style="width: 30px; height: 30px; object-fit: cover;">
+      <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
     @endif
   </div>
   <button type="submit" id="submit-btn" class="btn-sm rounded-pill btn bg-primary text-white p-2">
