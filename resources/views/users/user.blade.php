@@ -18,7 +18,7 @@
                 </follow-button>
             @endif
             @if( Auth::id() == $user->id )
-                <a type="button" class="ml-auto"
+                <a class="ml-auto"
                     onclick="location.href='{{ route('users.edit', ['name' => $user->name]) }}'">
                     <small class="border border-pref p-2">
                         プロフィール編集
