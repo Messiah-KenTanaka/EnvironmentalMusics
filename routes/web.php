@@ -96,3 +96,6 @@ Route::prefix('users')->name('users.')->group(function () {
         Route::delete('/{userId}/delete', 'UserController@deleteUser')->name('deleteUser');
     });
 });
+
+// TOP 現状管理者しかアクセス不可
+Route::get('/top', 'TopController@index')->name('top.index');

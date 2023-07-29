@@ -117,6 +117,11 @@
                   onclick="location.href='{{ route('reportContent.show') }}'">
             <span class="ml-1">報告内容一覧</span>
           </button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" type="button"
+                  onclick="location.href='{{ route('top.index') }}'">
+            <span class="ml-1">TOP</span>
+          </button>
         @endif
         {{--  ここまで  --}}
       </div>
