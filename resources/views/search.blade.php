@@ -3,7 +3,7 @@
         @csrf
         <input type="text" name="keyword" class="search-input" placeholder="キーワード検索">
         <button type="submit" class="search-button">
-            <i class="fas fa-search"></i>
+            <i class="fas fa-search text-dark"></i>
         </button>
     </form>
 </div>
