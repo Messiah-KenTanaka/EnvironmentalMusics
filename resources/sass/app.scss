@@ -46,8 +46,6 @@
 	cursor: pointer;
 }
 
-
-
 // ドロップダウンメニュー
 .full-width-dropdown {
 	width: 100vw;
@@ -62,6 +60,24 @@
     position: sticky;
     top: 0;
     z-index: 1000;
+}
+/* ナビ ドロップダウン */ 
+.nav-item {
+	.dropdown-item {
+		display: flex;
+		align-items: center;
+	}
+	
+	.dropdown-item i {
+	flex: 0 0 20%; /* icon takes up 20% of the space */
+	text-align: center;
+	margin-right: 10px;
+	}
+	
+	.dropdown-item span {
+	flex: 0 0 80%; /* text takes up 80% of the space */
+	}
+	
 }
 
 /* ボトムナビバー bottomNav.blade.php */ 
