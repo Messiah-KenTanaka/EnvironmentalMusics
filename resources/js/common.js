@@ -38,6 +38,28 @@ $(function() {
         }
     };
 
+    // プレビュー背景画像画像を表示する
+    window.previewBackgroundImage = function() {
+        var file = document.querySelector('#background_image').files[0];
+        var reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+            document.querySelector('#background_preview').style.display = 'block';
+            document.querySelector('#background_preview').src = reader.result;
+            var arrowIcon = document.querySelector('#arrow-icon2');
+            if (arrowIcon) {
+                arrowIcon.style.display = 'block';
+            }
+            if (file) {
+                document.querySelector('#background_fileName').textContent = file.name;
+            }
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    };
+
 
     // ヘッダースクロール
     let lastScrollPosition = 0;

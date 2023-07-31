@@ -1,4 +1,23 @@
 @csrf
+<div class="align-items-center mb-2">
+  <label for="background_image" class="cursor-pointer position-relative">
+    @if ($user->background_image)
+      <img src="{{ $user->background_image }}" class="img-fluid border-image p-3 background-image">
+    @else
+      <img src="{{ asset('images/background_image01.png')}}" class="img-fluid border-image p-3 background-image">
+    @endif
+    <i class="fa-solid fa-camera-rotate position-absolute large-icon" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></i>
+  </label>
+  <input id="background_image" type="file" name="background_image" onchange="previewBackgroundImage();" style="display: none;">
+  <i id="arrow-icon2" class="fa-solid fa-angles-down mx-3" style="display: none;"></i>
+  <label for="">
+    <img id="background_preview" src="" alt="画像プレビュー" style="display: none;" class="img-fluid border-image p-3 background-image">
+  </label>
+</div>
+<div class="form-group">
+  <p id="background_fileName"></p>
+</div>
+
 <div class="d-flex align-items-center">
   <label for="image" class="cursor-pointer position-relative">
     @if ($user->image)
@@ -13,6 +32,9 @@
   <label for="">
     <img id="preview" src="" alt="画像プレビュー" style="display: none; width: 80px; height: 80px; object-fit: cover; border-radius: 50%;">
   </label>
+</div>
+<div class="form-group">
+  <p id="fileName"></p>
 </div>
 
 <div class="form-group mt-3">
@@ -35,6 +57,3 @@
   <input type="text" name="twitter" class="form-control" placeholder="https://twitter.com/" value="{{ $user->twitter ?? old('twitter') }}">
 </div>
 
-<div class="form-group">
-  <p id="fileName"></p>
-</div>

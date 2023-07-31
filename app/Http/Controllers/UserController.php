@@ -79,13 +79,21 @@ class UserController extends Controller
     {
         $user = User::where('name', $name)->first();
         $user->fill($request->all());
-        // s3画像アップロード
+        // s3画像アップロード image
         $file = $request->file('image');
         if (isset($file) && !empty($file->getPathname())) {
             // S3に画像を保存する
             $file = Functions::ImageUploadResize($file);
             $path = Storage::disk('s3')->putFile('bcommunity_img', $file, 'public');
             $user->image = Storage::disk('s3')->url($path);
+        }
+        // s3画像アップロード background_image
+        $file2 = $request->file('background_image');
+        if (isset($file2) && !empty($file2->getPathname())) {
+            // S3に背景画像を保存する
+            $file2 = Functions::ImageUploadResize($file2);
+            $path2 = Storage::disk('s3')->putFile('bcommunity_img', $file2, 'public');
+            $user->background_image = Storage::disk('s3')->url($path2);
         }
 
         $user->save();

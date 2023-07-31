@@ -235,3 +235,18 @@
 .custom-file-upload:hover {
 	background: #f5f5f5;
 }
+
+// 背景画像
+.background-image {
+	height: 200px;
+	width: 100vw; /* viewport width units */
+	object-fit: cover;
+	object-position: center;
+}
+/* SP時の表示 */
+@media (max-width: 576px) {
+	// 全体
+	.background-image {
+		height: 150px;
+	}
+}
