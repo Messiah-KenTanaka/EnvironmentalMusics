@@ -1,4 +1,11 @@
 <div class="card mt-3">
+    <div>
+        @if ($user->background_image)
+            <img src="{{ $user->background_image }}" class="img-fluid background-image">
+        @else
+            <img src="{{ asset('images/background_image01.png')}}" class="img-fluid background-image">
+        @endif
+    </div>
     <div class="card-body">
         <div class="d-flex flex-row">
             <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
