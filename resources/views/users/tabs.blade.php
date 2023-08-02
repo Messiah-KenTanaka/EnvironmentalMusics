@@ -14,7 +14,7 @@
     <li class="nav-item">
         <a class="nav-link text-muted {{ $hasConquest ? 'active' : '' }}"
             href="{{ route('users.conquest', ['name' => $user->name]) }}">
-        全国釣果
+        全国制覇
         </a>
     </li>
 </ul>
