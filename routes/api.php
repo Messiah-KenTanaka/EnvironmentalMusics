@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+// 達成済みの都道府県を取得
+Route::get('/achieved-prefectures/{user_id}', 'AchievedPrefecturesController@index');

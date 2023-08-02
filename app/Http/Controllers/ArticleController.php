@@ -6,6 +6,7 @@ use App\Article;
 use App\Tag;
 use App\BlockList;
 use App\ArticleComment;
+use App\UserPrefectureMap;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -84,6 +85,15 @@ class ArticleController extends Controller
             $tag = Tag::firstOrCreate(['name' => $tagName]);
             $article->tags()->attach($tag);
         });
+
+        // 全国制覇MAPテーブルに追加
+        if ($request->pref != 'その他' && !empty($request->pref) && !empty($request->image) &&
+            (!empty($request->fish_size) || !empty($request->weight)) ) {
+            $userPrefectureMap = UserPrefectureMap::firstOrCreate([
+                'user_id' => $request->user()->id,
+                'prefecture' => $request->pref,
+            ]);
+        }
     
         return redirect()->route('articles.index')
             ->with('success', '投稿しました。');

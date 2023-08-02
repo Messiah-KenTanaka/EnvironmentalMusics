@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', config('app.name') . ' | ' . $user->name . 'の全国釣果')
+@section('title', config('app.name') . ' | ' . $user->name . 'の全国制覇MAP')
 
 @section('content')
     @include('nav')
@@ -11,7 +11,7 @@
                 @include('users.user')
                 @include('users.tabs', ['hasArticles' => false, 'hasLikes' => false, 'hasConquest' => true])
                 <div class="mt-3">
-                    <geo></geo>
+                    <geo :user-id="{{ $user->id }}"></geo>
                 </div>
                 @include('floatingButton')
             </div>
