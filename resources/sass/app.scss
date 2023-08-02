@@ -158,8 +158,6 @@
   // box-shadow: 0px 0px 10px rgba(0,0,0,0.5); /* optional: add a shadow */
 }
 
-
-
 /* 検索フォーム全体のスタイル search.blade.php */
 .search {
 	display: flex;
@@ -249,4 +247,11 @@
 	.background-image {
 		height: 150px;
 	}
+}
+
+// ナビリンク
+.nav-link.active {
+	border: none;
+	border-bottom: 3px solid #007bff !important;
+	color: #007bff !important;
 }
