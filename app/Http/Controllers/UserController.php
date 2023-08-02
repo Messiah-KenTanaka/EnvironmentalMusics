@@ -42,17 +42,6 @@ class UserController extends Controller
             ->where('publish_flag', 1)
             ->max('weight');
 
-        $record['total_size'] = $user->articles
-            ->whereNotNull('fish_size')
-            ->where('publish_flag', 1)
-            ->sum('fish_size');
-
-        $record['total_weight'] = $user->articles
-            ->whereNotNull('weight')
-            ->where('publish_flag', 1)
-            ->sum('weight');
-
-
         $tags = Tag::getPopularTag();
 
         return view('users.show', [
@@ -127,16 +116,6 @@ class UserController extends Controller
             ->where('publish_flag', 1)
             ->max('weight');
 
-        $record['total_size'] = $user->articles
-            ->where('publish_flag', 1)
-            ->whereNotNull('fish_size')
-            ->sum('fish_size');
-
-        $record['total_weight'] = $user->articles
-            ->where('publish_flag', 1)
-            ->whereNotNull('weight')
-            ->sum('weight');
-
         $tags = Tag::getPopularTag();
 
         return view('users.likes', [
@@ -167,16 +146,6 @@ class UserController extends Controller
             ->where('publish_flag', 1)
             ->max('weight');
 
-        $record['total_size'] = $user->articles
-            ->where('publish_flag', 1)
-            ->whereNotNull('fish_size')
-            ->sum('fish_size');
-
-        $record['total_weight'] = $user->articles
-            ->where('publish_flag', 1)
-            ->whereNotNull('weight')
-            ->sum('weight');
-
         $tags = Tag::getPopularTag();
 
         return view('users.conquest', [
@@ -204,16 +173,6 @@ class UserController extends Controller
             ->whereNotNull('weight')
             ->where('publish_flag', 1)
             ->max('weight');
-
-        $record['total_size'] = $user->articles
-            ->where('publish_flag', 1)
-            ->whereNotNull('fish_size')
-            ->sum('fish_size');
-
-        $record['total_weight'] = $user->articles
-            ->where('publish_flag', 1)
-            ->whereNotNull('weight')
-            ->sum('weight');
 
         $tags = Tag::getPopularTag();
 
@@ -244,16 +203,6 @@ class UserController extends Controller
             ->where('publish_flag', 1)
             ->max('weight');
 
-        $record['total_size'] = $user->articles
-            ->where('publish_flag', 1)
-            ->whereNotNull('fish_size')
-            ->sum('fish_size');
-
-        $record['total_weight'] = $user->articles
-            ->where('publish_flag', 1)
-            ->whereNotNull('weight')
-            ->sum('weight');
-
         $tags = Tag::getPopularTag();
 
         return view('users.followers', [
@@ -282,16 +231,6 @@ class UserController extends Controller
             ->whereNotNull('weight')
             ->where('publish_flag', 1)
             ->max('weight');
-
-        $record['total_size'] = $user->articles
-            ->where('publish_flag', 1)
-            ->whereNotNull('fish_size')
-            ->sum('fish_size');
-
-        $record['total_weight'] = $user->articles
-            ->where('publish_flag', 1)
-            ->whereNotNull('weight')
-            ->sum('weight');
 
         $tags = Tag::getPopularTag();
 

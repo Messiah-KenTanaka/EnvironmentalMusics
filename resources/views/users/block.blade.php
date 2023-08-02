@@ -9,7 +9,7 @@
             @include('sidemenu')
             <div class="col">
                 @include('users.user')
-                @include('users.tabs', ['hasArticles' => false, 'hasLikes' => false])
+                @include('users.tabs', ['hasArticles' => false, 'hasLikes' => false, 'hasConquest' => false])
                 <h4 class="text-center main-ja-font-family text-danger mt-3">ブロックリスト</a></h4>
                 @foreach($blockList as $person)
                     @include('users.block_person')
