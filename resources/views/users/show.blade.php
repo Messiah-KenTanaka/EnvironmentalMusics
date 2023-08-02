@@ -9,7 +9,7 @@
             @include('sidemenu')
             <div class="col">
                 @include('users.user')
-                @include('users.tabs', ['hasArticles' => true, 'hasLikes' => false])
+                @include('users.tabs', ['hasArticles' => true, 'hasLikes' => false, 'hasConquest' => false])
                 @foreach($articles as $article)
                     @include('articles.card')
                 @endforeach
