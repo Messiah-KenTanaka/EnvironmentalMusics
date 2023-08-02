@@ -84,6 +84,11 @@ class User extends Authenticatable
         return $this->hasMany(ArticleComment::class);
     }
 
+    public function user_prefecture_maps()
+    {
+        return $this->hasMany(UserPrefectureMap::class);
+    }
+
     public function isFollowedBy(?User $user): bool
     {
         return $user
@@ -100,5 +105,11 @@ class User extends Authenticatable
     {
         return $this->followings->count();
     }
+
+    public function getCountPrefectureAttribute(): int
+    {
+        return $this->user_prefecture_maps->count();
+    }
+
 
 }
