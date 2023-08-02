@@ -15,7 +15,7 @@ import * as d3 from 'd3';
 
 export default {
   mounted() {
-    d3.json("/js/geojson_file.json").then((jp) => {
+    d3.json("geojson_file.json").then((jp) => {
       const mapDiv = document.getElementById('map');
       const width = mapDiv.offsetWidth;
       const height = mapDiv.offsetHeight;
