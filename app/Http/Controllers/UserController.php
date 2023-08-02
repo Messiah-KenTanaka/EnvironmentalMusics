@@ -147,6 +147,45 @@ class UserController extends Controller
         ]);
     }
 
+    public function conquest(string $name)
+    {
+        $user = User::where('name', $name)->first()
+            ->load(['likes' => function($query) {
+                $query->with('user', 'likes', 'tags')
+                    ->withCount(['article_comments as comment_count' => function($query) {
+                        $query->where('publish_flag', 1);
+                    }]);
+            }]);
+
+        $record['size'] = $user->articles
+            ->whereNotNull('fish_size')
+            ->where('publish_flag', 1)
+            ->max('fish_size');
+
+        $record['weight'] = $user->articles
+            ->whereNotNull('weight')
+            ->where('publish_flag', 1)
+            ->max('weight');
+
+        $record['total_size'] = $user->articles
+            ->where('publish_flag', 1)
+            ->whereNotNull('fish_size')
+            ->sum('fish_size');
+
+        $record['total_weight'] = $user->articles
+            ->where('publish_flag', 1)
+            ->whereNotNull('weight')
+            ->sum('weight');
+
+        $tags = Tag::getPopularTag();
+
+        return view('users.conquest', [
+            'user' => $user,
+            'tags' => $tags,
+            'record' => $record
+        ]);
+    }
+
     public function followings(string $name)
     {
         $user = User::where('name', $name)->first()
