@@ -51,19 +51,41 @@
           : this.like()
       },
       async like() {
-        const response = await axios.put(this.endpoint)
-
+        // すぐにUIを更新
         this.isLikedBy = true
-        this.countLikes = response.data.countLikes
+        this.countLikes++
         this.gotToLike = true
+
+        try {
+          const response = await axios.put(this.endpoint)
+          // 応答が成功したら、最終的な値で更新
+          this.countLikes = response.data.countLikes
+        } catch (error) {
+          // 何らかのエラーが発生したら、元の値に戻す
+          this.isLikedBy = false
+          this.countLikes--
+          this.gotToLike = false
+          // エラー処理（必要に応じて）
+        }
       },
       async unlike() {
-        const response = await axios.delete(this.endpoint)
-
+        // すぐにUIを更新
         this.isLikedBy = false
-        this.countLikes = response.data.countLikes
+        this.countLikes--
         this.gotToLike = false
-      },
+
+        try {
+          const response = await axios.delete(this.endpoint)
+          // 応答が成功したら、最終的な値で更新
+          this.countLikes = response.data.countLikes
+        } catch (error) {
+          // 何らかのエラーが発生したら、元の値に戻す
+          this.isLikedBy = true
+          this.countLikes++
+          this.gotToLike = true
+          // エラー処理（必要に応じて）
+        }
+      }
     },
   }
 </script>
