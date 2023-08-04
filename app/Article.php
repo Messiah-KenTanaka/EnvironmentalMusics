@@ -28,6 +28,11 @@ class Article extends Model
         'catch_date',
     ];
 
+    // 釣り方のタイプ
+    const FISHING_TYPE_SHORE = 1; // おかっぱり
+    const FISHING_TYPE_BOAT = 2;  // ボート
+
+
     public function user(): BelongsTo
     {
         return $this->belongsTo('App\User');

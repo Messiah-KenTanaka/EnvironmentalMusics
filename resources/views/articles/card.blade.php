@@ -254,10 +254,10 @@
         <span class="main-ja-font-family pl-1">
           釣り方:
           @switch($article->fishing_type)
-              @case(1)
+              @case(App\Article::FISHING_TYPE_SHORE)
                   おかっぱり
                   @break
-              @case(2)
+              @case(App\Article::FISHING_TYPE_BOAT)
                   ボート
                   @break
               @default

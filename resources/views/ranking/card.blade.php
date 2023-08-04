@@ -53,7 +53,7 @@
   </div>
   <div class="d-flex">
     @if ($article->fish_size)
-      <div class="h4 pt-0 pb-2 pl-3">
+      <div class="h4 py-0 pl-3">
         <span class="pl-1">
           <i class="fa-solid fa-ruler-horizontal"></i>
           {{ $article->fish_size }}
@@ -63,7 +63,7 @@
     @endif
 
     @if ($article->weight)
-      <div class="card-body pt-0 pb-2 pl-3">
+      <div class="card-body py-0 pl-3">
         <span class="h4 pl-1">
           <i class="fa-solid fa-weight-scale"></i>
           {{ number_format($article->weight) }}
@@ -73,8 +73,35 @@
     @endif
   </div>
 
+  @if ($article->fishing_type)
+    <div class="pt-0 pl-3">
+      <span class="main-ja-font-family pl-1">
+        釣り方:
+        @switch($article->fishing_type)
+            @case(App\Article::FISHING_TYPE_SHORE)
+                おかっぱり
+                @break
+            @case(App\Article::FISHING_TYPE_BOAT)
+                ボート
+                @break
+            @default
+                {{-- 記載なし --}}
+        @endswitch
+      </span>
+    </div>
+  @endif
+
+  @if ($article->catch_date)
+    <div class="pt-0 pl-3">
+      <span class="main-ja-font-family pl-1">
+        釣果日:
+        {{ $article->catch_date }}
+      </span>
+    </div>
+  @endif
+
   @if ($article->pref || $article->bass_field)
-    <div class="card-body pt-0 pb-3 pl-3">
+    <div class="card-body p3">
       <i class="fas fa-map-marker-alt mr-1"></i>
       @if ($article->pref)
         <a onclick="location.href='{{ route('ranking.show', ['pref' => $article->pref]) }}'">
