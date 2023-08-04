@@ -144,16 +144,25 @@
 	// text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
   padding: 25px;
 }
+.text-overlay-2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	// background-color: rgba(255, 255, 255, 0.3); /* 透明度付きの背景色を設定 */
+	  // color: rgba(169, 169, 169, 0.5); /* 透過度付きのテキスト色を設定 */
+	  // text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+	padding: 10px;
+  }
 .ranking-4th-place-above {
   display: flex;
   align-items: center;  /* vertical alignment */
   justify-content: center; /* horizontal alignment */
   border-radius: 50%; /* make it round */
-  background-color: #515050; /* background color */
+  background-color: rgba(0, 0, 0, 0.5); /* 黒色の半透明 */
   color: #ffffff; /* text color */
-  width: 50px; /* same width and height */
-  height: 50px; /* same width and height */
-  font-size: 16px; /* adjust according to your preference */
+  width: 40px; /* same width and height */
+  height: 40px; /* same width and height */
+  font-size: 14px; /* adjust according to your preference */
   font-weight: bold; /* make the text bold */
   // box-shadow: 0px 0px 10px rgba(0,0,0,0.5); /* optional: add a shadow */
 }

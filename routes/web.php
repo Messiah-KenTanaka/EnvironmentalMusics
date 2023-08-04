@@ -49,6 +49,7 @@ Route::get('/tags/{name}', 'TagController@show')->name('tags.show');
 
 // ランキング
 Route::get('/ranking', 'RankingController@index')->name('ranking.index');
+Route::get('/ranking2', 'RankingController@index2')->name('ranking.index2');
 Route::get('/ranking/weight', 'RankingController@nationwideWeight')->name('ranking.nationwideWeight');
 Route::get('/ranking/{pref}', 'RankingController@show')->name('ranking.show');
 Route::get('/ranking/prefWeight/{pref}', 'RankingController@prefWeight')->name('ranking.prefWeight');

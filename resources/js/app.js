@@ -7,6 +7,7 @@ import ArticleTagsInput from './components/ArticleTagsInput'
 import FollowButton from './components/FollowButton'
 import MapField from './components/MapField'
 import Geo from './components/Geo'
+import RankingSlider from './components/RankingSlider'
 
 const app = new Vue({
   el: '#app',
@@ -16,5 +17,6 @@ const app = new Vue({
     FollowButton,
     MapField,
     Geo,
+    RankingSlider,
   }
 })

@@ -8,16 +8,16 @@
         @if(isset($rank))
           @switch($rank)
             @case(1)
-              <img src="{{ asset('images/ranking_1.png')}}" width="80" height="80">
+              <img src="{{ asset('images/ranking_1.png')}}" width="60" height="60">
               @break
             @case(2)
-              <img src="{{ asset('images/ranking_2.png')}}" width="70" height="70">
+              <img src="{{ asset('images/ranking_2.png')}}" width="50" height="50">
               @break
             @case(3)
-              <img src="{{ asset('images/ranking_3.png')}}" width="70" height="70">
+              <img src="{{ asset('images/ranking_3.png')}}" width="50" height="50">
               @break
             @default
-              <span class="ranking-4th-place-above">{{ $rank }}位</span>
+              <span class="ranking-4th-place-above">{{ $rank }}</span>
           @endswitch
         @endif
       </div>
