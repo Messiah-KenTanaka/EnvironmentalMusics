@@ -172,6 +172,13 @@
   padding: 25px;
 }
 
+.text-overlay-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+
 .ranking-4th-place-above {
   display: flex;
   align-items: center;
@@ -180,15 +187,15 @@
   /* horizontal alignment */
   border-radius: 50%;
   /* make it round */
-  background-color: #515050;
-  /* background color */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* 黒色の半透明 */
   color: #ffffff;
   /* text color */
-  width: 50px;
+  width: 40px;
   /* same width and height */
-  height: 50px;
+  height: 40px;
   /* same width and height */
-  font-size: 16px;
+  font-size: 14px;
   /* adjust according to your preference */
   font-weight: bold;
   /* make the text bold */
