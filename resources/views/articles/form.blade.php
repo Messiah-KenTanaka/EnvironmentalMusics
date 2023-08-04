@@ -28,7 +28,7 @@
   </article-tags-input>
 </div>
 <div class="form-group">
-  <label for="image" class="custom-file-upload">
+  <label for="image" class="custom-file-upload" style="width: 100%;">
       <i class="fas fa-cloud-upload-alt"></i> Upload Image
   </label>
   <input id="image" type="file" name="image" onchange="previewImage();" style="display: none;">
@@ -39,10 +39,11 @@
   <img id="preview" src="" alt="画像プレビュー" style="display: none; width: 100%;"/>
 </div>
 <div class="form-group">
-  <div id="ArticleToggleButton" style="cursor: pointer;">
+  <div id="ArticleToggleButton" class="text-muted" style="cursor: pointer;">
     <i class="fa-regular fa-pen-to-square"></i> 詳細を記載する
   </div>
   <div id="ArticleDetailDiv" style="display: none;">
+    <label class="form-text text-muted small">釣果:</label>
     <div class="d-flex row">
       <div class="form-group col-6">
         <input type="number" step="0.1" min="10" max="99" name="fish_size" class="form-control" placeholder="サイズ...(㎝)" value="{{ $article->fish_size ?? old('fish_size') }}">
@@ -75,8 +76,24 @@
         </select>
       </div>
     </div>
+    <div class="row">
+      <div class="form-group col">
+        <label class="form-text text-muted small">釣り方:</label>
+        <div class="d-flex">
+          <div class="custom-control custom-radio mr-3">
+            <input type="radio" id="shore" name="fishing_type" value="1" class="custom-control-input" {{ (old('fishing_type', $article->fishing_type ?? '') == 1) ? 'checked' : '' }}>
+            <label class="custom-control-label" for="shore">おかっぱり</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="boat" name="fishing_type" value="2" class="custom-control-input" {{ (old('fishing_type', $article->fishing_type ?? '') == 2) ? 'checked' : '' }}>
+            <label class="custom-control-label" for="boat">ボート</label>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="d-flex row">
       <div class="form-group col">
+        <label class="form-text text-muted small">タックル:</label>
         <input type="text" name="rod" class="form-control" placeholder="ロッド..." value="{{ $article->rod ?? old('rod') }}">
       </div>
     </div>
@@ -97,6 +114,13 @@
     </div>
     <div class="d-flex row">
       <div class="form-group col">
+        <label class="form-text text-muted small">釣果日:</label>
+        <input type="date" name="catch_date" class="form-control" value="{{ $article->catch_date ?? old('catch_date') }}">
+      </div>
+    </div>
+    <div class="d-flex row">
+      <div class="form-group col">
+        <label class="form-text text-muted small">天候:</label>
         <input type="text" name="weather" class="form-control" placeholder="天気...(晴れ)" value="{{ $article->weather ?? old('weather') }}">
       </div>
     </div>

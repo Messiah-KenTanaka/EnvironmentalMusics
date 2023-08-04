@@ -248,7 +248,38 @@
     </div>
   @endif
 
-  <div class="d-flex extra-small mb-2">
+  <div class="d-flex">
+    @if ($article->fishing_type)
+      <div class="pt-0 pb-2 pl-3">
+        <span class="main-ja-font-family pl-1">
+          釣り方:
+          @switch($article->fishing_type)
+              @case(1)
+                  おかっぱり
+                  @break
+              @case(2)
+                  ボート
+                  @break
+              @default
+                  {{-- 記載なし --}}
+          @endswitch
+        </span>
+      </div>
+    @endif
+  </div>
+
+  <div class="d-flex">
+    @if ($article->catch_date)
+      <div class="pt-0 pb-2 pl-3">
+        <span class="main-ja-font-family pl-1">
+          釣果日:
+          {{ $article->catch_date }}
+        </span>
+      </div>
+    @endif
+  </div>
+
+  <div class="d-flex small mb-2">
     @if ($article->weather)
       <div class="pt-0 pb-2 pl-3">
         <span class="main-ja-font-family pl-1">
@@ -258,7 +289,7 @@
       </div>
     @endif
     @if ($article->temperature)
-      <div class="pt-0 pb-2 pl-3">
+      <div class="pt-0 pb-2 pl-2">
         <span class="main-ja-font-family pl-1">
           気温:
           {{ $article->temperature }}
@@ -267,7 +298,7 @@
       </div>
     @endif
     @if ($article->water_temperature)
-      <div class="pt-0 pb-2 pl-3">
+      <div class="pt-0 pb-2 pl-2">
         <span class="main-ja-font-family pl-1">
           水温:
           {{ $article->water_temperature }}

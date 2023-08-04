@@ -50,6 +50,8 @@ class ArticleRequest extends FormRequest
             'weather' => '天気情報',
             'temperature' => '気温情報',
             'water_temperature' => '水温情報',
+            'fishing_type' => 'おかっぱりorボート',
+            'catch_date' => '釣果日',
         ];
     }
 
