@@ -24,6 +24,8 @@ class Article extends Model
         'weather',
         'temperature',
         'water_temperature',
+        'fishing_type',
+        'catch_date',
     ];
 
     public function user(): BelongsTo
