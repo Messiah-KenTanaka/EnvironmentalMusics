@@ -8,7 +8,7 @@
     <div class="row">
       @include('sidemenu')
       <div class="col">
-        @include('articles.card')
+        @include('articles.card_detail')
         @include('articles.comment_form')
         <ul class="nav nav-tabs nav-justified mt-3">
           <li class="nav-item">
