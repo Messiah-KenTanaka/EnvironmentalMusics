@@ -185,7 +185,7 @@
     <div class="card-body pt-0 pb-2 pl-3">
       <i class="fas fa-map-marker-alt mr-1"></i>
       @if ($article->pref)
-        <a onclick="location.href='{{ route('ranking.show', ['pref' => $article->pref]) }}'">
+        <a onclick="location.href='{{ route('ranking.pref', ['pref' => $article->pref]) }}'">
           <small class="border border-pref p-2 mr-2">
             {{ $article->pref }}
           </small>
