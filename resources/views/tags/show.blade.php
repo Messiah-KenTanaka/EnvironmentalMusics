@@ -8,8 +8,9 @@
     <div class="row">
       @include('sidemenu')
       <div class="col">
-        {{--  @include('tags.tag')  --}}
-        <h4 class="text-center my-4 main-ja-font-family font-weight-bold"><span>トレンド</span></h4>
+        <div class="ranking-title">
+          最近のトレンド
+        </div>
         <div class="card mt-3">
           <div class="card-body">
             <h2 class="h4 card-title font-weight-bold m-0">{{ $tag->hashtag }}</h2>
