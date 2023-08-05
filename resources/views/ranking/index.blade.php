@@ -25,7 +25,7 @@
         <ranking-pref-slider :pref-ranking="{{ $prefRanking }}"></ranking-pref-slider>
         {{--  フィールドのランキング  --}}
         <div class="ranking-title">
-          琵琶湖のランキング
+          遠賀川のランキング
         </div>
         @include('ranking.field_search')
         <ranking-field-slider :field-ranking="{{ $fieldRanking }}"></ranking-field-slider>

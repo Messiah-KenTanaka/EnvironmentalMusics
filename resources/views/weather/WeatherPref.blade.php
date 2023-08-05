@@ -1,15 +1,8 @@
 {{-- 全国の天気予報検索 --}}
-<ul class="navbar-nav d-flex justify-content-around mt-2 ml-auto">
-  <div class="nav-item">
-    <!-- Modal Trigger -->
-    <li class="nav-item">
-      <a class="nav-link small" data-toggle="modal" data-target="#weatherModal">
-        <i class="fas fa-search"> 全国の天気予報検索</i>
-      </a>
-    </li>
-    <!-- Modal Trigger -->
-  </div> 
-</ul>
+<a href="#" class="ranking-list-link" data-toggle="modal" data-target="#weatherModal">
+  全国の天気予報検索
+  <i class="fa-solid fa-angle-right"></i>
+</a>
 
 <!-- Weather Modal -->
 <div class="modal fade" id="weatherModal" tabindex="-1" role="dialog" aria-labelledby="weatherModalLabel" aria-hidden="true">

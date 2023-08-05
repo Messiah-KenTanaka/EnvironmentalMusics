@@ -7,7 +7,9 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h4 class="text-center my-4 main-ja-font-family font-weight-bold"><span>全国釣り場MAP</span></h4>
+        <div class="ranking-title">
+          全国釣り場MAP
+        </div>
         @include('map.card')
       </div>
     </div>

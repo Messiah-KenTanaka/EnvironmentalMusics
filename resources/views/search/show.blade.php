@@ -8,7 +8,6 @@
         <div class="row">
         @include('sidemenu')
         <div class="col">
-            <h4 class="text-center my-4 main-ja-font-family font-weight-bold"><span>検索</span></h4>
             @include('search')
             <div class="card mt-3">
                 <div class="card-body">
