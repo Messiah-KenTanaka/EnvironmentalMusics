@@ -8,7 +8,7 @@
     <div class="row">
       @include('sidemenu')
       <div class="col">
-        <h4 class="text-center my-3 main-ja-font-family"><span><span class="font-weight-bold">{{ $field }}</span>ランキング サイズ</span></h4>
+        <div class="ranking-title">{{ $field }}ランキング サイズ</div>
         @include('ranking.field_tabs', ['hasSize' => true, 'hasWeight' => false])
         @foreach($ranking as $key => $article)
           @include('ranking.card', ['rank' => ++$key])
