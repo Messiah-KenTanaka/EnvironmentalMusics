@@ -7,7 +7,7 @@
   <div class="container">
     <div class="row">
       @include('sidemenu')
-      <div class="col-12 col-xl-9">
+      <div class="col col-xl-9">
         {{--  全国のランキング  --}}
         <div class="ranking-title">
           全国のランキング
