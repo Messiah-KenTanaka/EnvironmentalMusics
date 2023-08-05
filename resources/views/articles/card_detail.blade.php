@@ -155,55 +155,161 @@
       </div>
     @endif
   @endforeach
-  <div class="d-flex">
-    @if ($article->fish_size)
-      <div class="pt-0 pb-2 pl-3">
-        <span class="pl-1">
-          <i class="fa-solid fa-ruler-horizontal"></i>
-          {{ $article->fish_size }}
-        </span>
-        cm
-      </div>
-    @endif
-    {{-- @if ($article->fish_size && $article->weight)
-        <span class="lead pl-3">
-          /
-        </span>
-    @endif --}}
-    @if ($article->weight)
-      <div class="card-body pt-0 pb-2 pl-3">
-        <span class="pl-1">
-          <i class="fa-solid fa-weight-scale"></i>
-          {{ number_format($article->weight) }}
-        </span>
-        g
-      </div>
-    @endif
-  </div>
   
-  @if ($article->pref || $article->bass_field)
-    <div class="card-body pt-0 pb-2 pl-3">
-      <i class="fas fa-map-marker-alt mr-1"></i>
-      @if ($article->pref)
-        <a onclick="location.href='{{ route('ranking.pref', ['pref' => $article->pref]) }}'">
-          <small class="border border-pref p-2 mr-2">
-            {{ $article->pref }}
-          </small>
-        </a>
-      @endif
-      @if ($article->bass_field)
-        <a onclick="location.href='{{ route('ranking.field', ['field' => $article->bass_field]) }}'">
-          <small class="border border-pref p-2">
-            {{ $article->bass_field }}
-          </small>
-        </a>
-      @endif
-    </div>
-  @endif
   @if ($article->image)
     <a href="{{ route('articles.show', ['article' => $article]) }}">
       <img src="{{ $article->image }}" class="img-fluid border-image p-3">
     </a>
+  @endif
+
+  @if ($article->fish_size || $article->weight || $article->pref || $article->bass_field || $article->fishing_type || $article->catch_date)
+    <div class="dropdown-divider"></div>
+    <div class="mx-3 mb-3 p-1">
+      <div class="small p-1">
+        <span class="main-ja-font-family pl-1">
+          ー釣果データー
+        </span>
+      </div>
+      @if ($article->fish_size)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            サイズ:
+            {{ $article->fish_size }}
+            ㎝
+          </span>
+        </div>
+      @endif
+      @if ($article->weight)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            重さ:
+            {{ $article->weight }}
+          </span>
+          g
+        </div>
+      @endif
+      @if ($article->pref)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            都道府県:
+            {{ $article->pref }}
+          </span>
+        </div>
+      @endif
+      @if ($article->bass_field)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            フィールド:
+            {{ $article->bass_field }}
+          </span>
+        </div>
+      @endif
+      @if ($article->fishing_type)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            釣り方:
+            @switch($article->fishing_type)
+                @case(App\Article::FISHING_TYPE_SHORE)
+                    おかっぱり
+                    @break
+                @case(App\Article::FISHING_TYPE_BOAT)
+                    ボート
+                    @break
+                @default
+                    {{-- 記載なし --}}
+            @endswitch
+          </span>
+        </div>
+      @endif
+      @if ($article->catch_date)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            釣果日:
+            {{ $article->catch_date }}
+          </span>
+        </div>
+      @endif
+    </div>
+  @endif
+
+  @if ($article->rod || $article->reel || $article->line || $article->lure)
+    <div class="dropdown-divider"></div>
+    <div class="mx-3 mb-3 p-1">
+      <div class="small p-1">
+        <span class="main-ja-font-family pl-1">
+          ータックルー
+        </span>
+      </div>
+      @if ($article->rod)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            ロッド:
+            {{ $article->rod }}
+          </span>
+        </div>
+      @endif
+      @if ($article->reel)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            リール:
+            {{ $article->reel }}
+          </span>
+        </div>
+      @endif
+      @if ($article->line)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            ライン:
+            {{ $article->line }}
+          </span>
+        </div>
+      @endif
+      @if ($article->lure)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            ルアー:
+            {{ $article->lure }}
+          </span>
+        </div>
+      @endif
+    </div>
+  @endif
+
+  @if ($article->weather || $article->temperature || $article->water_temperature)
+    <div class="dropdown-divider"></div>
+    <div class="mx-3 mb-3 p-1">
+      <div class="small p-1">
+        <span class="main-ja-font-family pl-1">
+          ー状況ー
+        </span>
+      </div>
+      @if ($article->weather)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            天気:
+            {{ $article->weather }}
+          </span>
+        </div>
+      @endif
+      @if ($article->temperature)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            気温:
+            {{ $article->temperature }}
+            ℃
+          </span>
+        </div>
+      @endif
+      @if ($article->water_temperature)
+        <div class="small p-1">
+          <span class="main-ja-font-family pl-1">
+            水温:
+            {{ $article->water_temperature }}
+            ℃
+          </span>
+        </div>
+      @endif
+    </div>
   @endif
 
   <div class="card-body pt-0 pb-2 pl-3">
