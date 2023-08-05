@@ -8,6 +8,8 @@ import FollowButton from './components/FollowButton'
 import MapField from './components/MapField'
 import Geo from './components/Geo'
 import RankingSlider from './components/RankingSlider'
+import RankingPrefSlider from './components/RankingPrefSlider'
+import RankingFieldSlider from './components/RankingFieldSlider'
 
 const app = new Vue({
   el: '#app',
@@ -18,5 +20,7 @@ const app = new Vue({
     MapField,
     Geo,
     RankingSlider,
+    RankingPrefSlider,
+    RankingFieldSlider,
   }
 })

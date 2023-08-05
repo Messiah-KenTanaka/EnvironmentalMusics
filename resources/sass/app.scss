@@ -264,3 +264,27 @@
 	border-bottom: 3px solid #007bff !important;
 	color: #007bff !important;
 }
+
+// ランキングのタイトル
+.ranking-title {
+	font-size: 22px;
+	font-weight: 600; /* 太さを少し減らす */
+	text-align: center;
+	margin: 20px auto; /* 余白の調整 */
+	padding: 10px;
+	background-color: rgba(0, 0, 0, 0.9); /* 半透明の黒に */
+	color: #ffffff;
+	max-width: 80%;
+	border-radius: 10px; /* 角を丸く */
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 影の追加 */
+	letter-spacing: 1px; /* 文字間隔の調整 */
+	line-height: 1.5; /* 行間の調整 */
+}
+// ランキングのリンク
+.ranking-list-link {
+	text-align: right; /* 右寄せにする */
+	display: block;   /* ブロックレベル要素にする */
+}
+.ranking-list-link:hover {
+	color: #0056b3; /* ホバー時の色 */
+}

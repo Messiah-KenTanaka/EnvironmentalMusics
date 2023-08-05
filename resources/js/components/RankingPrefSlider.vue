@@ -9,7 +9,7 @@
             :centerPadding="'50px'"
             class="slider-container"
         >
-            <div v-for="(article, index) in ranking" :key="index" class="slide-item">
+            <div v-for="(article, index) in prefRanking" :key="index" class="slide-item">
                 <div class="card">
                     <img :src="article.image" alt="画像" class="slide-image" />
                     <div class="p-2">
@@ -89,7 +89,7 @@ export default {
     components: {
         VueSlickCarousel,
     },
-    props: ["ranking"],
+    props: ["prefRanking"],
     data() {
         return {
             slidesToShow: 3, // 初期値

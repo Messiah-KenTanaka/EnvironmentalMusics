@@ -9,7 +9,7 @@ use App\BlockList;
 
 class RankingController extends Controller
 {
-    public function index2()
+    public function index()
     {
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
@@ -33,15 +33,53 @@ class RankingController extends Controller
             ->limit(5)
             ->get();
 
-            $tags = Tag::getPopularTag();
+        // 都道府県ランキング
+        $prefRanking = Article::with(['user', 'likes', 'tags'])
+            ->withCount(['article_comments as comment_count' => function ($query) {
+                $query->where('publish_flag', 1);
+            }])
+            ->whereHas('user', function ($query) use ($blockUsers) {
+                $query->where('publish_flag', 1)
+                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
+            })
+            ->where('publish_flag', 1)
+            ->where('pref', '滋賀県')
+            ->whereNotNull('image')
+            ->whereNotNull('fish_size')
+            ->orderByDesc('fish_size')
+            ->orderByDesc('created_at')
+            ->limit(5)
+            ->get();
 
-        return view('ranking.index2', [
+        // fieldランキング
+        $fieldRanking = Article::with(['user', 'likes', 'tags'])
+            ->withCount(['article_comments as comment_count' => function ($query) {
+                $query->where('publish_flag', 1);
+            }])
+            ->whereHas('user', function ($query) use ($blockUsers) {
+                $query->where('publish_flag', 1)
+                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
+            })
+            ->where('publish_flag', 1)
+            ->where('bass_field', '琵琶湖')
+            ->whereNotNull('image')
+            ->whereNotNull('fish_size')
+            ->orderByDesc('fish_size')
+            ->orderByDesc('created_at')
+            ->limit(5)
+            ->get();
+
+        $tags = Tag::getPopularTag();
+
+        return view('ranking.index', [
             'ranking' => $ranking,
+            'prefRanking' => $prefRanking,
+            'fieldRanking' => $fieldRanking,
             'tags' => $tags,
         ]);
     }
 
-    public function index()
+    public function nationwide()
     {
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
@@ -65,9 +103,9 @@ class RankingController extends Controller
             ->limit(50)
             ->get();
 
-            $tags = Tag::getPopularTag();
+        $tags = Tag::getPopularTag();
 
-        return view('ranking.index', [
+        return view('ranking.nationwide', [
             'ranking' => $ranking,
             'tags' => $tags,
         ]);
@@ -97,7 +135,7 @@ class RankingController extends Controller
             ->limit(50)
             ->get();
 
-            $tags = Tag::getPopularTag();
+        $tags = Tag::getPopularTag();
 
         return view('ranking.nationwideWeight', [
             'ranking' => $ranking,
@@ -105,7 +143,7 @@ class RankingController extends Controller
         ]);
     }
 
-    public function show(string $pref)
+    public function pref(string $pref)
     {
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
@@ -130,9 +168,9 @@ class RankingController extends Controller
             ->limit(30)
             ->get(); 
 
-            $tags = Tag::getPopularTag();
+        $tags = Tag::getPopularTag();
 
-        return view('ranking.show', [
+        return view('ranking.pref', [
             'ranking' => $ranking,
             'tags' => $tags,
             'pref' => $pref,
@@ -164,7 +202,7 @@ class RankingController extends Controller
             ->limit(30)
             ->get(); 
 
-            $tags = Tag::getPopularTag();
+        $tags = Tag::getPopularTag();
 
         return view('ranking.prefWeight', [
             'ranking' => $ranking,
@@ -198,7 +236,7 @@ class RankingController extends Controller
             ->limit(30)
             ->get(); 
 
-            $tags = Tag::getPopularTag();
+        $tags = Tag::getPopularTag();
 
         return view('ranking.field', [
             'ranking' => $ranking,
@@ -232,7 +270,7 @@ class RankingController extends Controller
             ->limit(30)
             ->get(); 
 
-            $tags = Tag::getPopularTag();
+        $tags = Tag::getPopularTag();
 
         return view('ranking.fieldWeight', [
             'ranking' => $ranking,

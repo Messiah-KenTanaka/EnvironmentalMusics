@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', config('app.name') . ' | ' .$pref . 'ランキング | サイズ')
+@section('title', config('app.name') . ' | 全国ランキング | サイズ')
 
 @section('content')
   @include('nav')
@@ -8,9 +8,8 @@
     <div class="row">
       @include('sidemenu')
       <div class="col">
-        @include('ranking.pref')
-        <h4 class="text-center my-3 main-ja-font-family"><span><span class="font-weight-bold">{{ $pref }}</span>ランキング サイズ</span></h4>
-        @include('ranking.pref_tabs', ['hasSize' => true, 'hasWeight' => false])
+        <h4 class="text-center my-3 main-ja-font-family"><span><span class="font-weight-bold">全国</span>ランキング サイズ</span></h4>
+        @include('ranking.tabs', ['hasSize' => true, 'hasWeight' => false])
         @foreach($ranking as $key => $article)
           @include('ranking.card', ['rank' => ++$key])
         @endforeach
