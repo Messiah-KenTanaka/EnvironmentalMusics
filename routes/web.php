@@ -99,5 +99,8 @@ Route::prefix('users')->name('users.')->group(function () {
     });
 });
 
+// ユーザー検索
+Route::get('/searchUsers', 'UserController@searchUsers')->name('searchUsers');
+
 // TOP 現状管理者しかアクセス不可
 Route::get('/top', 'TopController@index')->name('top.index');

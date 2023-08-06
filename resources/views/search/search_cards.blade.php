@@ -65,5 +65,14 @@
                 </a>
             </div>
         </div>
+        <div class="col-md-6 col-sm-12 mb-4">
+            <div class="card text-center">
+                <a href="{{ route('searchUsers') }}" class="card-body text-decoration-none text-dark">
+                    <i class="fa-solid fa-users fa-5x mb-3"></i>
+                    <h5 class="card-title">釣り人を探す</h5>
+                    <p class="card-text">気になるバサーを見つける！</p>
+                </a>
+            </div>
+        </div>
     </div>
 </div>

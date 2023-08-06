@@ -296,6 +296,20 @@ class UserController extends Controller
             ->with('success', 'ユーザーをブロックしました。');
     }
 
+    public function searchUsers()
+    {
+        $users = User::where('publish_flag', 1)
+            ->orderByDesc('created_at')
+            ->paginate(config('paginate.paginate_50'));
+        
+        $tags = Tag::getPopularTag();
+
+        return view('users.search_users', [
+            'users' => $users,
+            'tags' => $tags,
+        ]);
+    }
+
     // ユーザー削除確認画面
     public function confirmDeleteUser(int $userId)
     {
