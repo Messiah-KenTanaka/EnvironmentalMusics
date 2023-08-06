@@ -5,7 +5,7 @@
       :class="buttonColor"
       @click="clickFollow" 
     >
-      <div class="text-dark sp-text-small">
+      <div class="sp-text-small">
         <i
           class="mr-1"
           :class="buttonIcon"
@@ -39,7 +39,7 @@
     computed: {
       buttonColor() {
         return this.isFollowedBy
-          ? 'bg-primary'
+          ? 'bg-dark text-white'
           : 'bg-white'
       },
       buttonIcon() {
