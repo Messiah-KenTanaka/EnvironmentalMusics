@@ -55,13 +55,11 @@ class ArticleController extends Controller
         $tags = Tag::getPopularTag();
 
         $bassField = config('bassField');
-        $keyCount = 1;
 
         return view('articles.create', [
             'allTagNames' => $allTagNames,
             'tags' => $tags,
             'bassField' => $bassField,
-            'keyCount' => $keyCount,
         ]);
     }
 

@@ -58,7 +58,7 @@
           <optgroup label="都道府県">
             <option value="" disabled selected style="display:none;">都道府県</option>
             @foreach(config('pref') as $id => $pref)
-              <option value="{{ $pref }}">{{ $pref }}</option>
+              <option value="{{ $pref }}" {{ (old('pref') == $pref) ? 'selected' : '' }}>{{ $pref }}</option>
             @endforeach
           </optgroup>
         </select>
@@ -68,7 +68,7 @@
           @foreach(config('pref') as $id => $pref)
             <optgroup label={{ $pref }}>
               <option value="" disabled selected style="display:none;">フィールド</option>
-              @foreach($bassField[$keyCount++] as $field)
+              @foreach($bassField[$id] as $field)
                 <option value="{{ $field }}">{{ $field }}</option>
               @endforeach
             </optgroup>
