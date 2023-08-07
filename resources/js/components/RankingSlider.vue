@@ -11,7 +11,9 @@
         >
             <div v-for="(article, index) in ranking" :key="index" class="slide-item">
                 <div class="card">
-                    <img :src="article.image" alt="画像" class="slide-image" />
+                    <a :href="'/articles/' + article.id">
+                        <img :src="article.image" alt="画像" class="slide-image" />
+                    </a>
                     <div class="p-2">
                         <div class="text-overlay-2">
                             <div v-if="index + 1 === 1">
