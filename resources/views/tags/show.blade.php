@@ -14,9 +14,10 @@
         <div class="card mt-3">
           <div class="card-body">
             <h2 class="h4 card-title font-weight-bold m-0">{{ $tag->hashtag }}</h2>
-            <div class="card-text text-right">
+            {{-- 現状件数がずれている問題は構造的に解消できないためコメントアウト Twitterは件数を表示していないので現状これで対応  --}}
+            {{-- <div class="card-text text-right">
               {{ $tag->articles->count() }}件
-            </div>
+            </div> --}}
           </div>
         </div>
         @foreach($articles as $article)
