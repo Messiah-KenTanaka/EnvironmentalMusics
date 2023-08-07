@@ -163,11 +163,11 @@
   @endif
 
   @if ($article->fish_size || $article->weight || $article->pref || $article->bass_field || $article->fishing_type || $article->catch_date)
-    <div class="dropdown-divider"></div>
     <div class="mx-3 mb-3 p-1">
+      <div class="dropdown-divider"></div>
       <div class="small p-1">
         <span class="main-ja-font-family pl-1">
-          ー釣果データー
+          [釣果データ]
         </span>
       </div>
       @if ($article->fish_size)
@@ -233,11 +233,11 @@
   @endif
 
   @if ($article->rod || $article->reel || $article->line || $article->lure)
-    <div class="dropdown-divider"></div>
     <div class="mx-3 mb-3 p-1">
+      <div class="dropdown-divider"></div>
       <div class="small p-1">
         <span class="main-ja-font-family pl-1">
-          ータックルー
+          [タックル]
         </span>
       </div>
       @if ($article->rod)
@@ -276,11 +276,11 @@
   @endif
 
   @if ($article->weather || $article->temperature || $article->water_temperature)
-    <div class="dropdown-divider"></div>
     <div class="mx-3 mb-3 p-1">
+      <div class="dropdown-divider"></div>
       <div class="small p-1">
         <span class="main-ja-font-family pl-1">
-          ー状況ー
+          [状況]
         </span>
       </div>
       @if ($article->weather)
