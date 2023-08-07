@@ -296,9 +296,14 @@ class UserController extends Controller
             ->with('success', 'ユーザーをブロックしました。');
     }
 
-    public function searchUsers()
+    public function searchUsers(Request $request)
     {
+        $user_name = $request->input('name');
+
         $users = User::where('publish_flag', 1)
+            ->when(!is_null($user_name), function ($query) use ($user_name) {
+                return $query->where('name', 'like', '%' . $user_name . '%');
+            })
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate_50'));
         
@@ -307,6 +312,7 @@ class UserController extends Controller
         return view('users.search_users', [
             'users' => $users,
             'tags' => $tags,
+            'searched_name' => $user_name,
         ]);
     }
 

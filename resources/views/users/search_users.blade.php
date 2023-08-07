@@ -11,6 +11,7 @@
                 <div class="ranking-title">
                     全国の釣り人一覧
                 </div>
+                @include('search_user')
                 @foreach($users as $person)
                     @include('users.person')
                 @endforeach
