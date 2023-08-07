@@ -134,6 +134,10 @@
   border-radius: 15px;
 }
 
+.card-box-shadow {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
 /* モーダル */
 
 .modal .border-maintenance-modal {
@@ -249,12 +253,6 @@
 
 .search .search-input::placeholder {
   color: #999;
-}
-
-.article-tackle {
-  background: linear-gradient(135deg, #eee 0%, #ddd 100%);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
 }
 
 /* SP時の表示 */
