@@ -279,7 +279,7 @@
 }
 
 .background-image {
-  height: 200px;
+  height: 230px;
   width: 100vw;
   /* viewport width units */
   -o-object-fit: cover;
@@ -292,7 +292,7 @@
 
 @media (max-width: 576px) {
   .background-image {
-    height: 150px;
+    height: 180px;
   }
 }
 
