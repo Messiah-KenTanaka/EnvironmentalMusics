@@ -64,7 +64,7 @@
         </div>
         <h3 class="h6 card-title m-0">
             <div class="text-dark mt-2">
-                -自己記録-
+                [自己記録]
             </div>
         </h3>
         @if (!($record['size'] || $record['weight']))

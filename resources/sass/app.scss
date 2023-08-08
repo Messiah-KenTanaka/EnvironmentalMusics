@@ -245,7 +245,7 @@
 
 // 背景画像
 .background-image {
-	height: 200px;
+	height: 230px;
 	width: 100vw; /* viewport width units */
 	object-fit: cover;
 	object-position: center;
@@ -254,7 +254,7 @@
 @media (max-width: 576px) {
 	// 全体
 	.background-image {
-		height: 150px;
+		height: 180px;
 	}
 }
 

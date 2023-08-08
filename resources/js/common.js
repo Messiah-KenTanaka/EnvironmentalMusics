@@ -7,14 +7,19 @@ $(function() {
         $('.spinner-border').removeClass('d-none');
     });
 
-    // 投稿時に詳細を表示・非表示するボタン
-    $(document).ready(function(){
-        $("#ArticleToggleButton").click(function(){
-            $("#ArticleDetailDiv").toggle();
-            var buttonText = $("#ArticleToggleButton").text().trim() === '詳細を記載する' ? '詳細を非表示にする' : '詳細を記載する';
-            $("#ArticleToggleButton").html('<i class="fa-regular fa-pen-to-square mb-3"></i> ' + buttonText);
+    $(document).ready(function() {
+        $('#collapseDetail').on('show.bs.collapse', function () {
+            // 展開時の処理
+            $('#ArticleToggleButton').html('詳細情報を閉じる  <i class="fas fa-caret-up ml-1"></i>');
+        });
+    
+        $('#collapseDetail').on('hide.bs.collapse', function () {
+            // 折りたたみ時の処理
+            $('#ArticleToggleButton').html('詳細情報を入力<i class="fas fa-caret-down ml-1"></i>');
         });
     });
+    
+    
 
     // プレビュー画像を表示する
     window.previewImage = function() {
