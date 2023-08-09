@@ -15,8 +15,8 @@
               {{ $comment->user->name }}
             </a>
           </div>
-          <div class="font-weight-lighter">
-            {{ $comment->created_at->format('Y/m/d H:i') }}
+          <div class="text-muted small">
+            {{ $comment->created_at->diffForHumans() }}
           </div>
         </div>
         
