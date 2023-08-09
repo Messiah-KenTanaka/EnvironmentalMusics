@@ -10,9 +10,9 @@
         <div class="d-flex flex-row">
             <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
                 @if ($user->image)
-                    <img src="{{ $user->image }}" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;">
+                    <img src="{{ $user->image }}" class="rounded-circle mb-3 user-profile-image" style="width: 100px; height: 100px; object-fit: cover;">
                 @else
-                    <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;">
+                    <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mb-3 user-profile-image" style="width: 100px; height: 100px; object-fit: cover;">
                 @endif
             </a>
             @if( Auth::id() !== $user->id )
@@ -62,70 +62,31 @@
             {{ $user->introduction }}
             </span>
         </div>
-        <h3 class="h6 card-title m-0">
-            <div class="text-dark mt-2">
-                [自己記録]
-            </div>
-        </h3>
         @if (!($record['size'] || $record['weight']))
             <div class="m-2">なし</div>
         @else
             <div class="d-flex">
+                <span class="text-muted">自己記録：</span>
                 @if ($record['size'])
-                    <div class="m-2">
-                        <span class="text-dark main-ja-font-family">
-                            <i class="fa-solid fa-ruler-horizontal"></i>
-                            {{ $record['size'] }}
-                            cm
-                        </span>
-                    </div>
-                @endif
-                {{-- @if ($record['size'] && $record['weight'])
-                    <span class="m-1">
-                    /
+                    <span class="text-dark main-ja-font-family">
+                        <i class="fa-solid fa-ruler-horizontal"></i>
+                        {{ $record['size'] }}
+                        cm
                     </span>
-                @endif --}}
+                @endif
                 @if ($record['weight'])
-                    <div class="m-2">
-                        <span class="text-dark main-ja-font-family">
-                            <i class="fa-solid fa-weight-scale"></i>
-                            {{ number_format($record['weight']) }}
-                            g
-                        </span>
-                    </div>
+                    <span class="text-dark main-ja-font-family ml-2">
+                        <i class="fa-solid fa-weight-scale"></i>
+                        {{ number_format($record['weight']) }}
+                        g
+                    </span>
                 @endif
             </div>
-            {{-- トータルサイズとウェイトは現状非表示に --}}
-            {{-- <div class="d-flex">
-                @if ($record['total_size'])
-                    <div class="mx-2">
-                        <span class="text-dark main-ja-font-family">
-                            Total
-                            {{ $record['total_size'] }}
-                            cm
-                        </span>
-                    </div>
-                @endif
-                @if ($record['total_size'] && $record['total_weight'])
-                    <span class="mx-1">
-                    /
-                    </span>
-                @endif
-                @if ($record['total_weight'])
-                    <div class="mx-2">
-                        <span class="text-dark main-ja-font-family">
-                            Total
-                            {{ number_format($record['total_weight']) }}
-                            g
-                        </span>
-                    </div>
-                @endif
-            </div> --}}
         @endif
         @if ($user->youtube)
             <div class="my-2">
                 <span class="text-dark main-ja-font-family">
-                    Youtube：
+                    <span class="text-muted">Youtube：</span>
                     {!! nl2br(Functions::makeLink(e( $user->youtube ))) !!}
                 </span>
             </div>
@@ -133,7 +94,7 @@
         @if ($user->twitter)
             <div class="my-2">
                 <span class="text-dark main-ja-font-family">
-                    Twitter：
+                    <span class="text-muted">Twitter：</span>
                     {!! nl2br(Functions::makeLink(e( $user->twitter ))) !!}
                 </span>
             </div>
