@@ -932,6 +932,9 @@ mounted() {
     var imagawa = L.marker([33.66673,130.94806]).addTo(map)
         imagawa.bindPopup("<b>今川</b>").openPopup()
 
+    var yanagawakuriku = L.marker([33.16986,130.44540]).addTo(map)
+        yanagawakuriku.bindPopup("<b>柳川クリーク</b>").openPopup()
+
     // 佐賀県
     var sagakuriku = L.marker([33.29581,130.35331]).addTo(map)
         sagakuriku.bindPopup("<b>佐賀クリーク</b>").openPopup()

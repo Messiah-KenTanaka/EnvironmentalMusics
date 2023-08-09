@@ -13,8 +13,8 @@
           {{ $article->user->name }}
         </a>
       </div>
-      <div class="font-weight-lighter pl-2">
-        {{ $article->created_at->format('Y/m/d H:i') }}
+      <div class="text-muted small pl-2">
+        {{ $article->created_at->diffForHumans() }}
       </div>
     </div>
 
