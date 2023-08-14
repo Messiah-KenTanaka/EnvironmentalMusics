@@ -10,7 +10,7 @@
             </a>
         </div>
         <h2 class="h5 card-title m-0">
-            <a href="{{ route('users.show', ['name' => $person->name]) }}" class="text-dark">{{ $person->name }}</a>
+            <a href="{{ route('users.show', ['name' => $person->name]) }}" class="text-dark">{{ $person->nickname }}</a>
         </h2>
     </div>
 </div>

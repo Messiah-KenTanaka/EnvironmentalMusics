@@ -28,7 +28,7 @@
     @csrf
     @method('DELETE')
     <div class="form-group mt-2">
-      <label for="name">お名前</label>
+      <label for="name">ユーザー名</label>
       <input type="text" class="form-control" name="name" placeholder="釣り人" required>
     </div>
     <div class="form-group">

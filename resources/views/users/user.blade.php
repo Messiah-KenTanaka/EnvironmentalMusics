@@ -35,8 +35,7 @@
         </div>
         <h2 class="h4 card-title m-0">
             <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark font-weight-bold">
-                {{ $user->nickname }}<br>
-                <span class="text-muted small">{{ '@' . $user->name }}</span>
+                {{ $user->nickname }}
             </a>
             @switch(true)
                 @case($user->count_prefecture >= 45)
@@ -57,6 +56,8 @@
                 @default
                     {{-- それ以外は何もしない --}}
             @endswitch
+            <br>
+            <span class="text-muted small">{{ '@' . $user->name }}</span>
         </h2>
         <div class="p-2 m-0">
             <span class="text-dark">
@@ -152,7 +153,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-user-block-{{ $user->id }}">
-                            <i class="fa-solid fa-ban"></i> {{ $user->name }}さんをブロック
+                            <i class="fa-solid fa-ban"></i> {{ $user->nickname }}さんをブロック
                             </a>
                         </div>
                         </div>
@@ -173,7 +174,7 @@
                             @method('POST')
                             <input type="hidden" name="article_user_id" value="{{ $user->id }}">
                             <div class="modal-body">
-                                {{ $user->name }}さんをブロックします。よろしいですか？
+                                {{ $user->nickname }}さんをブロックします。よろしいですか？
                             </div>
                             <div class="border-maintenance-modal modal-footer justify-content-between">
                                 <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>

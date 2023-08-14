@@ -2,7 +2,7 @@
   @csrf
   <input type="hidden" name="user_id" value="{{ $user ? $user->id : '' }}">
   <div class="form-group mt-2">
-      <label for="name">お名前</label>
+      <label for="name">ユーザー名</label>
       <input type="text" class="form-control" name="name" placeholder="釣り人" value="{{ $user ? $user->name : '' }}" required {{ $user ? 'readonly' : '' }}>
   </div>
   <div class="form-group">
