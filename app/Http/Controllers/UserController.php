@@ -298,11 +298,11 @@ class UserController extends Controller
 
     public function searchUsers(Request $request)
     {
-        $user_name = $request->input('name');
+        $user_name = $request->input('nickname');
 
         $users = User::where('publish_flag', 1)
             ->when(!is_null($user_name), function ($query) use ($user_name) {
-                return $query->where('name', 'like', '%' . $user_name . '%');
+                return $query->where('nickname', 'like', '%' . $user_name . '%');
             })
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate_50'));

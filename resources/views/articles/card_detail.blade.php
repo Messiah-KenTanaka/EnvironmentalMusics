@@ -10,7 +10,7 @@
     <div>
       <div class="font-weight-bold pl-2">
         <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
-          {{ $article->user->name }}
+          {{ $article->user->nickname }}
         </a>
       </div>
       <div class="text-muted small pl-2">
@@ -94,7 +94,7 @@
               </form>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-user-block-{{ $article->user->id }}">
-                <i class="fa-solid fa-ban"></i> {{ $article->user->name }}さんをブロック
+                <i class="fa-solid fa-ban"></i> {{ $article->user->nickname }}さんをブロック
               </a>
             </div>
           </div>
@@ -115,7 +115,7 @@
                 @method('POST')
                 <input type="hidden" name="article_user_id" value="{{ $article->user->id }}">
                 <div class="modal-body">
-                  {{ $article->user->name }}さんをブロックします。よろしいですか？
+                  {{ $article->user->nickname }}さんをブロックします。よろしいですか？
                 </div>
                 <div class="border-maintenance-modal modal-footer justify-content-between">
                   <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>

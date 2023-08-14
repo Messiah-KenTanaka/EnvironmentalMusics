@@ -34,7 +34,7 @@
     <div>
       <div class="font-weight-bold pl-2">
         <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
-          {{ $article->user->name }}
+          {{ $article->user->nickname }}
         </a>
       </div>
       <div class="text-muted small pl-2">

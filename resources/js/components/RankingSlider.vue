@@ -37,7 +37,7 @@
                                 <img :src="images.no_image" class="rounded-circle" width="30" height="30">
                             </div>
                             <div class="font-weight-bold pl-2">
-                                {{ article.user.name }}
+                                {{ article.user.nickname }}
                             </div>
                         </div>
                         <div class="d-flex">

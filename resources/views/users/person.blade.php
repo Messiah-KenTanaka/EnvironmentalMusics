@@ -9,7 +9,7 @@
             @endif
             </a>
             <h2 class="h6 card-title font-weight-bold m-2">
-                <a href="{{ route('users.show', ['name' => $person->name]) }}" class="text-dark">{{ $person->name }}</a>
+                <a href="{{ route('users.show', ['name' => $person->name]) }}" class="text-dark">{{ $person->nickname }}</a>
             </h2>
             @if( Auth::id() !== $person->id )
             <follow-button

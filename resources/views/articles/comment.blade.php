@@ -12,7 +12,7 @@
         <div>
           <div class="font-weight-bold">
             <a href="{{ route('users.show', ['name' => $comment->user->name]) }}" class="text-dark">
-              {{ $comment->user->name }}
+              {{ $comment->user->nickname }}
             </a>
           </div>
           <div class="text-muted small">

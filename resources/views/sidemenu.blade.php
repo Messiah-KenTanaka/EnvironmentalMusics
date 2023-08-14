@@ -75,7 +75,7 @@
                 @else
                     <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-2" style="width: 25px; height: 25px; object-fit: cover;">
                 @endif
-                {{ Functions::getNameEllipsis(Auth::user()->name) }}
+                {{ Functions::getNameEllipsis(Auth::user()->nickname) }}
             </button>
             <div class="dropdown-divider"></div>
         @endauth
