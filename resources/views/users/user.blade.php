@@ -35,7 +35,8 @@
         </div>
         <h2 class="h4 card-title m-0">
             <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark font-weight-bold">
-                {{ $user->name }}
+                {{ $user->nickname }}<br>
+                <span class="text-muted small">{{ '@' . $user->name }}</span>
             </a>
             @switch(true)
                 @case($user->count_prefecture >= 45)

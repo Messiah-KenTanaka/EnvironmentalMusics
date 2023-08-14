@@ -29,6 +29,7 @@ class UserRequest extends FormRequest
             'youtube' => 'max:100',
             'twitter' => 'max:100',
             'background_image' => 'file|mimes:jpeg,png,gif,heic|max:20000',
+            'nickname' => 'min:1|max:20',
         ];
     }
 
@@ -40,6 +41,7 @@ class UserRequest extends FormRequest
             'youtube' => 'Youtube',
             'twitter' => 'Twitter',
             'background_image' => '背景画像',
+            'nickname' => 'ニックネーム',
         ];
     }
 

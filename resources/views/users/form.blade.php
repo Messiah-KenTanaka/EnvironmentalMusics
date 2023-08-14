@@ -38,14 +38,17 @@
 </div>
 
 <div class="form-group mt-3">
-  <h2 class="h5 card-title m-0 font-weight-bold">
-    <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
-    {{ $user->name }}
-    </a>
-  </h2>
+  <label>ユーザー名</label>
+  <div class="text-muted">
+    {{ '@' . $user->name }}
+  </div>
 </div>
 <div class="form-group">
-  {{--  <label>自己紹介</label>  --}}
+  <label>ニックネーム</label>
+  <input type="text" name="nickname" class="form-control" placeholder="ニックネーム" value="{{ $user->nickname ?? old('nickname') }}" minlength="1" maxlength="20">
+</div>
+<div class="form-group">
+  <label>自己紹介</label>
   <textarea name="introduction" class="form-control" rows="6" placeholder="自己紹介">{{ $user->introduction ?? old('introduction') }}</textarea>
 </div>
 <div class="form-group">
