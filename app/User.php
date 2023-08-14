@@ -28,7 +28,8 @@ class User extends Authenticatable
         'publish_flag',
         'youtube',
         'twitter',
-        'background_image'
+        'background_image',
+        'nickname'
     ];
 
     /**

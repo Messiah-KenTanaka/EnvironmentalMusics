@@ -13,6 +13,7 @@
         "ext-gd": "*",
         "ext-imagick": "*",
         "aws/aws-sdk-php": "^3.255",
+        "doctrine/dbal": "^3.6",
         "fideloper/proxy": "^4.0",
         "genealabs/laravel-sign-in-with-apple": "^0.5.0",
         "guzzlehttp/guzzle": "^7.5",
