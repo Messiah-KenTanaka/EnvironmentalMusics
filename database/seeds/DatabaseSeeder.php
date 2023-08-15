@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        // 注意、このseederクラスは次回、何かしらのseederを実行時は必ずコメントアウトすること
+        // 同じ内容が多重にinsertされてしまうため
+        $this->call(PlacesMapSeeder::class);
     }
 }

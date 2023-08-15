@@ -701,12 +701,6 @@ mounted() {
     var yubarako = L.marker([35.22447,133.71306]).addTo(map)
         yubarako.bindPopup("<b>湯原湖</b>").openPopup()
 
-    var nishitakaodamu = L.marker([35.43941,133.70101]).addTo(map)
-        nishitakaodamu.bindPopup("<b>西高尾ダム</b>").openPopup()
-
-    var yubarako = L.marker([35.2274,133.7106]).addTo(map)
-        yubarako.bindPopup("<b>湯原湖</b>").openPopup()
-
     var ryokusuiko = L.marker([35.3026,133.3268]).addTo(map)
         ryokusuiko.bindPopup("<b>緑水湖（賀祥ダム）</b>").openPopup()
 
