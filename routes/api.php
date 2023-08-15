@@ -19,3 +19,5 @@ use Illuminate\Http\Request;
 
 // 達成済みの都道府県を取得
 Route::get('/achieved-prefectures/{user_id}', 'AchievedPrefecturesController@index');
+
+Route::get('/place-maps', 'PlaceMapController@index');
