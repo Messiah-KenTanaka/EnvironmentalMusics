@@ -46,27 +46,47 @@ export default {
             // APIから取得した場所のデータに基づいてマーカーを追加
             this.places.forEach(place => {
                 let marker = L.marker([place.latitude, place.longitude]).addTo(map);
-                let popupContent = `<b>${place.name}</b><br>`;
+                let popupContent = `<div style="text-align:center;">
+                                        <b>${place.name}</b><br>
+                                        <hr>
+                                    </div>
+                                    `;
 
-                // ３つの画像それぞれに対応
+                // ３つの画像
                 ['image1', 'image2', 'image3'].forEach(imageKey => {
                     if (place[imageKey]) {
                         popupContent += `<img src="${place[imageKey]}" width="100"><br>`;
                     }
                 });
 
-                if (place.description) {
-                    popupContent += `${place.description}<br>`;
+                popupContent += '<table style="width:100%;">';
+
+                // 内容
+                if (place.description && place.description.trim() !== '') {
+                    popupContent += `<tr><td>内容:</td><td>${place.description}</td></tr>`;
+                } else {
+                    popupContent += `<tr><td>内容:</td><td>---</td></tr>`;
                 }
-                if (place.address) {
-                    popupContent += `<b>Address:</b> ${place.address}<br>`;
+                // 住所 
+                if (place.address && place.address.trim() !== '') {
+                    popupContent += `<tr><td>住所:</td><td>${place.address}</td></tr>`;
+                } else {
+                    popupContent += `<tr><td>住所:</td><td>---</td></tr>`;
                 }
-                if (place.phone) {
-                    popupContent += `<b>Phone:</b> ${place.phone}<br>`;
+                // 電話番号
+                if (place.phone && place.phone.trim() !== '') {
+                    popupContent += `<tr><td>電話番号:</td><td>${place.phone}</td></tr>`;
+                } else {
+                    popupContent += `<tr><td>電話番号:</td><td>---</td></tr>`;
                 }
-                if (place.recommendation_url) {
-                    popupContent += `<a href="${place.recommendation_url}" target="_blank">More Info</a><br>`;
+                // 記事
+                if (place.recommendation_url && place.recommendation_url.trim() !== '') {
+                    popupContent += `<tr><td>記事:</td><td><a href="${place.recommendation_url}" target="_blank">${place.recommendation_url}</a></td></tr>`;
+                } else {
+                    popupContent += `<tr><td>記事:</td><td>---</td></tr>`;
                 }
+
+                popupContent += '</table>';
 
                 popupContent += `<a href="https://www.google.com/maps?q=${place.latitude},${place.longitude}" target="_blank">Google Mapsで見る</a>`;
 
