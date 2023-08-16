@@ -9,6 +9,7 @@
       @include('sidemenu')
       <div class="col">
         <div class="ranking-title">{{ $field }}ランキング ウェイト</div>
+        @include('ranking.field_search')
         @include('ranking.field_tabs', ['hasSize' => false, 'hasWeight' => true])
         @foreach($ranking as $key => $article)
           @include('ranking.card', ['rank' => ++$key])

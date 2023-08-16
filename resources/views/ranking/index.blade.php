@@ -19,13 +19,13 @@
         <ranking-slider :ranking="{{ $ranking }}"></ranking-slider>
         {{--  都道府県のランキング  --}}
         <div class="ranking-title">
-          滋賀県のランキング
+          福岡県のランキング
         </div>
         @include('ranking.pref_search')
         <ranking-pref-slider :pref-ranking="{{ $prefRanking }}"></ranking-pref-slider>
         {{--  フィールドのランキング  --}}
         <div class="ranking-title">
-          遠賀川のランキング
+          淀川のランキング
         </div>
         @include('ranking.field_search')
         <ranking-field-slider :field-ranking="{{ $fieldRanking }}"></ranking-field-slider>
