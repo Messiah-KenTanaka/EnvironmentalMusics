@@ -12,7 +12,7 @@ class PlacesMapSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('places_map')->insert([
+        DB::table('place_maps')->insert([
             ['name' => '南幌親水公園', 'latitude' => 43.07017, 'longitude' => 141.60152],
             ['name' => '余市ダム', 'latitude' => 43.15474, 'longitude' => 140.68368],
             ['name' => '大沼公園(北海道)', 'latitude' => 41.9843, 'longitude' => 140.6792],
