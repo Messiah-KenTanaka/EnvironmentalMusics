@@ -43,7 +43,7 @@ class RankingController extends Controller
                     ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
             })
             ->where('publish_flag', 1)
-            ->where('pref', '滋賀県')
+            ->where('pref', '福岡県')
             ->whereNotNull('image')
             ->whereNotNull('fish_size')
             ->orderByDesc('fish_size')
@@ -61,7 +61,7 @@ class RankingController extends Controller
                     ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
             })
             ->where('publish_flag', 1)
-            ->where('bass_field', '遠賀川')
+            ->where('bass_field', '淀川')
             ->whereNotNull('image')
             ->whereNotNull('fish_size')
             ->orderByDesc('fish_size')

@@ -9,6 +9,7 @@
       @include('sidemenu')
       <div class="col">
         <div class="ranking-title">{{ $pref }}ランキング ウェイト</div>
+        @include('ranking.pref_search')
         @include('ranking.pref_tabs', ['hasSize' => false, 'hasWeight' => true])
         @foreach($ranking as $key => $article)
           @include('ranking.card', ['rank' => ++$key])
