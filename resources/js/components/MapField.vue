@@ -62,33 +62,33 @@ export default {
                 popupContent += '<table style="width:100%;">';
 
                 // 内容
-                if (place.description && place.description.trim() !== '') {
-                    popupContent += `<tr><td>内容:</td><td>${place.description}</td></tr>`;
-                } else {
-                    popupContent += `<tr><td>内容:</td><td>---</td></tr>`;
-                }
+                popupContent += renderRow('内容:', place.description);
+
                 // 住所 
-                if (place.address && place.address.trim() !== '') {
-                    popupContent += `<tr><td>住所:</td><td>${place.address}</td></tr>`;
-                } else {
-                    popupContent += `<tr><td>住所:</td><td>---</td></tr>`;
-                }
+                popupContent += renderRow('住所:', place.address);
+
                 // 電話番号
-                if (place.phone && place.phone.trim() !== '') {
-                    popupContent += `<tr><td>電話番号:</td><td>${place.phone}</td></tr>`;
-                } else {
-                    popupContent += `<tr><td>電話番号:</td><td>---</td></tr>`;
-                }
+                popupContent += renderRow('電話番号:', place.phone);
+
                 // 記事
                 if (place.recommendation_url && place.recommendation_url.trim() !== '') {
-                    popupContent += `<tr><td>記事:</td><td><a href="${place.recommendation_url}" target="_blank">${place.recommendation_url}</a></td></tr>`;
+                    const link = `<a href="${place.recommendation_url}" target="_blank">オススメの記事へアクセス</a>`;
+                    popupContent += renderRow('記事:', link, true);
                 } else {
-                    popupContent += `<tr><td>記事:</td><td>---</td></tr>`;
+                    popupContent += renderRow('記事:', '---');
                 }
 
                 popupContent += '</table>';
 
-                popupContent += `<a href="https://www.google.com/maps?q=${place.latitude},${place.longitude}" target="_blank">Google Mapsで見る</a>`;
+                function renderRow(label, value, isLink = false) {
+                    const valueContent = isLink ? value : (value && value.trim() !== '') ? value : '---';
+                    return `<tr>
+                            <td style="white-space: nowrap; width: 1%; padding: 10px 0;">${label}</td>
+                            <td style="padding: 5px 0;">${valueContent}</td>
+                            </tr>`;
+                }
+
+                popupContent += `<div style="text-align:center;"><a href="https://www.google.com/maps?q=${place.latitude},${place.longitude}" target="_blank">Google Mapsで見る</a></div>`;
 
                 marker.bindPopup(popupContent).openPopup();
             });
