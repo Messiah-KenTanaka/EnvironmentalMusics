@@ -9,24 +9,30 @@
       @include('sidemenu')
       <div class="col col-xl-9">
         {{--  全国のランキング  --}}
-        <div class="ranking-title">
-          全国のランキング
-        </div>
+        <a href="/ranking/size">
+          <div class="ranking-title">
+            全国のランキング
+          </div>
+        </a>
         <a href="/ranking/size" class="ranking-list-link">
           全国ランキング一覧
           <i class="fa-solid fa-angle-right"></i>
         </a>
         <ranking-slider :ranking="{{ $ranking }}"></ranking-slider>
         {{--  都道府県のランキング  --}}
-        <div class="ranking-title">
-          福岡県のランキング
-        </div>
+        <a href="/ranking/pref/{{ $randomPref }}">
+          <div class="ranking-title">
+            {{ $randomPref }}のランキング
+          </div>
+        </a>
         @include('ranking.pref_search')
         <ranking-pref-slider :pref-ranking="{{ $prefRanking }}"></ranking-pref-slider>
         {{--  フィールドのランキング  --}}
-        <div class="ranking-title">
-          淀川のランキング
-        </div>
+        <a href="/ranking/field/{{ $randomField }}">
+          <div class="ranking-title">
+            {{ $randomField }}のランキング
+          </div>
+        </a>
         @include('ranking.field_search')
         <ranking-field-slider :field-ranking="{{ $fieldRanking }}"></ranking-field-slider>
         @include('floatingButton')
