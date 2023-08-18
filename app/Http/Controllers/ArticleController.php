@@ -8,6 +8,7 @@ use App\BlockList;
 use App\ArticleComment;
 use App\UserPrefectureMap;
 use App\Http\Requests\ArticleRequest;
+use App\Services\LinkPreviewService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Functions;

@@ -20,4 +20,8 @@ use Illuminate\Http\Request;
 // 達成済みの都道府県を取得
 Route::get('/achieved-prefectures/{user_id}', 'AchievedPrefecturesController@index');
 
+// 全国の釣り場情報を取得
 Route::get('/place-maps', 'PlaceMapController@index');
+
+// プレビューを取得
+Route::post('/link-preview', 'LinkPreviewController@getLinkPreview');
