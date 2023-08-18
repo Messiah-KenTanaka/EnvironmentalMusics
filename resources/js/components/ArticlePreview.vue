@@ -1,7 +1,7 @@
 <template>
   <div class="card-text">
     <a class="text-dark" :href="articleLink">
-      {{ articleBody }}
+      <span class="preserve-newlines">{{ articleBody }}</span>
     </a>
     
     <!-- リンクのプレビュー情報を表示 -->
@@ -88,5 +88,8 @@ img {
   bottom: 0;
   width: 4px;
   background-color: #007bff; /* これはBootstrapのデフォルトの青色ですが、お好みの色に変更してください */
+}
+.preserve-newlines {
+  white-space: pre-line; 
 }
 </style>
