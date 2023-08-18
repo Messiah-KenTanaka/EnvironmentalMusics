@@ -10,6 +10,7 @@ import Geo from './components/Geo'
 import RankingSlider from './components/RankingSlider'
 import RankingPrefSlider from './components/RankingPrefSlider'
 import RankingFieldSlider from './components/RankingFieldSlider'
+import ArticlePreview from './components/ArticlePreview'
 
 const app = new Vue({
   el: '#app',
@@ -22,5 +23,6 @@ const app = new Vue({
     RankingSlider,
     RankingPrefSlider,
     RankingFieldSlider,
+    ArticlePreview,
   }
 })
