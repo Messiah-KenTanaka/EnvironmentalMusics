@@ -57,7 +57,7 @@ class ContactController extends Controller
     public function show()
     {
         $contactContent = PostContact::orderByDesc('created_at')
-            ->paginate(config('paginate.paginate'));
+            ->paginate(config('paginate.paginate_50'));
 
         $tags = Tag::getPopularTag();
 

@@ -27,7 +27,7 @@ class SearchController extends Controller
             })
             ->where('publish_flag', 1)
             ->orderByDesc('created_at')
-            ->paginate(config('paginate.paginate'));
+            ->paginate(config('paginate.paginate_50'));
 
         $tags = Tag::getPopularTag();
         // dd($tags);
@@ -58,7 +58,7 @@ class SearchController extends Controller
             ->where('publish_flag', 1)
             ->where('body', 'LIKE', '%'.$keyword.'%')
             ->orderByDesc('created_at')
-            ->paginate(config('paginate.paginate'));
+            ->paginate(config('paginate.paginate_50'));
 
         $tags = Tag::getPopularTag();
 

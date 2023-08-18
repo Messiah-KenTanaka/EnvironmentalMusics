@@ -37,7 +37,7 @@ class ArticleController extends Controller
             })
             ->where('publish_flag', 1)
             ->orderByDesc('created_at')
-            ->paginate(config('paginate.paginate'));
+            ->paginate(config('paginate.paginate_50'));
 
         $tags = Tag::getPopularTag();
 
@@ -152,7 +152,7 @@ class ArticleController extends Controller
         $comments = $article->article_comments()->with('user')
             ->where('publish_flag', 1)
             ->orderByDesc('created_at')
-            ->paginate(config('paginate.paginate'));
+            ->paginate(config('paginate.paginate_50'));
 
         $article->comment_count = $comments->count();
 

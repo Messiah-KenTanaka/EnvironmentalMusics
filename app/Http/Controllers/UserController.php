@@ -30,7 +30,7 @@ class UserController extends Controller
         $articles = $user->articles
             ->where('publish_flag', 1)
             ->sortByDesc('created_at')
-            ->paginate(config('paginate.paginate'));
+            ->paginate(config('paginate.paginate_50'));
 
         $record['size'] = $user->articles
             ->whereNotNull('fish_size')
@@ -104,7 +104,7 @@ class UserController extends Controller
         $articles = $user->likes
             ->where('publish_flag', 1)
             ->sortByDesc('created_at')
-            ->paginate(config('paginate.paginate'));
+            ->paginate(config('paginate.paginate_50'));
 
         $record['size'] = $user->articles
             ->whereNotNull('fish_size')
@@ -162,7 +162,7 @@ class UserController extends Controller
 
         $followings = $user->followings
             ->sortByDesc('created_at')
-            ->paginate(config('paginate.paginate'));
+            ->paginate(config('paginate.paginate_50'));
 
         $record['size'] = $user->articles
             ->whereNotNull('fish_size')
@@ -191,7 +191,7 @@ class UserController extends Controller
 
         $followers = $user->followers
             ->sortByDesc('created_at')
-            ->paginate(config('paginate.paginate'));
+            ->paginate(config('paginate.paginate_50'));
 
         $record['size'] = $user->articles
             ->whereNotNull('fish_size')
@@ -220,7 +220,7 @@ class UserController extends Controller
 
         $blockList = $user->blockList
             ->sortByDesc('created_at')
-            ->paginate(config('paginate.paginate'));
+            ->paginate(config('paginate.paginate_50'));
 
         $record['size'] = $user->articles
             ->whereNotNull('fish_size')
