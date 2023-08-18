@@ -33,7 +33,7 @@ class ReportController extends Controller
     public function show()
     {
         $reportContents = PostReport::orderByDesc('created_at')
-            ->paginate(config('paginate.paginate'));
+            ->paginate(config('paginate.paginate_50'));
 
         $tags = Tag::getPopularTag();
 
