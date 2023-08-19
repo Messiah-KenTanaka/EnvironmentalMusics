@@ -21,7 +21,38 @@ $(function() {
     
     
 
-    // プレビュー画像を表示する
+    // 投稿画像プレビューを表示する
+    window.articlePreviewImage = function(input, labelId, nextLabelId) {
+        var file = input.files[0];
+        var reader = new FileReader();
+    
+        reader.addEventListener("load", function () {
+            var labelElement = document.querySelector('#' + labelId);
+            if (labelElement) {
+                labelElement.style.backgroundImage = 'url(' + reader.result + ')';
+                
+                // アイコンを非表示にする
+                var iconElement = labelElement.querySelector('i.fa-solid');
+                if (iconElement) {
+                    iconElement.style.display = 'none';
+                }
+                
+                // 次のアップロードセクションを表示する
+                if (nextLabelId) {
+                    var nextUploadSection = document.querySelector('#uploadSection' + nextLabelId.charAt(nextLabelId.length-1));
+                    if (nextUploadSection) {
+                        nextUploadSection.style.display = 'block';
+                    }
+                }
+            }
+        }, false);
+    
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    };    
+
+    // ユーザー編集プレビュー画像を表示する
     window.previewImage = function() {
         var file = document.querySelector('#image').files[0];
         var reader = new FileReader();
@@ -43,7 +74,7 @@ $(function() {
         }
     };
 
-    // プレビュー背景画像画像を表示する
+    // ユーザー編集プレビュー背景画像画像を表示する
     window.previewBackgroundImage = function() {
         var file = document.querySelector('#background_image').files[0];
         var reader = new FileReader();

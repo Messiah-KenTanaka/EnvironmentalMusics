@@ -1,5 +1,5 @@
 @csrf
-<div class="d-flex flex-row justify-content-between align-items-center my-2">
+<div class="d-flex flex-row justify-content-between align-items-center my-3">
   <div class="d-flex">
     @if (Auth::user()->image)
       <img src="{{ Auth::user()->image }}" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
@@ -16,6 +16,32 @@
   </button>
 </div>
 
+<div class="row">
+  <div class="col-4">
+    <label id="labelImage1" class="custom-file-upload" for="image">
+      <span class="number-label">1</span>
+      <i class="fa-solid fa-plus"></i>
+    </label>
+    <input id="image" type="file" name="image" onchange="articlePreviewImage(this, 'labelImage1', 'labelImage2');" style="display: none;">
+  </div>
+
+  <div class="col-4" style="display: none;" id="uploadSection2">
+    <label id="labelImage2" class="custom-file-upload" for="image2">
+      <span class="number-label">2</span>
+      <i class="fa-solid fa-plus"></i>
+    </label>
+    <input id="image2" type="file" name="image2" onchange="articlePreviewImage(this, 'labelImage2', 'labelImage3');" style="display: none;">
+  </div>
+
+  <div class="col-4" style="display: none;" id="uploadSection3">
+    <label id="labelImage3" class="custom-file-upload" for="image3">
+      <span class="number-label">3</span>
+      <i class="fa-solid fa-plus"></i>
+    </label>
+    <input id="image3" type="file" name="image3" onchange="articlePreviewImage(this, 'labelImage3');" style="display: none;">
+  </div>
+</div>
+
 <div class="form-group">
   <label></label>
   <textarea name="body" required class="form-control" rows="12" placeholder="今日はどうだった...？">{{ $article->body ?? old('body') }}</textarea>
@@ -26,17 +52,6 @@
     :autocomplete-items='@json($allTagNames ?? [])'
   >
   </article-tags-input>
-</div>
-<div class="form-group">
-  <label for="image" class="custom-file-upload" style="width: 100%;">
-      <i class="fas fa-cloud-upload-alt"></i> Upload Image
-  </label>
-  <input id="image" type="file" name="image" onchange="previewImage();" style="display: none;">
-  <p id="fileName"></p>
-</div>
-
-<div class="form-group">
-  <img id="preview" src="" alt="画像プレビュー" style="display: none; width: 100%;"/>
 </div>
 
 <div class="form-group">
