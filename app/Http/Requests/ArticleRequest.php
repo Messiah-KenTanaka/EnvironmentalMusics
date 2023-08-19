@@ -29,6 +29,8 @@ class ArticleRequest extends FormRequest
             'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
             'weight' => 'nullable|integer|min:0|max:10000',
             'image' => 'file|mimes:jpeg,png,gif,heic|max:20000',
+            'image2' => 'file|mimes:jpeg,png,gif,heic|max:20000',
+            'image3' => 'file|mimes:jpeg,png,gif,heic|max:20000',
         ];
     }
 
@@ -39,6 +41,8 @@ class ArticleRequest extends FormRequest
             'body' => '内容',
             'tags' => 'タグ',
             'image' => '画像',
+            'image2' => '画像2',
+            'image3' => '画像3',
             'fish_size' => 'サイズ',
             'weight' => '重さ',
             'pref' => '都道府県',

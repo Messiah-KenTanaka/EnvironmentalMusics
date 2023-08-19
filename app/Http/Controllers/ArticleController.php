@@ -77,6 +77,22 @@ class ArticleController extends Controller
             $path = Storage::disk('s3')->putFile('bcommunity_img', $file, 'public');
             $article->image = Storage::disk('s3')->url($path);
         }
+        // S3画像アップロード2
+        $file2 = $request->file('image2');
+        if (isset($file2) && !empty($file2->getPathname())) {
+            // S3に画像を保存する
+            $file2 = Functions::ImageUploadResize($file2);
+            $path = Storage::disk('s3')->putFile('bcommunity_img', $file2, 'public');
+            $article->image2 = Storage::disk('s3')->url($path);
+        }
+        // S3画像アップロード3
+        $file3 = $request->file('image3');
+        if (isset($file3) && !empty($file3->getPathname())) {
+            // S3に画像を保存する
+            $file3 = Functions::ImageUploadResize($file3);
+            $path = Storage::disk('s3')->putFile('bcommunity_img', $file3, 'public');
+            $article->image3 = Storage::disk('s3')->url($path);
+        }
     
         $article->save();
     

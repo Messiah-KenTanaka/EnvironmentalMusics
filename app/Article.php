@@ -12,6 +12,8 @@ class Article extends Model
         'title',
         'body',
         'image',
+        'image2',
+        'image3',
         'fish_size',
         'pref',
         'bass_field',
