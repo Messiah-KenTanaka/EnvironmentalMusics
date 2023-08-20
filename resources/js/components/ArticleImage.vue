@@ -60,6 +60,7 @@ export default {
   object-fit: cover;
   display: block;  /* 画像が中央寄せになるのを防ぐため */
   margin: 0 auto;  /* 画像を中央に配置 */
+  padding: 10px;
 }
 
 </style>
