@@ -157,9 +157,10 @@
   @endforeach
   
   @if ($article->image)
-    <a href="{{ route('articles.show', ['article' => $article]) }}">
+    {{--  <a href="{{ route('articles.show', ['article' => $article]) }}">
       <img src="{{ $article->image }}" class="img-fluid border-image p-3">
-    </a>
+    </a>  --}}
+    <article-image :article="{{ $article }}"></article-image>
   @endif
 
   @if ($article->fish_size || $article->weight || $article->pref || $article->bass_field || $article->fishing_type || $article->catch_date)

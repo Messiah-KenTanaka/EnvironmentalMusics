@@ -4,10 +4,10 @@
 
 @section('content')
     @include('nav')
-    <div class="container">
+    <div class="container overflow-x-hidden">
         <div class="row">
         @include('sidemenu')
-        <div class="col">
+        <div class="col col-xl-9">
             @include('search')
             <div class="card mt-3">
                 <div class="card-body">

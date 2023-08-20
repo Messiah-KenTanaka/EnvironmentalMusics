@@ -4,10 +4,10 @@
 
 @section('content')
     @include('nav')
-    <div class="container">
+    <div class="container overflow-x-hidden">
         <div class="row">
             @include('sidemenu')
-            <div class="col">
+            <div class="col col-xl-9">
                 @include('users.user')
                 @include('users.tabs', ['hasArticles' => true, 'hasLikes' => false, 'hasConquest' => false])
                 @foreach($articles as $article)
