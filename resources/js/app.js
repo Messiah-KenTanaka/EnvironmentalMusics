@@ -11,6 +11,7 @@ import RankingSlider from './components/RankingSlider'
 import RankingPrefSlider from './components/RankingPrefSlider'
 import RankingFieldSlider from './components/RankingFieldSlider'
 import ArticlePreview from './components/ArticlePreview'
+import ArticleImage from './components/ArticleImage'
 
 const app = new Vue({
   el: '#app',
@@ -24,5 +25,6 @@ const app = new Vue({
     RankingPrefSlider,
     RankingFieldSlider,
     ArticlePreview,
+    ArticleImage,
   }
 })

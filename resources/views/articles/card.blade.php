@@ -199,9 +199,10 @@
     </div>
   @endif
   @if ($article->image)
-    <a href="{{ route('articles.show', ['article' => $article]) }}">
+    {{--  <a href="{{ route('articles.show', ['article' => $article]) }}">
       <img src="{{ $article->image }}" class="img-fluid border-image p-3">
-    </a>
+    </a>  --}}
+    <article-image :article="{{ $article }}"></article-image>
   @endif
 
   <div class="card-body pt-0 pb-2 pl-3">
