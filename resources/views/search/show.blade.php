@@ -4,7 +4,7 @@
 
 @section('content')
     @include('nav')
-    <div class="container overflow-x-hidden">
+    <div class="container">
         <div class="row">
         @include('sidemenu')
         <div class="col col-xl-9">
