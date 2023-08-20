@@ -1,5 +1,13 @@
 <template>
   <div class="mt-2">
+    <!-- 画像が1枚だけの場合 -->
+    <div v-if="imageCount === 1" class="mb-2">
+      <a :href="'/articles/' + article.id">
+        <img :src="article.image" :alt="'画像 '" class="img-fluid slide-image" />
+      </a>
+    </div>
+    <!-- 画像が2枚以上の場合slick機能を使用 -->
+    <div v-else>
       <vue-slick-carousel
           :infinite="true"
           :slides-to-show="slidesToShow"
@@ -13,6 +21,7 @@
           <img :src="image" :alt="'画像 ' + index" class="img-fluid slide-image" />
         </a>
       </vue-slick-carousel>
+    </div>
   </div>
 </template>
 
@@ -35,6 +44,9 @@ export default {
   computed: {
     imageArray() {
         return [this.article.image, this.article.image2, this.article.image3].filter(Boolean);
+    },
+    imageCount() {
+        return this.imageArray.length;
     }
   }
 };
@@ -45,13 +57,6 @@ export default {
 .slider-container {
   width: 100%;
   margin-bottom: 70px;
-}
-.slide-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
 }
 .slide-image {
   max-height: 600px; /* この値は800pxより大きい画像の高さを800pxに制限します */
