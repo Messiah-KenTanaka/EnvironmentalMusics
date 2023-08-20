@@ -3,7 +3,7 @@
     <!-- 画像が1枚だけの場合 -->
     <div v-if="imageCount === 1" class="mb-2">
       <a :href="'/articles/' + article.id">
-        <img :src="article.image" :alt="'画像 '" class="img-fluid slide-image" />
+        <img :src="article.image" :alt="'画像 '" class="img-fluid border-image p-3" />
       </a>
     </div>
     <!-- 画像が2枚以上の場合slick機能を使用 -->
@@ -59,13 +59,18 @@ export default {
   margin-bottom: 70px;
 }
 .slide-image {
-  max-height: 600px; /* この値は800pxより大きい画像の高さを800pxに制限します */
+  height: 600px; /* この値は800pxより大きい画像の高さを800pxに制限します */
   width: auto;      /* 画像の元のアスペクト比を保持します */
   border-radius: 40px;
   object-fit: cover;
   display: block;  /* 画像が中央寄せになるのを防ぐため */
   margin: 0 auto;  /* 画像を中央に配置 */
   padding: 10px;
+}
+@media (max-width: 576px) {
+	.slide-image {
+    height: 350px; /* この値は800pxより大きい画像の高さを800pxに制限します */
+	}
 }
 
 </style>
