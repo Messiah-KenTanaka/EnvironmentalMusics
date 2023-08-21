@@ -28,6 +28,8 @@ class UserRequest extends FormRequest
             'introduction' => 'max:500',
             'youtube' => 'max:100',
             'twitter' => 'max:100',
+            'instagram' => 'max:100',
+            'tiktok' => 'max:100',
             'background_image' => 'file|mimes:jpeg,png,gif,heic|max:20000',
             'nickname' => 'min:1|max:20',
         ];
@@ -40,6 +42,8 @@ class UserRequest extends FormRequest
             'introduction' => '自己紹介',
             'youtube' => 'Youtube',
             'twitter' => 'Twitter',
+            'instagram' => 'Instagram',
+            'tiktok' => 'TikTok',
             'background_image' => '背景画像',
             'nickname' => 'ニックネーム',
         ];

@@ -28,6 +28,8 @@ class User extends Authenticatable
         'publish_flag',
         'youtube',
         'twitter',
+        'instagram',
+        'tiktok',
         'background_image',
         'nickname'
     ];
