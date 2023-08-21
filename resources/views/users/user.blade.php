@@ -88,7 +88,7 @@
         @if ($user->youtube)
             <div class="my-2">
                 <span class="text-dark main-ja-font-family">
-                    <span class="text-muted">Youtube：</span>
+                    <i class="fa-brands fa-youtube mr-2" style="color: #ff0000;"></i>
                     {!! nl2br(Functions::makeLink(e( $user->youtube ))) !!}
                 </span>
             </div>
@@ -96,9 +96,25 @@
         @if ($user->twitter)
             <div class="my-2">
                 <span class="text-dark main-ja-font-family">
-                    <span class="text-muted">Twitter：</span>
+                    <i class="fa-brands fa-square-twitter mr-2" style="color: #1d96e8;"></i>
                     {!! nl2br(Functions::makeLink(e( $user->twitter ))) !!}
-                </span>
+                </>
+            </div>
+        @endif
+        @if ($user->instagram)
+            <div class="my-2">
+                <span class="text-dark main-ja-font-family">
+                    <i class="fa-brands fa-square-instagram mr-2" style="color: #f7695b;"></i>
+                    {!! nl2br(Functions::makeLink(e( $user->instagram ))) !!}
+                </>
+            </div>
+        @endif
+        @if ($user->tiktok)
+            <div class="my-2">
+                <span class="text-dark main-ja-font-family">
+                    <i class="fa-brands fa-tiktok mr-2" style="color: #000000;"></i>
+                    {!! nl2br(Functions::makeLink(e( $user->tiktok ))) !!}
+                </>
             </div>
         @endif
         <span class="text-muted small">

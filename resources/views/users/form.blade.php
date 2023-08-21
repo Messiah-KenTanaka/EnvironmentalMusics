@@ -52,11 +52,20 @@
   <textarea name="introduction" class="form-control" rows="6" placeholder="自己紹介">{{ $user->introduction ?? old('introduction') }}</textarea>
 </div>
 <div class="form-group">
-  <label>Youtube</label>
+  <label><i class="fa-brands fa-youtube mr-2" style="color: #ff0000;"></i>Youtube：</label>
   <input type="text" name="youtube" class="form-control" placeholder="https://www.youtube.com/" value="{{ $user->youtube ?? old('youtube') }}">
 </div>
 <div class="form-group">
-  <label>Twitter</label>
+  <label><i class="fa-brands fa-square-twitter mr-2" style="color: #1d96e8;"></i>Twitter：</label>
   <input type="text" name="twitter" class="form-control" placeholder="https://twitter.com/" value="{{ $user->twitter ?? old('twitter') }}">
 </div>
+<div class="form-group">
+  <label><i class="fa-brands fa-square-instagram mr-2" style="color: #f7695b;"></i>Instagram：</label>
+  <input type="text" name="instagram" class="form-control" placeholder="https://www.instagram.com/" value="{{ $user->instagram ?? old('instagram') }}">
+</div>
+<div class="form-group">
+  <label><i class="fa-brands fa-tiktok mr-2" style="color: #000000;"></i>TikTok：</label>
+  <input type="text" name="tiktok" class="form-control" placeholder="https://www.tiktok.com/ja-JP/" value="{{ $user->tiktok ?? old('tiktok') }}">
+</div>
+
 
