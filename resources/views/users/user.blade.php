@@ -65,7 +65,7 @@
             </span>
         </div>
         @if (!($record['size'] || $record['weight']))
-            <div class="m-2">なし</div>
+            <div class="text-muted">自己記録：---</div>
         @else
             <div class="d-flex">
                 <span class="text-muted">自己記録：</span>
