@@ -68,7 +68,7 @@
           @else
             <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-2" style="width: 25px; height: 25px; object-fit: cover;">
           @endif
-          {{ Functions::getNameEllipsis(Auth::user()->nickname) }}
+          {{ Functions::getNameTenEllipsis(Auth::user()->nickname) }}
         </button>
         {{--  <button class="dropdown-item" type="button"
                 onclick="location.href='{{ route("users.show", ["name" => Auth::user()->name]) }}'">

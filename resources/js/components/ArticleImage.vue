@@ -59,17 +59,18 @@ export default {
   margin-bottom: 70px;
 }
 .slide-image {
-  height: 600px; /* この値は800pxより大きい画像の高さを800pxに制限します */
-  width: auto;      /* 画像の元のアスペクト比を保持します */
+  height: 600px;
+  width: auto;
   border-radius: 40px;
   object-fit: cover;
-  display: block;  /* 画像が中央寄せになるのを防ぐため */
-  margin: 0 auto;  /* 画像を中央に配置 */
+  display: block;
+  margin: 0 auto;
   padding: 10px;
 }
 @media (max-width: 576px) {
 	.slide-image {
-    height: 350px; /* この値は800pxより大きい画像の高さを800pxに制限します */
+    height: 350px;
+    min-width: 300px;
 	}
 }
 

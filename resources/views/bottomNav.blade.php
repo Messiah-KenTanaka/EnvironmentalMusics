@@ -27,63 +27,15 @@
         <span class="extra-small">サーチ</span>
       </a>
     </li>
-    {{-- タグ(トレンド)検索 --}}
+    {{-- 全国MAP検索 --}}
     <div class="nav-item">
       <li class="nav-item dropup">
-        <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" data-toggle="modal" data-target="#trendModal">
-          <i class="fas fa-bolt"></i>
-          <span class="extra-small">トレンド</span>
+        <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" href="{{ route('map.index') }}">
+          <i class="fas fa-map-marker-alt"></i>
+          <span class="extra-small">全国マップ</span>
         </a>
       </li>
     </div>        
 
   </ul>
 </nav>
-
-{{-- メンテナンスモーダルダイアログ --}}
-<div class="modal fade" id="dmaintenanceModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header bg-primary text-white">
-              <h5 class="modal-title" id="demoModalTitle">確認</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              メンテナンス中です。
-          </div>
-          <div class="border-maintenance-modal modal-footer">
-              <button type="button" class="btn bg-primary text-white" data-dismiss="modal">閉じる</button>
-          </div>
-      </div>
-  </div>
-</div>
-
-{{--  トレンドモーダル  --}}
-<div class="modal fade" id="trendModal" tabindex="-1" role="dialog" aria-labelledby="trendModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title font-weight-bold" id="trendModalLabel"><i class="fas fa-bolt mr-2"></i>最近のトレンド</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              @foreach($tags as $i => $tag)
-              <button class="dropdown-item d-flex align-items-start" type="button"
-                      onclick="location.href='{{ route('tags.show', ['name' => $tag->name]) }}'">
-                  <div>
-                      {{ ++$i }}.
-                  </div>
-                  <div>
-                      <span class="ml-1 font-weight-bold">{{ '#' . Functions::getNameFifteenEllipsis($tag->name) }}</span><br>
-                      <span class="text-muted">{{ $tag->count }}件</span>
-                  </div>
-              </button>
-              @endforeach
-          </div>
-      </div>
-  </div>
-</div>
