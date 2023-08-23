@@ -130,17 +130,12 @@
     @endif
   </div>
   <div class="card-body pt-0 pb-2">
-    {{--  タイトルは使用しないのでコメントアウト  --}}
-    {{--  <h3 class="h4 card-title">
-      <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
-        {{ $article->title }}
-      </a>
-    </h3>  --}}
-    <div class="card-text">
+    {{-- <div class="card-text">
       <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
         {!! nl2br(Functions::makeLink(e( $article->body ))) !!}
       </a>
-    </div>
+    </div> --}}
+    <article-preview :article="{{ $article }}"></article-preview>
   </div>
   @foreach($article->tags as $tag)
     @if($loop->first)

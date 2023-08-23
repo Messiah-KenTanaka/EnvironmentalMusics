@@ -10,7 +10,7 @@
         <img :src="preview.image" alt="Preview Image" />
         <p class="font-weight-bold mt-2">{{ preview.title }}</p>
       </a>
-      <p>{{ preview.description }}</p>
+      <p>{{ truncatedText }}</p>
     </div>
     <!-- エラーメッセージを表示 -->
     <p v-if="error" class="text-danger">{{ error }}</p>
@@ -32,7 +32,17 @@ export default {
     },
     articleBody() {
       return this.article.body;
-    }
+    },
+    truncatedText() {
+      const maxLength = 128;
+      if (this.preview && this.preview.description.length > maxLength) {
+        return this.preview.description.substring(0, maxLength) + "...";
+      } else if (this.preview) {
+        return this.preview.description;
+      } else {
+        return '';
+      }
+    },
   },
   mounted() {
     this.fetchLinkPreview();
