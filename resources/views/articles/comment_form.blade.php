@@ -12,7 +12,7 @@
       <textarea class="form-control" name="comment" rows="1" placeholder="コメントする..." required></textarea>
 
       <button type="submit" id="submit-btn" class="btn btn-sm rounded-pill bg-primary text-white p-2 d-flex align-items-center justify-content-center">
-        <i class="fa-solid fa-paper-plane large-icon-2"></i>
+        <i class="fa-solid fa-paper-plane large-icon-150"></i>
         {{-- <span id="submit-text">送信</span> --}}
         <div class="spinner-border spinner-border-sm ml-2 d-none" role="status">
           <span class="sr-only">読み込み中...</span>

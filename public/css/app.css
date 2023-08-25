@@ -2,6 +2,10 @@
 
 /* 全体統一 */
 
+body {
+  overscroll-behavior-y: none;
+}
+
 .bg-black {
   background-color: #000000;
 }
@@ -36,8 +40,12 @@
   font-size: 180%;
 }
 
-.large-icon-2 {
+.large-icon-150 {
   font-size: 150%;
+}
+
+.large-icon-120 {
+  font-size: 120%;
 }
 
 .modal-body {
@@ -151,7 +159,7 @@
 }
 
 .card-box-shadow {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0);
 }
 
 /* モーダル */
@@ -163,7 +171,7 @@
 /* 投稿フローティングボタン */
 
 .floating-bottom {
-  left: 1rem;
+  right: 1rem;
   bottom: 4.5rem;
   position: fixed;
   transition: bottom 0.3s ease-in-out;
