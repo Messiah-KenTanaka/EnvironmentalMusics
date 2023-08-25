@@ -99,30 +99,41 @@ $(function() {
 
     // ヘッダースクロール
     let lastScrollPosition = 0;
+    let accumulatedScroll = 0;  // 追加: 累計スクロール量の追跡
+    let scrollDirection = null; // 追加: スクロールの方向 (up or down)
+    
     const headerNavbar = $('#navbar');
     const footerNavbar = $('#bottom-navbar');
     const floatingButton = $('#floating-button');
-
-    $(window).scroll(function () {
+    
+    $(window).scroll(function() {
         const currentScrollPosition = $(this).scrollTop();
         
-        // Header logic
-        if (currentScrollPosition > lastScrollPosition) {
-            headerNavbar.css('top', '-100px');  
-        } else {
-            headerNavbar.css('top', '0');
+        // スクロールの方向を検出
+        const currentDirection = currentScrollPosition > lastScrollPosition ? "down" : "up";
+        
+        // スクロールの方向が前回と違っていれば、累計をリセット
+        if (scrollDirection !== currentDirection) {
+            accumulatedScroll = 0;
+            scrollDirection = currentDirection;
         }
         
-        // Footer logic
-        if (currentScrollPosition > lastScrollPosition) {
-            footerNavbar.css('bottom', '-100px');
-            floatingButton.css('bottom', '10px');  
-        } else {
-            footerNavbar.css('bottom', '0');
-            floatingButton.css('bottom', '4.5rem');
+        accumulatedScroll += Math.abs(currentScrollPosition - lastScrollPosition);
+    
+        if (accumulatedScroll >= 300) {
+            // Header logic
+            if (currentDirection === "down") {
+                headerNavbar.css('top', '-100px');
+                footerNavbar.css('bottom', '-100px');
+                floatingButton.css('bottom', '10px');
+            } else {
+                headerNavbar.css('top', '0');
+                footerNavbar.css('bottom', '0');
+                floatingButton.css('bottom', '4.5rem');
+            }
+            accumulatedScroll = 0;  // 累計をリセット
         }
-
+    
         lastScrollPosition = currentScrollPosition;
     });
-
 });
