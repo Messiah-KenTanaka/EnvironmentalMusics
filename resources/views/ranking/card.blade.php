@@ -54,8 +54,8 @@
   <div class="d-flex">
     @if ($article->fish_size)
       <div class="py-0 pl-3">
-        <span class="h3 font-black-ops-one">
-          <i class="fa-solid fa-ruler-horizontal mr-1" style="color: #f91a01;"></i>
+        <i class="fa-solid fa-ruler-horizontal large-icon-120 mr-1" style="color: #f91a01;"></i>
+        <span class="h2 font-black-ops-one">
           {{ $article->fish_size }}
         </span>
         cm
@@ -64,8 +64,8 @@
 
     @if ($article->weight)
       <div class="card-body py-0 pl-3">
-        <span class="h3 font-black-ops-one">
-          <i class="fa-solid fa-weight-scale mr-1" style="color: #41230e;"></i>
+        <i class="fa-solid fa-weight-scale large-icon-120 mr-1" style="color: #41230e;"></i>
+        <span class="h2 font-black-ops-one">
           {{ number_format($article->weight) }}
         </span>
         g

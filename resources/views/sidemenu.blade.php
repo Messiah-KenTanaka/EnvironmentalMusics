@@ -8,27 +8,17 @@
         </button>
         <div class="dropdown-divider"></div>
 
-        {{--  @auth
-            <button class="dropdown-item py-2" type="button"
-                onclick="location.href='{{ route('articles.create') }}'">
-                <i class="fa-solid fa-fish"></i>
-                <span class=" font-weight-bold">Post</span>
-            </button>
-            <div class="dropdown-divider"></div>
-        @endauth  --}}
-        
-        {{--  マップは実装までコメントアウト
-        <button class="dropdown-item py-2" type="button" data-toggle="modal" data-target="#dmaintenanceModal"
-            onclick="location.href='#'">
-            <i class="fas fa-map-marker-alt"></i>
-            <span class=" pl-1 font-weight-bold">Map</span>
-        </button>
-        <div class="dropdown-divider"></div>  --}}
-
         <button class="dropdown-item py-2" type="button"
             onclick="location.href='{{ route('ranking.index') }}'">
             <i class="fas fa-crown"></i>
             <span class=" font-weight-bold">Ranking</span>
+        </button>
+        <div class="dropdown-divider"></div>
+
+        <button class="dropdown-item py-2" type="button"
+            onclick="location.href='{{ route('search.index') }}'">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span class=" font-weight-bold">Search</span>
         </button>
         <div class="dropdown-divider"></div>
 
@@ -43,13 +33,6 @@
             onclick="location.href='{{ route('weather.index') }}'">
             <i class="fa-solid fa-cloud-sun"></i>
             <span class=" font-weight-bold">Weather</span>
-        </button>
-        <div class="dropdown-divider"></div>
-
-        <button class="dropdown-item py-2" type="button"
-            onclick="location.href='{{ route('search.index') }}'">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <span class=" font-weight-bold">Search</span>
         </button>
         <div class="dropdown-divider"></div>
 
