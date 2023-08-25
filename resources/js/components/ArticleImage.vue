@@ -1,7 +1,7 @@
 <template>
-  <div class="mt-2">
+  <div>
     <!-- 画像が1枚だけの場合 -->
-    <div v-if="imageCount === 1" class="mb-2">
+    <div v-if="imageCount === 1">
       <a :href="'/articles/' + article.id">
         <img :src="article.image" :alt="'画像 '" class="img-fluid border-image p-3" />
       </a>
@@ -56,7 +56,7 @@ export default {
 /* コンポーネントのスタイル部分に追加 */
 .slider-container {
   width: 100%;
-  margin-bottom: 70px;
+  margin-bottom: 2rem;
 }
 .slide-image {
   height: 600px;

@@ -43,8 +43,8 @@
                         <div class="d-flex">
                             <div v-if="article.fish_size">
                                 <div class="h6 py-0">
-                                    <span class="pl-1">
-                                        <i class="fa-solid fa-ruler-horizontal"></i>
+                                    <span class="font-black-ops-one pl-1">
+                                        <i class="fa-solid fa-ruler-horizontal mr-1"></i>
                                         {{ article.fish_size }}
                                     </span>
                                     cm
@@ -52,8 +52,8 @@
                             </div>
                             <div v-if="article.weight">
                                 <div class="h6 py-0 pl-2">
-                                    <span class="pl-1">
-                                        <i class="fa-solid fa-weight-scale"></i>
+                                    <span class="font-black-ops-one pl-1">
+                                        <i class="fa-solid fa-weight-scale mr-1"></i>
                                         {{ article.weight }}
                                     </span>
                                     g
@@ -146,4 +146,11 @@ export default {
 .card {
     border: none;
 }
+.fa-ruler-horizontal {
+    color: #f91a01;
+}
+.fa-weight-scale {
+    color: #41230e;
+}
+
 </style>

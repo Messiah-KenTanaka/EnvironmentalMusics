@@ -70,18 +70,18 @@
             <div class="d-flex">
                 <span class="text-muted">自己記録：</span>
                 @if ($record['size'])
-                    <span class="text-dark main-ja-font-family">
-                        <i class="fa-solid fa-ruler-horizontal"></i>
+                    <span class="text-dark font-black-ops-one">
+                        <i class="fa-solid fa-ruler-horizontal mr-1" style="color: #f91a01;"></i>
                         {{ $record['size'] }}
-                        cm
                     </span>
+                    cm
                 @endif
                 @if ($record['weight'])
-                    <span class="text-dark main-ja-font-family ml-2">
-                        <i class="fa-solid fa-weight-scale"></i>
+                    <span class="text-dark font-black-ops-one ml-2">
+                        <i class="fa-solid fa-weight-scale mr-1" style="color: #41230e;"></i>
                         {{ number_format($record['weight']) }}
-                        g
                     </span>
+                    g
                 @endif
             </div>
         @endif

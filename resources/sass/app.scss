@@ -2,18 +2,6 @@
 .bg-black {
 	background-color: #000000;
 }
-.main-font-family {
-    font-family: Arial Black;
-}
-.main-ja-font-family {
-    font-family: serif;
-}
-.main-font-family-cursive {
-    font-family: cursive;
-}
-.font-nico-moji {
-	font-family: "Nico Moji";
-}
 .text-color-gold {
 	color: #FFD700;
 }
@@ -48,6 +36,27 @@
 }
 .cursor-pointer {
 	cursor: pointer;
+}
+
+/* フォント一覧 */
+.main-font-family {
+    font-family: Arial Black;
+}
+.main-ja-font-family {
+    font-family: serif;
+}
+.main-font-family-cursive {
+    font-family: cursive;
+}
+.font-nico-moji {
+	font-family: "Nico Moji";
+}
+@font-face {
+    font-family: 'Black Ops One';
+    src: url('/fonts/BlackOpsOne-Regular.ttf') format('truetype');
+}
+.font-black-ops-one {
+    font-family: "Black Ops One";
 }
 
 // ドロップダウンメニュー
@@ -85,6 +94,9 @@
 }
 
 /* ボトムナビバー bottomNav.blade.php */ 
+#bottom-navbar {
+	transition: bottom 0.3s ease-in-out;
+}
 .fixed-bottom{
     z-index: 1000;
 }
@@ -125,6 +137,7 @@
 	left: 1rem;
 	bottom: 4.5rem;
 	position: fixed;
+	transition: bottom 0.3s ease-in-out;  // この行を追加します。
 }
 
 /* 投稿ボタンクリックでローディング中 */ 

@@ -99,17 +99,29 @@ $(function() {
 
     // ヘッダースクロール
     let lastScrollPosition = 0;
-    const navbar = $('#navbar');
+    const headerNavbar = $('#navbar');
+    const footerNavbar = $('#bottom-navbar');
+    const floatingButton = $('#floating-button');
 
     $(window).scroll(function () {
         const currentScrollPosition = $(this).scrollTop();
+        
+        // Header logic
         if (currentScrollPosition > lastScrollPosition) {
-            // スクロール位置が下に移動した場合、ヘッダーを非表示にする
-            navbar.css('top', '-100px');  // ヘッダーの高さに応じて調整
+            headerNavbar.css('top', '-100px');  
         } else {
-            // スクロール位置が上に移動した場合、ヘッダーを表示する
-            navbar.css('top', '0');
+            headerNavbar.css('top', '0');
         }
+        
+        // Footer logic
+        if (currentScrollPosition > lastScrollPosition) {
+            footerNavbar.css('bottom', '-100px');
+            floatingButton.css('bottom', '10px');  
+        } else {
+            footerNavbar.css('bottom', '0');
+            floatingButton.css('bottom', '4.5rem');
+        }
+
         lastScrollPosition = currentScrollPosition;
     });
 
