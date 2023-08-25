@@ -1,11 +1,14 @@
 <template>
   <div>
+    <transition name="like-animation">
+      <i v-if="gotToLike" class="fas fa-heart animated-like"></i>
+    </transition>
     <button
       type="button"
       class="btn m-0 p-1 shadow-none"
     >
       <i class="fas fa-heart mr-1"
-        :class="{'red-text':this.isLikedBy, 'animated heartBeat fast':this.gotToLike}"
+        :class="{'red-text':this.isLikedBy, '':this.gotToLike}"
         @click="clickLike"
       />
     </button>
@@ -89,3 +92,22 @@
     },
   }
 </script>
+
+<style scoped>
+.animated-like {
+  position: absolute;
+  font-size: 3em;
+  color: red;
+  animation: moveUp 1s forwards;
+}
+@keyframes moveUp {
+  from {
+    transform: translateY(-20px) translateX(-10px);
+    opacity: 1;
+  }
+  to {
+      transform: translateY(-100px) translateX(-10px);
+      opacity: 0;
+  }
+}
+</style>
