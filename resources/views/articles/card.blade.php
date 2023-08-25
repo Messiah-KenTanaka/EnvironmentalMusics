@@ -2,9 +2,9 @@
   <div class="card-body d-flex flex-row pb-0">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
       @if ($article->user->image)
-        <img src="{{ $article->user->image }}" class="rounded-circle mb-3 mr-1" style="width: 50px; height: 50px; object-fit: cover;">
+        <img src="{{ $article->user->image }}" class="rounded-circle mb-1 mr-1" style="width: 50px; height: 50px; object-fit: cover;">
       @else
-        <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mb-3 mr-1" style="width: 50px; height: 50px; object-fit: cover;">
+        <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mb-1 mr-1" style="width: 50px; height: 50px; object-fit: cover;">
       @endif
     </a>
     <div>
@@ -129,7 +129,7 @@
       @endauth
     @endif
   </div>
-  <div class="card-body pt-0 pb-2">
+  <div class="card-body pt-0 pb-1">
 
     {{-- <div class="card-text">
       <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
@@ -142,10 +142,10 @@
   </div>
   @foreach($article->tags as $tag)
     @if($loop->first)
-      <div class="card-body pt-0 pb-2 pl-3">
+      <div class="card-body pt-0 pb-1 pl-3">
         <div class="card-text line-height">
     @endif
-          <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="p-1 mr-1 mt-1">
+          <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="mr-1">
             {{ Functions::getNameTenEllipsis($tag->hashtag) }}
           </a>
     @if($loop->last)
@@ -156,8 +156,8 @@
   <div class="d-flex">
     @if ($article->fish_size)
       <div class="pt-0 pb-2 pl-3">
-        <span class="pl-1">
-          <i class="fa-solid fa-ruler-horizontal"></i>
+        <span class="font-black-ops-one pl-1">
+          <i class="fa-solid fa-ruler-horizontal mr-1" style="color: #f91a01;"></i>
           {{ $article->fish_size }}
         </span>
         cm
@@ -169,9 +169,9 @@
         </span>
     @endif --}}
     @if ($article->weight)
-      <div class="card-body pt-0 pb-2 pl-3">
-        <span class="pl-1">
-          <i class="fa-solid fa-weight-scale"></i>
+      <div class="card-body pt-0 pb-1 pl-3">
+        <span class="font-black-ops-one pl-1">
+          <i class="fa-solid fa-weight-scale mr-1" style="color: #41230e;"></i>
           {{ number_format($article->weight) }}
         </span>
         g
@@ -180,8 +180,8 @@
   </div>
   
   @if ($article->pref || $article->bass_field)
-    <div class="card-body pt-0 pb-2 pl-3">
-      <i class="fas fa-map-marker-alt mr-1"></i>
+    <div class="card-body pt-0 pb-1 pl-3">
+      <i class="fa-solid fa-location-dot mr-1" style="color: #33a853;"></i>
       @if ($article->pref)
         <a onclick="location.href='{{ route('ranking.pref', ['pref' => $article->pref]) }}'">
           <small class="border border-pref p-2 mr-2">
@@ -205,7 +205,7 @@
     <article-image :article="{{ $article }}"></article-image>
   @endif
 
-  <div class="card-body pt-0 pb-2 pl-3">
+  <div class="card-body pt-0 pb-1 pl-3">
     <div class="card-text d-flex">
       <article-like
         :initial-is-liked-by='@json($article->isLikedBy(Auth::user()))'

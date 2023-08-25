@@ -1,6 +1,6 @@
 <div class="card mt-3">
   <div class="card-body">
-    <div class="card-body pt-0 pb-2">
+    <div class="card-body pt-0 pb-1">
       <p class="card-text">
         <strong>ユーザーID: </strong>{{ $contact->user_id }} <br>
         <strong>ユーザー名: </strong>{{ $contact->name }} <br>

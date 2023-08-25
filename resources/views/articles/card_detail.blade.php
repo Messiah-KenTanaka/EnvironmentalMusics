@@ -2,9 +2,9 @@
   <div class="card-body d-flex flex-row pb-0">
     <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
       @if ($article->user->image)
-        <img src="{{ $article->user->image }}" class="rounded-circle mb-3 mr-1" style="width: 50px; height: 50px; object-fit: cover;">
+        <img src="{{ $article->user->image }}" class="rounded-circle mb-1 mr-1" style="width: 50px; height: 50px; object-fit: cover;">
       @else
-        <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mb-3 mr-1" style="width: 50px; height: 50px; object-fit: cover;">
+        <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mb-1 mr-1" style="width: 50px; height: 50px; object-fit: cover;">
       @endif
     </a>
     <div>
@@ -129,7 +129,7 @@
       @endauth
     @endif
   </div>
-  <div class="card-body pt-0 pb-2">
+  <div class="card-body pt-0 pb-1">
     {{-- <div class="card-text">
       <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
         {!! nl2br(Functions::makeLink(e( $article->body ))) !!}
@@ -139,10 +139,10 @@
   </div>
   @foreach($article->tags as $tag)
     @if($loop->first)
-      <div class="card-body pt-0 pb-2 pl-3">
+      <div class="card-body pt-0 pb-1 pl-3">
         <div class="card-text line-height">
     @endif
-          <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="p-1 mr-1 mt-1">
+          <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="mr-1">
             {{ Functions::getNameTenEllipsis($tag->hashtag) }}
           </a>
     @if($loop->last)
@@ -308,7 +308,7 @@
     </div>
   @endif
 
-  <div class="card-body pt-0 pb-2 pl-3">
+  <div class="card-body pt-0 pb-1 pl-3">
     <div class="card-text d-flex">
       <article-like
         :initial-is-liked-by='@json($article->isLikedBy(Auth::user()))'

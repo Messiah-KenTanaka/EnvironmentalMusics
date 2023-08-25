@@ -1,4 +1,4 @@
-<nav class="nav navbar fixed-bottom navbar-expand navbar-light bg-black text-white d-block d-xl-none">
+<nav id="bottom-navbar" class="nav navbar fixed-bottom navbar-expand navbar-light bg-black text-white d-block d-xl-none">
   <ul class="navbar-nav d-flex justify-content-around ml-auto">
     {{--  ホーム  --}}
     <li class="nav-item">

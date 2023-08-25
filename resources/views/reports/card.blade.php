@@ -1,6 +1,6 @@
 <div class="card mt-3">
   <div class="card-body">
-    <div class="card-body pt-0 pb-2">
+    <div class="card-body pt-0 pb-1">
       <p class="card-text">
         <strong>投稿のID: </strong>{{ $report->article_id }} <br>
         <strong>投稿したユーザーのID: </strong>{{ $report->article_user_id }} <br>
