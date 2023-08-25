@@ -15,6 +15,13 @@
             <div class="card-text">
               <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
                 @include('articles.form')
+                <button type="submit" id="submit-btn" class="btn rounded-pill bg-primary text-white btn-block">
+                  <i class="fa-solid fa-paper-plane pr-2"></i>
+                  <span id="submit-text">投稿する</span>
+                  <div class="spinner-border spinner-border-sm ml-2 d-none" role="status">
+                    <span class="sr-only">読み込み中...</span>
+                  </div>
+                </button>
               </form>
             </div>
           </div>
