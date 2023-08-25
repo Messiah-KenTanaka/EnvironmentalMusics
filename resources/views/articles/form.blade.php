@@ -1,5 +1,5 @@
 @csrf
-<div class="d-flex flex-row justify-content-between align-items-center my-3">
+{{-- <div class="d-flex flex-row justify-content-between align-items-center my-3">
   <div class="d-flex">
     @if (Auth::user()->image)
       <img src="{{ Auth::user()->image }}" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
@@ -14,7 +14,7 @@
       <span class="sr-only">読み込み中...</span>
     </div>
   </button>
-</div>
+</div> --}}
 
 <div class="row">
   <div class="col-4">
@@ -46,13 +46,13 @@
   <label></label>
   <textarea name="body" required class="form-control" rows="12" placeholder="今日はどうだった...？">{{ $article->body ?? old('body') }}</textarea>
 </div>
-<div class="form-group">
+{{-- <div class="form-group">
   <article-tags-input
     :initial-tags='@json($tagNames ?? [])'
     :autocomplete-items='@json($allTagNames ?? [])'
   >
   </article-tags-input>
-</div>
+</div> --}}
 
 <div class="form-group">
   <div class="accordion" id="detailAccordion">
@@ -67,6 +67,16 @@
       
       <div id="collapseDetail" class="collapse" aria-labelledby="headingDetail" data-parent="#detailAccordion">
         <div class="mt-2">
+          <div class="row">
+            <div class="form-group col">
+              <label class="form-text text-muted small">ハッシュタグ:</label>
+              <article-tags-input
+                :initial-tags='@json($tagNames ?? [])'
+                :autocomplete-items='@json($allTagNames ?? [])'
+              >
+              </article-tags-input>
+            </div>
+          </div>
           <label class="form-text text-muted small">釣果:</label>
           <div class="d-flex row">
             <div class="form-group col-6">
@@ -76,6 +86,7 @@
               <input type="number" max="10000" name="weight" class="form-control" placeholder="ウェイト...(g)" value="{{ $article->weight ?? old('weight') }}">
             </div>
           </div>
+          <label class="form-text text-muted small">場所:</label>
           <div class="d-flex row">
             <div class="form-group col-6">
               <select name="pref" class="custom-select">
