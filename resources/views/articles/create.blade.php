@@ -19,7 +19,6 @@
             </div>
           </div>
         </div>
-        @include('floatingButton')
       </div>
     </div>
   </div>
