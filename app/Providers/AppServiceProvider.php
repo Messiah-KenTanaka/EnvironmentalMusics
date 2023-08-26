@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\ArticleComment;
+use App\Notification;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -52,6 +54,26 @@ class AppServiceProvider extends ServiceProvider
                     'pageName' => $pageName,
                 ]
             );
+        });
+
+        /**
+         * 通知テーブル作成
+         *
+         * @param ArticleComment $articleComment
+         */
+        ArticleComment::created(function ($articleComment) {
+            // 自分自身の投稿にコメントした場合、通知を作成しない
+            if ($articleComment->user_id == $articleComment->article->user_id) {
+                return;
+            }
+            Notification::create([
+                'sender_id' => $articleComment->user_id,
+                'receiver_id' => $articleComment->article->user_id,
+                'article_id' => $articleComment->article_id,
+                'article_comment_id' => $articleComment->id,
+                'type' => 'comment',
+                'read' => false,  // 未読
+            ]);
         });
     }
 }

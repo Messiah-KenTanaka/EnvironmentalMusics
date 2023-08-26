@@ -6,6 +6,7 @@ use App\Article;
 use App\User;
 use App\Tag;
 use App\BlockList;
+use App\Notification;
 use App\PostReport;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\DB;
@@ -313,6 +314,25 @@ class UserController extends Controller
             'users' => $users,
             'tags' => $tags,
             'searched_name' => $user_name,
+        ]);
+    }
+
+    public function notifications()
+    {
+        $userId = auth()->id(); // ログインユーザーのIDを取得
+
+        $notifications = Notification::where('receiver_id', $userId)
+            // ->when(!is_null($user_name), function ($query) use ($user_name) {
+            //     return $query->where('nickname', 'like', '%' . $user_name . '%');
+            // })
+            ->orderByDesc('created_at')
+            ->paginate(config('paginate.paginate_50'));
+        
+        $tags = Tag::getPopularTag();
+
+        return view('users.notifications', [
+            'notifications' => $notifications,
+            'tags' => $tags,
         ]);
     }
 
