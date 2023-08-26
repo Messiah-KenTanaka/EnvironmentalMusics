@@ -6,6 +6,7 @@ use App\Article;
 use App\Tag;
 use App\BlockList;
 use App\ArticleComment;
+use App\Notification;
 use App\UserPrefectureMap;
 use App\Http\Requests\ArticleRequest;
 use App\Services\LinkPreviewService;
@@ -163,8 +164,25 @@ class ArticleController extends Controller
         return redirect()->route('articles.index');
     }
 
-    public function show(Article $article)
+    public function show(Article $article, $notificationId = null)
     {
+        // 通知を既読にする
+        if ($notificationId) {
+            $notification = Notification::find($notificationId);
+            if ($notification && $notification->receiver_id == auth()->id()) {
+                // 特定の記事に関連するすべての通知を取得
+                $relatedNotifications = Notification::where('article_id', $notification->article_id)
+                    ->where('receiver_id', auth()->id())
+                    ->get();
+                    
+                // すべての関連通知を既読に更新
+                foreach ($relatedNotifications as $relatedNotification) {
+                    $relatedNotification->read = true;
+                    $relatedNotification->save();
+                }
+            }
+        }        
+
         $comments = $article->article_comments()->with('user')
             ->where('publish_flag', 1)
             ->orderByDesc('created_at')
@@ -180,6 +198,22 @@ class ArticleController extends Controller
             'comments' => $comments,
         ]);
     }
+
+    public function markAllAsRead()
+    {
+        // 特定のユーザーの全ての未読通知を取得
+        $unreadNotifications = Notification::where('receiver_id', auth()->id())
+            ->where('read', false)
+            ->get();
+    
+        // すべての未読通知を既読に更新
+        foreach ($unreadNotifications as $unreadNotification) {
+            $unreadNotification->read = true;
+            $unreadNotification->save();
+        }
+    
+        return redirect()->back();
+    }    
 
     public function like(Request $request, Article $article)
     {

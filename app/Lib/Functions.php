@@ -35,7 +35,7 @@ class Functions
         }
     }
 
-        /*
+    /*
     * 15文字以上は3点リーダーを付ける
     */
     public static function getNameFifteenEllipsis($name)
@@ -46,6 +46,20 @@ class Functions
         // 文字数が15文字以下ならば三点リーダーは付けない
         } else {
             return $name;
+        }
+    }
+
+    /*
+    * 48文字以上は3点リーダーを付ける
+    */
+    public static function getCommentFortyEightEllipsis($comment)
+    {
+        if( mb_strlen( $comment, 'UTF-8' ) > 48) {
+            $comment = mb_substr( $comment, 0, 48, 'UTF-8' );
+            return $comment . '…';
+        // 文字数が48文字以下ならば三点リーダーは付けない
+        } else {
+            return $comment;
         }
     }
 

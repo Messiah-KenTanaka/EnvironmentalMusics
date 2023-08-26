@@ -95,6 +95,12 @@
         </button>
         <div class="dropdown-divider"></div>
         <button class="dropdown-item" type="button"
+          onclick="location.href='{{ route('notifications') }}'">
+          <i class="fa-regular fa-bell"></i>
+          <span class="ml-1">通知</span>
+        </button>
+        <div class="dropdown-divider"></div>
+        <button class="dropdown-item" type="button"
           onclick="location.href='{{ route('ranking.index') }}'">
           <i class="fas fa-crown"></i>
           <span class="ml-1">ランキング</span>

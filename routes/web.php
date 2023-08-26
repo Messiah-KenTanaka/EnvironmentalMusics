@@ -32,7 +32,7 @@ Route::prefix('register')->name('register.')->group(function () {
 // 投稿
 Route::get('/', 'ArticleController@index')->name('articles.index');
 Route::resource('/articles', 'ArticleController')->except(['index', 'show'])->middleware('auth');
-Route::resource('/articles', 'ArticleController')->only(['show']);
+Route::get('/articles/{article}/{notificationId?}', 'ArticleController@show')->name('articles.show');
 Route::post('/articles/comment/{article}', 'ArticleController@comment')->name('articles.comment')->middleware('auth');
 Route::patch('/articles/{article}', 'ArticleController@delete')->name('articles.delete')->middleware('auth');
 Route::prefix('articles')->name('articles.')->group(function () {
@@ -66,6 +66,10 @@ Route::get('/weather/{pref}', 'WeatherController@show')->name('weather.show');
 // 投稿検索
 Route::get('/search', 'SearchController@index')->name('search.index');
 Route::get('/searchKeyword', 'SearchController@show')->name('search.show');
+
+// 通知
+Route::get('/notifications', 'UserController@notifications')->name('notifications');
+Route::get('/notifications/markAllAsRead', 'ArticleController@markAllAsRead')->name('notifications.markAllAsRead');
 
 // お問い合わせ
 Route::get('/contact/{name?}', 'ContactController@index')->name('contact.index');
