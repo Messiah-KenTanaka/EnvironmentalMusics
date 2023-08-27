@@ -212,7 +212,7 @@ class ArticleController extends Controller
             $unreadNotification->save();
         }
     
-        return redirect()->back();
+        return redirect()->back()->with('success', '全ての通知を既読にしました。');
     }    
 
     public function like(Request $request, Article $article)

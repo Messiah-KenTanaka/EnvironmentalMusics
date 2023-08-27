@@ -92,6 +92,30 @@ body {
   background-color: #e8f5e9;
 }
 
+.notification-number-label {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  font-size: 12px;
+  /* フォントサイズも調整可能です */
+  line-height: 15px;
+  text-align: center;
+  z-index: 1;
+  /* アイコンの前に配置するためのz-index */
+  background-color: rgba(246, 5, 5, 0.8);
+  /* 黒色の半透明 */
+  border-radius: 50%;
+  /* make it round */
+  color: #ffffff;
+  /* text color */
+  width: 15px;
+  /* same width and height */
+  height: 15px;
+  /* same width and height */
+  font-weight: bold;
+  /* make the text bold */
+}
+
 .full-width-dropdown {
   width: 100vw;
   max-width: 100%;
