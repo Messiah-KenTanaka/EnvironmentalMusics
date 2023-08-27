@@ -69,7 +69,7 @@
     @auth
     {{--  ログイン中  --}}
     <!-- Dropdown -->
-    <li class="nav-item dropdown">
+    <li class="nav-item dropdown position-relative">
       <a class="nav-link text-white" id="navbarDropdownMenuLink" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         @if (Auth::user()->image)
@@ -77,6 +77,7 @@
         @else
           <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-1" style="width: 25px; height: 25px; object-fit: cover;">
         @endif
+        <span class="notification-number-label">{{ $unreadNotificationsCount }}</span>
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
         <button class="dropdown-item" type="button"

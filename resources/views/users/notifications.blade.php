@@ -8,10 +8,14 @@
         <div class="row">
             @include('sidemenu')
             <div class="col">
+                @include('success_text')
+                @include('error_text')        
                 <div class="ranking-title">
                     通知一覧
                 </div>
-                <a href="{{ route('notifications.markAllAsRead') }}" class="btn btn-primary">全て既読にする</a>
+                <div class="d-flex">
+                    <a href="{{ route('notifications.markAllAsRead') }}" class="btn btn-primary ml-auto">全て既読にする</a>
+                </div>
                 @foreach($notifications as $notification)
                     @include('users.notification')
                 @endforeach

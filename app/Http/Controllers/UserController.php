@@ -321,10 +321,8 @@ class UserController extends Controller
     {
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
-        $notifications = Notification::where('receiver_id', $userId)
-            // ->when(!is_null($user_name), function ($query) use ($user_name) {
-            //     return $query->where('nickname', 'like', '%' . $user_name . '%');
-            // })
+        $notifications = Notification::with(['sender', 'article', 'article_comment'])
+            ->where('receiver_id', $userId)
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate_50'));
         
