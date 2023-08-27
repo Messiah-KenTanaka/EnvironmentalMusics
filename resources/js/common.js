@@ -103,8 +103,8 @@ $(function() {
     let scrollDirection = null; // 追加: スクロールの方向 (up or down)
     
     const headerNavbar = $('#navbar');
-    const footerNavbar = $('#bottom-navbar');
-    const floatingButton = $('#floating-button');
+    // const footerNavbar = $('#bottom-navbar');
+    // const floatingButton = $('#floating-button');
     
     $(window).scroll(function() {
         const currentScrollPosition = $(this).scrollTop();
@@ -124,12 +124,12 @@ $(function() {
             // Header logic
             if (currentDirection === "down") {
                 headerNavbar.css('top', '-100px');
-                footerNavbar.css('bottom', '-100px');
-                floatingButton.css('bottom', '10px');
+                // footerNavbar.css('bottom', '-100px');
+                // floatingButton.css('bottom', '10px');
             } else {
                 headerNavbar.css('top', '0');
-                footerNavbar.css('bottom', '0');
-                floatingButton.css('bottom', '4.5rem');
+                // footerNavbar.css('bottom', '0');
+                // floatingButton.css('bottom', '4.5rem');
             }
             accumulatedScroll = 0;  // 累計をリセット
         }
