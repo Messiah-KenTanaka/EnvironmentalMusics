@@ -77,7 +77,6 @@
         @else
           <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-1" style="width: 25px; height: 25px; object-fit: cover;">
         @endif
-        <span class="notification-number-label">{{ $unreadNotificationsCount }}</span>
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
         <button class="dropdown-item" type="button"
@@ -93,12 +92,6 @@
         <button form="logout-button" class="dropdown-item" type="submit">
           <i class="fas fa-sign-in-alt"></i>
           <span class="ml-1">ログアウト</span>
-        </button>
-        <div class="dropdown-divider"></div>
-        <button class="dropdown-item" type="button"
-          onclick="location.href='{{ route('notifications') }}'">
-          <i class="fa-regular fa-bell"></i>
-          <span class="ml-1">通知</span>
         </button>
         <div class="dropdown-divider"></div>
         <button class="dropdown-item" type="button"
