@@ -3,15 +3,15 @@
     {{--  ホーム  --}}
     <li class="nav-item">
       <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" href="{{ route('articles.index') }}">
-        <i class="fas fa-home"></i>
+        <i class="fas fa-home large-icon-120"></i>
         <span class="extra-small">ホーム</span>
       </a>
     </li>
     {{-- ランキング --}}
     <li class="nav-item">
       <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" href="{{ route('ranking.index') }}">
-        <i class="fas fa-crown"></i>
-        <span class="extra-small">順位</span>
+        <i class="fas fa-crown large-icon-120"></i>
+        <span class="extra-small">ランキング</span>
       </a>
     </li>
     {{-- 投稿 --}}
@@ -23,7 +23,7 @@
     {{-- 検索 --}}
     <li class="nav-item">
       <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" href="{{ route('search.index') }}">
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-magnifying-glass large-icon-120"></i>
         <span class="extra-small">サーチ</span>
       </a>
     </li>
@@ -32,9 +32,11 @@
       <div class="nav-item">
         <li class="nav-item dropup">
           <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" href="{{ route('notifications') }}">
-            <i class="fa-regular fa-bell"></i>
-            <span class="extra-small">通知</span>
-            <span class="notification-number-label">{{ $unreadNotificationsCount }}</span>
+            <i class="fa-regular fa-bell large-icon-120"></i>
+            <span class="extra-small">お知らせ</span>
+            @if (isset($unreadNotificationsCount) && $unreadNotificationsCount)
+              <span class="notification-number-label">{{ $unreadNotificationsCount }}</span>
+            @endif
           </a>
         </li>
       </div>
@@ -42,8 +44,8 @@
     {{--  全国<MAP></MAP>  --}}
     @guest
       <a class="nav-link d-flex flex-column justify-content-center align-items-center text-white" href="{{ route('map.index') }}">
-        <i class="fas fa-map-marker-alt"></i>
-        <span class="extra-small">マップ</span>
+        <i class="fas fa-map-marker-alt large-icon-120"></i>
+        <span class="extra-small">全国マップ</span>
       </a>
     @endguest
   </ul>
