@@ -95,10 +95,10 @@ body {
 .notification-number-label {
   position: absolute;
   top: 0.1rem;
-  right: 0rem;
+  right: 0.3rem;
   font-size: 12px;
   /* フォントサイズも調整可能です */
-  line-height: 15px;
+  line-height: 16px;
   text-align: center;
   z-index: 1;
   /* アイコンの前に配置するためのz-index */
@@ -108,9 +108,9 @@ body {
   /* make it round */
   color: #ffffff;
   /* text color */
-  width: 15px;
+  width: 16px;
   /* same width and height */
-  height: 15px;
+  height: 16px;
   /* same width and height */
   font-weight: bold;
   /* make the text bold */

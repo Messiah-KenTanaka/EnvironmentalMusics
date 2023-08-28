@@ -72,16 +72,16 @@ body {
 .notification-number-label {
 	position: absolute;
 	top: 0.1rem;
-	right: 0.0rem;
+	right: 0.3rem;
 	font-size: 12px;  /* フォントサイズも調整可能です */
-	line-height: 15px;
+	line-height: 16px;
 	text-align: center;
 	z-index: 1;  /* アイコンの前に配置するためのz-index */
 	background-color: rgba(246, 5, 5, 0.8); /* 黒色の半透明 */
 	border-radius: 50%; /* make it round */
 	color: #ffffff; /* text color */
-	width: 15px; /* same width and height */
-	height: 15px; /* same width and height */
+	width: 16px; /* same width and height */
+	height: 16px; /* same width and height */
 	font-weight: bold; /* make the text bold */
 }
 
