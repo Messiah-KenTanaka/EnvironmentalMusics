@@ -94,6 +94,13 @@ export default {
 </script>
 
 <style scoped>
+#map {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    left: 0%;
+    top: 0%;
+}
   .legend {
     display: flex;
     justify-content: center;
