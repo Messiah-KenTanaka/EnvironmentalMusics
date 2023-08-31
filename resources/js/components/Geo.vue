@@ -11,7 +11,13 @@
         </div>
       </div>
     </div>
-    <div id="map" style="width: 100%;"></div>
+    <div id="map" style="width: 100%;">
+      <div v-if="loading" class="loading">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">読み込み中...</span>
+        </div>
+      </div>
+    </div>
     <div class="legend">
       <span class="color-box" style="background-color: green;"></span>
       <span>: 未達成</span>
@@ -20,6 +26,7 @@
     </div>
   </div>
 </template>
+
 
 <script>
 import * as d3 from 'd3';
@@ -30,7 +37,8 @@ export default {
   },
   data() {
     return {
-      achievedPrefectures: []
+      achievedPrefectures: [],
+      loading: true
     };
   },
   computed: {
@@ -88,6 +96,7 @@ export default {
         svg.selectAll("path")
           .attr("d", path);
       });
+      this.loading = false;
     });
   },
 };
@@ -100,6 +109,13 @@ export default {
     height: 600px;
     left: 0%;
     top: 0%;
+}
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
 }
   .legend {
     display: flex;
