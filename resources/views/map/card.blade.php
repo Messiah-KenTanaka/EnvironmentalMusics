@@ -1,5 +1,4 @@
-<div class="card mt-3">
-  <div class="card-body">
-    <map-field></map-field>
-  </div>
+<div class="">
+  <p>※タップして釣り場情報を見る</p>
+  <map-field></map-field>
 </div>

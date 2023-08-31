@@ -205,10 +205,10 @@ body {
   transition: bottom 0.3s ease-in-out;
 }
 
-/* 投稿ボタンクリックでローディング中 */
+/* スピナーローディング中の色 */
 
 .spinner-border {
-  color: #32a852;
+  color: #4285F4;
 }
 
 .button-loading {

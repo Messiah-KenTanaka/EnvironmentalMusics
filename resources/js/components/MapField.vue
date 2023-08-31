@@ -1,5 +1,12 @@
 <template>
-    <div class="folium-map z_index_1" id="map"></div>
+    <div>
+        <div v-if="loading" class="loading">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">読み込み中...</span>
+            </div>
+        </div>
+        <div class="folium-map z_index_1" id="map"></div>
+    </div>
 </template>
 
 <script>
@@ -13,13 +20,15 @@ export default {
 
     data() {
         return {
-            places: []
+            places: [],
+            loading: true
         }
     },
     mounted() {
         axios.get('/api/place-maps').then(response => {
             this.places = response.data;
             this.initMap();
+            this.loading = false;
         });
     },
     methods: {
@@ -62,20 +71,20 @@ export default {
                 popupContent += '<table style="width:100%;">';
 
                 // 内容
-                popupContent += renderRow('内容:', place.description);
+                popupContent += renderRow('内容 : ', place.description);
 
                 // 住所 
-                popupContent += renderRow('住所:', place.address);
+                popupContent += renderRow('住所 : ', place.address);
 
-                // 電話番号
-                popupContent += renderRow('電話番号:', place.phone);
+                // 電話番号 使用しない為、コメントアウト
+                // popupContent += renderRow('電話番号:', place.phone);
 
                 // 記事
                 if (place.recommendation_url && place.recommendation_url.trim() !== '') {
-                    const link = `<a href="${place.recommendation_url}" target="_blank">オススメの記事へアクセス</a>`;
-                    popupContent += renderRow('記事:', link, true);
+                    const link = `<a href="${place.recommendation_url}" target="_blank">おすすめの記事へアクセス</a>`;
+                    popupContent += renderRow('記事 : ', link, true);
                 } else {
-                    popupContent += renderRow('記事:', '---');
+                    popupContent += renderRow('記事 : ', '---');
                 }
 
                 popupContent += '</table>';
@@ -90,19 +99,26 @@ export default {
 
                 popupContent += `<div style="text-align:center;"><a href="https://www.google.com/maps?q=${place.latitude},${place.longitude}" target="_blank">Google Mapsで見る</a></div>`;
 
-                marker.bindPopup(popupContent).openPopup();
+                marker.bindPopup(popupContent);
             });
         }
     }
 };
 </script>
 
-<style>
+<style scoped>
 #map {
     position: relative;
     width: 100%;
     height: 600px;
     left: 0%;
     top: 0%;
+}
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
 }
 </style>
