@@ -137,11 +137,12 @@ export default {
 <style scoped>
 .comment-container {
     position: relative;
-    height: 500px;
+    height: 600px;
+    overflow-y: auto;
 }
 .loading {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 2em;
