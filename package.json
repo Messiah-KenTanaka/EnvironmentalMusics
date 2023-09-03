@@ -29,6 +29,8 @@
     "dependencies": {
         "d3": "^7.8.5",
         "leaflet": "^1.9.4",
-        "vue-slick-carousel": "^1.0.6"
+        "moment": "^2.29.4",
+        "vue-slick-carousel": "^1.0.6",
+        "vue-toasted": "^1.1.28"
     }
 }

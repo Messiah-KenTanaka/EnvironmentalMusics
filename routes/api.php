@@ -25,3 +25,6 @@ Route::get('/place-maps', 'PlaceMapController@index');
 
 // プレビューを取得
 Route::post('/link-preview', 'LinkPreviewController@getLinkPreview');
+
+// コメントを取得
+Route::get('/article/{article_id}/comments', 'ArticleController@getComments');

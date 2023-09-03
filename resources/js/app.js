@@ -12,6 +12,10 @@ import RankingPrefSlider from './components/RankingPrefSlider'
 import RankingFieldSlider from './components/RankingFieldSlider'
 import ArticlePreview from './components/ArticlePreview'
 import ArticleImage from './components/ArticleImage'
+import CommentComponent from './components/CommentComponent'
+import Toasted from 'vue-toasted';
+
+Vue.use(Toasted);
 
 const app = new Vue({
   el: '#app',
@@ -26,5 +30,6 @@ const app = new Vue({
     RankingFieldSlider,
     ArticlePreview,
     ArticleImage,
+    CommentComponent,
   }
 })
