@@ -181,7 +181,12 @@ class ArticleController extends Controller
                     $relatedNotification->save();
                 }
             }
-        }        
+        }
+
+        // 記事が削除されていればリダイレクト
+        if ($article->publish_flag == 0) {
+            return redirect()->back()->with('success', '選択した投稿は削除されており表示できません。');
+        }
 
         $comments = $article->article_comments()->with('user')
             ->where('publish_flag', 1)
@@ -195,8 +200,20 @@ class ArticleController extends Controller
         return view('articles.show', [
             'article' => $article,
             'tags' => $tags,
-            'comments' => $comments,
+            // 'comments' => $comments,
         ]);
+    }
+
+    public function getComments($article_id)
+    {
+        $article = Article::findOrFail($article_id);
+
+        $comments = $article->article_comments()->with('user')
+            ->where('publish_flag', 1)
+            ->orderByDesc('created_at')
+            ->get();
+
+        return response()->json($comments);
     }
 
     public function markAllAsRead()

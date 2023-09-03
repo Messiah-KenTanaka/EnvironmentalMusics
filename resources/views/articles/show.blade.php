@@ -10,16 +10,9 @@
       <div class="col col-xl-9">
         @include('articles.card_detail')
         @include('articles.comment_form')
-        <ul class="nav nav-tabs nav-justified mt-3">
-          <li class="nav-item">
-              <a class="nav-link text-muted">
-                コメント
-              </a>
-          </li>
-        </ul>
-        @foreach($comments as $comment)
-          @include('articles.comment')
-        @endforeach
+        @if (isset($article->comment_count) && $article->comment_count > 0)
+          <comment-component :article_id="{{ $article->id }}" :auth_id="{{ Auth::id() }}"></comment-component>
+        @endif
         @include('floatingButton')
       </div>
     </div>

@@ -24,15 +24,13 @@ class ArticleCommentController extends Controller
     {
         // コメントを投稿した本人かどうかのチェック
         if (Auth::id() !== $articleComment->user_id) {
-            return redirect()->route('articles.index')
-                ->with('error', '不正な操作が検出されました。');
+            return response()->json(['error' => '不正な操作が検出されました。'], 403);
         }
-    
+
         $articleComment->publish_flag = 0;
         $articleComment->save();
-    
-        return redirect()->route('articles.index')
-            ->with('success', 'コメントを削除しました。');
+
+        return response()->json(['success' => 'コメントを削除しました。'], 200);
     }
     
 }
