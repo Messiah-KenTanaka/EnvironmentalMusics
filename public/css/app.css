@@ -61,6 +61,10 @@ body {
   cursor: pointer;
 }
 
+.border-bottom {
+  border-bottom: 1px solid #ccc;
+}
+
 /* フォント一覧 */
 
 .main-font-family {
