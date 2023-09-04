@@ -13,7 +13,7 @@
         </div>
         @include('articles.card_detail')
         @include('articles.comment_form')
-        <div class="text-center border-bottom mt-3">
+        <div class="text-center mt-3">
           コメント
         </div>
         @if (isset($article->comment_count) && $article->comment_count > 0)
