@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="">
     <div class="comment-container">
       <div v-if="loading" class="loading">
         <div class="spinner-border" role="status">
@@ -140,12 +140,12 @@ export default {
 <style scoped>
 .comment-container {
     position: relative;
-    height: 500px;
+    height: 600px;
     overflow-y: auto;
 }
 .loading {
     position: absolute;
-    top: 30%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 2em;

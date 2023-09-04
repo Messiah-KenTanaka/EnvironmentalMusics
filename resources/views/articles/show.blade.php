@@ -16,12 +16,10 @@
         @if( Auth::id() )
           <comment-form-component :auth-id="{{ Auth::id() }}" :auth-image="'{{ Auth::user()->image }}'" :article-id="{{ $article->id }}"></comment-form-component>
         @endif
-        <div class="text-center mt-3">
+        <div class="text-center border-bottom mt-3">
           コメント
         </div>
-        @if (isset($article->comment_count) && $article->comment_count > 0)
-          <comment-component :article_id="{{ $article->id }}" :auth_id="{{ Auth::check() ? Auth::id() : 0 }}"></comment-component>
-        @endif
+        <comment-component :article_id="{{ $article->id }}" :auth_id="{{ Auth::check() ? Auth::id() : 0 }}"></comment-component>
         {{--  @include('floatingButton')  --}}
       </div>
     </div>
