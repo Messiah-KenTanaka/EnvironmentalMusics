@@ -211,6 +211,7 @@ class ArticleController extends Controller
         $comments = $article->article_comments()->with('user')
             ->where('publish_flag', 1)
             ->orderByDesc('created_at')
+            ->limit(50)
             ->get();
 
         return response()->json($comments);
