@@ -96,6 +96,7 @@ export default {
   created() {
     moment.locale('ja');
     this.fetchComments();
+    this.$eventBus.$on('commentAdded', this.fetchComments);
   },
   methods: {
     diffForHumans(date) {

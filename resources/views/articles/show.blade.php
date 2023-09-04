@@ -12,7 +12,10 @@
           ポスト
         </div>
         @include('articles.card_detail')
-        @include('articles.comment_form')
+        {{-- @include('articles.comment_form') --}}
+        @if( Auth::id() )
+          <comment-form-component :auth-id="{{ Auth::id() }}" :auth-image="'{{ Auth::user()->image }}'" :article-id="{{ $article->id }}"></comment-form-component>
+        @endif
         <div class="text-center mt-3">
           コメント
         </div>

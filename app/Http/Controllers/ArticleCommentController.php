@@ -12,12 +12,17 @@ class ArticleCommentController extends Controller
 {
     public function comment(Request $request, ArticleComment $articleComment)
     {
+        // コメントした本人かどうかのチェック
+        if (Auth::id() !== $request->user_id) {
+            return response()->json(['error' => '不正な操作が検出されました。'], 403);
+        }
+
         $articleComment->fill($request->all());
         $articleComment->user_id = Auth::id();
     
         $articleComment->save();
     
-        return redirect()->route('articles.show', ['article' => $request->article_id]);
+        return response()->json(['success' => 'コメントしました。'], 200);
     }
 
     public function delete(ArticleComment $articleComment)
