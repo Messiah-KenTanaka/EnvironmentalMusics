@@ -69,7 +69,7 @@ Route::get('/searchKeyword', 'SearchController@show')->name('search.show');
 
 // 通知
 Route::get('/notifications', 'UserController@notifications')->name('notifications');
-Route::get('/notifications/markAllAsRead', 'ArticleController@markAllAsRead')->name('notifications.markAllAsRead');
+Route::get('/notifications/markAllAsRead', 'NotificationController@markAllAsRead')->name('notifications.markAllAsRead');
 
 // お問い合わせ
 Route::get('/contact/{name?}', 'ContactController@index')->name('contact.index');
@@ -86,7 +86,7 @@ Route::get('/reportContent', 'ReportController@show')->name('reportContent.show'
 
 // ユーザー
 Route::prefix('users')->name('users.')->group(function () {
-    Route::get('/{name}', 'UserController@show')->name('show');
+    Route::get('/{name}/{notificationId?}', 'UserController@show')->name('show')->where('notificationId', '[0-9]+');
     Route::get('/{name}/likes', 'UserController@likes')->name('likes');
     Route::get('/{name}/conquest', 'UserController@conquest')->name('conquest');
     Route::get('/{name}/followings', 'UserController@followings')->name('followings');

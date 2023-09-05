@@ -18,8 +18,20 @@ use Functions;
 
 class UserController extends Controller
 {
-    public function show(string $name)
+    public function show(string $name, $notificationId = null)
     {
+        // 通知を既読にする
+        if ($notificationId) {
+            $notification = Notification::find($notificationId);
+            $notification->read = true;
+            $notification->save();
+        }
+
+        // ユーザーが凍結されていればリダイレクト処理を実装予定
+        // if ($article->publish_flag == 0) {
+        //     return redirect()->back()->with('success', '選択したユーザーはアカウント凍結されており表示できません。');
+        // }
+
         $user = User::where('name', $name)->first()
             ->load(['articles' => function($query) {
                 $query->with('user', 'likes', 'tags')
@@ -254,6 +266,14 @@ class UserController extends Controller
 
         $request->user()->followings()->detach($user);
         $request->user()->followings()->attach($user);
+
+        // 通知を作成
+        Notification::create([
+            'sender_id' => $request->user()->id,
+            'receiver_id' => $user->id,
+            'type' => 'follow',
+            'read' => false,  // 未読
+        ]);
 
         return ['name' => $name];
     }
