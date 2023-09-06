@@ -14,7 +14,8 @@ class LikeController extends Controller
     {
         $likeUserIds = $article->likes->pluck('id')->toArray();
 
-        $users = User::where('publish_flag', 1)
+        $users = User::with('followers')
+            ->where('publish_flag', 1)
             ->whereIn('id', $likeUserIds)
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate_50'));

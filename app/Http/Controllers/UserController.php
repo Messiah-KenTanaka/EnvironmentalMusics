@@ -321,7 +321,8 @@ class UserController extends Controller
     {
         $user_name = $request->input('nickname');
 
-        $users = User::where('publish_flag', 1)
+        $users = User::with('followers')
+            ->where('publish_flag', 1)
             ->when(!is_null($user_name), function ($query) use ($user_name) {
                 return $query->where('nickname', 'like', '%' . $user_name . '%');
             })
