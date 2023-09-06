@@ -81,11 +81,14 @@ export default {
 
                 // 記事
                 if (place.recommendation_url && place.recommendation_url.trim() !== '') {
-                    const link = `<a href="${place.recommendation_url}" target="_blank">おすすめの記事へアクセス</a>`;
+                    const link = `<a href="${place.recommendation_url}" target="_blank">おすすめの記事へアクセス<i class="fa-solid fa-share"></i></a>`;
                     popupContent += renderRow('記事 : ', link, true);
                 } else {
                     popupContent += renderRow('記事 : ', '---');
                 }
+
+                const mapLink = `<a href="https://www.google.com/maps?q=${place.latitude},${place.longitude}" target="_blank">Google Mapsでここに行く<i class="fa-solid fa-car-side"></i></a>`;
+                popupContent += renderRow('地図 : ', mapLink, true);
 
                 popupContent += '</table>';
 
@@ -96,8 +99,6 @@ export default {
                             <td style="padding: 5px 0;">${valueContent}</td>
                             </tr>`;
                 }
-
-                popupContent += `<div style="text-align:center;"><a href="https://www.google.com/maps?q=${place.latitude},${place.longitude}" target="_blank">Google Mapsで見る</a></div>`;
 
                 marker.bindPopup(popupContent);
             });
