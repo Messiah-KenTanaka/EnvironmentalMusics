@@ -106,9 +106,14 @@ export default {
 #map {
     position: relative;
     width: 100%;
-    height: 600px;
+    height: 700px;
     left: 0%;
     top: 0%;
+}
+@media (max-width: 576px) {
+  #map {
+    height: 400px;
+  }
 }
 .loading {
     position: absolute;
