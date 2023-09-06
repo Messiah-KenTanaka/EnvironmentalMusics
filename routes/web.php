@@ -67,6 +67,9 @@ Route::get('/weather/{pref}', 'WeatherController@show')->name('weather.show');
 Route::get('/search', 'SearchController@index')->name('search.index');
 Route::get('/searchKeyword', 'SearchController@show')->name('search.show');
 
+// いいね
+Route::get('/likes/{article}', 'LikeController@index')->name('likes.index');
+
 // 通知
 Route::get('/notifications', 'UserController@notifications')->name('notifications');
 Route::get('/notifications/markAllAsRead', 'NotificationController@markAllAsRead')->name('notifications.markAllAsRead');

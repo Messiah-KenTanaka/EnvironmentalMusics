@@ -325,4 +325,12 @@
       </div>
     </div>
   </div>
+
+  <div class="card-body">
+    <div class="card-text d-flex">
+        <a href="{{ route('likes.index', ['article' => $article]) }}" class="text-muted mr-2">
+            <span class="font-weight-bold">{{ $article->count_likes }}</span> 件のいいね！
+        </a>
+    </div>
+  </div>
 </div>
