@@ -91,6 +91,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserPrefectureMap::class);
     }
+    
+    public function retweets() {
+        return $this->hasMany(Retweet::class);
+    }
 
     public function isFollowedBy(?User $user): bool
     {

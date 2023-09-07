@@ -28,7 +28,7 @@ class ArticleController extends Controller
         // ブロックリストからブロックしたユーザーのIDを取得
         $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
 
-        $articles = Article::with(['user', 'likes', 'tags'])
+        $articles = Article::with(['user', 'likes', 'tags', 'retweets'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -235,6 +235,27 @@ class ArticleController extends Controller
         return [
             'id' => $article->id,
             'countLikes' => $article->count_likes,
+        ];
+    }
+
+    public function retweet(Request $request, Article $article)
+    {
+        $article->retweets()->detach($request->user()->id);
+        $article->retweets()->attach($request->user()->id);
+
+        return [
+            'id' => $article->id,
+            'countRetweets' => $article->count_retweets,
+        ];
+    }
+
+    public function unRetweet(Request $request, Article $article)
+    {
+        $article->retweets()->detach($request->user()->id);
+
+        return [
+            'id' => $article->id,
+            'countRetweets' => $article->count_retweets,
         ];
     }
 

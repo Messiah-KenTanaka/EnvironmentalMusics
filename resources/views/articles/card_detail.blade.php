@@ -317,8 +317,17 @@
         endpoint="{{ route('articles.like', ['article' => $article]) }}"
       >
       </article-like>
-      <div>
-        <a class="btn m-0 pl-3 p-1 shadow-none text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
+      <div class="pl-3">
+        <article-retweet
+          :initial-is-retweeted-by='@json($article->isRetweetedBy(Auth::user()))'
+          :initial-count-retweets='@json($article->count_retweets)'
+          :authorized='@json(Auth::check())'
+          endpoint="{{ route('articles.retweets', ['article' => $article]) }}"
+        >
+        </article-retweet>
+      </div>
+      <div class="pl-3">
+        <a class="btn m-0 p-1 shadow-none text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
           <i class="fa-regular fa-message mr-1"></i>
         </a>
         {{ $article->comment_count }}

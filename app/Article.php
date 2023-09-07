@@ -57,6 +57,23 @@ class Article extends Model
         return $this->likes->count();
     }
 
+    public function retweets(): BelongsToMany
+    {
+        return $this->belongsToMany('App\User', 'retweets')->withTimestamps();
+    }
+
+    public function isRetweetedBy(?User $user): bool
+    {
+        return $user
+            ? (bool)$this->retweets->where('id', $user->id)->count()
+            : false;
+    }
+
+    public function getCountRetweetsAttribute(): int
+    {
+        return $this->retweets->count();
+    }
+
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany('App\Tag')->withTimestamps();
