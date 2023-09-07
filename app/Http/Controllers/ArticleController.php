@@ -6,12 +6,16 @@ use App\Article;
 use App\Tag;
 use App\BlockList;
 use App\ArticleComment;
+use App\Follow;
+use App\Retweet;
 use App\Notification;
 use App\UserPrefectureMap;
 use App\Http\Requests\ArticleRequest;
 use App\Services\LinkPreviewService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 use Functions;
 
 class ArticleController extends Controller
@@ -24,6 +28,37 @@ class ArticleController extends Controller
     public function index()
     {
         $userId = auth()->id(); // ログインユーザーのIDを取得
+
+        // 現在のページ数を取得
+        $currentPage = request()->get('page', 1);
+        
+        // ページ1の場合のみリツイートされた記事を取得
+        if ($currentPage == 1) {
+            // フォローしているユーザーIDを取得
+            $followingUsers = Follow::where('followee_id', $userId)
+                ->inRandomOrder()
+                ->limit(100)
+                ->pluck('follower_id');
+            
+            $recentRetweets = Retweet::whereIn('user_id', $followingUsers)
+                ->where('created_at', '>=', Carbon::now()->subDays(1))
+                ->groupBy('article_id')
+                ->select('article_id', DB::raw('MAX(created_at) as last_retweet'))
+                ->orderBy('last_retweet', 'desc')
+                ->take(100)
+                ->pluck('article_id');
+
+            // リツイートされた記事を取得
+            $retweetArticles = Article::with(['user', 'likes', 'tags', 'retweets'])
+                ->withCount(['article_comments as comment_count' => function ($query) {
+                    $query->where('publish_flag', 1);
+                }])
+                ->whereIn('id', $recentRetweets)
+                ->orderByDesc('created_at')
+                ->get();
+        } else {
+            $retweetArticles = collect();  // 空のコレクションを作成
+        }
 
         // ブロックリストからブロックしたユーザーのIDを取得
         $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
@@ -43,6 +78,7 @@ class ArticleController extends Controller
         $tags = Tag::getPopularTag();
 
         return view('articles.index',[
+            'retweetArticles' => $retweetArticles, 
             'articles' => $articles, 
             'tags' => $tags,
         ]);

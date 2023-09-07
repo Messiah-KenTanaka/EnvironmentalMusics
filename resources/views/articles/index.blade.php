@@ -23,6 +23,11 @@
             <div class="form-control" style="min-height: 20px;">今日はどうだった...？</div>
           </a>
         </div>
+        @if ($articles->currentPage() == 1)
+          @foreach($retweetArticles as $article)
+            @include('articles.card')
+          @endforeach
+        @endif
         @foreach($articles as $article)
           @include('articles.card')
         @endforeach
