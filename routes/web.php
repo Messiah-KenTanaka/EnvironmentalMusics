@@ -38,6 +38,8 @@ Route::patch('/articles/{article}', 'ArticleController@delete')->name('articles.
 Route::prefix('articles')->name('articles.')->group(function () {
     Route::put('/{article}/like', 'ArticleController@like')->name('like')->middleware('auth');
     Route::delete('/{article}/like', 'ArticleController@unlike')->name('unlike')->middleware('auth');
+    Route::put('/{article}/retweets', 'ArticleController@retweet')->name('retweets')->middleware('auth');
+    Route::delete('/{article}/retweets', 'ArticleController@unRetweet')->name('unRetweets')->middleware('auth');
 });
 
 // コメント

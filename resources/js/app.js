@@ -12,6 +12,7 @@ import RankingPrefSlider from './components/RankingPrefSlider'
 import RankingFieldSlider from './components/RankingFieldSlider'
 import ArticlePreview from './components/ArticlePreview'
 import ArticleImage from './components/ArticleImage'
+import ArticleRetweet from './components/ArticleRetweet'
 import CommentComponent from './components/CommentComponent'
 import CommentFormComponent from './components/CommentFormComponent'
 import Toasted from 'vue-toasted';
@@ -34,5 +35,6 @@ const app = new Vue({
     ArticleImage,
     CommentComponent,
     CommentFormComponent,
+    ArticleRetweet,
   }
 })
