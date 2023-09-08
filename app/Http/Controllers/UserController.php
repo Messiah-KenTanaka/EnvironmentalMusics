@@ -34,7 +34,7 @@ class UserController extends Controller
 
         $user = User::where('name', $name)->first()
             ->load(['articles' => function($query) {
-                $query->with('user', 'likes', 'tags')
+                $query->with('user', 'likes', 'tags', 'retweets')
                     ->withCount(['article_comments as comment_count' => function($query) {
                         $query->where('publish_flag', 1);
                 }]);
@@ -108,7 +108,7 @@ class UserController extends Controller
     {
         $user = User::where('name', $name)->first()
             ->load(['likes' => function($query) {
-                $query->with('user', 'likes', 'tags')
+                $query->with('user', 'likes', 'tags', 'retweets')
                     ->withCount(['article_comments as comment_count' => function($query) {
                         $query->where('publish_flag', 1);
                     }]);
@@ -143,7 +143,7 @@ class UserController extends Controller
     {
         $user = User::where('name', $name)->first()
             ->load(['likes' => function($query) {
-                $query->with('user', 'likes', 'tags')
+                $query->with('user', 'likes', 'tags', 'retweets')
                     ->withCount(['article_comments as comment_count' => function($query) {
                         $query->where('publish_flag', 1);
                     }]);
