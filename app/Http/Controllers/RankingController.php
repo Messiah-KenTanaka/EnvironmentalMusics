@@ -123,7 +123,7 @@ class RankingController extends Controller
         $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
 
         // 全国ランキング
-        $ranking = Article::with(['user', 'likes', 'tags', 'retweets'])
+        $ranking = Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -155,7 +155,7 @@ class RankingController extends Controller
         $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
 
         // 全国ランキング
-        $ranking = Article::with(['user', 'likes', 'tags', 'retweets'])
+        $ranking = Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -187,7 +187,7 @@ class RankingController extends Controller
         $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
 
         // 都道府県ランキング
-        $ranking = Article::with(['user', 'likes', 'tags', 'retweets'])
+        $ranking = Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -221,7 +221,7 @@ class RankingController extends Controller
         $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
 
         // 都道府県ランキング
-        $ranking = Article::with(['user', 'likes', 'tags', 'retweets'])
+        $ranking = Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -255,7 +255,7 @@ class RankingController extends Controller
         $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
 
         // フィールドランキング
-        $ranking = Article::with(['user', 'likes', 'tags', 'retweets'])
+        $ranking = Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -289,7 +289,7 @@ class RankingController extends Controller
         $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
 
         // フィールドランキング
-        $ranking = Article::with(['user', 'likes', 'tags', 'retweets'])
+        $ranking = Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
