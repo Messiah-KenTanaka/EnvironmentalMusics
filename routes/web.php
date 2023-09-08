@@ -72,6 +72,9 @@ Route::get('/searchKeyword', 'SearchController@show')->name('search.show');
 // いいね
 Route::get('/likes/{article}', 'LikeController@index')->name('likes.index');
 
+// リツイート
+Route::get('/retweets/{article}', 'RetweetController@index')->name('retweets.index');
+
 // 通知
 Route::get('/notifications', 'UserController@notifications')->name('notifications');
 Route::get('/notifications/markAllAsRead', 'NotificationController@markAllAsRead')->name('notifications.markAllAsRead');

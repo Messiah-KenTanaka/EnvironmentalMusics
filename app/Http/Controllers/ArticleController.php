@@ -54,6 +54,7 @@ class ArticleController extends Controller
                     $query->where('publish_flag', 1);
                 }])
                 ->whereIn('id', $recentRetweets)
+                ->where('publish_flag', 1)
                 ->orderByDesc('created_at')
                 ->get()
                 ->map(function ($article) {
