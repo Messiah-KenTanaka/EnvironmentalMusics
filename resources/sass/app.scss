@@ -46,6 +46,9 @@ body {
 .border-bottom {
 	border-bottom: 1px solid #ccc;
 }
+.border-pref {
+	border-radius: 15px;
+}
 
 /* フォント一覧 */
 .main-font-family {
@@ -144,9 +147,6 @@ body {
     border: solid 1px #dee2e6;
     .border-image {
         border-radius: 40px;
-    }
-    .border-pref {
-        border-radius: 15px;
     }
 }
 // 検索ページカード
