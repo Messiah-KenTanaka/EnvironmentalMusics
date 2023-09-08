@@ -283,6 +283,18 @@ class ArticleController extends Controller
         $article->retweets()->detach($request->user()->id);
         $article->retweets()->attach($request->user()->id);
 
+        // 自分自身の投稿をリツイートした場合、通知を作成しない
+        if ($request->user()->id != $article->user_id) {
+            // 通知を作成
+            Notification::create([
+                'sender_id' => $request->user()->id,
+                'receiver_id' => $article->user_id,
+                'article_id' => $article->id,
+                'type' => 'retweet',
+                'read' => false,  // 未読
+            ]);
+        }
+
         return [
             'id' => $article->id,
             'countRetweets' => $article->count_retweets,
