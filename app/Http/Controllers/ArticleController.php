@@ -55,7 +55,11 @@ class ArticleController extends Controller
                 }])
                 ->whereIn('id', $recentRetweets)
                 ->orderByDesc('created_at')
-                ->get();
+                ->get()
+                ->map(function ($article) {
+                    $article->isRetweet = true;
+                    return $article;
+                });
         } else {
             $retweetArticles = collect();  // 空のコレクションを作成
         }

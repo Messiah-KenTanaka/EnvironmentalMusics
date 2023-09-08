@@ -22,7 +22,7 @@ class TagController extends Controller
                     $query->where('publish_flag', 1)
                         ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
                 })
-                ->with(['user', 'likes', 'tags'])
+                ->with(['user', 'likes', 'tags', 'retweets'])
                 ->withCount(['article_comments as comment_count' => function($query) {
                     $query->where('publish_flag', 1);
                 }])

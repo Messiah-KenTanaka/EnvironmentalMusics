@@ -17,7 +17,7 @@ class SearchController extends Controller
         $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
 
         // 検索結果を取得するクエリを作成する
-        $articles = Article::with(['user', 'likes', 'tags'])
+        $articles = Article::with(['user', 'likes', 'tags', 'retweets'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -47,7 +47,7 @@ class SearchController extends Controller
 
         $keyword = $request->input('keyword');
         // 検索結果を取得するクエリを作成する
-        $articles = Article::with(['user', 'likes', 'tags'])
+        $articles = Article::with(['user', 'likes', 'tags', 'retweets'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
