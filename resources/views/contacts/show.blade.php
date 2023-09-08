@@ -17,7 +17,7 @@
             <p class="text-center my-3"><a href="{{ $contactContent->nextPageUrl() }}">もっと見る</a></p>
           @endif
         @endif
-        @include('floatingButton')
+        {{-- @include('floatingButton') --}}
       </div>
     </div>
   </div>

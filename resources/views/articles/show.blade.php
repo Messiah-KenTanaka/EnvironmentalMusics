@@ -20,7 +20,7 @@
           コメント
         </div>
         <comment-component :article_id="{{ $article->id }}" :auth_id="{{ Auth::check() ? Auth::id() : 0 }}"></comment-component>
-        {{--  @include('floatingButton')  --}}
+        {{--  {{-- @include('floatingButton') --}}  --}}
       </div>
     </div>
   </div>

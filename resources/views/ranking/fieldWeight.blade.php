@@ -14,7 +14,7 @@
         @foreach($ranking as $key => $article)
           @include('ranking.card', ['rank' => ++$key])
         @endforeach
-        @include('floatingButton')
+        {{-- @include('floatingButton') --}}
       </div>
     </div>
   </div>

@@ -13,7 +13,7 @@
             </div>
             @include('search')
             @include('search.search_cards')
-            @include('floatingButton')
+            {{-- @include('floatingButton') --}}
         </div>
         </div>
     </div>

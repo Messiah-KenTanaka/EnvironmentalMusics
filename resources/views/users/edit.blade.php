@@ -28,7 +28,7 @@
             </div>
           </div>
         @endif
-        @include('floatingButton')
+        {{-- @include('floatingButton') --}}
       </div>
     </div>
   </div>

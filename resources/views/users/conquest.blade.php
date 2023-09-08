@@ -13,7 +13,7 @@
                 <div class="mt-3">
                     <geo :user-id="{{ $user->id }}"></geo>
                 </div>
-                @include('floatingButton')
+                {{-- @include('floatingButton') --}}
             </div>
         </div>
     </div>
