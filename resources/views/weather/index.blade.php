@@ -15,7 +15,7 @@
         @foreach ($weatherData as $date => $weatherItems)
           @include('weather.card')
         @endforeach
-        @include('floatingButton')
+        {{-- @include('floatingButton') --}}
       </div>
     </div>
   </div>

@@ -17,7 +17,7 @@
                 @if ($followers->hasMorePages())
                     <p class="text-center my-3"><a href="{{ $followers->nextPageUrl() }}">もっと見る</a></p>
                 @endif
-                @include('floatingButton')
+                {{-- @include('floatingButton') --}}
             </div>
         </div>
     </div>

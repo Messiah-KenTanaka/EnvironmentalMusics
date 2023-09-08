@@ -35,7 +35,7 @@
         </a>
         @include('ranking.field_search')
         <ranking-field-slider :field-ranking="{{ $fieldRanking }}"></ranking-field-slider>
-        @include('floatingButton')
+        {{-- @include('floatingButton') --}}
       </div>
     </div>
   </div>

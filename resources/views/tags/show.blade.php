@@ -23,7 +23,7 @@
         @foreach($articles as $article)
           @include('articles.card')
         @endforeach
-        @include('floatingButton')
+        {{-- @include('floatingButton') --}}
         @if ($articles->hasMorePages())
           <p class="text-center mt-3 mb-5"><a href="{{ $articles->nextPageUrl() }}">もっと読み込む</a></p>
         @endif
