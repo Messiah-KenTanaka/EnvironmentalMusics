@@ -1,4 +1,4 @@
-<div class="card mt-3">
+<div class="border-bottom">
     <div class="p-2">
         <div class="d-flex flex-row align-items-center">
             <a href="{{ route('users.show', ['name' => $person->name]) }}" class="text-dark">

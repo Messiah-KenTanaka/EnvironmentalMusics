@@ -10,7 +10,9 @@
             <div class="col">
                 @include('users.user')
                 @include('users.tabs', ['hasArticles' => false, 'hasLikes' => false, 'hasConquest' => false])
-                <h4 class="text-center main-ja-font-family text-danger mt-3">ブロックリスト</a></h4>
+                <div class="ranking-title text-danger ">
+                    ブロックリスト
+                </div>
                 @foreach($blockList as $person)
                     @include('users.block_person')
                 @endforeach

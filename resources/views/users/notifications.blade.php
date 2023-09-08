@@ -13,7 +13,7 @@
                 <div class="ranking-title">
                     通知一覧
                 </div>
-                <div class="d-flex">
+                <div class="d-flex mb-3">
                     <a href="{{ route('notifications.markAllAsRead') }}" class="btn btn-primary ml-auto">全て既読にする</a>
                 </div>
                 @foreach($notifications as $notification)

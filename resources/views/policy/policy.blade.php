@@ -9,7 +9,9 @@
     <div class="row">
       @include('sidemenu')
       <div class="col mt-4">
-        <h2 class="text-center main-ja-font-family font-weight-bold">プライバシーポリシー</a></h2>
+        <div class="ranking-title">
+          プライバシーポリシー
+        </div>
           <div class="mx-3 my-5">
             <p>当アプリケーションは、利用者のプライバシー保護を重視し、利用者情報の取り扱いには細心の注意を払っています。以下のプライバシーポリシーは、当アプリケーションで取り扱う個人情報について、どのように収集・利用・管理されるかについて示したものです。</p>
             <p>1. 収集する情報の範囲</p>

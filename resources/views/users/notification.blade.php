@@ -1,6 +1,6 @@
 @if ($notification->type === 'comment')
     <a href="{{ route('articles.show', ['article' => $notification->article->id, 'notificationId' => $notification->id]) }}" class="text-dark">
-        <div class="card mt-3 {{ $notification->read ? '' : 'bg-light-green' }}">
+        <div class="border-bottom {{ $notification->read ? '' : 'bg-light-green' }}">
             <div class="card-body d-flex">
                 <div class="mr-3">
                     @if ($notification->sender->image)
@@ -22,7 +22,7 @@
 @endif
 @if ($notification->type === 'follow')
     <a href="{{ route('users.show', ['name' => $notification->sender->name, 'notificationId' => $notification->id]) }}" class="text-dark">
-        <div class="card mt-3 {{ $notification->read ? '' : 'bg-light-green' }}">
+        <div class="border-bottom {{ $notification->read ? '' : 'bg-light-green' }}">
             <div class="card-body d-flex">
                 <div class="mr-3">
                     @if ($notification->sender->image)
@@ -43,7 +43,7 @@
 @endif
 @if ($notification->type === 'retweet')
     <a href="{{ route('articles.show', ['article' => $notification->article->id, 'notificationId' => $notification->id]) }}" class="text-dark">
-        <div class="card mt-3 {{ $notification->read ? '' : 'bg-light-green' }}">
+        <div class="border-bottom {{ $notification->read ? '' : 'bg-light-green' }}">
             <div class="card-body d-flex">
                 <div class="mr-3">
                     @if ($notification->sender->image)
