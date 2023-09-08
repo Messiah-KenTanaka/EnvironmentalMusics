@@ -112,7 +112,7 @@
         </article-retweet>
       </div>
       <div class="pl-3">
-        <a class="btn m-0 pl-3 p-1 shadow-none text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
+        <a class="btn m-0 p-1 shadow-none text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
           <i class="fa-regular fa-message mr-1"></i>
         </a>
         {{ $article->comment_count }}

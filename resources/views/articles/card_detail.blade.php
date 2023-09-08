@@ -340,6 +340,9 @@
         <a href="{{ route('likes.index', ['article' => $article]) }}" class="text-muted mr-2">
             <span class="font-weight-bold">{{ $article->count_likes }}</span> 件のいいね！
         </a>
+        <a href="{{ route('retweets.index', ['article' => $article]) }}" class="text-muted mr-2">
+          <span class="font-weight-bold">{{ $article->count_retweets }}</span> 件のリツイート！
+        </a>
     </div>
   </div>
 </div>

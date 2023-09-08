@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', config('app.name') . ' | いいねしたユーザー')
+@section('title', config('app.name') . ' | リツイートしたユーザー')
 
 @section('content')
     @include('nav')
@@ -9,7 +9,7 @@
             @include('sidemenu')
             <div class="col">
                 <div class="ranking-title">
-                    いいねしたユーザー
+                    リツイートしたユーザー
                 </div>
                 @foreach($users as $person)
                     @include('users.person')
