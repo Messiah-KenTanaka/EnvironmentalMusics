@@ -65,6 +65,10 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
+.border-pref {
+  border-radius: 15px;
+}
+
 /* フォント一覧 */
 
 .main-font-family {
@@ -184,10 +188,6 @@ body {
 
 .card .border-image {
   border-radius: 40px;
-}
-
-.card .border-pref {
-  border-radius: 15px;
 }
 
 .card-box-shadow {

@@ -1,17 +1,17 @@
-<div class="card mt-3">
-    <div class="card-body">
-        <div class="d-flex flex-row">
+<div class="border-bottom">
+    <div class="p-2">
+        <div class="d-flex flex-row align-items-center">
             <a href="{{ route('users.show', ['name' => $person->name]) }}" class="text-dark">
             @if ($person->image)
-                <img src="{{ $person->image }}" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;">
+                <img src="{{ $person->image }}" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
             @else
-                <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;">
+                <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
             @endif
             </a>
+            <h2 class="h6 card-title font-weight-bold m-2">
+                <a href="{{ route('users.show', ['name' => $person->name]) }}" class="text-dark">{{ $person->nickname }}</a>
+            </h2>
         </div>
-        <h2 class="h5 card-title m-0">
-            <a href="{{ route('users.show', ['name' => $person->name]) }}" class="text-dark">{{ $person->nickname }}</a>
-        </h2>
     </div>
 </div>
     

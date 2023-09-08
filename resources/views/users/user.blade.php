@@ -1,4 +1,4 @@
-<div class="card mt-3">
+<div class="mt-3">
     <div>
         @if ($user->background_image)
             <img src="{{ $user->background_image }}" class="img-fluid background-image">
@@ -33,6 +33,13 @@
                 </a>
             @endif
         </div>
+        @if ($isFollowing)
+        <div class="mb-2">
+            <small class="bg-light rounded p-1">
+                <span class="text-muted">フォローされています</span>
+            </small>
+        </div>
+        @endif
         <h2 class="h4 card-title m-0">
             <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark font-weight-bold">
                 {{ $user->nickname }}

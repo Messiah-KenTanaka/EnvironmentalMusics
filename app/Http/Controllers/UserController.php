@@ -40,6 +40,13 @@ class UserController extends Controller
                 }]);
             }]);
 
+        // ログインユーザーのIDを取得
+        $userId = auth()->id();
+
+        // フォローされているか
+        $userId = auth()->id();
+        $isFollowing = $user->followings->contains($userId);
+
         $articles = $user->articles
             ->where('publish_flag', 1)
             ->sortByDesc('created_at')
@@ -61,7 +68,8 @@ class UserController extends Controller
             'user' => $user,
             'articles' => $articles,
             'tags' => $tags,
-            'record' => $record
+            'record' => $record,
+            'isFollowing' => $isFollowing
         ]);
     }
 
@@ -114,6 +122,13 @@ class UserController extends Controller
                     }]);
             }]);
 
+        // ログインユーザーのIDを取得
+        $userId = auth()->id();
+
+        // フォローされているか
+        $userId = auth()->id();
+        $isFollowing = $user->followings->contains($userId);
+
         $articles = $user->likes
             ->where('publish_flag', 1)
             ->sortByDesc('created_at')
@@ -135,7 +150,8 @@ class UserController extends Controller
             'user' => $user,
             'articles' => $articles,
             'tags' => $tags,
-            'record' => $record
+            'record' => $record,
+            'isFollowing' => $isFollowing
         ]);
     }
 
@@ -148,6 +164,13 @@ class UserController extends Controller
                         $query->where('publish_flag', 1);
                     }]);
             }]);
+
+        // ログインユーザーのIDを取得
+        $userId = auth()->id();
+
+        // フォローされているか
+        $userId = auth()->id();
+        $isFollowing = $user->followings->contains($userId);
 
         $record['size'] = $user->articles
             ->whereNotNull('fish_size')
@@ -164,7 +187,8 @@ class UserController extends Controller
         return view('users.conquest', [
             'user' => $user,
             'tags' => $tags,
-            'record' => $record
+            'record' => $record,
+            'isFollowing' => $isFollowing
         ]);
     }
 
@@ -172,6 +196,13 @@ class UserController extends Controller
     {
         $user = User::where('name', $name)->first()
             ->load('followings.followers');
+
+        // ログインユーザーのIDを取得
+        $userId = auth()->id();
+
+        // フォローされているか
+        $userId = auth()->id();
+        $isFollowing = $user->followings->contains($userId);
 
         $followings = $user->followings
             ->sortByDesc('created_at')
@@ -193,7 +224,8 @@ class UserController extends Controller
             'user' => $user,
             'followings' => $followings,
             'tags' => $tags,
-            'record' => $record
+            'record' => $record,
+            'isFollowing' => $isFollowing
         ]);
     }
     
@@ -201,6 +233,13 @@ class UserController extends Controller
     {
         $user = User::where('name', $name)->first()
             ->load('followers.followers');
+
+        // ログインユーザーのIDを取得
+        $userId = auth()->id();
+
+        // フォローされているか
+        $userId = auth()->id();
+        $isFollowing = $user->followings->contains($userId);
 
         $followers = $user->followers
             ->sortByDesc('created_at')
@@ -222,7 +261,8 @@ class UserController extends Controller
             'user' => $user,
             'followers' => $followers,
             'tags' => $tags,
-            'record' => $record
+            'record' => $record,
+            'isFollowing' => $isFollowing
         ]);
     }
 
@@ -230,6 +270,13 @@ class UserController extends Controller
     {
         $user = User::where('name', $name)->first()
             ->load('followings.followers');
+
+        // ログインユーザーのIDを取得
+        $userId = auth()->id();
+
+        // フォローされているか
+        $userId = auth()->id();
+        $isFollowing = $user->followings->contains($userId);
 
         $blockList = $user->blockList
             ->sortByDesc('created_at')
@@ -251,7 +298,8 @@ class UserController extends Controller
             'user' => $user,
             'blockList' => $blockList,
             'tags' => $tags,
-            'record' => $record
+            'record' => $record,
+            'isFollowing' => $isFollowing
         ]);
     }
 
