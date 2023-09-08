@@ -155,7 +155,7 @@
         <div class="card-text line-height">
     @endif
           <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="mr-1">
-            {{ Functions::getNameTenEllipsis($tag->hashtag) }}
+            {{ Functions::getNameFifteenEllipsis($tag->hashtag) }}
           </a>
     @if($loop->last)
         </div>

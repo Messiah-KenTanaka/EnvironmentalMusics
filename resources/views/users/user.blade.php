@@ -28,7 +28,7 @@
                 <a class="ml-auto"
                     onclick="location.href='{{ route('users.edit', ['name' => $user->name]) }}'">
                     <small class="border border-pref p-2">
-                        プロフィール編集
+                        <span class="d-none d-sm-inline">プロフィール</span>編集
                     </small>
                 </a>
             @endif
