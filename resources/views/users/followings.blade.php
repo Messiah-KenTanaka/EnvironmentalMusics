@@ -10,7 +10,9 @@
             <div class="col">
                 @include('users.user')
                 @include('users.tabs', ['hasArticles' => false, 'hasLikes' => false, 'hasConquest' => false])
-                <h4 class="text-center main-ja-font-family mt-3">フォロー中</a></h4>
+                <div class="ranking-title">
+                    フォロー中
+                </div>
                 @foreach($followings as $person)
                     @include('users.person')
                 @endforeach

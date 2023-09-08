@@ -9,7 +9,9 @@
       @include('sidemenu')
       <div class="col">
         @if(in_array(Auth::id(), [1, 2, 3]))
-          <h2 class="text-center main-ja-font-family mt-5">お問合せ内容</a></h2>
+          <div class="ranking-title">
+            お問合せ内容
+          </div>
           @foreach($contactContent as $contact)
             @include('contacts.card')
           @endforeach
