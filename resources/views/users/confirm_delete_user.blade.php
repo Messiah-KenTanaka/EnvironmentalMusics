@@ -10,7 +10,9 @@
       @include('sidemenu')
       <div class="col mt-4">
         @if( Auth::id() == $user->id )
-          <h2 class="text-center main-ja-font-family text-danger">ユーザー削除確認</a></h2>
+          <div class="ranking-title text-danger">
+            ユーザー削除確認
+          </div>
           <div class="card mt-3">
             <div class="card-body pt-0">
               @include('error_card_list')
