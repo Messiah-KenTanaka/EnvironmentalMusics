@@ -473,6 +473,9 @@ class UserController extends Controller
             return redirect()->route('articles.index')
                 ->with('error', '削除処理に失敗しました。');
         }
+        
+        // ユーザーをログアウト
+        Auth::logout();
 
         return redirect()->route('articles.index')
             ->with('success', 'ユーザーを削除しました。');
