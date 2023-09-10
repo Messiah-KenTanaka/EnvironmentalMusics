@@ -9,7 +9,7 @@
       <div class="" v-for="comment in comments" :key="comment.id">
         <div class="card-body d-flex align-items-start">
           <a :href="'/users/'+comment.user.name" class="text-dark mr-3">
-            <img :src="comment.user.image ? comment.user.image : '/images/noimage01.png'" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+            <img :src="comment.user.image ? comment.user.image : '/images/noimage02.jpg'" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
           </a>
           <div class="w-100 custom-bg">
             <div class="d-flex justify-content-between align-items-start w-100">

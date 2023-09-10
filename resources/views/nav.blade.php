@@ -75,7 +75,7 @@
         @if (Auth::user()->image)
           <img src="{{ Auth::user()->image }}" class="rounded-circle mr-1" style="width: 25px; height: 25px; object-fit: cover;">
         @else
-          <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-1" style="width: 25px; height: 25px; object-fit: cover;">
+          <img src="{{ asset('images/noimage02.jpg')}}" class="rounded-circle mr-1" style="width: 25px; height: 25px; object-fit: cover;">
         @endif
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
@@ -84,7 +84,7 @@
           @if (Auth::user()->image)
             <img src="{{ Auth::user()->image }}" class="rounded-circle mr-3" style="width: 25px; height: 25px; object-fit: cover;">
           @else
-            <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle mr-3" style="width: 25px; height: 25px; object-fit: cover;">
+            <img src="{{ asset('images/noimage02.jpg')}}" class="rounded-circle mr-3" style="width: 25px; height: 25px; object-fit: cover;">
           @endif
           {{ Functions::getNameTenEllipsis(Auth::user()->nickname) }}
         </button>
