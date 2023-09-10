@@ -96,7 +96,7 @@ export default {
         return {
             slidesToShow: 3, // 初期値
             images: {
-                no_image: "/images/noimage01.png",
+                no_image: "/images/noimage02.jpg",
                 ranking1: "/images/ranking_1.png",
                 ranking2: "/images/ranking_2.png",
                 ranking3: "/images/ranking_3.png",

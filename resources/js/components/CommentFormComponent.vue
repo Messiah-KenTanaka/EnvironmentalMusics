@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     userImage() {
-      return this.authImage || '/images/noimage01.png';
+      return this.authImage || '/images/noimage02.jpg';
     },
   },
   methods: {

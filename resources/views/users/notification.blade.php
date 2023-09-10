@@ -6,7 +6,7 @@
                     @if ($notification->sender->image)
                         <img src="{{ $notification->sender->image }}" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
                     @else
-                        <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                        <img src="{{ asset('images/noimage02.jpg')}}" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
                     @endif
                 </div>
                 <div>
@@ -28,7 +28,7 @@
                     @if ($notification->sender->image)
                         <img src="{{ $notification->sender->image }}" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
                     @else
-                        <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                        <img src="{{ asset('images/noimage02.jpg')}}" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
                     @endif
                 </div>
                 <div>
@@ -49,7 +49,7 @@
                     @if ($notification->sender->image)
                         <img src="{{ $notification->sender->image }}" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
                     @else
-                        <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                        <img src="{{ asset('images/noimage02.jpg')}}" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
                     @endif
                 </div>
                 <div>

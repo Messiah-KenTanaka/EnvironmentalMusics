@@ -23,7 +23,7 @@
     @if ($user->image)
       <img src="{{ $user->image }}" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
     @else
-      <img src="{{ asset('images/noimage01.png')}}" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
+      <img src="{{ asset('images/noimage02.jpg')}}" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
     @endif
     <i class="fa-solid fa-camera-rotate position-absolute large-icon" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></i>
   </label>
