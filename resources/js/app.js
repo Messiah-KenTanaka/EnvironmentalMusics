@@ -15,6 +15,7 @@ import ArticleImage from './components/ArticleImage'
 import ArticleRetweet from './components/ArticleRetweet'
 import CommentComponent from './components/CommentComponent'
 import CommentFormComponent from './components/CommentFormComponent'
+import TopImageSlider from './components/TopImageSlider'
 import Toasted from 'vue-toasted';
 
 Vue.use(Toasted);
@@ -36,5 +37,6 @@ const app = new Vue({
     CommentComponent,
     CommentFormComponent,
     ArticleRetweet,
+    TopImageSlider,
   }
 })
