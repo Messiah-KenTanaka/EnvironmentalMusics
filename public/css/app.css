@@ -230,11 +230,42 @@ body {
   position: relative;
 }
 
-.text-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 25px;
+/* PC表示の時*/
+
+@media (min-width: 576px) {
+  .text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 25px;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+  }
+
+  .text-overlay span {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+}
+
+/* SP表示の時*/
+
+@media (max-width: 576px) {
+  .text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+  }
+
+  .text-overlay span {
+    font-size: 0.5rem;
+    font-weight: 300;
+  }
 }
 
 .text-overlay-2 {

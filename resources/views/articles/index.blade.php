@@ -18,7 +18,7 @@
                             <span>最高の釣りがここにある</span>
                         </div>
                     </div>  --}}
-                    <div class="image-container mt-3 d-none d-xl-block mb-3">
+                    <div class="image-container mb-3">
                         <top-image-slider></top-image-slider>
                     </div>
                     <a href="{{ route('articles.create') }}">

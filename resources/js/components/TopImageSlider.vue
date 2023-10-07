@@ -13,7 +13,7 @@
             <div v-for="(image, index) in images" :key="index" class="image-container mt-3">
                 <img :src="image" alt="画像" class="img-fluid" />
                 <div class="text-overlay">
-                    <h3 class="main-font-family">BASSER</h3>
+                    <div class="main-font-family">BASSER</div>
                     <span>最高の釣りがここにある</span>
                 </div>
             </div>
