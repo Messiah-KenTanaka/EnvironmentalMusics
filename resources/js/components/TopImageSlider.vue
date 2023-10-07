@@ -6,8 +6,6 @@
             :slides-to-scroll="1"
             :dots="true"
             :centerMode="false"
-            :prevArrow="prevArrow"
-            :nextArrow="nextArrow"
             class="slider-container"
         >
             <div v-for="(image, index) in images" :key="index" class="image-container mt-3">
