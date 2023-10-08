@@ -7,10 +7,14 @@
     <div class="container">
         <div class="row">
             @include('sidemenu')
-            <div class="col col-xl-9">
+            <div class="col col-xl-9 no-padding-margin">
                 @include('users.user')
-                @include('users.tabs', ['hasArticles' => false, 'hasLikes' => true, 'hasConquest' => false])
-                @foreach($articles as $article)
+                @include('users.tabs', [
+                    'hasArticles' => false,
+                    'hasLikes' => true,
+                    'hasConquest' => false,
+                ])
+                @foreach ($articles as $article)
                     @include('articles.card')
                 @endforeach
                 @if ($articles->hasMorePages())

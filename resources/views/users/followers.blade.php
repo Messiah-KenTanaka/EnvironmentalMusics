@@ -7,13 +7,17 @@
     <div class="container">
         <div class="row">
             @include('sidemenu')
-            <div class="col">
+            <div class="col col-xl-9 no-padding-margin">
                 @include('users.user')
-                @include('users.tabs', ['hasArticles' => false, 'hasLikes' => false, 'hasConquest' => false])
+                @include('users.tabs', [
+                    'hasArticles' => false,
+                    'hasLikes' => false,
+                    'hasConquest' => false,
+                ])
                 <div class="ranking-title">
                     フォロワー
                 </div>
-                @foreach($followers as $person)
+                @foreach ($followers as $person)
                     @include('users.person')
                 @endforeach
                 @if ($followers->hasMorePages())
