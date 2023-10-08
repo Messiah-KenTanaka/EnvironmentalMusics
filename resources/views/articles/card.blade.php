@@ -1,4 +1,4 @@
-<div class="card-bottom mt-3">
+<div class="card-bottom">
     {{-- リツイートされた投稿の場合 --}}
     @if ($article->isRetweet ?? false)
         <div class="card-body pt-2 pb-0">

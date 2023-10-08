@@ -239,10 +239,27 @@ body {
   position: relative;
 }
 
-/* PC表示の時*/
+.text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 25px;
+}
+
+.text-overlay-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+
+/* 
+ * TOP画像のslick
+ * PC表示の時
+ */
 
 @media (min-width: 576px) {
-  .text-overlay {
+  .text-overlay-3 {
     position: absolute;
     top: 0;
     left: 0;
@@ -252,7 +269,7 @@ body {
     text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
   }
 
-  .text-overlay span {
+  .text-overlay-3 span {
     font-size: 1rem;
     font-weight: 300;
   }
@@ -261,7 +278,7 @@ body {
 /* SP表示の時*/
 
 @media (max-width: 576px) {
-  .text-overlay {
+  .text-overlay-3 {
     position: absolute;
     top: 0;
     left: 0;
@@ -271,17 +288,10 @@ body {
     text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
   }
 
-  .text-overlay span {
+  .text-overlay-3 span {
     font-size: 0.5rem;
     font-weight: 300;
   }
-}
-
-.text-overlay-2 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px;
 }
 
 .ranking-4th-place-above {
