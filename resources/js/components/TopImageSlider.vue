@@ -10,7 +10,7 @@
             :autoplaySpeed="3000"
             class="slider-container"
         >
-            <div v-for="(image, index) in images" :key="index" class="image-container mt-3">
+            <div v-for="(image, index) in images" :key="index" class="image-container">
                 <img :src="image" alt="画像" class="img-fluid" />
                 <div class="text-overlay">
                     <div class="main-font-family">BASSER</div>
@@ -49,7 +49,5 @@ export default {
 </script>
 
 <style scoped>
-    img {
-        border-radius: 0.25rem;
-    }
+
 </style>
