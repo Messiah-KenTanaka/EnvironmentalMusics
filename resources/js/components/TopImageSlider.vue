@@ -6,6 +6,8 @@
             :slides-to-scroll="1"
             :dots="true"
             :centerMode="false"
+            :autoplay="true"
+            :autoplaySpeed="3000"
             class="slider-container"
         >
             <div v-for="(image, index) in images" :key="index" class="image-container mt-3">
@@ -37,6 +39,9 @@ export default {
                 "/images/background/top_background_02.png",
                 "/images/background/top_background_03.png",
                 "/images/background/top_background_04.png",
+                "/images/background/top_background_05.png",
+                "/images/background/top_background_06.png",
+                "/images/background/top_background_07.png",
             ],
         }
     },

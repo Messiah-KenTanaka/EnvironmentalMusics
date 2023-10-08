@@ -11,13 +11,6 @@
                 @include('success_text')
                 @include('error_text')
                 <div class="form-group">
-                    {{--  <div class="image-container mt-3 d-none d-xl-block">
-                        <img src="{{ asset('images/background/top_background_01.png') }}" class="img-fluid">
-                        <div class="text-overlay">
-                            <h3 class="main-font-family">BASSER</h3>
-                            <span>最高の釣りがここにある</span>
-                        </div>
-                    </div>  --}}
                     <div class="image-container mb-3">
                         <top-image-slider></top-image-slider>
                     </div>
