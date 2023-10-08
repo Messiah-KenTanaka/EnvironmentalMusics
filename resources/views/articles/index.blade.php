@@ -7,16 +7,18 @@
     <div class="container">
         <div class="row">
             @include('sidemenu')
-            <div class="col col-xl-9">
+            <div class="col col-xl-9 no-padding-margin">
                 @include('success_text')
                 @include('error_text')
                 <div class="form-group">
-                    <div class="image-container mb-3">
+                    <div class="image-container mt-sm-3 mb-3">
                         <top-image-slider></top-image-slider>
                     </div>
                     <a href="{{ route('articles.create') }}">
                         <label></label>
-                        <div class="form-control" style="min-height: 20px;">今日はどうだった...？</div>
+                        <div class="mx-2">
+                            <div class="form-control" style="min-height: 20px;">今日の釣果はどうだった...？</div>
+                        </div>
                     </a>
                 </div>
                 @if ($articles->currentPage() == 1)
