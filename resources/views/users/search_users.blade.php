@@ -7,12 +7,12 @@
     <div class="container">
         <div class="row">
             @include('sidemenu')
-            <div class="col">
-                <div class="ranking-title">
+            <div class="col col-xl-9 no-padding-margin">
+                <div class="content-title">
                     全国の釣り人一覧
                 </div>
                 @include('search_user')
-                @foreach($users as $person)
+                @foreach ($users as $person)
                     @include('users.person')
                 @endforeach
                 @if ($users->hasMorePages())

@@ -8,10 +8,10 @@
         <div class="row">
             @include('sidemenu')
             <div class="col">
-                <div class="ranking-title">
+                <div class="content-title">
                     いいねしたユーザー
                 </div>
-                @foreach($users as $person)
+                @foreach ($users as $person)
                     @include('users.person')
                 @endforeach
                 @if ($users->hasMorePages())
