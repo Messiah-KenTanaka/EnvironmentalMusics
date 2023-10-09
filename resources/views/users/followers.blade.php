@@ -14,7 +14,7 @@
                     'hasLikes' => false,
                     'hasConquest' => false,
                 ])
-                <div class="ranking-title">
+                <div class="content-title">
                     フォロワー
                 </div>
                 @foreach ($followers as $person)

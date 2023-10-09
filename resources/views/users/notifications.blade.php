@@ -7,16 +7,16 @@
     <div class="container">
         <div class="row">
             @include('sidemenu')
-            <div class="col">
+            <div class="col col-xl-9 no-padding-margin">
                 @include('success_text')
-                @include('error_text')        
-                <div class="ranking-title">
+                @include('error_text')
+                <div class="content-title">
                     通知一覧
                 </div>
                 <div class="d-flex mb-3">
                     <a href="{{ route('notifications.markAllAsRead') }}" class="btn btn-primary ml-auto">全て既読にする</a>
                 </div>
-                @foreach($notifications as $notification)
+                @foreach ($notifications as $notification)
                     @include('users.notification')
                 @endforeach
                 @if ($notifications->hasMorePages())

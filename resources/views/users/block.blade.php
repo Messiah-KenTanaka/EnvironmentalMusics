@@ -14,7 +14,7 @@
                     'hasLikes' => false,
                     'hasConquest' => false,
                 ])
-                <div class="ranking-title text-danger ">
+                <div class="content-title text-danger ">
                     ブロックリスト
                 </div>
                 @foreach ($blockList as $person)

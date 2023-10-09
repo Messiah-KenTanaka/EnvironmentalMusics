@@ -6,7 +6,7 @@
             :slides-to-scroll="1"
             :dots="true"
             :centerMode="true"
-            :centerPadding="'50px'"
+            :centerPadding="'30px'"
             class="slider-container"
         >
             <div v-for="(article, index) in fieldRanking" :key="index" class="slide-item">
