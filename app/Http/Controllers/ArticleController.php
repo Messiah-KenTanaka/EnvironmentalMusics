@@ -20,12 +20,15 @@ use Functions;
 
 class ArticleController extends Controller
 {
-    public function __construct()
+    protected $articleService;
+
+    public function __construct(ArticleService $articleService)
     {
         $this->authorizeResource(Article::class, 'article');
+        $this->articleService = $articleService;
     }
 
-    public function index(ArticleService $articleService)
+    public function index()
     {
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
@@ -35,41 +38,21 @@ class ArticleController extends Controller
         // ページ1の場合のみリツイートされた記事を取得
         if ($currentPage == 1) {
             // フォローしているユーザーIDを取得
-            $followingUsers = Follow::where('followee_id', $userId)
-                ->inRandomOrder()
-                ->limit(100)
-                ->pluck('follower_id');
+            $followingUsers = Follow::getFollow($userId);
 
-            $recentRetweets = Retweet::whereIn('user_id', $followingUsers)
-                ->where('created_at', '>=', Carbon::now()->subDays(1))
-                ->groupBy('article_id')
-                ->select('article_id', DB::raw('MAX(created_at) as last_retweet'))
-                ->orderBy('last_retweet', 'desc')
-                ->take(100)
-                ->pluck('article_id');
+            $recentRetweets = Retweet::getRetweet($followingUsers);
 
             // リツイートされた記事を取得
-            $retweetArticles = Article::with(['user', 'likes', 'tags', 'retweets'])
-                ->withCount(['article_comments as comment_count' => function ($query) {
-                    $query->where('publish_flag', 1);
-                }])
-                ->whereIn('id', $recentRetweets)
-                ->where('publish_flag', 1)
-                ->orderByDesc('created_at')
-                ->get()
-                ->map(function ($article) {
-                    $article->isRetweet = true;
-                    return $article;
-                });
+            $retweetArticles = $this->articleService->getRetweetArticles($recentRetweets);
         } else {
             $retweetArticles = collect();  // 空のコレクションを作成
         }
 
         // ブロックリストからブロックしたユーザーのIDを取得
-        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+        $blockUsers = BlockList::getBlockList($userId);
 
         // 投稿記事一覧を取得
-        $articles = $articleService->getArticleIndex($blockUsers);
+        $articles = $this->articleService->getArticleIndex($blockUsers);
 
         $tags = Tag::getPopularTag();
 

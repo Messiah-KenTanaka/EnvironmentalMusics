@@ -11,9 +11,9 @@ class ArticleService
     {
     }
 
+    // 投稿記事一覧を取得
     public function getArticleIndex($blockUsers)
     {
-        // 投稿記事一覧を取得
         return Article::with(['user', 'likes', 'tags', 'retweets'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
@@ -25,5 +25,22 @@ class ArticleService
             ->where('publish_flag', 1)
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate_50'));
+    }
+
+    // リツイートされた記事を取得
+    public function getRetweetArticles($recentRetweets)
+    {
+        return Article::with(['user', 'likes', 'tags', 'retweets'])
+            ->withCount(['article_comments as comment_count' => function ($query) {
+                $query->where('publish_flag', 1);
+            }])
+            ->whereIn('id', $recentRetweets)
+            ->where('publish_flag', 1)
+            ->orderByDesc('created_at')
+            ->get()
+            ->map(function ($article) {
+                $article->isRetweet = true;
+                return $article;
+            });
     }
 }
