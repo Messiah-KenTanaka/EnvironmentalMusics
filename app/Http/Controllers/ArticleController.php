@@ -223,13 +223,7 @@ class ArticleController extends Controller
 
     public function getComments($article_id)
     {
-        $article = Article::findOrFail($article_id);
-
-        $comments = $article->article_comments()->with('user')
-            ->where('publish_flag', 1)
-            ->orderByDesc('created_at')
-            ->limit(50)
-            ->get();
+        $comments = $this->articleService->getArticleComment($article_id);
 
         return response()->json($comments);
     }
