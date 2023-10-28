@@ -43,4 +43,16 @@ class ArticleService
                 return $article;
             });
     }
+
+    // コメント取得
+    public function getArticleComment($article_id)
+    {
+        $article = Article::findOrFail($article_id);
+
+        return $article->article_comments()->with('user')
+            ->where('publish_flag', 1)
+            ->orderByDesc('created_at')
+            ->limit(50)
+            ->get();
+    }
 }
