@@ -16,4 +16,11 @@ class Follow extends Model
         'updated_at',
     ];
 
+    public static function getFollow($userId)
+    {
+        return Follow::where('followee_id', $userId)
+            ->inRandomOrder()
+            ->limit(100)
+            ->pluck('follower_id');
+    }
 }
