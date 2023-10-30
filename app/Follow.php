@@ -18,7 +18,7 @@ class Follow extends Model
 
     public static function getFollow($userId)
     {
-        return Follow::where('followee_id', $userId)
+        return self::where('followee_id', $userId)
             ->inRandomOrder()
             ->limit(100)
             ->pluck('follower_id');

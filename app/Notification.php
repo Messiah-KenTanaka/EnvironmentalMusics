@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Notification extends Model
 {
@@ -37,4 +38,11 @@ class Notification extends Model
         return $this->belongsTo(User::class, 'receiver_id');
     }
 
+    // 特定のユーザーの全ての未読通知を取得
+    public static function getUnreadNotifications()
+    {
+        return self::where('receiver_id', auth()->id())
+            ->where('read', false)
+            ->get();
+    }
 }

@@ -16,6 +16,6 @@ class BlockList extends Model
     // ブロックリスト取得
     public static function getBlockList($userId)
     {
-        return BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+        return self::where('user_id', $userId)->pluck('blocked_user_id');
     }
 }
