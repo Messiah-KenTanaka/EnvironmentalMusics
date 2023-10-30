@@ -20,7 +20,7 @@ class Retweet extends Model
 
     public static function getRetweet($followingUsers)
     {
-        return Retweet::whereIn('user_id', $followingUsers)
+        return self::whereIn('user_id', $followingUsers)
             ->where('created_at', '>=', Carbon::now()->subDays(1))
             ->groupBy('article_id')
             ->select('article_id', DB::raw('MAX(created_at) as last_retweet'))
