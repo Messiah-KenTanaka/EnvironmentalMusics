@@ -6,102 +6,44 @@ use Illuminate\Http\Request;
 use App\Article;
 use App\Tag;
 use App\BlockList;
+use App\Services\RankingService;
 
 class RankingController extends Controller
 {
+    protected $rankingService;
+
+    public function __construct(RankingService $rankingService)
+    {
+        $this->rankingService = $rankingService;
+    }
+
     public function index()
     {
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
         // ブロックリストからブロックしたユーザーのIDを取得
-        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+        $blockUsers = BlockList::getBlockList($userId);
 
-        // 全国ランキング
-        $ranking = Article::with(['user', 'likes', 'tags', 'retweets'])
-            ->withCount(['article_comments as comment_count' => function ($query) {
-                $query->where('publish_flag', 1);
-            }])
-            ->whereHas('user', function ($query) use ($blockUsers) {
-                $query->where('publish_flag', 1)
-                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
-            })
-            ->where('publish_flag', 1)
-            ->whereNotNull('image')
-            ->whereNotNull('fish_size')
-            ->orderByDesc('fish_size')
-            ->orderByDesc('created_at')
-            ->limit(10)
-            ->get();
+        // 全国ランキング取得
+        $ranking = $this->rankingService->getRankingIndex($blockUsers);
 
         // 1. 存在する都道府県のリストを取得
-        $existingPrefs = Article::select('pref')
-            ->distinct()
-            ->whereHas('user', function ($query) use ($blockUsers) {
-                $query->where('publish_flag', 1)
-                    ->whereNotIn('user_id', $blockUsers); 
-                })
-            ->where('publish_flag', 1)
-            ->whereNotNull('image')
-            ->whereNotNull('fish_size')
-            ->whereNotNull('pref')
-            ->pluck('pref')
-            ->toArray();
+        $existingPrefs = $this->rankingService->getExistingPrefs($blockUsers);
 
         // 2. リストからランダムに都道府県を選択
         $randomPref = array_rand(array_flip($existingPrefs), 1);
 
-        // 都道府県ランキング
-        $prefRanking = Article::with(['user', 'likes', 'tags', 'retweets'])
-            ->withCount(['article_comments as comment_count' => function ($query) {
-                $query->where('publish_flag', 1);
-            }])
-            ->whereHas('user', function ($query) use ($blockUsers) {
-                $query->where('publish_flag', 1)
-                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
-            })
-            ->where('publish_flag', 1)
-            ->where('pref', $randomPref)
-            ->whereNotNull('image')
-            ->whereNotNull('fish_size')
-            ->orderByDesc('fish_size')
-            ->orderByDesc('created_at')
-            ->limit(10)
-            ->get();
+        // 都道府県ランキング取得
+        $prefRanking = $this->rankingService->getPrefRanking($blockUsers, $randomPref);
 
         // 1. 存在するフィールドのリストを取得
-        $existingFields = Article::select('bass_field')
-            ->distinct()
-            ->whereHas('user', function ($query) use ($blockUsers) {
-                $query->where('publish_flag', 1)
-                    ->whereNotIn('user_id', $blockUsers); 
-                })
-            ->where('publish_flag', 1)
-            ->whereNotNull('image')
-            ->whereNotNull('fish_size')
-            ->whereNotNull('bass_field')
-            ->pluck('bass_field')
-            ->toArray();
+        $existingFields = $this->rankingService->getExistingFields($blockUsers);
 
         // 2. リストからランダムにフィールドを選択
         $randomField = array_rand(array_flip($existingFields), 1);
 
-        // フィールドランキング
-        $fieldRanking = Article::with(['user', 'likes', 'tags', 'retweets'])
-            ->withCount(['article_comments as comment_count' => function ($query) {
-                $query->where('publish_flag', 1);
-            }])
-            ->whereHas('user', function ($query) use ($blockUsers) {
-                $query->where('publish_flag', 1)
-                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
-            })
-            ->where('publish_flag', 1)
-            ->where('bass_field', $randomField)
-            ->whereNotNull('image')
-            ->whereNotNull('fish_size')
-            ->orderByDesc('fish_size')
-            ->orderByDesc('created_at')
-            ->limit(10)
-            ->get();
+        // フィールドランキング取得
+        $fieldRanking = $this->rankingService->getFieldRanking($blockUsers, $randomField);
 
         $tags = Tag::getPopularTag();
 
@@ -202,7 +144,7 @@ class RankingController extends Controller
             ->orderByDesc('fish_size')
             ->orderByDesc('created_at')
             ->limit(30)
-            ->get(); 
+            ->get();
 
         $tags = Tag::getPopularTag();
 
@@ -236,7 +178,7 @@ class RankingController extends Controller
             ->orderByDesc('weight')
             ->orderByDesc('created_at')
             ->limit(30)
-            ->get(); 
+            ->get();
 
         $tags = Tag::getPopularTag();
 
@@ -270,7 +212,7 @@ class RankingController extends Controller
             ->orderByDesc('fish_size')
             ->orderByDesc('created_at')
             ->limit(30)
-            ->get(); 
+            ->get();
 
         $tags = Tag::getPopularTag();
 
@@ -304,7 +246,7 @@ class RankingController extends Controller
             ->orderByDesc('weight')
             ->orderByDesc('created_at')
             ->limit(30)
-            ->get(); 
+            ->get();
 
         $tags = Tag::getPopularTag();
 

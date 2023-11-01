@@ -7,10 +7,6 @@ use Illuminate\Support\Facades\Http;
 
 class ArticleService
 {
-    public function __construct()
-    {
-    }
-
     // 投稿記事一覧を取得
     public function getArticleIndex($blockUsers)
     {
