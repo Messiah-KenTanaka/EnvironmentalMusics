@@ -28,7 +28,7 @@ class RankingService
     }
 
     // 都道府県ランキングを取得
-    public function getPrefRanking($blockUsers, $randomPref)
+    public function getPrefRankingIndex($blockUsers, $randomPref)
     {
         return Article::with(['user', 'likes', 'tags', 'retweets'])
             ->withCount(['article_comments as comment_count' => function ($query) {
@@ -49,7 +49,7 @@ class RankingService
     }
 
     // フィールドのランキングを取得
-    public function getFieldRanking($blockUsers, $randomField)
+    public function getFieldRankingIndex($blockUsers, $randomField)
     {
         return Article::with(['user', 'likes', 'tags', 'retweets'])
             ->withCount(['article_comments as comment_count' => function ($query) {
@@ -66,6 +66,26 @@ class RankingService
             ->orderByDesc('fish_size')
             ->orderByDesc('created_at')
             ->limit(10)
+            ->get();
+    }
+
+    // 全国ランキングサイズ一覧取得
+    public function getNationwideSize($blockUsers)
+    {
+        return Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
+            ->withCount(['article_comments as comment_count' => function ($query) {
+                $query->where('publish_flag', 1);
+            }])
+            ->whereHas('user', function ($query) use ($blockUsers) {
+                $query->where('publish_flag', 1)
+                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
+            })
+            ->where('publish_flag', 1)
+            ->whereNotNull('image')
+            ->whereNotNull('fish_size')
+            ->orderByDesc('fish_size')
+            ->orderByDesc('created_at')
+            ->limit(50)
             ->get();
     }
 
