@@ -6,10 +6,6 @@ use App\User;
 
 class LikeService
 {
-    public function __construct()
-    {
-    }
-
     // フォロワー取得
     public function getFollowers($likeUserIds)
     {
