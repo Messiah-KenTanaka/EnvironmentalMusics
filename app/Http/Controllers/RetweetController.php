@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Article;
 use App\Tag;
-use App\BlockList;
 
 class RetweetController extends Controller
 {
@@ -14,12 +13,8 @@ class RetweetController extends Controller
     {
         $retweetUserIds = $article->retweets->pluck('id')->toArray();
 
-        $users = User::with('followers')
-            ->where('publish_flag', 1)
-            ->whereIn('id', $retweetUserIds)
-            ->orderByDesc('created_at')
-            ->paginate(config('paginate.paginate_50'));
-        
+        $users = User::getRetweetUsers($retweetUserIds);
+
         $tags = Tag::getPopularTag();
 
         return view('retweets.index', [
@@ -27,5 +22,4 @@ class RetweetController extends Controller
             'tags' => $tags,
         ]);
     }
-
 }
