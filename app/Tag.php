@@ -22,6 +22,25 @@ class Tag extends Model
         return $this->belongsToMany('App\Article')->withTimestamps();
     }
 
+    // タグを取得
+    public static function getTag($name, $blockUsers)
+    {
+        return self::where('name', $name)
+            ->with(['articles' => function ($query) use ($blockUsers) {
+                $query->whereHas('user', function ($query) use ($blockUsers) {
+                    $query->where('publish_flag', 1)
+                        ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
+                })
+                    ->with(['user', 'likes', 'tags', 'retweets'])
+                    ->withCount(['article_comments as comment_count' => function ($query) {
+                        $query->where('publish_flag', 1);
+                    }])
+                    ->where('publish_flag', 1)
+                    ->orderByDesc('created_at');
+            }])
+            ->first();
+    }
+
     // 人気のタグを取得
     public static function getPopularTag()
     {
