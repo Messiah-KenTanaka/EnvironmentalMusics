@@ -80,24 +80,10 @@ class RankingController extends Controller
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
         // ブロックリストからブロックしたユーザーのIDを取得
-        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+        $blockUsers = BlockList::getBlockList($userId);
 
-        // 全国ランキング
-        $ranking = Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
-            ->withCount(['article_comments as comment_count' => function ($query) {
-                $query->where('publish_flag', 1);
-            }])
-            ->whereHas('user', function ($query) use ($blockUsers) {
-                $query->where('publish_flag', 1)
-                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
-            })
-            ->where('publish_flag', 1)
-            ->whereNotNull('image')
-            ->whereNotNull('weight')
-            ->orderByDesc('weight')
-            ->orderByDesc('created_at')
-            ->limit(50)
-            ->get();
+        // 全国ランキングウェイト
+        $ranking = $this->rankingService->getNationwideWeight($blockUsers);
 
         $tags = Tag::getPopularTag();
 
@@ -112,25 +98,10 @@ class RankingController extends Controller
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
         // ブロックリストからブロックしたユーザーのIDを取得
-        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+        $blockUsers = BlockList::getBlockList($userId);
 
-        // 都道府県ランキング
-        $ranking = Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
-            ->withCount(['article_comments as comment_count' => function ($query) {
-                $query->where('publish_flag', 1);
-            }])
-            ->whereHas('user', function ($query) use ($blockUsers) {
-                $query->where('publish_flag', 1)
-                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
-            })
-            ->where('publish_flag', 1)
-            ->where('pref', $pref)
-            ->whereNotNull('image')
-            ->whereNotNull('fish_size')
-            ->orderByDesc('fish_size')
-            ->orderByDesc('created_at')
-            ->limit(30)
-            ->get();
+        // 都道府県ランキングサイズ
+        $ranking = $this->rankingService->getPrefSize($blockUsers, $pref);
 
         $tags = Tag::getPopularTag();
 
@@ -146,25 +117,10 @@ class RankingController extends Controller
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
         // ブロックリストからブロックしたユーザーのIDを取得
-        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+        $blockUsers = BlockList::getBlockList($userId);
 
-        // 都道府県ランキング
-        $ranking = Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
-            ->withCount(['article_comments as comment_count' => function ($query) {
-                $query->where('publish_flag', 1);
-            }])
-            ->whereHas('user', function ($query) use ($blockUsers) {
-                $query->where('publish_flag', 1)
-                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
-            })
-            ->where('publish_flag', 1)
-            ->where('pref', $pref)
-            ->whereNotNull('image')
-            ->whereNotNull('weight')
-            ->orderByDesc('weight')
-            ->orderByDesc('created_at')
-            ->limit(30)
-            ->get();
+        // 都道府県ランキングウェイト
+        $ranking = $this->rankingService->getPrefWeight($blockUsers, $pref);
 
         $tags = Tag::getPopularTag();
 
@@ -180,25 +136,10 @@ class RankingController extends Controller
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
         // ブロックリストからブロックしたユーザーのIDを取得
-        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+        $blockUsers = BlockList::getBlockList($userId);
 
-        // フィールドランキング
-        $ranking = Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
-            ->withCount(['article_comments as comment_count' => function ($query) {
-                $query->where('publish_flag', 1);
-            }])
-            ->whereHas('user', function ($query) use ($blockUsers) {
-                $query->where('publish_flag', 1)
-                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
-            })
-            ->where('publish_flag', 1)
-            ->where('bass_field', $field)
-            ->whereNotNull('image')
-            ->whereNotNull('fish_size')
-            ->orderByDesc('fish_size')
-            ->orderByDesc('created_at')
-            ->limit(30)
-            ->get();
+        // フィールドランキングサイズ
+        $ranking = $this->rankingService->getFieldSize($blockUsers, $field);
 
         $tags = Tag::getPopularTag();
 
@@ -214,25 +155,10 @@ class RankingController extends Controller
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
         // ブロックリストからブロックしたユーザーのIDを取得
-        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+        $blockUsers = BlockList::getBlockList($userId);
 
-        // フィールドランキング
-        $ranking = Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
-            ->withCount(['article_comments as comment_count' => function ($query) {
-                $query->where('publish_flag', 1);
-            }])
-            ->whereHas('user', function ($query) use ($blockUsers) {
-                $query->where('publish_flag', 1)
-                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
-            })
-            ->where('publish_flag', 1)
-            ->where('bass_field', $field)
-            ->whereNotNull('image')
-            ->whereNotNull('weight')
-            ->orderByDesc('weight')
-            ->orderByDesc('created_at')
-            ->limit(30)
-            ->get();
+        // フィールドランキングウェイト
+        $ranking = $this->rankingService->getFieldWeight($blockUsers, $field);
 
         $tags = Tag::getPopularTag();
 
