@@ -8,6 +8,7 @@ use App\Tag;
 use App\BlockList;
 use App\Notification;
 use App\PostReport;
+use App\Services\UserService;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +19,18 @@ use Functions;
 
 class UserController extends Controller
 {
+    protected $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     public function show(string $name, $notificationId = null)
     {
+        // ログインユーザーのIDを取得
+        $userId = auth()->id();
+
         // 通知を既読にする
         if ($notificationId) {
             $notification = Notification::find($notificationId);
@@ -32,35 +43,19 @@ class UserController extends Controller
         //     return redirect()->back()->with('success', '選択したユーザーはアカウント凍結されており表示できません。');
         // }
 
-        $user = User::where('name', $name)->first()
-            ->load(['articles' => function($query) {
-                $query->with('user', 'likes', 'tags', 'retweets')
-                    ->withCount(['article_comments as comment_count' => function($query) {
-                        $query->where('publish_flag', 1);
-                }]);
-            }]);
+        // ユーザー情報を取得
+        $user = $this->userService->getUser($name);
 
-        // ログインユーザーのIDを取得
-        $userId = auth()->id();
-
-        // フォローされているか
-        $userId = auth()->id();
         $isFollowing = $user->followings->contains($userId);
 
-        $articles = $user->articles
-            ->where('publish_flag', 1)
-            ->sortByDesc('created_at')
-            ->paginate(config('paginate.paginate_50'));
+        // ユーザーの記事情報を取得
+        $articles = $this->userService->getUserArticle($user);
 
-        $record['size'] = $user->articles
-            ->whereNotNull('fish_size')
-            ->where('publish_flag', 1)
-            ->max('fish_size');
+        // ユーザーのレコードサイズ取得
+        $record['size'] = $this->userService->getUseRecordSize($user);
 
-        $record['weight'] = $user->articles
-            ->whereNotNull('weight')
-            ->where('publish_flag', 1)
-            ->max('weight');
+        // ユーザーのレコードウェイト取得
+        $record['weight'] = $this->userService->getUserRecordWeight($user);
 
         $tags = Tag::getPopularTag();
 
@@ -75,7 +70,7 @@ class UserController extends Controller
 
     public function edit(string $name)
     {
-        $user = User::where('name', $name)->first();
+        $user = User::getUserName($name);
 
         $tags = Tag::getPopularTag();
 
@@ -87,7 +82,7 @@ class UserController extends Controller
 
     public function update(UserRequest $request, User $user, string $name)
     {
-        $user = User::where('name', $name)->first();
+        $user = User::getUserName($name);
         $user->fill($request->all());
         // s3画像アップロード image
         $file = $request->file('image');
@@ -115,9 +110,9 @@ class UserController extends Controller
     public function likes(string $name)
     {
         $user = User::where('name', $name)->first()
-            ->load(['likes' => function($query) {
+            ->load(['likes' => function ($query) {
                 $query->with('user', 'likes', 'tags', 'retweets')
-                    ->withCount(['article_comments as comment_count' => function($query) {
+                    ->withCount(['article_comments as comment_count' => function ($query) {
                         $query->where('publish_flag', 1);
                     }]);
             }]);
@@ -158,9 +153,9 @@ class UserController extends Controller
     public function conquest(string $name)
     {
         $user = User::where('name', $name)->first()
-            ->load(['likes' => function($query) {
+            ->load(['likes' => function ($query) {
                 $query->with('user', 'likes', 'tags', 'retweets')
-                    ->withCount(['article_comments as comment_count' => function($query) {
+                    ->withCount(['article_comments as comment_count' => function ($query) {
                         $query->where('publish_flag', 1);
                     }]);
             }]);
@@ -228,7 +223,7 @@ class UserController extends Controller
             'isFollowing' => $isFollowing
         ]);
     }
-    
+
     public function followers(string $name)
     {
         $user = User::where('name', $name)->first()
@@ -307,8 +302,7 @@ class UserController extends Controller
     {
         $user = User::where('name', $name)->first();
 
-        if ($user->id === $request->user()->id)
-        {
+        if ($user->id === $request->user()->id) {
             return abort('404', 'Cannot follow yourself.');
         }
 
@@ -325,13 +319,12 @@ class UserController extends Controller
 
         return ['name' => $name];
     }
-    
+
     public function unfollow(Request $request, string $name)
     {
         $user = User::where('name', $name)->first();
 
-        if ($user->id === $request->user()->id)
-        {
+        if ($user->id === $request->user()->id) {
             return abort('404', 'Cannot follow yourself.');
         }
 
@@ -349,12 +342,12 @@ class UserController extends Controller
         $isBlocked = BlockList::where('user_id', $userId)
             ->where('blocked_user_id', $blockedUserId)
             ->exists();
-        
+
         if ($isBlocked) {
             return redirect()->route('articles.index')
                 ->with('error', 'このユーザーはすでにブロックされています。');
         }
-        
+
         // ブロックリストにレコードを挿入
         BlockList::create([
             'user_id' => $userId,
@@ -376,7 +369,7 @@ class UserController extends Controller
             })
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate_50'));
-        
+
         $tags = Tag::getPopularTag();
 
         return view('users.search_users', [
@@ -394,7 +387,7 @@ class UserController extends Controller
             ->where('receiver_id', $userId)
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate_50'));
-        
+
         $tags = Tag::getPopularTag();
 
         return view('users.notifications', [
@@ -463,7 +456,7 @@ class UserController extends Controller
                     $query->where('user_id', $userId)
                         ->orWhere('blocked_user_id', $userId);
                 })->delete();
-                
+
                 // ユーザーを削除
                 $user = User::find($userId);
                 $user->delete();
@@ -473,7 +466,7 @@ class UserController extends Controller
             return redirect()->route('articles.index')
                 ->with('error', '削除処理に失敗しました。');
         }
-        
+
         // ユーザーをログアウト
         Auth::logout();
 

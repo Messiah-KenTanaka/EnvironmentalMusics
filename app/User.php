@@ -118,6 +118,12 @@ class User extends Authenticatable
         return $this->user_prefecture_maps->count();
     }
 
+    // ユーザーネームを取得
+    public static function getUserName($name)
+    {
+        return self::where('name', $name)->first();
+    }
+
     // リツイートしたユーザーを取得
     public static function getRetweetUsers($retweetUserIds)
     {
