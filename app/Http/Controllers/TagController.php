@@ -15,30 +15,18 @@ class TagController extends Controller
 
         // ブロックリストからブロックしたユーザーのIDを取得
         $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
-        
-        $tag = Tag::where('name', $name)
-            ->with(['articles' => function ($query) use ($blockUsers) {
-                $query->whereHas('user', function ($query) use ($blockUsers) {
-                    $query->where('publish_flag', 1)
-                        ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
-                })
-                ->with(['user', 'likes', 'tags', 'retweets'])
-                ->withCount(['article_comments as comment_count' => function($query) {
-                    $query->where('publish_flag', 1);
-                }])
-                ->where('publish_flag', 1)
-                ->orderByDesc('created_at');
-            }])
-            ->first();
+
+        // タグを取得
+        $tag = Tag::getTag($name, $blockUsers);
 
         $articles = $tag->articles
             ->paginate(config('paginate.paginate'));
 
         $tags = Tag::getPopularTag();
 
-        return view('tags.show',[
+        return view('tags.show', [
             'tag' => $tag,
-            'articles' =>$articles,
+            'articles' => $articles,
             'tags' => $tags,
         ]);
     }
