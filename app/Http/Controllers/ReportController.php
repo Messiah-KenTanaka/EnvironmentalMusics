@@ -32,8 +32,8 @@ class ReportController extends Controller
 
     public function show()
     {
-        $reportContents = PostReport::orderByDesc('created_at')
-            ->paginate(config('paginate.paginate_50'));
+        // 報告内容取得
+        $reportContents = PostReport::getPostReport();
 
         $tags = Tag::getPopularTag();
 
