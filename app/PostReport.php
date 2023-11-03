@@ -15,4 +15,11 @@ class PostReport extends Model
         'message',
         'report_reason',
     ];
+
+    // 報告内容取得
+    public static function getPostReport()
+    {
+        return self::orderByDesc('created_at')
+            ->paginate(config('paginate.paginate_50'));
+    }
 }
