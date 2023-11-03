@@ -14,7 +14,7 @@ class TagController extends Controller
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
         // ブロックリストからブロックしたユーザーのIDを取得
-        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+        $blockUsers = BlockList::getBlockList($userId);
 
         // タグを取得
         $tag = Tag::getTag($name, $blockUsers);
