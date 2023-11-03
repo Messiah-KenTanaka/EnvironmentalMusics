@@ -46,4 +46,13 @@ class UserService
             ->where('publish_flag', 1)
             ->max('weight');
     }
+
+    // ユーザーのいいねを取得
+    public function getUserLikes($user)
+    {
+        return $user->likes
+            ->where('publish_flag', 1)
+            ->sortByDesc('created_at')
+            ->paginate(config('paginate.paginate_50'));
+    }
 }

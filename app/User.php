@@ -133,4 +133,16 @@ class User extends Authenticatable
             ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate_50'));
     }
+
+    // ユーザーを取得
+    public static function getUser($name)
+    {
+        return self::where('name', $name)->first()
+            ->load(['likes' => function ($query) {
+                $query->with('user', 'likes', 'tags', 'retweets')
+                    ->withCount(['article_comments as comment_count' => function ($query) {
+                        $query->where('publish_flag', 1);
+                    }]);
+            }]);
+    }
 }
