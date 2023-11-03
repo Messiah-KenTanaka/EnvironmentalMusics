@@ -109,35 +109,19 @@ class UserController extends Controller
 
     public function likes(string $name)
     {
-        $user = User::where('name', $name)->first()
-            ->load(['likes' => function ($query) {
-                $query->with('user', 'likes', 'tags', 'retweets')
-                    ->withCount(['article_comments as comment_count' => function ($query) {
-                        $query->where('publish_flag', 1);
-                    }]);
-            }]);
-
         // ログインユーザーのIDを取得
         $userId = auth()->id();
 
-        // フォローされているか
-        $userId = auth()->id();
+        $user = User::getUser($name);
+
         $isFollowing = $user->followings->contains($userId);
 
-        $articles = $user->likes
-            ->where('publish_flag', 1)
-            ->sortByDesc('created_at')
-            ->paginate(config('paginate.paginate_50'));
+        // ユーザーのいいねを取得
+        $articles = $this->userService->getUserLikes($user);
 
-        $record['size'] = $user->articles
-            ->whereNotNull('fish_size')
-            ->where('publish_flag', 1)
-            ->max('fish_size');
+        $record['size'] = $this->userService->getUseRecordSize($user);
 
-        $record['weight'] = $user->articles
-            ->whereNotNull('weight')
-            ->where('publish_flag', 1)
-            ->max('weight');
+        $record['weight'] = $this->userService->getUserRecordWeight($user);
 
         $tags = Tag::getPopularTag();
 
