@@ -4,7 +4,6 @@ namespace App;
 
 use App\Mail\BareMail;
 use App\Notifications\PasswordResetNotification;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -91,8 +90,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserPrefectureMap::class);
     }
-    
-    public function retweets() {
+
+    public function retweets()
+    {
         return $this->hasMany(Retweet::class);
     }
 
@@ -118,5 +118,13 @@ class User extends Authenticatable
         return $this->user_prefecture_maps->count();
     }
 
-
+    // リツイートしたユーザーを取得
+    public static function getRetweetUsers($retweetUserIds)
+    {
+        return self::with('followers')
+            ->where('publish_flag', 1)
+            ->whereIn('id', $retweetUserIds)
+            ->orderByDesc('created_at')
+            ->paginate(config('paginate.paginate_50'));
+    }
 }
