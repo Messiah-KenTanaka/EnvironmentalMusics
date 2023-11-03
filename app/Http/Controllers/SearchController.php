@@ -6,28 +6,26 @@ use Illuminate\Http\Request;
 use App\Article;
 use App\Tag;
 use App\BlockList;
+use App\Services\SearchService;
 
 class SearchController extends Controller
 {
+    protected $searchService;
+
+    public function __construct(SearchService $searchService)
+    {
+        $this->searchService = $searchService;
+    }
+
     public function index()
     {
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
         // ブロックリストからブロックしたユーザーのIDを取得
-        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+        $blockUsers = BlockList::getBlockList($userId);
 
         // 検索結果を取得するクエリを作成する
-        $articles = Article::with(['user', 'likes', 'tags', 'retweets'])
-            ->withCount(['article_comments as comment_count' => function ($query) {
-                $query->where('publish_flag', 1);
-            }])
-            ->whereHas('user', function ($query) use ($blockUsers) {
-                $query->where('publish_flag', 1)
-                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
-            })
-            ->where('publish_flag', 1)
-            ->orderByDesc('created_at')
-            ->paginate(config('paginate.paginate_50'));
+        $articles = $this->searchService->getSearchIndex($blockUsers);
 
         $tags = Tag::getPopularTag();
         // dd($tags);
@@ -43,22 +41,12 @@ class SearchController extends Controller
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
         // ブロックリストからブロックしたユーザーのIDを取得
-        $blockUsers = BlockList::where('user_id', $userId)->pluck('blocked_user_id');
+        $blockUsers = BlockList::getBlockList($userId);
 
         $keyword = $request->input('keyword');
+
         // 検索結果を取得するクエリを作成する
-        $articles = Article::with(['user', 'likes', 'tags', 'retweets'])
-            ->withCount(['article_comments as comment_count' => function ($query) {
-                $query->where('publish_flag', 1);
-            }])
-            ->whereHas('user', function ($query) use ($blockUsers) {
-                $query->where('publish_flag', 1)
-                    ->whereNotIn('user_id', $blockUsers); // ブロックしたユーザーを除外
-            })
-            ->where('publish_flag', 1)
-            ->where('body', 'LIKE', '%'.$keyword.'%')
-            ->orderByDesc('created_at')
-            ->paginate(config('paginate.paginate_50'));
+        $articles = $this->searchService->getKeyWordSearch($blockUsers, $keyword);
 
         $tags = Tag::getPopularTag();
 

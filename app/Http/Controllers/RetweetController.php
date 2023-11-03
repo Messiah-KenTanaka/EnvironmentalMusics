@@ -13,6 +13,7 @@ class RetweetController extends Controller
     {
         $retweetUserIds = $article->retweets->pluck('id')->toArray();
 
+        // リツイートしたユーザーを取得
         $users = User::getRetweetUsers($retweetUserIds);
 
         $tags = Tag::getPopularTag();
