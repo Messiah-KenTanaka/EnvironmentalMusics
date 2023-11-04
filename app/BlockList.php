@@ -18,4 +18,12 @@ class BlockList extends Model
     {
         return self::where('user_id', $userId)->pluck('blocked_user_id');
     }
+
+    // すでにブロック済みか確認
+    public static function isBlockUser($userId, $blockedUserId)
+    {
+        return self::where('user_id', $userId)
+            ->where('blocked_user_id', $blockedUserId)
+            ->exists();
+    }
 }

@@ -38,6 +38,15 @@ class Notification extends Model
         return $this->belongsTo(User::class, 'receiver_id');
     }
 
+    // 全ての通知情報を取得
+    public static function getNotification($userId)
+    {
+        return self::with(['sender', 'article', 'article_comment'])
+            ->where('receiver_id', $userId)
+            ->orderByDesc('created_at')
+            ->paginate(config('paginate.paginate_50'));
+    }
+
     // 特定のユーザーの全ての未読通知を取得
     public static function getUnreadNotifications()
     {

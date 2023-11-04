@@ -55,4 +55,16 @@ class UserService
             ->sortByDesc('created_at')
             ->paginate(config('paginate.paginate_50'));
     }
+
+    // ユーザーを検索して取得
+    public function getSeatchUsers($user_name)
+    {
+        return User::with('followers')
+            ->where('publish_flag', 1)
+            ->when(!is_null($user_name), function ($query) use ($user_name) {
+                return $query->where('nickname', 'like', '%' . $user_name . '%');
+            })
+            ->orderByDesc('created_at')
+            ->paginate(config('paginate.paginate_50'));
+    }
 }

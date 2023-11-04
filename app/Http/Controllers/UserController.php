@@ -136,30 +136,18 @@ class UserController extends Controller
 
     public function conquest(string $name)
     {
-        $user = User::where('name', $name)->first()
-            ->load(['likes' => function ($query) {
-                $query->with('user', 'likes', 'tags', 'retweets')
-                    ->withCount(['article_comments as comment_count' => function ($query) {
-                        $query->where('publish_flag', 1);
-                    }]);
-            }]);
-
         // ログインユーザーのIDを取得
         $userId = auth()->id();
 
+        // ユーザー情報を取得
+        $user = User::getUser($name);
+
         // フォローされているか
-        $userId = auth()->id();
         $isFollowing = $user->followings->contains($userId);
 
-        $record['size'] = $user->articles
-            ->whereNotNull('fish_size')
-            ->where('publish_flag', 1)
-            ->max('fish_size');
+        $record['size'] = $this->userService->getUseRecordSize($user);
 
-        $record['weight'] = $user->articles
-            ->whereNotNull('weight')
-            ->where('publish_flag', 1)
-            ->max('weight');
+        $record['weight'] = $this->userService->getUserRecordWeight($user);
 
         $tags = Tag::getPopularTag();
 
@@ -173,29 +161,21 @@ class UserController extends Controller
 
     public function followings(string $name)
     {
-        $user = User::where('name', $name)->first()
-            ->load('followings.followers');
-
         // ログインユーザーのIDを取得
         $userId = auth()->id();
 
+        // ユーザー情報、フォロー中のユーザー情報を取得
+        $user = User::getUserFollowings($name);
+
         // フォローされているか
-        $userId = auth()->id();
         $isFollowing = $user->followings->contains($userId);
 
-        $followings = $user->followings
-            ->sortByDesc('created_at')
-            ->paginate(config('paginate.paginate_50'));
+        // フォロー中のユーザーを取得
+        $followings = User::getFollowings($user);
 
-        $record['size'] = $user->articles
-            ->whereNotNull('fish_size')
-            ->where('publish_flag', 1)
-            ->max('fish_size');
+        $record['size'] = $this->userService->getUseRecordSize($user);
 
-        $record['weight'] = $user->articles
-            ->whereNotNull('weight')
-            ->where('publish_flag', 1)
-            ->max('weight');
+        $record['weight'] = $this->userService->getUserRecordWeight($user);
 
         $tags = Tag::getPopularTag();
 
@@ -210,29 +190,21 @@ class UserController extends Controller
 
     public function followers(string $name)
     {
-        $user = User::where('name', $name)->first()
-            ->load('followers.followers');
-
         // ログインユーザーのIDを取得
         $userId = auth()->id();
 
+        // ユーザー情報、フォロワーのユーザーを情報取得
+        $user = User::getUserFollowers($name);
+
         // フォローされているか
-        $userId = auth()->id();
         $isFollowing = $user->followings->contains($userId);
 
-        $followers = $user->followers
-            ->sortByDesc('created_at')
-            ->paginate(config('paginate.paginate_50'));
+        // フォロワーのユーザーを取得
+        $followers = User::getFollowers($user);
 
-        $record['size'] = $user->articles
-            ->whereNotNull('fish_size')
-            ->where('publish_flag', 1)
-            ->max('fish_size');
+        $record['size'] = $this->userService->getUseRecordSize($user);
 
-        $record['weight'] = $user->articles
-            ->whereNotNull('weight')
-            ->where('publish_flag', 1)
-            ->max('weight');
+        $record['weight'] = $this->userService->getUserRecordWeight($user);
 
         $tags = Tag::getPopularTag();
 
@@ -247,29 +219,19 @@ class UserController extends Controller
 
     public function block(string $name)
     {
-        $user = User::where('name', $name)->first()
-            ->load('followings.followers');
-
         // ログインユーザーのIDを取得
         $userId = auth()->id();
 
+        $user = User::getUserFollowings($name);
+
         // フォローされているか
-        $userId = auth()->id();
         $isFollowing = $user->followings->contains($userId);
 
-        $blockList = $user->blockList
-            ->sortByDesc('created_at')
-            ->paginate(config('paginate.paginate_50'));
+        $blockList = User::getBlockUserList($user);
 
-        $record['size'] = $user->articles
-            ->whereNotNull('fish_size')
-            ->where('publish_flag', 1)
-            ->max('fish_size');
+        $record['size'] = $this->userService->getUseRecordSize($user);
 
-        $record['weight'] = $user->articles
-            ->whereNotNull('weight')
-            ->where('publish_flag', 1)
-            ->max('weight');
+        $record['weight'] = $this->userService->getUserRecordWeight($user);
 
         $tags = Tag::getPopularTag();
 
@@ -284,7 +246,7 @@ class UserController extends Controller
 
     public function follow(Request $request, string $name)
     {
-        $user = User::where('name', $name)->first();
+        $user = User::getUserName($name);
 
         if ($user->id === $request->user()->id) {
             return abort('404', 'Cannot follow yourself.');
@@ -306,7 +268,7 @@ class UserController extends Controller
 
     public function unfollow(Request $request, string $name)
     {
-        $user = User::where('name', $name)->first();
+        $user = User::getUserName($name);
 
         if ($user->id === $request->user()->id) {
             return abort('404', 'Cannot follow yourself.');
@@ -323,9 +285,7 @@ class UserController extends Controller
         $blockedUserId = $request->input('article_user_id');
 
         //すでにブロック済みか確認
-        $isBlocked = BlockList::where('user_id', $userId)
-            ->where('blocked_user_id', $blockedUserId)
-            ->exists();
+        $isBlocked = BlockList::isBlockUser($userId, $blockedUserId);
 
         if ($isBlocked) {
             return redirect()->route('articles.index')
@@ -346,13 +306,8 @@ class UserController extends Controller
     {
         $user_name = $request->input('nickname');
 
-        $users = User::with('followers')
-            ->where('publish_flag', 1)
-            ->when(!is_null($user_name), function ($query) use ($user_name) {
-                return $query->where('nickname', 'like', '%' . $user_name . '%');
-            })
-            ->orderByDesc('created_at')
-            ->paginate(config('paginate.paginate_50'));
+        // ユーザーを検索して取得
+        $users = $this->userService->getSeatchUsers($user_name);
 
         $tags = Tag::getPopularTag();
 
@@ -367,10 +322,7 @@ class UserController extends Controller
     {
         $userId = auth()->id(); // ログインユーザーのIDを取得
 
-        $notifications = Notification::with(['sender', 'article', 'article_comment'])
-            ->where('receiver_id', $userId)
-            ->orderByDesc('created_at')
-            ->paginate(config('paginate.paginate_50'));
+        $notifications = Notification::getNotification($userId);
 
         $tags = Tag::getPopularTag();
 
