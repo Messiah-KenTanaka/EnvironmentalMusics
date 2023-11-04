@@ -134,7 +134,7 @@ class User extends Authenticatable
             ->paginate(config('paginate.paginate_50'));
     }
 
-    // ユーザーを取得
+    // ユーザー情報を取得
     public static function getUser($name)
     {
         return self::where('name', $name)->first()
@@ -144,5 +144,43 @@ class User extends Authenticatable
                         $query->where('publish_flag', 1);
                     }]);
             }]);
+    }
+
+    // ユーザー情報、フォロー中のユーザーを情報取得
+    public static function getUserFollowings($name)
+    {
+        return self::where('name', $name)->first()
+            ->load('followings.followers');
+    }
+
+    // フォロー中のユーザーを取得
+    public static function getFollowings($user)
+    {
+        return $user->followings
+            ->sortByDesc('created_at')
+            ->paginate(config('paginate.paginate_50'));
+    }
+
+    // ユーザー情報、フォロワーのユーザーを情報取得
+    public static function getUserFollowers($name)
+    {
+        return self::where('name', $name)->first()
+            ->load('followers.followers');
+    }
+
+    // フォロワーのユーザーを取得
+    public static function getFollowers($user)
+    {
+        return $user->followers
+            ->sortByDesc('created_at')
+            ->paginate(config('paginate.paginate_50'));
+    }
+
+    // ブロック中のユーザーを取得
+    public static function getBlockUserList($user)
+    {
+        return $user->blockList
+            ->sortByDesc('created_at')
+            ->paginate(config('paginate.paginate_50'));
     }
 }
