@@ -18,28 +18,31 @@
                     <p class="card-text">今の流行りを見つけよう！</p>
                 </a>
             </div>
-            
-            <div class="modal fade" id="trendModal" tabindex="-1" role="dialog" aria-labelledby="trendModalLabel" aria-hidden="true">
+
+            <div class="modal fade" id="trendModal" tabindex="-1" role="dialog" aria-labelledby="trendModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title font-weight-bold" id="trendModalLabel"><i class="fas fa-bolt mr-2"></i>最近のトレンド</h5>
+                            <h5 class="modal-title font-weight-bold" id="trendModalLabel"><i
+                                    class="fas fa-bolt mr-2"></i>最近のトレンド</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            @foreach($tags as $i => $tag)
-                            <button class="dropdown-item d-flex align-items-start" type="button"
+                            @foreach ($tags as $i => $tag)
+                                <button class="dropdown-item d-flex align-items-start" type="button"
                                     onclick="location.href='{{ route('tags.show', ['name' => $tag->name]) }}'">
-                                <div>
-                                    {{ ++$i }}.
-                                </div>
-                                <div>
-                                    <span class="ml-1 font-weight-bold">{{ '#' . Functions::getNameFifteenEllipsis($tag->name) }}</span><br>
-                                    <span class="text-muted">{{ $tag->count }}件</span>
-                                </div>
-                            </button>
+                                    <div>
+                                        {{ ++$i }}.
+                                    </div>
+                                    <div>
+                                        <span
+                                            class="ml-1 font-weight-bold">{{ '#' . Functions::getNameFifteenEllipsis($tag->name) }}</span><br>
+                                        <span class="text-muted">{{ $tag->count }}件</span>
+                                    </div>
+                                </button>
                             @endforeach
                         </div>
                     </div>
@@ -71,6 +74,16 @@
                     <i class="fa-solid fa-users fa-5x mb-3"></i>
                     <h5 class="card-title">釣り人<span class="d-none d-sm-inline">を探す</span></h5>
                     <p class="card-text">気になるバサーを見つける！</p>
+                </a>
+            </div>
+        </div>
+        <div class="col-6 mb-4">
+            <div class="card card-box-shadow text-center">
+                <a href="https://enchannel-9b79709345f9.herokuapp.com/"
+                    class="card-body text-decoration-none text-dark">
+                    <i class="fas fa-yin-yang fa-5x mb-3"></i>
+                    <h5 class="card-title">89<span class="d-none d-sm-inline">ちゃんねる</span></h5>
+                    <p class="card-text">スレッドを立ち上げて語り合おう！</p>
                 </a>
             </div>
         </div>
