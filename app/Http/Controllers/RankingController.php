@@ -7,6 +7,7 @@ use App\Article;
 use App\Tag;
 use App\BlockList;
 use App\Services\RankingService;
+use App\Lib\Functions;
 
 class RankingController extends Controller
 {
@@ -27,6 +28,13 @@ class RankingController extends Controller
         // 全国ランキング取得
         $ranking = $this->rankingService->getRankingIndex($blockUsers);
 
+        // 各ユーザーに対して称号のパス取得処理を行う
+        $ranking->transform(function ($item) {
+            $item->user->achievementImage = Functions::getAchievementTitle($item->user->prefecture_count);
+
+            return $item;
+        });
+
         // 1. 存在する都道府県のリストを取得
         $existingPrefs = $this->rankingService->getExistingPrefs($blockUsers);
 
@@ -36,6 +44,13 @@ class RankingController extends Controller
         // 都道府県ランキング取得
         $prefRanking = $this->rankingService->getPrefRankingIndex($blockUsers, $randomPref);
 
+        // 各ユーザーに対して称号のパス取得処理を行う
+        $prefRanking->transform(function ($item) {
+            $item->user->achievementImage = Functions::getAchievementTitle($item->user->prefecture_count);
+
+            return $item;
+        });
+
         // 1. 存在するフィールドのリストを取得
         $existingFields = $this->rankingService->getExistingFields($blockUsers);
 
@@ -44,6 +59,13 @@ class RankingController extends Controller
 
         // フィールドランキング取得
         $fieldRanking = $this->rankingService->getFieldRankingIndex($blockUsers, $randomField);
+
+        // 各ユーザーに対して称号のパス取得処理を行う
+        $fieldRanking->transform(function ($item) {
+            $item->user->achievementImage = Functions::getAchievementTitle($item->user->prefecture_count);
+
+            return $item;
+        });
 
         $tags = Tag::getPopularTag();
 

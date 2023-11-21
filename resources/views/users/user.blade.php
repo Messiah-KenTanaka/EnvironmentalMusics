@@ -42,8 +42,8 @@
             <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark font-weight-bold">
                 {{ $user->nickname }}
             </a>
-            @if (!empty($achievementImagePath))
-                <img src="{{ asset($achievementImagePath) }}" style="width: 25px; height: 25px;">
+            @if ($user->prefecture_count >= 1)
+                <img src="{{ asset(functions::getAchievementTitle($user->prefecture_count)) }}" style="width: 25px; height: 25px;">
             @endif
             <br>
             <span class="text-muted small">{{ '@' . $user->name }}</span>
