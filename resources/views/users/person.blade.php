@@ -14,7 +14,7 @@
                 <a href="{{ route('users.show', ['name' => $person->name]) }}"
                     class="text-dark">{{ $person->nickname }}</a>
                 @if ($person->prefecture_count >= 1)
-                    <img src="{{ asset(functions::getAchievementTitle($user->prefecture_count)) }}" style="width: 25px; height: 25px;">
+                    <img src="{{ asset(functions::getAchievementTitle($person->prefecture_count)) }}" style="width: 25px; height: 25px;">
                 @endif
             </h2>
             @if (Auth::id() !== $person->id)
