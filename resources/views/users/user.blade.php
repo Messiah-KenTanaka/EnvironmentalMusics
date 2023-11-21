@@ -42,30 +42,9 @@
             <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark font-weight-bold">
                 {{ $user->nickname }}
             </a>
-            @switch(true)
-                @case($user->count_prefecture >= 45)
-                    <img src="{{ asset('images/lure_icon_01.png') }}" style="width: 30px; height: 30px;">
-                @break
-
-                @case($user->count_prefecture >= 30)
-                    <img src="{{ asset('images/lure_icon_02.png') }}" style="width: 30px; height: 30px;">
-                @break
-
-                @case($user->count_prefecture >= 15)
-                    <img src="{{ asset('images/lure_icon_03.png') }}" style="width: 30px; height: 30px;">
-                @break
-
-                @case($user->count_prefecture >= 5)
-                    <img src="{{ asset('images/lure_icon_04.png') }}" style="width: 30px; height: 30px;">
-                @break
-
-                @case($user->count_prefecture >= 1)
-                    <img src="{{ asset('images/lure_icon_05.png') }}" style="width: 30px; height: 30px;">
-                @break
-
-                @default
-                    {{-- それ以外は何もしない --}}
-            @endswitch
+            @if (!empty($achievementImagePath))
+                <img src="{{ asset($achievementImagePath) }}" style="width: 25px; height: 25px;">
+            @endif
             <br>
             <span class="text-muted small">{{ '@' . $user->name }}</span>
         </h2>

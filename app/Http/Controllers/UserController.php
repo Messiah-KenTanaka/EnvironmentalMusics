@@ -46,6 +46,9 @@ class UserController extends Controller
         // ユーザー情報を取得
         $user = $this->userService->getUser($name);
 
+        // ユーザーの称号を取得(アイコン画像のパス取得)
+        $achievementImagePath = functions::getAchievementTitle($user->prefecture_count);
+
         $isFollowing = $user->followings->contains($userId);
 
         // ユーザーの記事情報を取得
@@ -61,6 +64,7 @@ class UserController extends Controller
 
         return view('users.show', [
             'user' => $user,
+            'achievementImagePath' => $achievementImagePath,
             'articles' => $articles,
             'tags' => $tags,
             'record' => $record,

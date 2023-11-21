@@ -113,7 +113,7 @@ class User extends Authenticatable
         return $this->followings->count();
     }
 
-    public function getCountPrefectureAttribute(): int
+    public function getPrefectureCountAttribute(): int
     {
         return $this->user_prefecture_maps->count();
     }

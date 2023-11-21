@@ -143,4 +143,36 @@ class Functions
         }
         return $file;
     }
+
+    /**
+     * ユーザーごとに称号(アイコン)を取得
+     * 
+     * @param int $prefecture_count
+     * @return string
+     */
+    public static function getAchievementTitle($prefecture_count): string
+    {
+        $imagePath = '';
+        switch(true) {
+            case($prefecture_count >= 45):
+                $imagePath = 'images/lure_icon_01.png';
+                break;
+            case($prefecture_count >= 30):
+                $imagePath = 'images/lure_icon_02.png';
+                break;
+            case($prefecture_count >= 15):
+                $imagePath = 'images/lure_icon_03.png';
+                break;
+            case($prefecture_count >= 5):
+                $imagePath = 'images/lure_icon_04.png';
+                break;
+            case($prefecture_count >= 1):
+                $imagePath = 'images/lure_icon_05.png';
+                break;
+            default:
+                // 何もしない
+                break;
+        }
+        return $imagePath;
+    }
 }
