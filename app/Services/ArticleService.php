@@ -10,7 +10,7 @@ class ArticleService
     // 投稿記事一覧を取得
     public function getArticleIndex($blockUsers)
     {
-        return Article::with(['user', 'likes', 'tags', 'retweets'])
+        return Article::with(['user', 'likes', 'tags', 'retweets', 'user.user_prefecture_maps'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])

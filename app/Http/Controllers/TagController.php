@@ -19,8 +19,16 @@ class TagController extends Controller
         // タグを取得
         $tag = Tag::getTag($name, $blockUsers);
 
-        $articles = $tag->articles
+        $articles = $tag->articles()
+            ->with(['user', 'likes', 'tags', 'retweets', 'user.user_prefecture_maps'])
             ->paginate(config('paginate.paginate'));
+
+        // 各ユーザーに対して称号のパス取得処理を行う
+        $articles->transform(function ($item) {
+            $item->user->achievementImage = Functions::getAchievementTitle($item->user->prefecture_count);
+
+            return $item;
+        });
 
         $tags = Tag::getPopularTag();
 

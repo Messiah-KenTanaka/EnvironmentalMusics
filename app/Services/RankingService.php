@@ -10,7 +10,7 @@ class RankingService
     // 全国ランキングを取得
     public function getRankingIndex($blockUsers)
     {
-        return Article::with(['user', 'likes', 'tags', 'retweets'])
+        return Article::with(['user', 'likes', 'tags', 'retweets', 'user.user_prefecture_maps'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -30,7 +30,7 @@ class RankingService
     // 都道府県ランキングを取得
     public function getPrefRankingIndex($blockUsers, $randomPref)
     {
-        return Article::with(['user', 'likes', 'tags', 'retweets'])
+        return Article::with(['user', 'likes', 'tags', 'retweets', 'user.user_prefecture_maps'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -51,7 +51,7 @@ class RankingService
     // フィールドのランキングを取得
     public function getFieldRankingIndex($blockUsers, $randomField)
     {
-        return Article::with(['user', 'likes', 'tags', 'retweets'])
+        return Article::with(['user', 'likes', 'tags', 'retweets', 'user.user_prefecture_maps'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -106,7 +106,7 @@ class RankingService
     // 全国ランキングサイズ一覧取得
     public function getNationwideSize($blockUsers)
     {
-        return Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
+        return Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets', 'user.user_prefecture_maps'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -126,7 +126,7 @@ class RankingService
     // 全国ランキングウェイト取得
     public function getNationwideWeight($blockUsers)
     {
-        return Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
+        return Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets', 'user.user_prefecture_maps'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -146,7 +146,7 @@ class RankingService
     // 都道府県ランキングサイズ取得
     public function getPrefSize($blockUsers, $pref)
     {
-        return Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
+        return Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets', 'user.user_prefecture_maps'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -167,7 +167,7 @@ class RankingService
     // 都道府県ランキングウェイト取得
     public function getPrefWeight($blockUsers, $pref)
     {
-        return Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
+        return Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets', 'user.user_prefecture_maps'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -188,7 +188,7 @@ class RankingService
     // フィールドランキングサイズ取得
     public function getFieldSize($blockUsers, $field)
     {
-        return Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
+        return Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets', 'user.user_prefecture_maps'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])
@@ -209,7 +209,7 @@ class RankingService
     // フィールドランキングサイズ取得
     public function getFieldWeight($blockUsers, $field)
     {
-        return  Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets'])
+        return  Article::with(['user', 'user.followers', 'likes', 'tags', 'retweets', 'user.user_prefecture_maps'])
             ->withCount(['article_comments as comment_count' => function ($query) {
                 $query->where('publish_flag', 1);
             }])

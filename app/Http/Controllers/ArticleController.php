@@ -54,6 +54,14 @@ class ArticleController extends Controller
         // 投稿記事一覧を取得
         $articles = $this->articleService->getArticleIndex($blockUsers);
 
+        // 各ユーザーに対して称号のパス取得処理を行う
+        $articles->transform(function ($item) {
+            $item->user->achievementImage = Functions::getAchievementTitle($item->user->prefecture_count);
+
+            return $item;
+        });
+
+
         $tags = Tag::getPopularTag();
 
         return view('articles.index', [
@@ -211,6 +219,9 @@ class ArticleController extends Controller
             ->paginate(config('paginate.paginate_50'));
 
         $article->comment_count = $comments->count();
+
+        // ユーザーの称号パス取得処理を行う
+        $article->user->achievementImage = Functions::getAchievementTitle($article->user->prefecture_count);
 
         $tags = Tag::getPopularTag();
 

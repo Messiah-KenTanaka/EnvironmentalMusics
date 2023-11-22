@@ -12,8 +12,8 @@
         <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
           {{ $article->user->nickname }}
         </a>
-        @if ($article->user->prefecture_count >= 1)
-          <img src="{{ asset(functions::getAchievementTitle($article->user->prefecture_count)) }}" style="width: 25px; height: 25px;">
+        @if (!empty($article->user->achievementImage))
+          <img src="{{ asset($article->user->achievementImage) }}" style="width: 25px; height: 25px;">
         @endif
       </div>
       <div class="text-muted small pl-2">

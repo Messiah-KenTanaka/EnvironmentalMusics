@@ -8,6 +8,7 @@ use App\Article;
 use App\Tag;
 use App\BlockList;
 use App\Services\LikeService;
+use Functions;
 
 class LikeController extends Controller
 {
@@ -23,6 +24,13 @@ class LikeController extends Controller
         $likeUserIds = $article->likes->pluck('id')->toArray();
 
         $users = $this->likeService->getFollowers($likeUserIds);
+
+        // 各ユーザーに対して称号のパス取得処理を行う
+        $users->transform(function ($item) {
+            $item->achievementImage = Functions::getAchievementTitle($item->prefecture_count);
+
+            return $item;
+        });
 
         $tags = Tag::getPopularTag();
 
