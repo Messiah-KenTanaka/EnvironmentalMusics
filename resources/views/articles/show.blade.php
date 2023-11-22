@@ -9,7 +9,7 @@
             @include('sidemenu')
             <div class="col col-xl-9">
                 <div class="font-weight-bold text-center mt-3">
-                    ポスト
+                    ツイート
                 </div>
                 @include('articles.card_detail')
                 {{-- @include('articles.comment_form') --}}

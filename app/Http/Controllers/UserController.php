@@ -51,6 +51,13 @@ class UserController extends Controller
         // ユーザーの記事情報を取得
         $articles = $this->userService->getUserArticle($user);
 
+        // 各ユーザーに対して称号のパス取得処理を行う
+        $articles->transform(function ($item) {
+            $item->user->achievementImage = Functions::getAchievementTitle($item->user->prefecture_count);
+
+            return $item;
+        });
+
         // ユーザーのレコードサイズ取得
         $record['size'] = $this->userService->getUseRecordSize($user);
 
@@ -119,6 +126,13 @@ class UserController extends Controller
         // ユーザーのいいねを取得
         $articles = $this->userService->getUserLikes($user);
 
+        // 各ユーザーに対して称号のパス取得処理を行う
+        $articles->transform(function ($item) {
+            $item->user->achievementImage = Functions::getAchievementTitle($item->user->prefecture_count);
+
+            return $item;
+        });
+
         $record['size'] = $this->userService->getUseRecordSize($user);
 
         $record['weight'] = $this->userService->getUserRecordWeight($user);
@@ -173,6 +187,13 @@ class UserController extends Controller
         // フォロー中のユーザーを取得
         $followings = User::getFollowings($user);
 
+        // 各ユーザーに対して称号のパス取得処理を行う
+        $followings->transform(function ($item) {
+            $item->achievementImage = Functions::getAchievementTitle($item->prefecture_count);
+
+            return $item;
+        });
+
         $record['size'] = $this->userService->getUseRecordSize($user);
 
         $record['weight'] = $this->userService->getUserRecordWeight($user);
@@ -201,6 +222,13 @@ class UserController extends Controller
 
         // フォロワーのユーザーを取得
         $followers = User::getFollowers($user);
+
+        // 各ユーザーに対して称号のパス取得処理を行う
+        $followers->transform(function ($item) {
+            $item->achievementImage = Functions::getAchievementTitle($item->prefecture_count);
+
+            return $item;
+        });
 
         $record['size'] = $this->userService->getUseRecordSize($user);
 
@@ -307,7 +335,14 @@ class UserController extends Controller
         $user_name = $request->input('nickname');
 
         // ユーザーを検索して取得
-        $users = $this->userService->getSeatchUsers($user_name);
+        $users = $this->userService->getSearchUsers($user_name);
+
+        // 各ユーザーに対して称号のパス取得処理を行う
+        $users->transform(function ($item) {
+            $item->achievementImage = Functions::getAchievementTitle($item->prefecture_count);
+
+            return $item;
+        });
 
         $tags = Tag::getPopularTag();
 

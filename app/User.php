@@ -127,7 +127,7 @@ class User extends Authenticatable
     // リツイートしたユーザーを取得
     public static function getRetweetUsers($retweetUserIds)
     {
-        return self::with('followers')
+        return self::with('followers', 'user_prefecture_maps')
             ->where('publish_flag', 1)
             ->whereIn('id', $retweetUserIds)
             ->orderByDesc('created_at')
@@ -139,7 +139,7 @@ class User extends Authenticatable
     {
         return self::where('name', $name)->first()
             ->load(['likes' => function ($query) {
-                $query->with('user', 'likes', 'tags', 'retweets')
+                $query->with('user', 'likes', 'tags', 'retweets', 'user.user_prefecture_maps')
                     ->withCount(['article_comments as comment_count' => function ($query) {
                         $query->where('publish_flag', 1);
                     }]);
@@ -156,8 +156,9 @@ class User extends Authenticatable
     // フォロー中のユーザーを取得
     public static function getFollowings($user)
     {
-        return $user->followings
-            ->sortByDesc('created_at')
+        return $user->followings()
+            ->with('followers', 'user_prefecture_maps')
+            ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate_50'));
     }
 
@@ -171,8 +172,9 @@ class User extends Authenticatable
     // フォロワーのユーザーを取得
     public static function getFollowers($user)
     {
-        return $user->followers
-            ->sortByDesc('created_at')
+        return $user->followers()
+            ->with('followings', 'user_prefecture_maps')
+            ->orderByDesc('created_at')
             ->paginate(config('paginate.paginate_50'));
     }
 
