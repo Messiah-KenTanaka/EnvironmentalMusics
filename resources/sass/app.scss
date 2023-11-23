@@ -409,3 +409,26 @@ body {
 .ranking-list-link:hover {
 	color: #0056b3; /* ホバー時の色 */
 }
+
+// 称号モーダル
+.degree {
+	.degree-item {
+		margin-bottom: 15px;
+	}
+	
+	.degree-icon {
+		width: 50px;
+		height: 50px;
+	}
+	
+	.degree-title {
+		font-weight: bold;
+		margin-bottom: 5px;
+		font-size: 20px;
+	}
+	
+	.degree-description {
+		color: #555;
+		font-size: 16px;
+	}
+}
