@@ -24,7 +24,9 @@
                     {{ $article->user->nickname }}
                 </a>
                 @if (!empty($article->user->achievementImage))
-                    <img src="{{ asset($article->user->achievementImage) }}" style="width: 25px; height: 25px;">
+                    <img src="{{ asset($article->user->achievementImage) }}" style="width: 25px; height: 25px;"
+                        class="cursor-pointer" data-toggle="modal" data-target="#modal-degree">
+                    @include('degree_modal')
                 @endif
             </div>
             <div class="text-muted small pl-2">
