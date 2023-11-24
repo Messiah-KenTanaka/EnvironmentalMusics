@@ -83,7 +83,7 @@
                     class="card-body text-decoration-none text-dark">
                     <i class="fas fa-yin-yang fa-5x mb-3"></i>
                     <h5 class="card-title">89<span class="d-none d-sm-inline">ちゃんねる</span></h5>
-                    <p class="card-text">スレッドを立ち上げて語り合おう！</p>
+                    <p class="card-text">スレッドで語り合おう！</p>
                 </a>
             </div>
         </div>
