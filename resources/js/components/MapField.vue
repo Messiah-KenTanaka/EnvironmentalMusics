@@ -17,16 +17,15 @@ import iconRetina from "leaflet/dist/images/marker-icon-2x.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
 export default {
-
     data() {
         return {
             places: [],
-            loading: true
-        }
+            loading: true,
+        };
     },
     mounted() {
-        axios.get('/api/place-maps').then(response => {
-            this.places = response.data;
+        axios.get("/api/place-maps").then((response) => {
+            this.places = response.data.data;
             this.initMap();
             this.loading = false;
         });
@@ -37,7 +36,7 @@ export default {
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
                 attribution:
                     'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>',
-                maxZoom: 18
+                maxZoom: 18,
             }).addTo(map);
 
             let DefaultIcon = L.icon({
@@ -48,13 +47,15 @@ export default {
                 iconAnchor: [12, 41],
                 popupAnchor: [1, -34],
                 tooltipAnchor: [16, -28],
-                shadowSize: [41, 41]
+                shadowSize: [41, 41],
             });
             L.Marker.prototype.options.icon = DefaultIcon;
 
             // APIから取得した場所のデータに基づいてマーカーを追加
-            this.places.forEach(place => {
-                let marker = L.marker([place.latitude, place.longitude]).addTo(map);
+            this.places.forEach((place) => {
+                let marker = L.marker([place.latitude, place.longitude]).addTo(
+                    map
+                );
                 let popupContent = `<div style="text-align:center;">
                                         <b>${place.name}</b><br>
                                         <hr>
@@ -62,7 +63,7 @@ export default {
                                     `;
 
                 // ３つの画像
-                ['image1', 'image2', 'image3'].forEach(imageKey => {
+                ["image1", "image2", "image3"].forEach((imageKey) => {
                     if (place[imageKey]) {
                         popupContent += `<img src="${place[imageKey]}" width="100"><br>`;
                     }
@@ -71,29 +72,36 @@ export default {
                 popupContent += '<table style="width:100%;">';
 
                 // 内容
-                popupContent += renderRow('内容 : ', place.description);
+                popupContent += renderRow("内容 : ", place.description);
 
-                // 住所 
-                popupContent += renderRow('住所 : ', place.address);
+                // 住所
+                popupContent += renderRow("住所 : ", place.address);
 
                 // 電話番号 使用しない為、コメントアウト
                 // popupContent += renderRow('電話番号:', place.phone);
 
                 // 記事
-                if (place.recommendation_url && place.recommendation_url.trim() !== '') {
+                if (
+                    place.recommendation_url &&
+                    place.recommendation_url.trim() !== ""
+                ) {
                     const link = `<a href="${place.recommendation_url}" target="_blank">おすすめの記事へアクセス<i class="fa-solid fa-share"></i></a>`;
-                    popupContent += renderRow('記事 : ', link, true);
+                    popupContent += renderRow("記事 : ", link, true);
                 } else {
-                    popupContent += renderRow('記事 : ', '---');
+                    popupContent += renderRow("記事 : ", "---");
                 }
 
                 const mapLink = `<a href="https://www.google.com/maps?q=${place.latitude},${place.longitude}" target="_blank">Google Mapsでここに行く<i class="fa-solid fa-car-side"></i></a>`;
-                popupContent += renderRow('地図 : ', mapLink, true);
+                popupContent += renderRow("地図 : ", mapLink, true);
 
-                popupContent += '</table>';
+                popupContent += "</table>";
 
                 function renderRow(label, value, isLink = false) {
-                    const valueContent = isLink ? value : (value && value.trim() !== '') ? value : '---';
+                    const valueContent = isLink
+                        ? value
+                        : value && value.trim() !== ""
+                        ? value
+                        : "---";
                     return `<tr>
                             <td style="white-space: nowrap; width: 1%; padding: 10px 0;">${label}</td>
                             <td style="padding: 5px 0;">${valueContent}</td>
@@ -102,8 +110,8 @@ export default {
 
                 marker.bindPopup(popupContent);
             });
-        }
-    }
+        },
+    },
 };
 </script>
 
