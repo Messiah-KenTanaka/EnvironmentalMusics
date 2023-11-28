@@ -234,9 +234,20 @@ class ArticleController extends Controller
 
     public function getComments($article_id)
     {
-        $comments = $this->articleService->getArticleComment($article_id);
+        try {
+            $comments = $this->articleService->getArticleComment($article_id);
 
-        return response()->json($comments);
+            return response()->json([
+                'status' => 1,
+                'data' => $comments
+            ]);
+        } catch (\Exception $e) {
+            \Log::info($e->getMessage());
+            return response()->json([
+                'error_flag' => 1,
+                'message' => 'コメントを取得に失敗しました。'
+            ]);
+        }
     }
 
     public function like(Request $request, Article $article)

@@ -45,7 +45,9 @@ class ArticleService
     {
         $article = Article::findOrFail($article_id);
 
-        return $article->article_comments()->with('user')
+        return $article->article_comments()->with(['user' => function ($query) {
+            $query->select('id', 'name', 'created_at', 'updated_at', 'image', 'publish_flag', 'nickname');
+        }])
             ->where('publish_flag', 1)
             ->orderByDesc('created_at')
             ->limit(50)
