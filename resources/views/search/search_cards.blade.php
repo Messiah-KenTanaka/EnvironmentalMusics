@@ -77,7 +77,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-6 mb-4">
+        {{--  <div class="col-6 mb-4">
             <div class="card card-box-shadow text-center">
                 <a href="https://enchannel-9b79709345f9.herokuapp.com/"
                     class="card-body text-decoration-none text-dark">
@@ -86,6 +86,6 @@
                     <p class="card-text">スレッドで語り合おう！</p>
                 </a>
             </div>
-        </div>
+        </div>  --}}
     </div>
 </div>
