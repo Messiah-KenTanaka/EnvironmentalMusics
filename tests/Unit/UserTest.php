@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\User;
+use App\UserPrefectureMap;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -67,5 +68,20 @@ class UserTest extends TestCase
         $user->followers()->attach($follower2->id);
 
         $this->assertEquals(2, $user->count_followers);
+    }
+
+    /**
+     * ユーザーの釣果記録都道府県をカウント
+     * 
+     * @test
+     */
+    public function testPrefectureCountAttribute()
+    {
+        $user = User::factory()->create();
+        // 関連する都道府県を３つ生成
+        UserPrefectureMap::factory()->count(3)->create(['user_id' => $user->id]);
+        // カウント数を取得
+        $count = $user->prefectureCount;
+        $this->assertEquals(3, $count);
     }
 }
