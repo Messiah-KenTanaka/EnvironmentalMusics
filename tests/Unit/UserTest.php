@@ -84,4 +84,16 @@ class UserTest extends TestCase
         $count = $user->prefectureCount;
         $this->assertEquals(3, $count);
     }
+
+    /**
+     * ユーザーネームを取得
+     * 
+     * @test
+     */
+    public function testUserName()
+    {
+        $testUserName = 'KenTanaka';
+        $user = User::factory()->create(['name' => $testUserName]);
+        $this->assertEquals($testUserName, $user->name);
+    }
 }
