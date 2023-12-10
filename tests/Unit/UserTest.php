@@ -96,4 +96,26 @@ class UserTest extends TestCase
         $user = User::factory()->create(['name' => $testUserName]);
         $this->assertEquals($testUserName, $user->name);
     }
+
+    // TODO 後で実装
+    /**
+     * リツイートしたユーザーを取得
+     * 
+     * @test
+     */
+    // public function testRetweetUsers()
+    // {
+    // }
+
+    /**
+     * ユーザー情報を取得
+     * 
+     * @test
+     */
+    public function testUser()
+    {
+        $user = User::factory()->create();
+        $userName = User::getUser($user->name);
+        $this->assertEquals($userName->name, $user->name);
+    }
 }
