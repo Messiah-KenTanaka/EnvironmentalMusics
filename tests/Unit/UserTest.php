@@ -97,15 +97,23 @@ class UserTest extends TestCase
         $this->assertEquals($testUserName, $user->name);
     }
 
-    // TODO 後で実装
     /**
      * リツイートしたユーザーを取得
      * 
      * @test
      */
-    // public function testRetweetUsers()
-    // {
-    // }
+    public function testRetweetUsers()
+    {
+        $user = User::factory()->count(3)->create();
+        // リツイートユーザーのIDを配列として準備
+        $retweetUserIds = $user->pluck('id')->toArray();
+        // リツイートユーザーを取得
+        $fetchUsers = User::getRetweetUsers($retweetUserIds);
+        // 取得したユーザーの検証
+        foreach ($fetchUsers as $fetchUser) {
+            $this->assertContains($fetchUser->id, $retweetUserIds);
+        }
+    }
 
     /**
      * ユーザー情報を取得
